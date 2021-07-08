@@ -1,0 +1,291 @@
+/* @import '../node_modules/carbon-components/css/carbon-components.min.css'; */
+
+/* colours */
+:root {
+  --primary: #002d74;
+  --primaryLight: #5776a8;
+  --secondary: #80bc00;
+}
+html {
+  /* 16px * 62.5 = 10px = 1rem */
+  font-size: 62.5% !important;
+  box-sizing: border-box !important;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family:trebuchet!important;  */
+  font-family: "Century Gothic" !important;
+  /* font-size: 1.6rem!important; */
+  /* height: 5rem!important; */
+}
+
+.containerSuperior {
+  /* position:relative!important;
+  left:15%!important;
+  top:1rem!important; */
+  display: flex !important;
+  justify-content: space-evenly;
+  /* width: 60%!important; */
+}
+.letraMenuSuperior {
+  font-size: 40px !important;
+}
+.fondo-azul-NAD {
+  color: white !important;
+  background-color: var(--primary) !important;
+}
+
+.fondo-azul-NAD:hover {
+  background-color: var(--primaryLight) !important;
+}
+.fondo-azul-NAD:disabled {
+  background-color: var(--primaryLight) !important;
+}
+.contenido-azul-NAD {
+  color: var(--primary) !important;
+}
+
+.fondo-verde-NAD {
+  background-color: var(--secondary) !important;
+}
+.contenido-verde-NAD {
+  color: var(--secondary) !important;
+}
+.tamanoNAD1 {
+  font-size: 10rem !important;
+}
+.container-login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+#root {
+  height: 100% !important;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+.main {
+  margin-top: 6rem;
+}
+.pendienteBadge {
+  position: relative;
+  top: -3.7rem;
+  right: -10rem;
+}
+.pendienteRojo{
+color: red;
+}
+.pendienteRojoBG{
+  background-color: red;
+  }
+.pendienteVerde{
+color: var(--secondary);
+}
+.pendienteAzul{
+color: var(--primary);
+}
+.quejaSign {
+  position: relative !important;
+  top: -1.3rem;
+  left: 15.6rem !important;
+}
+.quejabadge {
+  position: relative !important;
+  top: -3.7rem;
+  top: -1rem !important;
+  left: 10.5rem !important;
+}
+.quejabadge2 {
+  position: relative !important;
+  top: -1rem !important;
+  left: 11.5rem !important;
+}
+
+.infoPermisos {
+  height: 5rem !important;
+  padding: 1rem;
+  text-align: left;
+}
+.full-width100 {
+  width: 100% !important;
+}
+.full-width90 {
+  width: 90% !important;
+}
+.ajustebarra {
+  position: relative !important;
+  top: 20px !important;
+}
+#barraLateral {
+  width: 20% !important;
+  height: 97% !important;
+}
+.paddingFin {
+  padding-bottom: 5rem;
+}
+.listaKPI {
+  position: relative !important;
+  top: -6rem !important;
+}
+.salidaJornada {
+  position: fixed;
+  bottom: 10%;
+  left: 20%;
+}
+.controlAcceso {
+  margin-bottom: 5rem !important;
+}
+.diaSem {
+  width: 3.5rem !important;
+  height: 10rem !important;
+}
+.cambioSemana {
+  position: relative !important;
+  top: -5.5rem !important;
+}
+.cambioTrim {
+  position: relative !important;
+  top: -5rem !important;
+}
+.caraGigante {
+  font-size: 10rem !important;
+}
+.cambioRH {
+  position: relative !important;
+  top: -0.5rem !important;
+}
+.w3-display-left.cambioSemana {
+  left: 10% !important;
+}
+.w3-display-right.cambioSemana {
+  right: 10% !important;
+}
+.w3-display-left.cambioRH {
+  left: 40% !important;
+}
+.w3-display-right.cambioRH {
+  right: 40% !important;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+footer {
+  flex: 1;
+  flex-direction: column;
+  max-width: auto;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  justify-content: space-between !important;
+}
+@media screen and (max-width: 800px) {
+  .container-login {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main {
+    margin-top: 3.7rem;
+  }
+  .container-login {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+  #barraLateral {
+    width: 65% !important;
+    height: 90% !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .letraMenu {
+    font-size: 20px !important;
+  }
+
+  .botonRegistroDrop {
+    max-width: 20rem !important;
+    width: 100% !important;
+  }
+  .logo {
+    display: inline-block;
+    width: 10rem;
+  }
+  .container-login {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
