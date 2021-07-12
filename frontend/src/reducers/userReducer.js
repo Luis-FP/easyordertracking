@@ -54,6 +54,12 @@ import {
   USER_OTS_REQUEST,
   USER_OTS_SUCCESS,
   USER_OTS_FAIL,
+  SITIO_CREATE_REQUEST,
+  SITIO_CREATE_SUCCESS,
+  SITIO_CREATE_FAIL,
+  SITIOS_CARGADOS_REQUEST,
+  SITIOS_CARGADOS_SUCCESS,
+  SITIOS_CARGADOS_FAIL,
 } from "../constants/userConstants";
 
 function userSigninReducer(state = {}, action) {
@@ -270,11 +276,37 @@ function userStatusReducer(state = {}, action) {
 function createUsersReducer(state = {}, action) {
   switch (action.type) {
     case USER_CREATE_REQUEST:
-      return { loading: true };
+      return { loadingOT: true };
     case USER_CREATE_SUCCESS:
-      return { loading: false, createUser: action.payload };
+      return { loadingOT: false, createUser: action.payload };
     case USER_CREATE_FAIL:
-      return { loading: false, error: action.payload };
+      return { loadingOT: false, errorOT: action.payload };
+    default:
+      return state;
+  }
+}
+
+function createSitioReducer(state = {}, action) {
+  switch (action.type) {
+    case SITIO_CREATE_REQUEST:
+      return { loadingSitio: true };
+    case SITIO_CREATE_SUCCESS:
+      return { loadingSitio: false, createSitio: action.payload };
+    case SITIO_CREATE_FAIL:
+      return { loadingSitio: false, errorSitio: action.payload };
+    default:
+      return state;
+  }
+}
+
+function listaSitiosCargadosReducer(state = {}, action) {
+  switch (action.type) {
+    case SITIOS_CARGADOS_REQUEST:
+      return { loadingSitios: true };
+    case SITIOS_CARGADOS_SUCCESS:
+      return { loadingSitios: false, sitiosCargados: action.payload };
+    case SITIOS_CARGADOS_FAIL:
+      return { loadingSitios: false, errorSitio: action.payload };
     default:
       return state;
   }
@@ -306,11 +338,14 @@ export {
   userStatusReducer,
 
   userOTSReducer,
-
-  infoRegisterReducer,
+  createSitioReducer,
   createUsersReducer,
+  listaSitiosCargadosReducer,
+  infoRegisterReducer,
+ 
   emailRecoveryReducer,
   userMarcarLeidoReducer,
   saveActualizarReducer,
   infoKPIGetReducer,
+
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userPendientesList, actualizarPendiente, userKpiList, horaVistaHoy } from "../actions/kpiActions";
+import { actualizarOT } from "../actions/userActions";
 import { Gauge } from '../components/ReactGauge';
 import { queFecha, horaLocal, fechaActual, fechaUnica } from '../components/fechas';
 import { makeStyles } from '@material-ui/core/styles';
@@ -34,13 +34,15 @@ import { green } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import MenuItem from '@material-ui/core/MenuItem';
+import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
-import Timeline from '@material-ui/lab/Timeline';
-import TimelineItem from '@material-ui/lab/TimelineItem';
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
-import TimelineConnector from '@material-ui/lab/TimelineConnector';
-import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineDot from '@material-ui/lab/TimelineDot';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import Fab from '@material-ui/core/Fab';
+import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,8 +55,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign:'center',
   },
   title2: {
-    fontSize: 32,
-    color: 'green',
+    fontSize: 25,
+    color: 'white',
+    backgroundColor:'grey',
+    border:'30px',
     textTransform: 'capitalize',
     textAlign:'center'
   },
@@ -66,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+    fullWidth: 'true',
   },
   table: {
     // minWidth: 650,
@@ -76,7 +81,23 @@ const useStyles = makeStyles((theme) => ({
      
     },
   },
-
+  backButton: {
+    marginRight: theme.spacing(1),
+  },
+  nextButton: {
+    aligned: 'right',
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    fontSize: 20,
+    color:"blue"
+  },
+  fab: {
+    position: 'absolute',
+    top: theme.spacing(22),
+    right: theme.spacing(26),
+  },
 }));
 
 const GreenCheckbox = withStyles({
@@ -89,59 +110,50 @@ const GreenCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-let fasesActivas =[
-  {titulo:'Preparación', codigo:'prep', orden:0, activa: false, terminada: true },
-  {titulo:'Busqueda',orden:1,codigo:'busq', activa: false , terminada: true},
-  {titulo:'Validación Técnica',codigo:'valTec', orden:2, activa: false , terminada: true},
-  {titulo:'Negociación',codigo:'nego',orden:3, activa: false , terminada: true},
-  {titulo:'Validación Legal',codigo:'valLegal',orden:4, activa: true , terminada: true},
-  {titulo:'Consulta Ciudadana', codigo:'consulta',orden:5, activa: true , terminada: true},
-  {titulo:'Inmisiones',codigo:'inmi',orden:6, activa: false , terminada: true},
-  {titulo:'topografía',codigo:'topo',orden:7, activa: false , terminada: true},
-  {titulo:'ASEP',codigo:'asep',orden:8, activa: false , terminada: true},
-  {titulo:'Tommy Guardia',codigo:'tomGua', orden:9, activa: false , terminada: true},
-  {titulo:'Aeronautica Civil',codigo:'aac',orden:10, activa: false , terminada: true},
-  {titulo:'Anteproyecto Bomberos',codigo:'antBom',orden:11, activa: false , terminada: false},
-  {titulo:'Estudio Suelos',codigo:'ssd',orden:12, activa: false , terminada: false},
-  {titulo:'Ingenieria',codigo:'ing',orden:13, activa: false , terminada: false},
-  {titulo:'Bomberos',codigo:'planos',orden:14, activa: false , terminada: false},
-  {titulo:'Municipio',codigo:'permConst',orden:15, activa: false , terminada: false},
-  {titulo:'Listo Construcción',codigo:'sitewalk',orden:16, activa: false , terminada: false},
-  {titulo:'Construcción',codigo:'constr',orden:17, activa: false , terminada: false},
-  {titulo:'Aprobación Cliente',codigo:'acepTigo',orden:18, activa: false , terminada: false},
-]
-const columns = [
-  { col:0,     titulo: "", proceso: 'listo', width: 50, icon: true },
-  {
-    col:1,
-    titulo: "Proceso", 
-    proceso: 'proceso',
-    width: 200,
-  },
-  {
-    col:2,
-    titulo: "Fecha Inicial",
-    proceso: 'fechainicio',
-    width: 150,
-  },
-  {
-    col:3,
-    titulo: "Fecha Final",
-    proceso: 'fechafin',
-    width: 150,
+function getSteps() {
+  return [
+  {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
+  {_id:"p2",titulo:'Programación y Asignación', codigo:'plan', paso:1},
+  {_id:"p3",titulo:'Revision con Cliente', codigo:'rev', paso:2},
+  {_id:"p4",titulo:'En Ejecución', codigo:'ejec', paso:3},
+  {_id:"p5",titulo:'Revisión de Calidad', codigo:'qa', paso:4},
+  {_id:"p6",titulo:'Finalizado Entregado', codigo:'entregado', paso:5},
+  {_id:"p7",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:6},
+  {_id:"p8",titulo:'Facturación', codigo:'facturacion', paso:7},
+  {_id:"p9",titulo:'pagado', codigo:'pagado', paso:8},
+]}
+
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return getSteps()[stepIndex];
+    case 1:
+      return getSteps()[stepIndex];
+    case 2:
+      return getSteps()[stepIndex];
+    case 3:
+      return getSteps()[stepIndex];
+    case 4:
+      return getSteps()[stepIndex];
+    case 5:
+      return getSteps()[stepIndex];
+    case 6:
+      return getSteps()[stepIndex];
+    case 7:
+      return getSteps()[stepIndex];
+    case 8:
+      return getSteps()[stepIndex];
+    default:
+      return 'Error';
   }
-];
+}
 
-
-let rows = [
-  {id:0, step:0, proceso: 'Preparación', fechainicio: '2/13/2021', fechafin: '2/20/2021'  , listo: false},
-  {id:1, step:1, proceso: 'Busqueda', fechainicio: '2/15/2021', fechafin: '3/01/2021'  , listo: false },
-  {id:2, step:2, proceso: 'Validación Técnica',fechainicio: '3/10/2021', fechafin: '3/20/2021'  , listo: false },
-  {id:3, step:3, proceso: 'Negociación',fechainicio: '3/13/2021', fechafin: '6/20/2021'  , listo: false },
-  {id:4, step:4, proceso: 'Validación Legal',fechainicio: '4/13/2021', fechafin: '5/20/2021'  , listo: false },
-  {id:5, step:5, proceso: 'Negociación',fechainicio: '5/13/2021', fechafin: '6/20/2021'  , listo: false },
+const prioridades = [
+  'Normal',
+  'Alta',
+  'Inmediata',
 ]
-
 
 
 function DetalleOTScreen(props) {
@@ -151,9 +163,7 @@ function DetalleOTScreen(props) {
 
   const userDetallesSitio = useSelector(state => state.userDetallesSitio);
   const { detallesSitio } = userDetallesSitio;
-
-  const userProyecto = useSelector(state => state.userProyecto);
-  const { userVista, errorVista } = userProyecto;
+  const dispatch = useDispatch();
 
   const classes = useStyles();
   const theme = useTheme();
@@ -165,28 +175,65 @@ function DetalleOTScreen(props) {
   const handleChangeSwitch = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  const [activeStep, setActiveStep] = React.useState(0);
+ 
+  const steps = getSteps();
+  const responsablesOT = [
+    {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmail.com'},
+    {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
+  ];
+
+console.log( responsablesOT.map((option) => {
+  return(<MenuItem key={option._id} selected={option === ''}  >
+    {option}
+  </MenuItem>)
+}));
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setDetalleSitioInfo( {
+      ...detalleSitioInfo,
+      ['estado']: getStepContent(activeStep+1).codigo,
+      ['estadoChange']: true,
+  })
+  console.log('detalleSitioInfo', detalleSitioInfo['estado'],'getStep', getStepContent(activeStep+1).codigo)
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setDetalleSitioInfo({
+      ...detalleSitioInfo,
+      ['estado']: getStepContent(activeStep-1).codigo,
+      ['estadoChange']: true,
+  })
+};
+
+  const handleReset = () => {
+    setActiveStep(0);
   };
-  const [selectedDate, setSelectedDate] = React.useState(rows);
+
+  // const [selectedDate, setSelectedDate] = React.useState(rows);
 
   const [detalleSitioInfo, setDetalleSitioInfo] = React.useState({
-    alturavalidada: detallesSitio? detallesSitio.data.altura_validada : "",
-    estatus:detallesSitio? detallesSitio.data.estatus : "", 
-    resistenciaviento:detallesSitio? detallesSitio.data.resistencia_viento : "", 
-    latitudValidada: detallesSitio? detallesSitio.data.latitud_validada : "", 
-    longitudValidada: detallesSitio? detallesSitio.data.longitud_validad : "", 
-    tx: detallesSitio? detallesSitio.data.tx : "", 
-
-  });
-  
-
+      cliente: detallesSitio? detallesSitio.data[0].cliente : "",
+      detalle_requerimiento: detallesSitio? detallesSitio.data[0].detalle_requerimiento: "",
+      detallesSitio: detallesSitio? detallesSitio.data[0].detallesSitio: "",
+      email_responsable_cliente: detallesSitio? detallesSitio.data[0].email_responsable_cliente: "",
+      estado: detallesSitio? detallesSitio.data[0].estado: "",
+      fecha_requerida: detallesSitio? detallesSitio.data[0].fecha_requerida: "",
+      ot_number: detallesSitio? detallesSitio.data[0].ot_number: "",
+      pais: detallesSitio? detallesSitio.data[0].pais: "",
+      prioridad: detallesSitio? detallesSitio.data[0].prioridad: "",
+      proyecto: detallesSitio? detallesSitio.data[0].proyecto: "",
+      requerimiento: detallesSitio? detallesSitio.data[0].requerimiento: "",
+      responsable_cliente: detallesSitio? detallesSitio.data[0].responsable_cliente: "",
+      sitio_codigo: detallesSitio? detallesSitio.data[0].sitio_codigo: "",
+      sitio_nombre: detallesSitio? detallesSitio.data[0].sitio_nombre: "",
+      responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: "",
+      comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
+    });
+    // const pasoInicial = getSteps().filter(paso => detalleSitioInfo && paso.codigo===detalleSitioInfo.estado)[0].paso
+    //  console.log(pasoInicial)
+    const [activeStep, setActiveStep] = React.useState(0);
 
 
   const handleChange = (event) => {
@@ -198,148 +245,290 @@ function DetalleOTScreen(props) {
   };
 
  
-  const preventDefault = (event) => {
-    event.preventDefault();
-    console.log(event);
-    window.open("https://earth.google.com/web/@"+ detallesSitio.data.latitud_validada + "," + detallesSitio.data.longitud_validad + ', 40000d, 1y, 60t (mylocation)'  , "_blank");
-  };
-
-  
 
 
   useEffect(() => {
 
     
-    if (!userInfo) {
+    if (!userInfo ) {
       props.history.push('/login');
 
-  } else if (!userVista) {
-    props.history.push('/');
+  }
 
-} 
   if(detallesSitio){
     setDetalleSitioInfo({
-      alturavalidada: detallesSitio.data.altura_validada ,
-      estatus: detallesSitio.data.estatus, 
-      resistenciaviento: detallesSitio.data.resistencia_viento , 
-      latitudValidada: detallesSitio.data.latitud_validada , 
-      longitudValidada: detallesSitio.data.longitud_validad, 
-      tx:  detallesSitio.data.tx
+      cliente: detallesSitio.data[0].cliente,
+      detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
+      detallesSitio: detallesSitio.data[0].detallesSitio,
+      email_responsable_cliente: detallesSitio.data[0].email_responsable_cliente,
+      estado: detallesSitio.data[0].estado,
+      fecha_requerida: detallesSitio.data[0].fecha_requerida,
+      ot_number: detallesSitio.data[0].ot_number,
+      pais: detallesSitio.data[0].pais,
+      prioridad: detallesSitio.data[0].prioridad,
+      proyecto: detallesSitio.data[0].proyecto,
+      requerimiento: detallesSitio.data[0].requerimiento,
+      responsable_cliente: detallesSitio.data[0].responsable_cliente,
+      sitio_codigo: detallesSitio.data[0].sitio_codigo,
+      sitio_nombre: detallesSitio.data[0].sitio_nombre,
+      responsable_ot: detallesSitio.data[0].responsable_ot? detallesSitio.data[0].responsable_ot :"Sin Asignar" ,
+      email_responsable_ot: detallesSitio.data[0].email_responsable_ot? detallesSitio.data[0].email_responsable_ot :"" ,
+      comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
+      altura_pararrayos:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_pararrayos: "",
+      altura_validada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_validada: "",
+      area_a_utilizar:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_a_utilizar: "",
+      area_arrendada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_arrendada: "",
+      arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].arrendatario: "",
+      identificacion_arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].identificacion_arrendatario: "",
+      departamento:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].departamento: "",
+      direccion_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].direccion_sitio: "",
+      latitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].latitud_validada_grados: "",
+      longitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].longitud_validada_grados: "",
+      numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
+      orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
+      pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
+      provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
+      proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
+      resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
+      tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
+      tipologia_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipologia_sitio: "",
+      tx: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tx: "",
+      derecho_paso_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].derecho_paso_sitio: "",
+      electricidad_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].electricidad_sitio: "",
+      observaciones_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].observaciones_sitio: "",
+// flag cambio
+      clienteChange: false,
+      detalle_requerimientoChange: false,
+      detallesSitioChange: false,
+      email_responsable_clienteChange: false,
+      estado:  false,
+      fecha_requeridaChange: false,
+      ot_numberChange: false,
+      paisChange: false,
+      prioridadChange: false,
+      proyectoChange: false,
+      requerimientoChange: false,
+      responsable_clienteChange: false,
+      sitio_codigoChange: false,
+      sitio_nombreChange: false,
+      responsable_otChange: false,
+      email_responsable_otChange: false,
+      comentarios_responsable_otChange: false,
+      altura_pararrayosChange: false,
+      altura_validadaChange: false,
+      area_a_utilizarChange: false,
+      area_arrendadaChange: false,
+      arrendatarioChange: false,
+      identificacion_arrendatarioChange: false,
+      departamentoChange: false,
+      direccion_sitioChange: false,
+      latitud_validada_gradosChange: false,
+      longitud_validada_gradosChange: false,
+      numero_fincaChange: false,
+      orientacion_torreChange: false,
+      paisChange: false,
+      provinciaChange: false,
+      proyectoChange: false,
+      resistencia_vientoChange: false,
+      tipo_estructuraChange: false,
+      tipologia_sitioChange: false,
+      txChange: false,
+      derecho_paso_sitioChange: false,
+      electricidad_sitioChange: false,
+      observaciones_sitioChange: false,
     });
+    setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
   }
-      // dispatch(userKpiList());
+
     return () => {
  
     };
-  }, [userVista, detallesSitio]);
+  }, [ detallesSitio]);
   
+
+  const handleProceso = (e) =>{
+    e.preventDefault();
+    console.log("a grabar!", detalleSitioInfo)
+    dispatch(actualizarOT(detalleSitioInfo))
+  }
+
   return (<div>
      <React.Fragment>
       <CssBaseline />
       <Container width="70%">
-      {userVista && userVista.data.length>0 && 
-      <Typography  className={classes.title} >
-        {userVista.data[0].cliente.split('_')[0] + ' '+userVista.data[0].cliente.split('_')[1]  }
-      </Typography>}
-         
-    <Grid container marginTop className={classes.root} spacing={2}>
+      <form autoComplete onSubmit={handleProceso}>
+    <Grid container margintop className={classes.root} spacing={2}>
         <Grid item xs={12}>  
 
           <Paper elevation={5} className={classes.title2} >
-          {detallesSitio && detallesSitio.data.codigo +"-"+ detallesSitio.data.nombre_sitio}
+          {detallesSitio && detallesSitio.data.length>0 && <div>
+            <Typography  className={classes.title2} >
+            {"OT #" + detallesSitio.data[0].ot_number+' Cliente: '+detallesSitio.data[0].cliente  }
+          </Typography>
+          <div>Sitio:  {detallesSitio.data[0].sitio_codigo + " - " +  detallesSitio.data[0].sitio_nombre} </div>
+          <div>Proyecto: {detallesSitio.data[0].proyecto + " - " +  detallesSitio.data[0].pais} </div></div>}
           </Paper>
         </Grid>
 
+        
+                { detallesSitio && 
+                <Grid item xs={12} sm={12} container>
+                <Fab color="primary" aria-label="add" className={classes.fab} type="submit">
+                  <SaveIcon />
+                </Fab>
+                <Grid item xs={12} sm={4}> 
+                <FormControl variant="outlined" className={classes.formControl}>
+                    <InputLabel htmlFor="responsable_cliente">Responsable Cliente</InputLabel>
+                      <OutlinedInput id="responsable_cliente" value={detalleSitioInfo['responsable_cliente']} 
+                      disabled="true" 
+                      label="Responsable Cliente" 
+                      fullWidth="true" />
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={12} sm={4}> 
+                    <Autocomplete
+                        id="prioridad"
+                        required={true}
+                        onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['prioridad']:value , ['prioridadChange']:true })}
+                        options={prioridades}
+                        getOptionLabel={(option) => option}
+                        style={{ width: 300 }}
+                        renderInput={(params) => <TextField {...params} label="Prioridad" variant="outlined" />}
+                        value={detalleSitioInfo['prioridad']} 
+                      />
+                   
 
-  { detallesSitio &&  <Grid item xs={12} sm={12} container>
-  {/* <Paper className={classes.paperGridModal}> */}
-                            <Grid container spacing={3}>
-                              <Grid item xs={12} container>
-                              <Grid item xs={6} sm={2}>   
-                                <FormControl variant="outlined" className={classes.formControl}>
-                                      <InputLabel htmlFor="outlined-age-native-simple">Estatus</InputLabel>
-                                      <Select
-                                        native
-                                        value={detalleSitioInfo['estatus']}
-                                        onChange={handleChange}
-                                        label="Estatus"
-                                        inputProps={{
-                                          name: 'Estatus',
-                                          id: 'outlined-age-native-simple',
-                                        }}
-                                      >
-                                        <option aria-label="None" value="" />
-                                        <option value={'Activo'}>Activo</option>
-                                        <option value={'Suspendido'}>Suspendido</option>
+                    </Grid>
+                    <Grid item xs={12} sm={4}> 
+                    <Autocomplete
+                        id="responsable_ot"
+                        required={true}
+                        onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
+                         ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
+                        options={responsablesOT}
+                        getOptionLabel={(option) => option.responsable_ot}
+                        style={{ width: 300 }}
+                        renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
+                        value={detalleSitioInfo['responsable_ot']} 
+                      />
+                    
+                    </Grid>
+                    <Grid item md={3}  xs={5}  sm={5}> 
+                      
+                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
                      
-                                      </Select>
-                                    </FormControl>
-                                    </Grid>
-                                <Grid item xs={3} sm={1}>                       
-                                Provincia:
-                                <Typography className={classes.subtitle} >
-                                {detallesSitio.data.provincia}
-                                </Typography>
-                                </Grid>
-                                <Grid item xs={3} sm={1}>   
-                                Proyecto:
-                                <Typography  className={classes.subtitle}>
-                                {detallesSitio.data.proyecto}
-                                </Typography>
-                                </Grid>
-                                <Grid item xs={3} sm={1}>   
-                                Tipo Sitio:
-                                <Typography  className={classes.subtitle}>
-                                {detallesSitio.data.tipo_sitio}
-                                </Typography>
-                                </Grid>
-                                    <Grid item xs={6} sm={3}>  
-                                    <FormControl variant="outlined" className={classes.formControl}>
-                                      <InputLabel htmlFor="alturavalidada">Altura Validada</InputLabel>
-                                      <OutlinedInput id="alturavalidada" value={detalleSitioInfo['alturavalidada']} onChange={handleChange} label="Altura Validad" />
-                                    </FormControl>
-                                    </Grid>
-                                      <Grid item xs={6} sm={3}>  
-                                      <FormControl variant="outlined" className={classes.formControl} >
-                                        <InputLabel htmlFor="resistenciaviento"> Resistencia Viento</InputLabel>
-                                        <OutlinedInput id="resistenciaviento" value={detalleSitioInfo['resistenciaviento']} onChange={handleChange} label="Resistencia Viento" />
-                                      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={6} sm={3}>  
-                                      <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="tx">Tipo Transmisión</InputLabel>
-                                        <OutlinedInput id="tx" value={detalleSitioInfo['tx']} onChange={handleChange} label="Tipo Transmisión" />
-                                      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={6} sm={3}>  
-                                      <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="Opción">Latitud Validada</InputLabel>
-                                        <OutlinedInput id="latitudValidada" value={detalleSitioInfo['latitudValidada']} onChange={handleChange} label="Opción" />
-                                      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={6} sm={3}>  
-                                      <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="latitudValidada">Latitud Validada</InputLabel>
-                                        <OutlinedInput id="latitudValidada" value={detalleSitioInfo['latitudValidada']} onChange={handleChange} label="Latitud Validada" />
-                                      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={6} sm={3}> 
-                                      <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="longitudValidada"> Longitud Validada</InputLabel>
-                                        <OutlinedInput id="longitudValidada" value={detalleSitioInfo['longitudValidada']} onChange={handleChange} label="Longitud Validada" />
-                                      </FormControl>
-                                      </Grid>
-                                      <Grid item xs={12} sm={6}> 
-                                      <Link href="#" onClick={preventDefault} styles={{textAlign:"center"}}>
-                                        Google Earth: {detallesSitio.data.latitud_validada} {' '} {detallesSitio.data.longitud_validad} 
-                                      </Link>
-                                      </Grid>
-                                  </Grid>
-                                 
-                                </Grid>
+                        <KeyboardDatePicker
+                        
+                          margin="normal"
+                          disabled={userInfo.isSuper? true : false}
+                          id="fecha_sla"
+                          label="Fecha SLA"
+                          format="MM/dd/yyyy"
+                          value={detalleSitioInfo['fecha_sla']}
+                          onChange={(date)=> setDetalleSitioInfo({...detalleSitioInfo, ['fecha_sla']: new Date(date),  ['fecha_slaChange']:true})}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change date', 
+                          }}
+                        />
+                        </MuiPickersUtilsProvider>
+                    </Grid>
+                      <Grid item md={4}  xs={6}  sm={6}> 
+                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <KeyboardDatePicker
+                        margin="normal"
+                        id="fecha_requerida"
+                        label="Fecha Requerida"
+                        format="MM/dd/yyyy"
+                        onChange={(date)=> setDetalleSitioInfo({...detalleSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})}
+                        value={detalleSitioInfo['fecha_requerida']}
+                        disabled={userInfo.isSuper? true : false}
+                        KeyboardButtonProps={{
+                          'aria-label': 'change date',
+                        }}
+                      />
+                      </MuiPickersUtilsProvider>
+                      </Grid>
+                {activeStep === steps.length ? (
+                          <div>
+                            <Typography className={classes.instructions}>Proceso Terminado</Typography>
+                            <Button onClick={handleReset}>Reset</Button>
+                          </div>
+                        ) : (
+                          <div style={{width:'100%', alignItems:'center'}}>
+                          <Grid item xs={12} sm={12} container>
+                          <Grid item xs={3} sm={3}> 
+                              <Button
+                                disabled={activeStep === 0}
+                                onClick={handleBack}
+                                className={classes.backButton}
+                              >
+                                Atras
+                              </Button>
+                             
+                            </Grid>
+                            <Grid item xs={6} sm={6}> 
+                            Proceso:<Button className={classes.instructions}> {getStepContent(activeStep).titulo}</Button>
+                            </Grid>
+                            <Grid item xs={3} sm={3}> 
+                            <Button variant="contained" color="primary" className={classes.nextButton} onClick={handleNext}>
+                                {activeStep === steps.length - 1 ? 'Finish' : 'Próximo'}
+                              </Button>
+                              </Grid>
+                            </Grid>
+                          </div>
+                          
+                        )}
+                <div className={classes.root}>
+                      <Stepper activeStep={activeStep} alternativeLabel>
+                        {steps.map((label, index) => (userInfo.isSuper===false && index< 7) || (userInfo.isSuper===true ) && (
+                          <Step key={label.id}>
+                            <StepLabel>{label.titulo}</StepLabel>
+                          </Step>
+                        ))}
+                      </Stepper>
+          
+                    </div>
 
-                            </Grid>}
+                    <Grid item xs={4} sm={4}> 
+                    <FormControl variant="outlined" className={classes.formControl}>
+                      <InputLabel htmlFor="Requerimiento">Requerimiento</InputLabel>
+                      <OutlinedInput id="Requerimiento" value={detalleSitioInfo['requerimiento']} 
+                      onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
+                      disabled={userInfo.isSuper? true : false}
+                      label="Requerimiento" />
+                    </FormControl>
+                    </Grid>
+                    <Grid item xs={8} sm={8}> 
+                    <TextField
+                                  id="Detalle"
+                                  label="Detalle"                               
+                                  multiline
+                                  rows={4}
+                                  variant="outlined"
+                                  fullWidth
+                                  disabled={userInfo.isSuper? true : false}
+                                  value={detalleSitioInfo['detalle_requerimiento']} 
+                                  onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
+                                />
+                    </Grid>
+                    <Grid item xs={12} sm={12}> 
+                    <TextField
+                                  id="comentarios_responsable_ot"
+                                  label="Comentarios de Ingeniería"
+                                  disabled={userInfo.isSuper? false : true}
+                                  multiline
+                                  rows={4}
+                                  placeholder="Comente cualquier observación sobre esta Orden de Trabajo..."
+                                  variant="outlined"
+                                  fullWidth
+                                  value={detalleSitioInfo['comentarios_responsable_ot']} 
+                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
+                                />
+                    </Grid>
+              </Grid>}
+
                             <Grid  container>
+                          
                             <Grid item xs={12} sm={12} >
                              <FormControlLabel
                                 control={
@@ -357,189 +546,151 @@ function DetalleOTScreen(props) {
                             {state.checkedDetalles && <Grid  container>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="opcion">Opción</InputLabel>
-                                        <OutlinedInput id="opcion" value={detalleSitioInfo['opcion']} onChange={handleChange} label="Opción" />
+                                        <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
+                                        <OutlinedInput id="tipo_estructura" value={detalleSitioInfo['tipo_estructura']} 
+                                        disabled={userInfo.isSuper? true : false}
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipo_estructura']:value, ['tipo_estructuraChange']:true })}
+                                        label="Tipo de Estructura" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
-                                        <OutlinedInput id="area" value={detalleSitioInfo['area']} onChange={handleChange} label="Área Rentada" />
+                                        <OutlinedInput id="area" value={detalleSitioInfo['area_arrendada']}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_arrendada']:value, ['area_arrendadaChange']:true })}
+                                         label="Área Rentada" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="largo">Largo</InputLabel>
-                                        <OutlinedInput id="largo" value={detalleSitioInfo['largo']} onChange={handleChange} label="Largo" />
+                                        <InputLabel htmlFor="area_a_utilizar">Area a Utilizar</InputLabel>
+                                        <OutlinedInput id="area_a_utilizar" value={detalleSitioInfo['area_a_utilizar']}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_a_utilizar']:value, ['area_a_utilizarChange']:true })}
+                                         label="Área a Utilizar" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="ancho">Ancho</InputLabel>
-                                        <OutlinedInput id="ancho" value={detalleSitioInfo['ancho']} onChange={handleChange} label="Ancho" />
+                                        <InputLabel htmlFor="tipologia_sitio">Tipologia Sitio</InputLabel>
+                                        <OutlinedInput id="tipologia_sitio" value={detalleSitioInfo['tipologia_sitio']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipologia_sitio']:value, ['tipologia_sitioChange']:true })}
+                                        label="Tipología Sitio" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="renta"> Renta</InputLabel>
-                                        <OutlinedInput id="renta" value={detalleSitioInfo['renta']} onChange={handleChange} label="Renta" />
+                                        <InputLabel htmlFor="arrendatario">Arrendatario/Propietario</InputLabel>
+                                        <OutlinedInput id="arrendatario" value={detalleSitioInfo['arrendatario']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['arrendatario']:value, ['arrendatarioChange']:true })}
+                                        label="Arrendatario/Propietario" />
                                       </FormControl>
                               </Grid>
                              
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="propietario">Propietario</InputLabel>
-                                        <OutlinedInput id="propietario" value={detalleSitioInfo['propietario']} onChange={handleChange} label="Propietario" />
+                                        <InputLabel htmlFor="identificacion_arrendatario">Identificacion Arrendatario</InputLabel>
+                                        <OutlinedInput id="identificacion_arrendatario" value={detalleSitioInfo['identificacion_arrendatario']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['identificacion_arrendatario']:value, ['identificacion_arrendatarioChange']:true })}
+                                        label="Identificacion Arrendatario" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="identificacion">Identificación</InputLabel>
-                                        <OutlinedInput id="identificacion" value={detalleSitioInfo['identificacion']} onChange={handleChange} label="Identificación" />
+                                        <InputLabel htmlFor="numero_finca">Número de Finca</InputLabel>
+                                        <OutlinedInput id="numero_finca" value={detalleSitioInfo['numero_finca']}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['numero_finca']:value, ['numero_fincaChange']:true })} 
+                                         label="Número de Finca" />
+                                      </FormControl>
+                              </Grid>
+                              <Grid item xs={6} sm={3}> 
+                              <FormControl variant="outlined" className={classes.formControl}>
+                                        <InputLabel htmlFor="direccion_sitio">Direccion de la Finca</InputLabel>
+                                        <OutlinedInput id="direccion_sitio" value={detalleSitioInfo['direccion_sitio']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['direccion_sitio']:value, ['direccion_sitioChange']:true })} 
+                                        label="Direccion de la Finca" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="contacto">Datos de Contacto</InputLabel>
-                                        <OutlinedInput id="contacto" value={detalleSitioInfo['contacto']} onChange={handleChange} label="Datos de Contacto" />
+                                        <InputLabel htmlFor="provincia">Provincia</InputLabel>
+                                        <OutlinedInput id="provincia" value={detalleSitioInfo['provincia']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['provincia']:value, ['provinciaChange']:true })}  
+                                        label="Provincia" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="datosFinca">Datos de la Finca</InputLabel>
-                                        <OutlinedInput id="datosFinca" value={detalleSitioInfo['datosFinca']} onChange={handleChange} label="Datos de la Finca" />
+                                        <InputLabel htmlFor="departamento">Departamento</InputLabel>
+                                        <OutlinedInput id="departamento" value={detalleSitioInfo['departamento']}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['departamento']:value, ['departamentoChange']:true })}  
+                                         label="Departamento" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="direccionFinca">Direccion de la Finca</InputLabel>
-                                        <OutlinedInput id="direccionFinca" value={detalleSitioInfo['direccionFinca']} onChange={handleChange} label="Direccion de la Finca" />
+                                        <InputLabel htmlFor="latitud_validada_grados">Latitud Validada en Grados</InputLabel>
+                                        <OutlinedInput id="latitud_validada_grados" value={detalleSitioInfo['latitud_validada_grados']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['latitud_validada_grados']:value, ['latitud_validada_gradosChange']:true })}  
+                                        label="Latitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="renta">Renta</InputLabel>
-                                        <OutlinedInput id="renta" value={detalleSitioInfo['renta']} onChange={handleChange} label="Renta" />
+                                        <InputLabel htmlFor="longitud_validada_grados">Longitud Validada en Grados</InputLabel>
+                                        <OutlinedInput id="longitud_validada_grados" value={detalleSitioInfo['longitud_validada_grados']} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['longitud_validada_grados']:value, ['longitud_validada_gradosChange']:true })} 
+                                        label="Longitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={12} sm={12} className={classes.multitexto}> 
                        
                               <TextField
-                                  id="derechoPaso"
+                                  id="derecho_paso_sitio"
                                   label="Información Derecho de Paso"
                                   multiline
                                   rows={4}
-                                  defaultValue="describa el Derecho de paso..."
+                                  placeholder="describa el Derecho de paso..."
                                   variant="outlined"
                                   fullWidth
+                                  disabled={userInfo.isSuper? true : false}
+                                  value={detalleSitioInfo['derecho_paso_sitio']} 
+                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['derecho_paso_sitio']:e.target.value , ['derecho_paso_sitioChange']:true })}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={12} className={classes.multitexto}> 
 
                               <TextField
-                                  id="electricidad"
+                                  id="electricidad_sitio"
                                   label="Información Energia Eléctrica"
                                   multiline
                                   rows={4}
-                                  defaultValue="Datos de la electricidad del sitio..."
+                                  placeholder="Datos de la electricidad del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  
+                                  disabled={userInfo.isSuper? true : false}
+                                  value={detalleSitioInfo['electricidad_sitio']} 
+                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['electricidad_sitio']:e.target.value, ['electricidad_sitioChange']:true })}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={12} className={classes.multitexto}> 
 
                               <TextField
-                                  id="observaciones"
+                                  id="observaciones_sitio"
                                   label="Observaciones del Sitio"
                                   multiline
                                   rows={4}
                                   defaultValue="Observaciones del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  
+                                  disabled={userInfo.isSuper? true : false}
+                                  value={detalleSitioInfo['observaciones_sitio']} 
+                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
                                 />
                               </Grid>
                               </Grid>}
                             </Grid>
                             </Grid>
-                            <Grid  container>
-
-                           
-                            <Grid item xs={12} sm={12} >
-                             <FormControlLabel
-                                control={
-                                  <Switch
-                                    checked={state.checkedProcesos}
-                                    onChange={handleChangeSwitch}
-                                    name="checkedProcesos"
-                                    color="primary"
-                                  />
-                                }
-                                label="Detalle Procesos"
-                              />
-                            </Grid>
-                            
-                            </Grid>
-                            <Grid item xs={12} sm={12}  >
-                           
-                            {state.checkedProcesos &&<Grid item xs={12} sm={12}>
-
-                            <TableContainer component={Paper}>
-                                <Table className={classes.table} aria-label="simple table">
-                                  <TableHead>
-                                    <TableRow >
-                                      {columns.map((col) => 
-                                          <TableCell key={col.field} width={col.width} component="th" scope="row">
-                                          {col.icon &&  <EditAttributesIcon fontSize='large' style={{color: edit?'green': 'blue'}} onClick={()=>setEdit(!edit)}/>} {col.titulo}
-                                          </TableCell>)}
-                                    </TableRow>
-                                  </TableHead>
-                                  <TableBody>
-                                    {rows.map((row) => (
-                                          <TableRow key={row.id}>
-                                          {columns.map((col) => (
-                                              <TableCell width={col.width}>   
-                                              <Grid container alignItems="left">
-                                             
-                                                {edit && (col.col!==0 || col.col!==1) ? <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                                          <Grid container justify="space-around" >
-                                                            <KeyboardDatePicker
-                                                              margin="normal"
-                                                              id={"input"+row.id+col.col}
-                                                              label={row[col.titulo]}
-                                                              format="MM/dd/yyyy"
-                                                              value={(selectedDate[col.proceso])} 
-                                                              // onChange={handleDateChange}
-                                                              onChange={(date)=> setSelectedDate({
-                                                                            ...setSelectedDate,
-                                                                            [col.proceso]: date,
-                                                                          })}
-                                                              KeyboardButtonProps={{
-                                                                'aria-label': 'change date',
-                                                              }}
-                                                            />
-                                                          </Grid>
-                                                        </MuiPickersUtilsProvider> 
-                                                :   (col.col===0 ?   
-                                                  <Grid item xs={4} sm={4}  >
-                                                <FormControlLabel
-                                                  control={<GreenCheckbox checked={row.listo} onChange={handleChange} name="checkedG" />}
-                                                  label="Listo" 
-                                                /> </Grid> :"" )  }
-                                                </Grid>
-                                                <Grid item xs={8} sm={8}  >
-                                              {row[col.proceso]}
-                                              </Grid>
-                                              </TableCell> ))}
-                                          </TableRow>))}
-
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                            </Grid>}
-                            </Grid>
-                  
+                            </form>
                           </Container>
     </React.Fragment>
   </div>

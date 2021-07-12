@@ -6,7 +6,7 @@ import {
   USER_LOGOUT,
   USER_ENTRADA_REQUEST, USER_ENTRADA_SUCCESS, USER_ENTRADA_FAIL,
   USER_SALIDA_REQUEST, USER_SALIDA_SUCCESS, USER_SALIDA_FAIL,
-  USER_PERMISO_REQUEST, USER_PERMISO_SUCCESS, USER_PERMISO_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL, USER_INFO_REGISTER_REQUEST, USER_INFO_REGISTER_SUCCESS, USER_INFO_REGISTER_FAIL, USER_ALMUERZO_REQUEST, USER_ALMUERZO_SUCCESS, USER_ALMUERZO_FAIL,
+   USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL, USER_INFO_REGISTER_REQUEST, USER_INFO_REGISTER_SUCCESS, USER_INFO_REGISTER_FAIL, USER_ALMUERZO_REQUEST, USER_ALMUERZO_SUCCESS, USER_ALMUERZO_FAIL,
   USER_CREATE_REQUEST,
   USER_CREATE_SUCCESS,
   USER_CREATE_FAIL,
@@ -45,7 +45,19 @@ import {
   USER_PROYECTO_DETALLES_FAIL,
   USER_OTS_REQUEST,
   USER_OTS_SUCCESS,
-  USER_OTS_FAIL
+  USER_OTS_FAIL,
+  SITIO_CREATE_REQUEST,
+  SITIO_CREATE_SUCCESS,
+  SITIO_CREATE_FAIL,
+  SITIOS_CARGADOS_REQUEST,
+  SITIOS_CARGADOS_SUCCESS,
+  SITIOS_CARGADOS_FAIL,
+  OT_NUEVA_CREATE_REQUEST,
+  OT_NUEVA_CREATE_SUCCESS,
+  OT_NUEVA_CREATE_FAIL,
+  OT_ACTUALIZAR_CREATE_REQUEST,
+  OT_ACTUALIZAR_CREATE_SUCCESS,
+  OT_ACTUALIZAR_CREATE_FAIL
 } from "../constants/userConstants";
 
 
@@ -133,13 +145,42 @@ const usersOTs = () => async (dispatch, getState) => {
   }
 };
 
-const buscarDetallesSitio = (sitio) => async (dispatch, getState) => {
+
+
+const buscarSitiosCargados = () => async (dispatch, getState) => {
+
+  dispatch({ type: SITIOS_CARGADOS_REQUEST });
+  const { userSignin: { userInfo } } = getState();
+
+  try {
+    const { data } = await axios.get("/api/users/listasitios", {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log('data', data);
+    if (!data.error) {
+      dispatch({ type: SITIOS_CARGADOS_SUCCESS, payload: data });
+      return true;
+    } else if (data.error) {
+      dispatch({ type: SITIOS_CARGADOS_FAIL, payload: data });
+      return false;
+    } else {
+      console.log("Error Interno");
+    }
+    return false;
+  } catch (error) {
+    console.log("error:", error);
+  }
+};
+
+const buscarDetallesSitio = (sitioBuscar) => async (dispatch, getState) => {
 
   dispatch({ type: USER_PROYECTO_DETALLES_REQUEST });
   const { userSignin: { userInfo } } = getState();
 
   try {
-    const { data } = await axios.post("/api/users/detalles", sitio, {
+    const { data } = await axios.post("/api/users/detalles", sitioBuscar, {
       headers: {
         Authorization: ' Bearer ' + userInfo.token
       }
@@ -241,62 +282,6 @@ const userStatusCheck = () => async (dispatch, getState) => {
 
 
 
-const userAlmuerzo = (infoAlmuerzo) => async (dispatch, getState) => {
-
-  const { userSignin: { userInfo } } = getState();
-  console.log('userInfo', userInfo)
-  dispatch({ type: USER_ALMUERZO_REQUEST, payload: infoAlmuerzo });
-
-  try {
-
-    const { data: almuerzoActivo } = await axios.post("/api/users/almuerzo", infoAlmuerzo, {
-      headers: {
-        Authorization: ' Bearer ' + userInfo.token
-      }
-    });
-    // console.log("data2:", almuerzoActivo);
-
-    if (almuerzoActivo) {
-      dispatch({ type: USER_ALMUERZO_SUCCESS, payload: almuerzoActivo });
-      Cookie.set('userKpiAlmuerzo', JSON.stringify(almuerzoActivo, { secure: true }));
-    } else {
-      dispatch({ type: USER_ALMUERZO_FAIL, payload: almuerzoActivo.message });
-    }
-
-  } catch (error) {
-    ////console.log"error:", error);
-    dispatch({ type: USER_ALMUERZO_FAIL, payload: error.message });
-  }
-}
-
-
-const userPermiso = (infoPermiso) => async (dispatch, getState) => {
-  console.log('infoPermiso', infoPermiso)
-  const { userSignin: { userInfo } } = getState();
-
-  dispatch({ type: USER_PERMISO_REQUEST, payload: infoPermiso });
-
-  try {
-
-    const { data: permisoActivo } = await axios.post("/api/users/permiso", infoPermiso, {
-      headers: {
-        Authorization: ' Bearer ' + userInfo.token
-      }
-    });
-    ////console.log"data2:", permisoActivo);
-
-    if (permisoActivo) {
-      dispatch({ type: USER_PERMISO_SUCCESS, payload: permisoActivo });
-      Cookie.set('userKpiPermisos', JSON.stringify(permisoActivo, { secure: true }));
-    } else {
-      dispatch({ type: USER_PERMISO_FAIL, payload: permisoActivo.message });
-    }
-
-  } catch (error) {
-    // ////console.log"error:",error);
-    dispatch({ type: USER_PERMISO_FAIL, payload: error.message });
-  }
-}
 
 const register = (datosRegistroUsuario) => async (dispatch, getState) => {
   const { userSignin: { userInfo } } = getState();
@@ -497,7 +482,52 @@ const autoLogout = () => async (dispatch, getState) => {
 }
 
 
-const crearUsuarios = (usuarios) => async (dispatch) => {
+const crearOTNueva = (otInfo) => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
+  dispatch({ type: OT_NUEVA_CREATE_REQUEST });
+  try {
+    // seria bueno cifrar con server.
+    const { data } = await axios.post("/api/users/createotnueva", otInfo, {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log("exito ot Nueva.", data)
+    if (!data.error) {
+      dispatch({ type: OT_NUEVA_CREATE_SUCCESS, payload: data });
+    } else {
+      dispatch({ type: OT_NUEVA_CREATE_FAIL, payload: data });
+    }
+  } catch (error) {
+    dispatch({ type: OT_NUEVA_CREATE_FAIL, payload: error });
+  }
+};
+
+
+
+const actualizarOT = (detalleSitioInfo) => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
+  dispatch({ type: OT_ACTUALIZAR_CREATE_REQUEST });
+  try {
+    // seria bueno cifrar con server.
+    const { data } = await axios.post("/api/users/actualizarot", detalleSitioInfo, {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log("exito ot Nueva.", data)
+    if (!data.error) {
+      dispatch({ type: OT_ACTUALIZAR_CREATE_SUCCESS, payload: data });
+    } else {
+      dispatch({ type: OT_ACTUALIZAR_CREATE_FAIL, payload: data });
+    }
+  } catch (error) {
+    dispatch({ type: OT_ACTUALIZAR_CREATE_FAIL, payload: error });
+  }
+};
+
+const crearUsuarios = (usuarios) => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
   dispatch({ type: USER_CREATE_REQUEST });
   try {
     // seria bueno cifrar con server.
@@ -510,6 +540,27 @@ const crearUsuarios = (usuarios) => async (dispatch) => {
     }
   } catch (error) {
     dispatch({ type: USER_CREATE_FAIL, payload: error });
+  }
+};
+
+const crearSitios = (datosSitios) => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
+  dispatch({ type: SITIO_CREATE_REQUEST });
+  try {
+    // seria bueno cifrar con server.
+    const { data } = await axios.post("/api/users/createSitios", { datosSitios }, {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log("exito frontend.", data)
+    if (!data.error) {
+      dispatch({ type: SITIO_CREATE_SUCCESS, payload: data });
+    } else {
+      dispatch({ type: SITIO_CREATE_FAIL, payload: data });
+    }
+  } catch (error) {
+    dispatch({ type: SITIO_CREATE_FAIL, payload: error });
   }
 };
 
@@ -636,7 +687,9 @@ export {
   signin,
   proyectoVisualizado,
   buscarDetallesSitio,
-
+  crearOTNueva,
+  actualizarOT,
+  
   register,
   infoActualizacion,
   actualizarKPIUsuario,
@@ -647,7 +700,11 @@ export {
   logout,
   autoLogout,
   registroEntrada,
+
   crearUsuarios,
+  crearSitios,
+  buscarSitiosCargados,
+
   chgPasswordNew,
   chgPasswordUser,
   sendRecoverEmail,
@@ -656,5 +713,6 @@ export {
   securePassword2,
   secureLogin,
   marcarTCLeido,
-  usersOTs
+  usersOTs,
+
 };

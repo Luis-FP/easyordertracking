@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser"
 import userRoute from "./routes/userRoute";
 import pendientesRoute from './routes/pendientesRoute';
+import uploadRoute from './routes/uploadRoute';
 import kpisRoute from './routes/kpisRoute';
 import sendEmailRoute from './routes/sendEmailRoute';
 import secureRoute from './routes/secureRoute';
@@ -36,7 +37,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json({ limit: "3mb" }));
 // cronograma de envio de emails de eficiencia
 
-
+app.use("/api/uploads", uploadRoute);
 app.use("/api/users", userRoute);
 app.use("/api/pendientes", pendientesRoute);
 app.use("/api/kpis", kpisRoute);
@@ -47,6 +48,8 @@ app.use(express.static(path.join(__dirname, "/../frontend/" + pathDominio)));
 app.get("*", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/${pathDominio}/index.html`));
 });
+
+app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 
 app.listen(config.PORT, () => {
   console.log("Server started at https://localhost:5000");

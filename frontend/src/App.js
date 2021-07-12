@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import DetalleOTScreen from './screens/DetalleOTScreen'
 import ActualizarScreen from './screens/ActualizarScreen';
 import CrearOTScreen from './screens/CrearOTScreen';
+import CrearSitioScreen from './screens/CrearSitioScreen';
 import CambiarPasswordScreen from './screens/CambiarPasswordScreen';
 import emailRecuperacionScreen from './screens/EmailRecuperacionScreen';
 import UpdateModal from "./components/update"
@@ -36,6 +37,7 @@ function App() {
                             {/* <Route path="/register" component={RegisterScreen} /> */}
                             <Route path="/actualizar" component={ActualizarScreen} />
                             <Route path="/crearOT" component={CrearOTScreen} />
+                            <Route path="/crearSitio" component={CrearSitioScreen} />
                             <Route path="/cambiarClave/:vh" component={CambiarPasswordScreen} />
                             <Route path="/cambiarClave" component={CambiarPasswordScreen} />
                             <Route path="/emailRecuperacion" component={emailRecuperacionScreen} />

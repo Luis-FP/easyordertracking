@@ -1,0 +1,6 @@
+﻿sitio_codigo,sitio_nombre,proyecto,provincia,departamento,pais,altura_validada,altura_pararrayos,resistencia_viento,tipo_estructura,tx,latitud_validada_grados,longitud_validada_grados,numero_finca,direccion_sitio,arrendatario,identificacion_arrendatario,area_arrendada,area_a_utilizar,tipologia_sitio,orientacion_torre,derecho_paso_sitio,electricidad_sitio,observaciones_sitio
+404100,Bugabita Arriba,Tigo_PA,Chiriqui,,Panama,30,4,115Km/h,autosoportada,MW,"9°06'25.4""","-79°31'37.9""",333,Chiriqui,pedro1,12,150,100,10x10,pata al norte,,,
+405029,San Francisco de la Montaña,Tigo_PA,Veraguas,,Panama,60,4,115Km/h,autosoportada,MW,"08°38'39.84""N","82°27'42.451""",3333,Veraguas,pedro2,12,150,100,10x10,pata al norte,,,
+404141,Aguacatal,Tigo_PA,Chiriqui,,Panama,30,4,115Km/h,autosoportada,FO,08°27'38.3'' ,-82°27'47.9,333,Chiriqui,pedro3,12,150,100,10x10,pata al norte,,,
+404135,El Rincon de Gualaca,Tigo_PA,Chiriqui,,Panama,60,4,115Km/h,autosoportada,MW,"9°25´31.6""","82°33´22.4""",33,Chiriqui,pedro4,12,150,100,10x10,pata al norte,,,
+404101,Alto Quiel Boquete,Tigo_PA,Chiriqui,,Panama,30,4,115Km/h,autosoportada,MW,"8°35'37.50""N","80°10'35.69""W",333,Chiriqui,pedro5,12,150,100,10x10,pata al norte,,,

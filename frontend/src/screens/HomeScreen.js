@@ -20,20 +20,18 @@ import Fade from '@material-ui/core/Fade';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+
+const verdefondo = grey[900]
 const azulfondo = blue[900]
 const rojoFondo = red[900]
+const greyfondo = grey[300]
 
-let initialOT =[
-  {id: '1', numOt: "12", ot:"Planos para Permisos", sitio: "Divala", cliente: "OFG-Panama", usuarioCliente:"Aneleys", estado:"ejec", prioridad: 'normal'},
-  {id: '2', numOt: "67", ot:"Diseño de Cimentación", sitio: "Paso Canoa", cliente: "OFG-Panama", usuarioCliente:"Aneleys", estado:"plan", prioridad: 'alta'},
-  {id: '3',  numOt: "3",ot:"Planos para Bomberos", sitio: "Divala", cliente: "OFG-Panama", usuarioCliente:"Aneleys", estado:"ini", prioridad: 'normal'},
-  {id: '4', numOt: "222",ot:"Planos para Construcción", sitio: "Paso Canoa", cliente: "OFG-Panama", usuarioCliente:"Aneleys", estado:"entregado", prioridad: 'alta'},
-  {id: '5',  numOt: "22",ot:"Planos para Permisos", sitio: "Ola Cabecera", cliente: "OFG-Panama", usuarioCliente:"Aneleys", estado:"ejec", prioridad: 'normal'},
-]
+
 
 
 
@@ -45,7 +43,7 @@ const useStyles = makeStyles((theme)=>({
 
   title: {
     fontSize: 25,
-    color: 'white',
+    color: 'black',
     textTransform: 'capitalize',
     textAlign:'center'
   },
@@ -56,16 +54,23 @@ const useStyles = makeStyles((theme)=>({
     textAlign:'center'
   },
   chip: {
-    display: 'flex',
+    // display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(0.5),
+      padding: 0.5,
     },
   },
   chip2: {
+    display: 'flex',
     justifyContent: 'center',
-    margin: theme.spacing(0.3),
+    flexWrap: 'wrap',
+    
+    '& > *': {
+      margin: theme.spacing(0.5),
+      
+    },
   },
   badge: {
     '& > *': {
@@ -80,7 +85,7 @@ const useStyles = makeStyles((theme)=>({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: 'white',
-    backgroundColor: azulfondo,
+    backgroundColor: greyfondo,
     
   },
   modal: {
@@ -121,35 +126,36 @@ const useStyles = makeStyles((theme)=>({
 function HomeScreen(props) {
   const classes = useStyles();
   
-  let procesos =[
+  let procesos = [
     {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
     {_id:"p2",titulo:'Programación y Asignación', codigo:'plan', paso:1},
-    {_id:"p3",titulo:'En Ejecución', codigo:'ejec', paso:2},
-    {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
-    {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
-    {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
-    {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
-    {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
+    {_id:"p3",titulo:'Revision con Cliente', codigo:'rev', paso:2},
+    {_id:"p4",titulo:'En Ejecución', codigo:'ejec', paso:3},
+    {_id:"p5",titulo:'Revisión de Calidad', codigo:'qa', paso:4},
+    {_id:"p6",titulo:'Finalizado Entregado', codigo:'entregado', paso:5},
+    {_id:"p7",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:6},
+    {_id:"p8",titulo:'Facturación', codigo:'facturacion', paso:7},
+    {_id:"p9",titulo:'pagado', codigo:'pagado', paso:8},
   ]
-
 
 
   const [openModal, setOpenModal] = React.useState(false);
   const [sitio, setSitio] = React.useState([]);
-  const [ot, setOt] = useState(initialOT);
+  const [ot, setOt] = useState();
 
   const handleOpenDetalle = (e) => {
     
     console.log(e.currentTarget.getAttribute('codigo') )
     console.log(e.currentTarget.getAttribute('nombre') )
-    const sitio={
+    const sitioBuscar={
       cliente: e.currentTarget.getAttribute('cliente'),
-      codigo: e.currentTarget.getAttribute('codigo')
+      codigo: e.currentTarget.getAttribute('codigo'),
+      ot_number: e.currentTarget.getAttribute('ot_number')
     }
-    // console.log(sitio)
-    // dispatch(buscarDetallesSitio(sitio))
+    console.log("Sitio a Buscar",sitioBuscar)
+    dispatch(buscarDetallesSitio(sitioBuscar))
     props.history.push('/detalleOT');
-    // setOpenModal(true);
+
   };
 
   const handleCloseModal = (e) => {
@@ -229,7 +235,7 @@ console.log(userOTsInfo)
              item xs={12} sm={12}>
           <Paper className={classes.paper}>
             <div className={classes.badge}>
-              <Badge badgeContent={4}  style={{ color: 'white' }} >
+              <Badge badgeContent={4}  style={{ color: 'black' }} >
                 <SettingsIcon />
               </Badge>
             </div>
@@ -244,16 +250,17 @@ console.log(userOTsInfo)
               ref={draggableProvided.innerRef}
               {...draggableProvided.dragHandleProps}
               className="handle"
-              
-              className={classes.chip2}
+              // fontSize="large"
+              className={classes.chip}
               codigo={ot.sitio_codigo}
               id={ot.id}
               nombre={ot.sitio_nombre}
               cliente={ot.cliente}
+              ot_number={ot.ot_number}
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
               label={ot.requerimiento +" - "+ ot.sitio_codigo +" - "+ ot.sitio_nombre + " - " +ot.proyecto}
               clickable={true}
-              style={ {backgroundColor: ot.prioridad === 'alta'? 'red': 'green'} }
+              style={ {backgroundColor: ot.prioridad === 'Alta'? 'red': 'green'} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             />)}

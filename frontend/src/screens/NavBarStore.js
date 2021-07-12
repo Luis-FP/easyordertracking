@@ -15,6 +15,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import LabelIcon from '@material-ui/icons/Label';
 import { proyectoVisualizado } from "../actions/userActions";
 
 const useStyles = makeStyles({
@@ -98,28 +99,6 @@ const handleChoose = (e) => {
           <Typography variant="h6" className={classes2.title}>
             {userInfo && userInfo.nombre}
           </Typography>
-          {/* <Typography variant="h6" className={classes2.title}>
-            {proyecto}
-          </Typography> */}
-         
-          {/* <Button aria-controls="simple-menu" aria-haspopup="true" className={classes2.texto}  onClick={handleClick}>
-            Seleccione Proyecto
-          </Button> */}
-          {/* <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-
-          >
-          {userInfo && userInfo.vista.length>0 && userInfo.vista.map((vista) => <MenuItem key={'menu'+vista} info_menu={vista} onClick={handleChoose}>{vista}</MenuItem>)}
-        
-    
-      </Menu> */}
-          
-
-         
         </Toolbar>
       </AppBar>
       </div>
@@ -131,19 +110,14 @@ const handleChoose = (e) => {
               }}
               showLabels
               className={classes.root}
-            >
-              
-              <BottomNavigationAction label="Resumen OTs" icon={<TimelineIcon />} href={'/'} />
+            >      
+              <BottomNavigationAction label="Estatus OTs" icon={<LabelIcon fontSize="large"/>} href={'/'} />
               {userInfo && (userInfo.isHiper || userInfo.isSuper) && 
-              <BottomNavigationAction label="Crear OTs" icon={<GroupIcon />} href={'/crearOT'}/>}
-              {userInfo && (userInfo.isHiper || userInfo.isSuper) && 
-              <BottomNavigationAction label="Proveedores" icon={<RoomServiceIcon />} />}
-              <BottomNavigationAction label="Clientes" icon={<PeopleAltIcon />} />
+              <BottomNavigationAction label="Crear Sitios/OTs" icon={<RoomServiceIcon fontSize="large"/>} href={'/crearOT'}/>}
+              {userInfo && (userInfo.isHiper || userInfo.isSuper)}
+              <BottomNavigationAction label="Métricas" icon={<TimelineIcon fontSize="large"/>} />
              
           </BottomNavigation>
-    
-   
-  
     </div>
     );
     

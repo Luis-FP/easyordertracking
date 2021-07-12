@@ -17,7 +17,10 @@ export default {
 
     JWT_SECRET: process.env.JWT_SECRET || 'secretosumarial',
     SECRET: process.env.SECRET,
-
+    accessKeyId: process.env.accessKeyId || "AccessKeyId",
+    secretAccessKey: process.env.secretAccessKey || "SecretAccessKey",
+  
+  
     TIPO_EMAIL: process.env.TIPO_EMAIL,
     DE: process.env.DE,
     PW_EMAIL: process.env.PW_EMAIL,

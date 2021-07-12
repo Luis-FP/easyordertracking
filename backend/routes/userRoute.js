@@ -2,7 +2,7 @@ import express from "express";
 import querystring from "querystring";
 import https from "https";
 import User from "../models/employee_model.js";
-import Detalles from "../models/detalles_model.js";
+import Detallesings from "../models/detalles_model.js";
 import KPIs from "../models/kpi_model.js";
 import OTs from "../models/ots_model.js";
 import Bitacoras from "../models/bitacora_model.js";
@@ -30,6 +30,8 @@ import {
 } from "../util";
 import { mongo, Mongoose } from "mongoose";
 import config from "../config";
+
+
 
 
 const router = express.Router();
@@ -242,6 +244,184 @@ router.post("/proyecto", isAuth, async (req, res) => {
   }
 });
 
+
+router.get("/listasitios", isAuth, async (req, res) => {
+  try {
+    let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
+    const vistaUsuario= datosUsuario.vista
+    console.log(vistaUsuario )
+
+      const filtro = [
+          {
+          '$match':
+                {
+                  'proyecto': { $in: vistaUsuario}
+                }
+          },
+      ];
+      const listaSitios = await Detallesings.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
+      console.log("listaSitios", listaSitios)
+      res.status(200)
+      .send({ message: "lista de sitioss", data: listaSitios})
+  } catch (errorBuscando) {
+    console.log(errorBuscando);
+    res
+      .status(500)
+      .send({ error: errorBuscando, message: "Error  busqueda de sitios." });
+  }
+});
+
+
+router.post("/createotnueva", isAuth, async (req, res) => {
+  try {
+
+      console.log("req usuario", req.user);
+      let otInfo = req.body;
+      console.log("req datos crear", otInfo);
+      
+      
+      if (otInfo == null || otInfo == "")
+        res.send({ error: true, message: "No envio ninguna OT para crear." });
+        //busca el ultimo numero de OT
+
+        const userMax = await OTs.aggregate([
+          {
+            $group: {
+              _id: null,
+              max: {
+                $max: {
+                  $toInt: "$ot_number",
+                },
+              },
+            },
+          },
+        ]);
+        console.log("userMax", userMax[0]);
+        let otMaxima = 0;
+        let errores =[];
+        if(userMax[0]===undefined || userMax[0]===null  ){
+        otMaxima=1
+        }else{
+        otMaxima = userMax[0].max + 1
+        }
+        if (
+          // otInfo.cliente == "" || //no proseguir si falta Informacion
+          otInfo.detalle_requerimiento == "" ||
+          // otInfo.email_responsable_cliente == "" ||
+          otInfo.fecha_requerida ==  "" ||
+          otInfo.prioridad ==  "" ||
+          otInfo.proyecto ==  "" ||
+          otInfo.requerimiento ==  "" ||
+          // otInfo.responsable_cliente ==  "" ||
+          otInfo.sitio_codigo ==  "" ||
+          otInfo.sitio_nombre ==  "" 
+    
+        ) {
+          errores.push(
+            `${otInfo.sitio_codigo} ${otInfo.requerimiento}`
+          );
+          console.log("errores", `${otInfo.sitio_codigo} ${otInfo.requerimiento}`);
+          // continue;
+        }
+
+        const otNueva = new OTs({
+            ot_number:  otMaxima ,
+            pais: otInfo.pais,
+            cliente: req.user.empresa,
+            sitio_codigo: otInfo.sitio_codigo,
+            sitio_nombre: otInfo.sitio_nombre,
+            proyecto: otInfo.proyecto,
+            responsable_cliente: req.user.nombre,
+            email_responsable_cliente: req.user.email,
+            requerimiento: otInfo.requerimiento,
+            detalle_requerimiento: otInfo.detalle_requerimiento,
+            prioridad: otInfo.prioridad,
+            estado: 'ini',
+            fecha_requerida: otInfo.fecha_requerida
+          })
+       
+    
+      console.log(otNueva);
+       await otNueva.save();
+       res.send({
+        error: false,
+        ot_number: errores.length != 0 ? '' : otMaxima, // mando el numero de la OT
+        message: errores.length != 0 ? errores : "Exito al subir los datos.",
+      });
+
+  } catch (errorGuardando) {
+    console.log(errorGuardando);
+    res
+      .status(401)
+      .send({ error: errorGuardando, message: "Error creando OT." });
+  }
+});
+
+
+router.post("/actualizarot", isAuth, async (req, res) => {
+  // try {
+
+      console.log("req usuario", req.user);
+      let otInfo = req.body;
+      console.log("req datos actualizar", otInfo);
+      try{
+        let otactualizada = await OTs.findOne({ot_number: req.body.ot_number})
+        let sitioactualizado = await Detallesings.find({sitio_codigo: req.body.sitio_codigo})
+        console.log('otActualizada', otactualizada)
+        // console.log("sitioactualizado", sitioactualizado)
+     // cambios de OT
+          if(otInfo.email_responsable_clienteChange) otactualizada['email_responsable_cliente'] = {email_responsable_cliente:  otInfo.email_responsable_cliente}
+          if(otInfo.responsable_clienteChange) otactualizada = {responsable_cliente:  otInfo.responsable_cliente}
+          if(otInfo.estadoChange) otactualizada['estado'] =  otInfo.estado;
+          if(otInfo.fecha_requeridaChange) otactualizada.fecha_requerida =  otInfo.fecha_requerida;
+          if(otInfo.prioridadChange) otactualizada.prioridad =  otInfo.prioridad;
+          if(otInfo.requerimientoChange) otactualizada.requerimiento =  otInfo.requerimiento;  
+          if(otInfo.detalle_requerimientoChange) otactualizada.detalle_requerimiento =  otInfo.detalle_requerimiento;  
+          if(otInfo.responsable_otChange) otactualizada.responsable_ot =  otInfo.responsable_ot;
+          if(otInfo.email_responsable_otChange) otactualizada.email_responsable_ot =  otInfo.email_responsable_ot;
+          if(otInfo.comentarios_responsable_otChange) otactualizada.comentarios_responsable_ot =  otInfo.comentarios_responsable_ot;
+
+          console.log('otActualizada2', otactualizada)
+
+        // cambios de Sitio
+          if(sitioactualizado.altura_pararrayosChange) sitioactualizado.altura_pararrayos =  otInfo.altura_pararrayos;
+          if(sitioactualizado.altura_validadaChange) sitioactualizado.altura_validada =  otInfo.altura_validada;
+          if(sitioactualizado.area_a_utilizarChange) sitioactualizado.area_a_utilizar =  otInfo.area_a_utilizar;
+          if(sitioactualizado.area_arrendadaChange) sitioactualizado.area_arrendada =  otInfo.area_arrendada;
+          if(sitioactualizado.arrendatarioChange) sitioactualizado.arrendatario =  otInfo.arrendatario;
+          if(sitioactualizado.identificacion_arrendatarioChange) sitioactualizado.identificacion_arrendatario =  otInfo.identificacion_arrendatario;  
+          if(sitioactualizado.departamentoChange) sitioactualizado.departamento =  otInfo.departamento;
+          if(sitioactualizado.provinciaChange) sitioactualizado.provincia =  otInfo.provincia;
+          if(sitioactualizado.direccion_sitioChange) sitioactualizado.direccion_sitio =  otInfo.direccion_sitio;
+          if(sitioactualizado.latitud_validada_gradosChange) sitioactualizado.latitud_validada_grados =  otInfo.latitud_validada_grados;
+          if(sitioactualizado.longitud_validada_gradosChange) sitioactualizado.longitud_validada_grados =  otInfo.longitud_validada_grados;
+          if(sitioactualizado.numero_fincaChange) sitioactualizado.numero_finca =  otInfo.numero_finca;
+          if(sitioactualizado.orientacion_torreChange) sitioactualizado.orientacion_torre =  otInfo.orientacion_torre;
+          if(sitioactualizado.resistencia_vientoChange) sitioactualizado.resistencia_viento =  otInfo.resistencia_viento;
+          if(sitioactualizado.tipo_estructuraChange) sitioactualizado.tipo_estructura =  otInfo.tipo_estructura;
+          if(sitioactualizado.tipologia_sitioChange) sitioactualizado.tipologia_sitio =  otInfo.tipologia_sitio;
+          if(sitioactualizado.txChange) sitioactualizado.tx =  otInfo.tx;
+          if(sitioactualizado.derecho_paso_sitioChange) sitioactualizado.derecho_paso_sitio =  otInfo.derecho_paso_sitio;
+          if(sitioactualizado.electricidad_sitioChange) sitioactualizado.electricidad_sitio =  otInfo.electricidad_sitio;
+
+          const otAct = await otactualizada.save();
+          const sitioAct = await sitioactualizado.save();
+      
+  
+       res.send({
+        error: false,
+        message: "Exito al actualizando los datos.",
+      });
+
+  } catch (errorActualizando) {
+    console.log(errorActualizando);
+    res
+      .status(401)
+      .send({ error: errorActualizando, message: "Error actualizando OT." });
+  }
+});
+
+
 router.get("/otsuser", isAuth, async (req, res) => {
   try {
     let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
@@ -275,11 +455,27 @@ router.get("/otsuser", isAuth, async (req, res) => {
 
 router.post("/detalles", isAuth, async (req, res) => {
   console.log( req.body.cliente,  req.body.codigo, req.body)
-  try {
-    let detalles = await Detalles.findOne({ cliente: req.body.cliente, codigo: req.body.codigo});
 
+const detalleFiltro =  [
+      {
+        '$match':
+              {
+                ot_number: req.body.ot_number
+              }
+      },
+      {
+        '$lookup': {
+          'from': 'detallesings',
+          'localField': 'sitio_codigo',
+          'foreignField': 'sitio_codigo',
+          'as': 'detallesSitio'
+        }
+      }]
+
+  try {
+    let detalles = await OTs.aggregate(detalleFiltro);
     res.status(200)
-      .send({ message: "TT leido guardado", data: detalles })
+      .send({ message: "Datos detallados de la OT y El Sitio", data: detalles })
   } catch (errorGuardando) {
     console.log(errorGuardando);
     res
@@ -1118,7 +1314,7 @@ router.post("/create", async (req, res) => {
   console.log("req usuario", req.user);
   let usuarios = req.body.usuarios;
   if (usuarios == null || usuarios == "")
-    req.send({ error: true, message: "No envio ningun usuario para crear." });
+    req.send({ error: true, message: "No envio ninguna OT para crear." });
 
 
   //busca el ultimo numero de OT
@@ -1143,14 +1339,9 @@ if(userMax[0]===undefined || userMax[0]===null  ){
 }
 
   //validacion de datos
-
-
-
-
   const otsNuevas = [];
   let errores = [];
-  let nombres, password, passphrase, salt, vh, keys;
-  let configUsersEmail = [];
+
   for (let i = 0; i < usuarios.length; i++) {
     if (
       usuarios[i].pais == "" || //saltarse el usuario que este vacio
@@ -1163,9 +1354,9 @@ if(userMax[0]===undefined || userMax[0]===null  ){
 
     ) {
       errores.push(
-        `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento} ${usuarios[i].responsable}`
+        `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`
       );
-      console.log("errores", `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento} ${usuarios[i].responsable}`);
+      console.log("errores", `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`);
       continue;
     }
 
@@ -1179,8 +1370,8 @@ if(userMax[0]===undefined || userMax[0]===null  ){
         sitio_codigo: usuarios[i].sitio_codigo,
         sitio_nombre: usuarios[i].sitio_nombre,
         proyecto: usuarios[i].proyecto,
-        responsable: "Luis Felipe",
-        email_responsable: 'luis_parparcen@yahoo.com',
+        responsable_cliente: 'Luis Felipe',
+        email_responsable_cliente: 'luis_parparcen@yahoo.com',
         requerimiento: usuarios[i].requerimiento,
         detalle_requerimiento: usuarios[i].detalle_requerimiento,
         prioridad: usuarios[i].prioridad,
@@ -1273,6 +1464,170 @@ if(userMax[0]===undefined || userMax[0]===null  ){
   });
   
 });
+
+
+
+router.post("/createSitios", async (req, res) => {
+  // console.log("req datos crear", req.body.datosSitios);
+  // console.log("req usuario", req.user);
+  let sitios = req.body.datosSitios;
+  if (sitios == null || sitios == "")
+    req.send({ error: true, message: "No envio ningun usuario para crear." });
+
+
+  //busca el ultimo numero de OT
+//   const sitioMax = await DetallesIng.aggregate([
+//     {
+//       $group: {
+//         _id: null,
+//         max: {
+//           $max: {
+//             $toInt: "$sitio_codigo",
+//           },
+//         },
+//       },
+//     },
+//   ]);
+//   console.log("sitioMax", sitioMax[0]);
+// let sitioMaxima = 0;
+// if(sitioMax[0]===undefined || sitioMax[0]===null  ){
+//   sitioMaxima=0
+// }else{
+//   sitioMaxima = sitioMax[0].max
+// }
+
+
+  //validacion de datos
+  let k = 0;
+  let sitiosId= [];
+  while (k < sitios.length) {
+    sitiosId.push(sitios[k].sitio_codigo);
+    k++;
+  }
+  console.log(sitiosId, sitios.length)
+  let output = await Detallesings.aggregate([{
+    $match: {
+      sitio_codigo: { $in: [...sitiosId] }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      sitio_codigo: 1,
+    }
+    // $unwind: {
+    //   path:email,
+    // }
+  }]), sitiosIdNuevos = [];
+  k = 0;
+  while (k < output.length) {
+    sitiosIdNuevos.push(output[k].sitio_codigo);
+    k++;
+  }
+
+console.log('output', output);
+
+  const sitiosNuevos = [];
+  let errores = [];
+  for (let i = 0; i < sitiosId.length; i++) {
+    console.log('sitiosId[i].sitio_codigo ', sitiosId[i].sitio_codigo )
+    if (
+      sitios[i].sitio_codigo == "" || //saltarse el usuario que este vacio
+      sitios[i].sitio_nombre == "" || //saltarse el usuario que este vacio
+      sitios[i].proyecto == "" || //saltarse el usuario que este vacio
+      sitios[i].provincia == "" || //saltarse el usuario que este vacio
+      sitios[i].pais == "" || //saltarse el usuario que este vacio
+      // sitiosId[i].departamento == "" || //saltarse el usuario que este vacio
+      sitios[i].altura_validada == "" || //saltarse el usuario que este vacio
+      sitios[i].altura_pararrayos == "" || //saltarse el usuario que este vacio
+      sitios[i].resistencia_viento == "" || //saltarse el usuario que este vacio
+      sitios[i].tipo_estructura == "" || //saltarse el usuario que este vacio
+      sitios[i].tx == "" || //saltarse el usuario que este vacio
+      sitios[i].latitud_validada_grados == "" || //saltarse el usuario que este vacio
+      sitios[i].longitud_validada_grados == "" || //saltarse el usuario que este vacio
+      sitios[i].numero_finca == "" || //saltarse el usuario que este vacio
+      sitios[i].numero_documento_finca == "" || //saltarse el usuario que este vacio
+      sitios[i].direccion_sitio == "" || //saltarse el usuario que este vacio
+      sitios[i].arrendatario == "" || //saltarse el usuario que este vacio
+      sitios[i].area_arrendada == "" || //saltarse el usuario que este vacio
+      sitios[i].area_a_utilizar == "" || //saltarse el usuario que este vacio
+      sitios[i].tipologia_sitio == "" || //saltarse el usuario que este vacio
+      sitios[i].orientacion_torre == "" 
+
+    ) {
+      
+      errores.push(
+        `${sitiosId[i].sitio_codigo} ${sitiosId[i].sitio_nombre}`
+      );
+      console.log("errores", `${sitiosId[i].sitio_codigo} ${sitiosId[i].sitio_nombre} `);
+      continue;
+    }
+
+      console.log('else')
+    sitiosNuevos.push(
+      new Detallesings({
+        sitio_codigo: sitios[i].sitio_codigo,
+        sitio_nombre: sitios[i].sitio_nombre,
+        proyecto: sitios[i].proyecto,
+        provincia: sitios[i].provincia,
+        departamento: sitios[i].departamento,
+        pais: sitios[i].pais,
+        altura_validada: sitios[i].altura_validada,
+        altura_pararrayos: sitios[i].altura_pararrayos,
+        resistencia_viento:sitios[i].resistencia_viento,
+        tipo_estructura: sitios[i].tipo_estructura,
+        tx: sitios[i].tx,
+        latitud_validada_grados: sitios[i].latitud_validada_grados,
+        longitud_validada_grados: sitios[i].longitud_validada_grados,
+        numero_finca: sitios[i].numero_finca,
+        numero_documento_finca: sitios[i].numero_documento_finca,
+        direccion_sitio: sitios[i].direccion_sitio,
+        arrendatario: sitios[i].arrendatario,
+        area_arrendada: sitios[i].area_arrendada,
+        area_a_utilizar: sitios[i].area_a_utilizar,
+        tipologia_sitio: sitios[i].tipologia_sitio,
+        orientacion_torre: sitios[i].orientacion_torre  
+
+      })
+    );
+  }
+  
+  console.log('sitiosNuevos',sitiosNuevos);
+  //  agregar esto luego otra vez
+  Detallesings.insertMany(sitiosNuevos, (error, docs) => {
+    console.log("error", String(error).substring(0, 300));
+    console.log("errores finales:", errores);
+    // console.log("docs??", docs);
+
+    if (error == null) {
+      //mandar emails
+      //mandar que todo funciono, y o la informacion que no funciono.
+      console.log("sitios: errores ", errores);
+      res.send({
+        error: false,
+        message: errores.length != 0 ? errores : "Exito al subir los datos.",
+      });
+
+
+      console.log("despues de user insertmany");
+
+    } else {
+      if (error.code === 11000) {
+        res.status(200).send({
+          error: true,
+          message: "Datos duplicado: " + String(error).match(/\{.*\}/g),
+        });
+      } else {
+        res.status(200).send({
+          error: true,
+          message: "Datos Invalidos." + String(error).substring(1, 300),
+        });
+      }
+    }
+  });
+  
+});
+
 
 //test. esto se cambia cuando quieres borrar todo y probar la insercion de los usuarios
 router.put("/chpass/:vh", async (req, res) => {
