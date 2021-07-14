@@ -1,72 +1,160 @@
 import React, {useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import { register, infoRegistro, autoLogout } from "../actions/userActions";
+import { register,  autoLogout } from "../actions/userActions";
 
-import 'w3-css/w3.css';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fechaActual } from '../components/fechas';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Paper from '@material-ui/core/Paper';
+
+const verdefondo = green[900]
+const azulfondo = blue[900]
+const rojoFondo = red[900]
+const greyfondo = grey[300]
+
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+  },
+  titulo: {
+    flexGrow: 1,
+    fontSize: 30,
+    textAlign:'center',
+    color: azulfondo
+  },
+}));
+
+const listaClientes = [
+  'OFG',
+  'Geminatech'
+]
+const proyectos = [
+  {nombre:'Tigo_PA', item: 0},
+  {nombre:'Tigo_NI', item: 1},
+  {nombre:'Tigo_SV', item: 2},
+  {nombre:'Torrecom', item: 3},
+  {nombre:'DT_PA', item: 4},
+  {nombre:'Terasur_PA', item: 5}
+]
+
+const oficinas = [
+  'Panama', 'El Salvador', 'Nicaragua'
+]
+
+
+function not(a, b) {
+  return a.filter((value) => b.indexOf(value) === -1);
+}
+
+function intersection(a, b) {
+  return a.filter((value) => b.indexOf(value) !== -1);
+}
+
 
 function RegisterScreen(props){
-    const [rs, setRs] = React.useState(null);
-    const [idEmpleado, SetIdEmpleado] = React.useState(null);
-    const [nombre, setNombre] = React.useState(null);
-    const [email, setEmail] = React.useState(null);
-    const [oficina, setOficina] = React.useState(null);
-    const [puesto, setPuesto] =  React.useState(null);
- 
-    const [area, setArea] = React.useState(null);
-    const [departamento, setDepartamento] =React.useState(null); 
-    const [grupo, setGrupo] =  React.useState(null);
-    const [vista, setVista] =  React.useState(null);
-    const [miembros,  setMiembros] =  React.useState([]);
+    const classes = useStyles()
 
-    const [sup, setSuper] = React.useState(false);
-    const [rh, setRH] =React.useState(false);
-    const [idLider, setIdLider] =  React.useState(null);
-    const [lider, setLider] =  React.useState(null);
-    const [puestoLider, setPuestoLider] =  React.useState(null);
-    const [areaLider, setAreaLider] = React.useState(null);
-    const [departamentoLider, setDepartamentoLider] =React.useState(null); 
+    const [datosRegistroUsuario, setDatosRegistroUsuario] = React.useState({
+      isUser: true,
+      isSuper: false,
+      isHiper: false,
+      nombre:"",
+      email: "",
+      oficina: "",
+      cliente: "",
+      // vista: []
+    });
+ 
+    const [checked, setChecked] = React.useState([]);
+    const inicioSeleccion = proyectos.map(item=>item.item);
+    console.log('inicioSeleccion', inicioSeleccion)
+    const [left, setLeft] = React.useState(inicioSeleccion);
+    const [right, setRight] = React.useState([]);
+  
+    const leftChecked = intersection(checked, left);
+    const rightChecked = intersection(checked, right);
+  
+    const handleToggle = (value) => () => {
+      const currentIndex = checked.indexOf(value);
+      const newChecked = [...checked];
+  
+      if (currentIndex === -1) {
+        newChecked.push(value);
+      } else {
+        newChecked.splice(currentIndex, 1);
+      }
+  
+      setChecked(newChecked);
+    };
+  
+    const handleAllRight = () => {
+      setRight(right.concat(left));
+      setLeft([]);
+    };
+  
+    const handleCheckedRight = () => {
+      setRight(right.concat(leftChecked));
+      setLeft(not(left, leftChecked));
+      setChecked(not(checked, leftChecked));
+
+    };
+  
+    const handleCheckedLeft = () => {
+      setLeft(left.concat(rightChecked));
+      setRight(not(right, rightChecked));
+      setChecked(not(checked, rightChecked));
+    };
+  
+    const handleAllLeft = () => {
+      setLeft(left.concat(right));
+      setRight([]);
+    };
 
     
+
     const infoRegister = useSelector(state => state.infoRegister );
     const  {loading,infoReg} = infoRegister;
     const userRegister = useSelector(state => state.userRegister );
     const  {  errorRegistro, userRegisterInfo } = userRegister;
     const userSignin = useSelector(state => state.userSignin );
     const  { userInfo} = userSignin;
-    const userEntrada = useSelector(state => state.userEntrada);
-    const { userKpiEntrada } = userEntrada;
+
    
     const dispatch = useDispatch();
-    // const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
- 
+
     useEffect(() => {
       console.log("userEffect")
-      // console.log("Fecha en userEffect fechaActualKPI, fechaActualHoy, hoy en ms", fechaActual(userKpiEntrada.data.fecha).getDate(),  new Date().getDate())
-      // console.log("Fecha en userEffect fechaActualKPI, fechaActualHoy, hoy", userKpiEntrada.data.fecha,fechaActual(userKpiEntrada.data.fecha).getDate() , new Date().getDate() )
       if (!userInfo) {
         props.history.push('/login');
-      // } else if(userKpiEntrada && (new Date(userKpiEntrada.data.fecha).getUTCDate()!==fechaActual(Date.now()).getDate() ||  
-    } else if(userKpiEntrada && (fechaActual(userKpiEntrada.data.fecha).getDate()!==new Date().getDate() ||  
-      fechaActual(userKpiEntrada.data.fecha).getMonth()!==new Date().getMonth() || 
-      fechaActual(userKpiEntrada.data.fecha).getFullYear() !== new Date().getFullYear())) {
-        console.log("Fecha en userEffect fechaActualKPI, fechaActualHoy, hoy en ms", fechaActual(userKpiEntrada.data.fecha).getDate(),  new Date().getDate())
-        console.log("Fecha en userEffect fechaActualKPI, fechaActualHoy, hoy", fechaActual(new Date(userKpiEntrada.data.fecha)), new Date())
-        // //console.log("Fecha incorrecta, hay que hacer logout mes ",     fechaActual(userKpiEntrada.data.fecha).getMonth(), fechaActual(Date.now()).getMonth())
-        // //console.log("Fecha incorrecta, hay que hacer logout ano", fechaActual(userKpiEntrada.data.fecha).getFullYear() , fechaActual(Date.now()).getFullYear() )
-        dispatch(autoLogout())
-        props.history.push('/login');
-      }
-      if(!infoReg){
-        dispatch(infoRegistro());
-      }
+    } 
+
       if(userRegisterInfo){
         document.formaRegistro.reset();
-        document.getElementById('id01').style.display='block';
+        handleClickOpen(true)
       }
      
       
@@ -77,301 +165,249 @@ function RegisterScreen(props){
 
     const submitHandler = (e) => {
       e.preventDefault();
-      const datosRegistroUsuario ={
-        razon_social: rs,
-        id_empleado: idEmpleado,
-        nombre: nombre,
-        email: email,
-        oficina: oficina,
-        puesto: puesto,
-        area: area,
-        departamento: departamento,
-        grupo: grupo,
-        vista: vista,
-        isSuper: sup,
-        isRH: rh,
-        id_lider: idLider,
-        nombre_lider:lider,
-        puesto_lider: puestoLider,
-        area_lider: areaLider,
-        departamento_lider: departamentoLider
-      }
-      //console.log('datosRegistroUsuario', datosRegistroUsuario)
-        
-        dispatch(register(datosRegistroUsuario));
-        
+      console.log('right',right )
+      let proyVistas = [];
+      proyectos.forEach(item=> {
+        if(right.includes(item.item)) {
+          proyVistas.push(item.nombre);
+        }
+      }) 
+      console.log("x",proyVistas)
+      // setDatosRegistroUsuario( {...datosRegistroUsuario, ['vista']: Array.from(proyVistas, (element) =>  element )})
+      console.log('grabando',  datosRegistroUsuario, proyVistas)
+        dispatch(register(datosRegistroUsuario,proyVistas ));    
     }
 
-const handlerPuesto= (e, valor) => {
-  e.preventDefault()
-  //console.log('valor', valor)
-  setPuesto(valor);
 
-}
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-const handleSeleccionLider = (e,indice, valor) =>{
-e.preventDefault()
-  setAreaLider(valor.area)
-  setDepartamentoLider(valor.departamento)
-  setPuestoLider(valor.puesto)
-  setGrupo(valor.vista) // persona pertenece al grupo cuyo lider tiene vista
-  setIdLider(valor.id_empleado)
-  setLider(valor.nombre)
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-}
+  const customList = (items) => (
+    <Paper className={classes.paper}>
+      <List dense component="div" role="list">
+        {items.map((value, index) => {
+          const labelId = `transfer-list-item-${value}-label`;
+          return (
+            <ListItem key={value} role="listitem" button onClick={handleToggle(value)}>
+              <ListItemIcon>
+                <Checkbox
+                  checked={checked.indexOf(value) !== -1}
+                  tabIndex={-1}
+                  disableRipple
+                  inputProps={{ 'aria-labelledby': labelId }}
+                />
+              </ListItemIcon>
+              <ListItemText id={labelId} primary={proyectos[value].nombre} />
+            </ListItem>
+          );
+        })}
+        <ListItem />
+      </List>
+    </Paper>
+  );
 
-
-const handleSeleccionVista = (e,indice, valor) =>{
-  e.preventDefault()
-  if(valor){
-
-    setVista(valor._id)
-    setMiembros(valor.integrantes)
-  }else{
-    setVista(null)
-    setMiembros([])
-  }
-
-}
-
-
-const cerrarAviso = () => {
-  document.getElementById('id01').style.display='none';
-}
-    return (<div className="w3-container w3-center" >
-    <h2 className="contenido-azul-NAD w3-xlarge">Crear Usuario</h2>
+    return (    
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="xs">
+        <Typography component="div" style={{ height: '3vh' }} />
+    <Typography className={classes.titulo} >Crear Usuario</Typography>
     {errorRegistro && <div className="w3-border w3-round w3-red w3-text-white">{errorRegistro}</div>}
-    <div id="id01" className="w3-modal">
-        <div className="w3-modal-content">
-          <div className="w3-container">
-            <span onClick={cerrarAviso}
-            className="w3-button w3-display-topright">&times;</span>
-            <p>Usuario Creado Exitosamente</p>
-          </div>
+    <div>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">{"Usuario Creado Exitosamente"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                El usuario ha sido creado exitosamente
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary" autoFocus>
+                Cerrar
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
-      </div>
-     <form name="formaRegistro" className="w3-margin-top" onSubmit={submitHandler} >
-     <div className="w3-row">
+
+
+     <form name="formaRegistro" className={classes.root} onSubmit={submitHandler} >
+     <Grid container margintop='true' className={classes.root} spacing={1}>
+        {/* <Grid item xs={12}>   */}
    
-        {loading &&  <div><AutorenewIcon className="w3-jumbo w3-text-blue w3-spin" /></div>}
-        <div className="w3-col s12 m6 l6">
-            <label htmlFor="name" className="contenido-verde-NAD">
-                Nombre
-            </label>
-            <input 
-            placeholder="Nombre y Apellido"
-            className="w3-input  full-width90"
-            type="text" name='name' 
-            required={true}
-            onChange={(e) => setNombre(e.target.value)}/>
-        </div>
+        {loading && <CircularProgress/>}
+        <Grid item xs={12} sm={6}> 
+            <TextField
+              required
+              id="name"
+              label="Nombre"
+              placeholder="Nombre y Apellido"
+              variant="outlined"
+              onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['nombre']: e.target.value})}
+            />
+        </Grid>
        
-        <div className="w3-col s6 m6 l6 ">
-            <label htmlFor="email" className="contenido-verde-NAD">
-                Email
-            </label>
-            <input 
-            placeholder="email"
-            className="w3-input full-width90"
-            type="email" name='email' 
-            required={true}
-            onChange={(e) => setEmail(e.target.value)}/>
-        </div>
-        <div className="w3-col s6 m6 l6 ">
-            <label htmlFor="email" className="contenido-verde-NAD">
-                Id del Empleado
-            </label>
-            <input 
-            placeholder="Id del Empleado"
-            className="w3-input full-width90"
-            type="text" name='idEmpleado' 
-            required={true}
-            onChange={(e) => SetIdEmpleado(e.target.value)}/>
-        </div>
-        {infoReg && infoReg.rs &&
-          <div className="w3-col s6 m6 l6 w3-margin-top w3-padding">
-          <label className="contenido-verde-NAD">
-                Razón Social
-          </label>
+        <Grid item xs={6} sm={6}> 
+             <TextField
+              required
+              id="email"
+              label="Email"
+              placeholder="Email"
+              variant="outlined"
+              onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['email']: e.target.value})}
+            />
+        </Grid>
+
+       
+  
+      {oficinas &&
+        <Grid item xs={6} sm={6}> 
+
         <Autocomplete
           {...{
-            options: infoReg.rs.map((nombre)=> nombre ),
-            getOptionLabel: (option) => option,
-          }}
-          id="razon_social"
-          // value={lider}
-          onChange= {(event, newValue) => setRs( newValue )}
-          renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params}  margin="normal" placeholder="Razón Social" /> 
-          )}
-        />
-      </div>}
-      {infoReg && infoReg.oficina &&
-          <div className="w3-col s6 m6 l6 w3-margin-top w3-padding">
-          <label className="contenido-verde-NAD">
-                Oficina
-          </label>
-        <Autocomplete
-          {...{
-            options: infoReg.oficina.map((nombre)=> nombre ),
+            options: oficinas ,
             getOptionLabel: (option) => option,
           }}
           id="oficina"
-          // value={lider}
-          onChange= {(event, newValue) => setOficina( newValue )}
+          onChange= {(event, newValue) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['oficina']:newValue})}
           renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params}  margin="normal" placeholder="Oficina" /> 
+          <TextField {...params}  margin="normal" placeholder="Oficina" variant="outlined" /> 
           )}
         />
-      </div>}
-      {infoReg && infoReg.lider &&
-          <div className="w3-col s12 m12 l12 w3-padding">
-          <label className="contenido-verde-NAD">
-                Líder
-            </label>
+      </Grid>}
+     
+           
 
+        {listaClientes &&
+          <Grid item xs={6} sm={6}> 
         <Autocomplete
           {...{
-            options: infoReg.lider.map((nombre)=> nombre ),
-            getOptionLabel: (option) => option.nombre,
-          }}
-          id="lider"
-          // value={lider}
-          onChange= {(event, newValue) => handleSeleccionLider(event, event.target.id.split('-')[2], newValue )}
-          // onChange={(event, newValue) => handleSeleccionLider(oficina, area, departamento, grupo, newValue)}
-          renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params}  margin="normal" placeholder="Líder" /> 
-          )}
-        />
-      </div>}
-            <div className="w3-col s12 m12 l12 w3-margin-top w3-card w3-white w3-padding">
-                <div className="w3-col s5 m5 l5 w3-left-align w3-text-black ">Área: </div>
-                <div className="w3-rest contenido-verde-NAD w3-left-align">{areaLider}</div>
-                <div className="w3-col s5 m5 l5  w3-left-align w3-text-black ">Departamento:</div>
-                <div className="w3-rest contenido-verde-NAD w3-left-align">{departamentoLider}</div>
-                <div className="w3-col s5 m5 l5  w3-left-align w3-text-black ">Grupo: </div>
-                <div className="ww3-rest contenido-verde-NAD w3-left-align">{grupo}</div>
-             </div>
-        </div>
-        {infoReg && infoReg.puestos &&
-          <div className="w3-col s12 m12 l12 w3-margin-top w3-padding">
-          <label className="contenido-verde-NAD" >
-                Puesto
-            </label>
-            {/*console.log("area, puesto, lider, infoReq", area, puesto, lider)*/}
-        <Autocomplete
-          {...{
-            options: infoReg.puestos,
+            options: listaClientes,
             getOptionLabel: (option) => option,
           }}
-          id="puesto"
-          freeSolo
-          value={puesto}
-          
-          onChange={(event, newValue) => handlerPuesto(event, newValue )}
-          renderInput={(params) => <TextField {...params} placeholder="Puesto"  margin="normal" />}
+          id="cliente"
+          value={datosRegistroUsuario['cliente']}
+          onChange= {(event, newValue) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['cliente']:newValue})}
+          renderInput={(params) => <TextField {...params} placeholder="Cliente"  variant="outlined"  margin="normal" />}
         />
-      </div>}
-      {infoReg && infoReg.area &&
-          <div className="w3-col s6 m6 l6 w3-margin-top w3-padding">
-          <label className="contenido-verde-NAD">
-                Área
-            </label>
-
-        <Autocomplete
-          {...{
-            options: infoReg.area.map((nombre)=> nombre ),
-            getOptionLabel: (option) => option,
-          }}
-          id="area"
-          // value={lider}
-          onChange= {(event, newValue) =>setArea(newValue )}
-          // onChange={(event, newValue) => handleSeleccionLider(oficina, area, departamento, grupo, newValue)}
-          renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params}  margin="normal" placeholder="Área" /> 
-          )}
-        />
-      </div>}
-      {infoReg && infoReg.departamento &&
-          <div className="w3-col s6 m6 l6 w3-margin-top w3-padding">
-          <label className="contenido-verde-NAD">
-                Departamento
-            </label>
-
-        <Autocomplete
-          {...{
-            options: infoReg.departamento.map((nombre)=> nombre ),
-            getOptionLabel: (option) => option,
-          }}
-          id="departamento"
-          // value={lider}
-          onChange= {(event, newValue) =>setDepartamento(newValue )}
-          // onChange={(event, newValue) => handleSeleccionLider(oficina, area, departamento, grupo, newValue)}
-          renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params}  margin="normal" placeholder="Departamento" /> 
-          )}
-        />
-      </div>}
-        <div className="w3-col s6 m6 l6 w3-left">
-        <input className="w3-check " type="checkbox" name="super"
-          // onClick={(e)=>handleSeleccionIsSuper(e)}
-          onClick={(e)=>setSuper(e.target.checked)}
-        />
-        <label> Lider </label>
-        </div>
-        <div className="w3-col s6 m6 l6 w3-right">
-        <input className="w3-check" type="checkbox" name="RH"
-          onClick={(e)=>setRH(e.target.checked)}
-        />
-        <label> Capital Humano </label>
-        </div>
-        {infoReg && infoReg.lider && sup &&
-          <div className="w3-col s12 m12 l12 w3-margin-top w3-padding">
-          {infoReg /*&& console.log('infoReg.miembros', infoReg.miembros)*/}
-        <Autocomplete
-          {...{
-            options: infoReg.miembros.map((vista)=> vista),
-            getOptionLabel: (option) => option._id,
-          }}
- 
-          id="vista"
-          // value={vista}
-          onChange= {(event, newValue) => handleSeleccionVista(event,event.target.id.split('-')[2], newValue )}
-          // onChange={(event, newValue) => handleSeleccionLider(oficina, area, departamento, grupo, newValue)}
-          renderInput={(params) => (
-            //console.log('params',params),
-          <TextField {...params} label="vista" margin="normal" /> 
-          )}
-        />
-      </div>}
-
-
-        <div className="w3-col s12 m12 l12 w3-margin-top w3-card w3-white w3-padding">
-        Miembros del Equipo:
-        {/* {miembros} */}
-            {miembros && miembros.map((integrante)=> (
-              <div key={'miembros'+integrante} className="w3-col s12 m12 l12 w3-left-align contenido-azul-NAD ">
-                {integrante}
-             </div>
-            ))}
-        </div>
-               
-
-        <div className="w3-col s12 m12 l12 w3-margin-top">
-        <button
-         type="submit" 
-         onSubmit={()=> submitHandler()}
-         className="w3-button w3-round full-width90 w3-blue" >Registrar</button>
-        </div>
-        <div className="paddingFin"></div>
+      </Grid>}
+     
+     
+      <Grid item xs={12} sm={12}> 
+      <FormGroup row style={{align:'center'}}>
+      <FormControlLabel
+        control={
+          <Checkbox
+           checked={datosRegistroUsuario['super']}
+            onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['isSuper']: e.target.checked})}
+            name="isSuper"
+            color="primary"
+          />
+        }
+        label="isSuper"
+      />
+            <FormControlLabel
+        control={
+          <Checkbox
+            checked={datosRegistroUsuario['hiper']}
+            onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['isHiper']: e.target.checked})}
+            name="isHiper"
+            color="primary"
+          />
+        }
+        label="isHiper"
+      />
+            <FormControlLabel
+        control={
+          <Checkbox
+            checked={datosRegistroUsuario['user']}
+            onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['isUser']: e.target.checked})}
+            name="isUser"
+            color="primary"
+          />
+        }
+        label="isUser"
+      />
+      </FormGroup>
+        </Grid>
+        {proyectos &&
+          <Grid
+      container
+      spacing={2}
+      justifyContent="center"
+      alignItems="center"
+      className={classes.root}
+    >
+    {console.log('right', right)}
+      <Grid item>{customList(left)}</Grid>
+      <Grid item>
+        <Grid container direction="column" alignItems="center">
+          <Button
+            variant="outlined"
+            size="small"
+            className={classes.button}
+            onClick={handleAllRight}
+            disabled={left.length === 0}
+            aria-label="move all right"
+          >
+            ≫
+          </Button>
+          <Button
+            variant="outlined"
+            size="small"
+            className={classes.button}
+            onClick={handleCheckedRight}
+            disabled={leftChecked.length === 0}
+            aria-label="move selected right"
+          >
+            &gt;
+          </Button>
+          <Button
+            variant="outlined"
+            size="small"
+            className={classes.button}
+            onClick={handleCheckedLeft}
+            disabled={rightChecked.length === 0}
+            aria-label="move selected left"
+          >
+            &lt;
+          </Button>
+          <Button
+            variant="outlined"
+            size="small"
+            className={classes.button}
+            onClick={handleAllLeft}
+            disabled={right.length === 0}
+            aria-label="move all left"
+          >
+            ≪
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid item>{customList(right)}</Grid>
+    </Grid>}
+    <Button
+      
+      style={{color:'white', backgroundColor:azulfondo}}
+      type={"submit"}
+      fullWidth
+    > Crear Usuario</Button>
+    </Grid>
     </form>
-    
-</div>)
+
+    </Container>
+    </React.Fragment>
+)
 }
 
 export default RegisterScreen;

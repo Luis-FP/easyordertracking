@@ -283,16 +283,17 @@ const userStatusCheck = () => async (dispatch, getState) => {
 
 
 
-const register = (datosRegistroUsuario) => async (dispatch, getState) => {
+const register = (datosRegistroUsuario, proyVistas) => async (dispatch, getState) => {
   const { userSignin: { userInfo } } = getState();
-  dispatch({ type: USER_REGISTER_REQUEST, payload: datosRegistroUsuario });
+  console.log('datosRegistroUsuario', datosRegistroUsuario)
+  dispatch({ type: USER_REGISTER_REQUEST, payload: {datosRegistroUsuario, proyVistas} });
   try {
-    const { data } = await axios.post("/api/users/register", datosRegistroUsuario, {
+    const { data } = await axios.post("/api/users/register", {datosRegistroUsuario, proyVistas}, {
       headers: {
         Authorization: ' Bearer ' + userInfo.token
       }
     });
-    ////console.log'data Register', data);
+    console.log('data Register', data);
     if (data.errorInfo) {
       ////console.log'entro en error en user action')
       dispatch({ type: USER_REGISTER_FAIL, payload: data.message });
@@ -416,29 +417,26 @@ const logout = (info) => async (dispatch, getState) => {
   // const { userEntrada: { userKpiEntrada } } = getState();
   dispatch({ type: USER_SALIDA_REQUEST, payload: info });
   try {
-    // const registroSalida = { ...userKpiEntrada, animoPM: info.info.feelingPM, latitude: info.info.crd.latitude, longitude: info.info.crd.longitude }
-    // const registroSalida = { ...userKpiEntrada, info };
-    // const registroSalida = { info };
-    // ////console.log'registroSalida', registroSalida)
-    const { data } = await axios.post("/api/users/salida", { info }, {
-      headers: {
-        Authorization: ' Bearer ' + userInfo.token
-      }
-    }).catch(function (error) {
-      if (error.response) { 
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      } else if (error.request) { 
-        console.log(error.request);
-      } else { 
-        console.log('Error', error.message);
-      }
-      console.log(error.config);
-    });
 
-    console.log('data logout', data)
-    if (!data.error) {
+    // const { data } = await axios.post("/api/users/salida", { info }, {
+    //   headers: {
+    //     Authorization: ' Bearer ' + userInfo.token
+    //   }
+    // }).catch(function (error) {
+    //   if (error.response) { 
+    //     console.log(error.response.data);
+    //     console.log(error.response.status);
+    //     console.log(error.response.headers);
+    //   } else if (error.request) { 
+    //     console.log(error.request);
+    //   } else { 
+    //     console.log('Error', error.message);
+    //   }
+    //   console.log(error.config);
+    // });
+
+    // console.log('data logout', data)
+    // if (!data.error) {
       console.log("removing cookies")
       Cookie.remove("userInfo");
       Cookie.remove("userKpiEntrada");
@@ -446,16 +444,13 @@ const logout = (info) => async (dispatch, getState) => {
       Cookie.remove("userKpiPermisos");
       Cookie.remove("mh");
 
-      dispatch({ type: USER_SALIDA_SUCCESS });
-      return data;
-    }
-    else {
-      dispatch({ type: USER_SALIDA_FAIL });
-      return data;
-    }
+      dispatch({ type: USER_SALIDA_SUCCESS, payload: info });
+      return {error: false, message:"salida exitosa"};
+    
+
   } catch (error) {
     // console.log("error:", error);
-    dispatch({ type: USER_SALIDA_FAIL });
+    dispatch({ type: USER_SALIDA_FAIL, payload: error });
     return error;
 
   }

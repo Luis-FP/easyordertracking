@@ -21,7 +21,9 @@ import {
   EnvioEmail,
   getToken,
   isAuth,
-  isRH,
+  isHiper,
+  isSuper,
+  isUser,
   createPassphrase,
   createHash,
   crearTransporteEmail,
@@ -124,7 +126,6 @@ router.post("/login", async (req, res) => {
           return res.send({
             ut_id: signinUser.ut_id,
             nombre: signinUser.nombre,
-            apellido: signinUser.apellido,
             empresa: signinUser.empresa,
             oficina: signinUser.oficina,
             email: signinUser.email,
@@ -133,6 +134,7 @@ router.post("/login", async (req, res) => {
 
             grupo: signinUser.grupo, 
             vista: signinUser.vista,
+            isUser: signinUser.isUser,
             isSuper: signinUser.isSuper,
             isHiper: signinUser.isHiper
 
@@ -272,7 +274,7 @@ router.get("/listasitios", isAuth, async (req, res) => {
 });
 
 
-router.post("/createotnueva", isAuth, async (req, res) => {
+router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req, res) => {
   try {
 
       console.log("req usuario", req.user);
@@ -358,7 +360,7 @@ router.post("/createotnueva", isAuth, async (req, res) => {
 });
 
 
-router.post("/actualizarot", isAuth, async (req, res) => {
+router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => {
   // try {
 
       console.log("req usuario", req.user);
@@ -384,31 +386,37 @@ router.post("/actualizarot", isAuth, async (req, res) => {
           console.log('otActualizada2', otactualizada)
 
         // cambios de Sitio
-          if(sitioactualizado.altura_pararrayosChange) sitioactualizado.altura_pararrayos =  otInfo.altura_pararrayos;
-          if(sitioactualizado.altura_validadaChange) sitioactualizado.altura_validada =  otInfo.altura_validada;
-          if(sitioactualizado.area_a_utilizarChange) sitioactualizado.area_a_utilizar =  otInfo.area_a_utilizar;
-          if(sitioactualizado.area_arrendadaChange) sitioactualizado.area_arrendada =  otInfo.area_arrendada;
-          if(sitioactualizado.arrendatarioChange) sitioactualizado.arrendatario =  otInfo.arrendatario;
-          if(sitioactualizado.identificacion_arrendatarioChange) sitioactualizado.identificacion_arrendatario =  otInfo.identificacion_arrendatario;  
-          if(sitioactualizado.departamentoChange) sitioactualizado.departamento =  otInfo.departamento;
-          if(sitioactualizado.provinciaChange) sitioactualizado.provincia =  otInfo.provincia;
-          if(sitioactualizado.direccion_sitioChange) sitioactualizado.direccion_sitio =  otInfo.direccion_sitio;
-          if(sitioactualizado.latitud_validada_gradosChange) sitioactualizado.latitud_validada_grados =  otInfo.latitud_validada_grados;
-          if(sitioactualizado.longitud_validada_gradosChange) sitioactualizado.longitud_validada_grados =  otInfo.longitud_validada_grados;
-          if(sitioactualizado.numero_fincaChange) sitioactualizado.numero_finca =  otInfo.numero_finca;
-          if(sitioactualizado.orientacion_torreChange) sitioactualizado.orientacion_torre =  otInfo.orientacion_torre;
-          if(sitioactualizado.resistencia_vientoChange) sitioactualizado.resistencia_viento =  otInfo.resistencia_viento;
-          if(sitioactualizado.tipo_estructuraChange) sitioactualizado.tipo_estructura =  otInfo.tipo_estructura;
-          if(sitioactualizado.tipologia_sitioChange) sitioactualizado.tipologia_sitio =  otInfo.tipologia_sitio;
-          if(sitioactualizado.txChange) sitioactualizado.tx =  otInfo.tx;
-          if(sitioactualizado.derecho_paso_sitioChange) sitioactualizado.derecho_paso_sitio =  otInfo.derecho_paso_sitio;
-          if(sitioactualizado.electricidad_sitioChange) sitioactualizado.electricidad_sitio =  otInfo.electricidad_sitio;
+          if(otInfo.altura_pararrayosChange) sitioactualizado.altura_pararrayos =  otInfo.altura_pararrayos;
+          if(otInfo.altura_validadaChange) sitioactualizado.altura_validada =  otInfo.altura_validada;
+          if(otInfo.area_a_utilizarChange) sitioactualizado.area_a_utilizar =  otInfo.area_a_utilizar;
+          if(otInfo.area_arrendadaChange) sitioactualizado.area_arrendada =  otInfo.area_arrendada;
+          if(otInfo.arrendatarioChange) sitioactualizado.arrendatario =  otInfo.arrendatario;
+          if(otInfo.identificacion_arrendatarioChange) sitioactualizado.identificacion_arrendatario =  otInfo.identificacion_arrendatario;  
+          if(otInfo.departamentoChange) sitioactualizado.departamento =  otInfo.departamento;
+          if(otInfo.municipioChange) sitioactualizado.municipio =  otInfo.municipio;
+          if(otInfo.provinciaChange) sitioactualizado.provincia =  otInfo.provincia;
+        
+          if(otInfo.direccion_sitioChange) sitioactualizado.direccion_sitio =  otInfo.direccion_sitio;
+          if(otInfo.latitud_validada_gradosChange) sitioactualizado.latitud_validada_grados =  otInfo.latitud_validada_grados;
+          
+          if(otInfo.longitud_validada_gradosChange) sitioactualizado.longitud_validada_grados =  otInfo.longitud_validada_grados;
+          console.log("ok")
+          if(otInfo.numero_fincaChange) sitioactualizado.numero_finca =  otInfo.numero_finca;
+          if(otInfo.orientacion_torreChange) sitioactualizado.orientacion_torre =  otInfo.orientacion_torre;
+          if(otInfo.resistencia_vientoChange) sitioactualizado.resistencia_viento =  otInfo.resistencia_viento;
+          if(otInfo.tipo_estructuraChange) sitioactualizado.tipo_estructura =  otInfo.tipo_estructura;
+          if(otInfo.tipologia_sitioChange) sitioactualizado.tipologia_sitio =  otInfo.tipologia_sitio;
+          if(otInfo.txChange) sitioactualizado.tx =  otInfo.tx;
+          if(otInfo.derecho_paso_sitioChange) sitioactualizado.derecho_paso_sitio =  otInfo.derecho_paso_sitio;
+          if(otInfo.electricidad_sitioChange) sitioactualizado.electricidad_sitio =  otInfo.electricidad_sitio;
 
           const otAct = await otactualizada.save();
           const sitioAct = await sitioactualizado.save();
       
   
-       res.send({
+       res
+       .status(200)
+       .send({
         error: false,
         message: "Exito al actualizando los datos.",
       });
@@ -430,12 +438,17 @@ router.get("/otsuser", isAuth, async (req, res) => {
 
     // if([vistaUsuario].includes(vistaSolicitada)){
       // console.log(vistaUsuario,"incluye la vista solicitada",vistaSolicitada )
-      const filtro = {
+      const filtro = [
+        {
+        '$match':
+              {
+                'proyecto': { $in: vistaUsuario}
+              }
+        },
+    ];
+    const ots = await OTs.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
 
-        proyecto: 'tigo_PA'
-      }
-      const ots = await OTs.find(); //{ cliente: req.body.cliente.toLowerCase() }
-      // console.log("bitacora", bitacora)
+      console.log("ots", ots)
       res.status(200)
       .send({ message: "lista de OTs", data: ots})
     // } else {
@@ -453,7 +466,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
 });
 
 
-router.post("/detalles", isAuth, async (req, res) => {
+router.post("/detalles", isAuth, (isUser || isHiper || isSuper), async (req, res) => {
   console.log( req.body.cliente,  req.body.codigo, req.body)
 
 const detalleFiltro =  [
@@ -503,69 +516,81 @@ router.post("/marcarleido", isAuth, async (req, res) => {
 
 
 // crear usuarion individual
-router.post("/register", isAuth, isRH, async (req, res) => {
+router.post("/register", isAuth, isHiper , async (req, res) => {
   console.log("req.body", req.body);
   // antes de guardar
   // comprobar email Unico y  codigo empleado unico
-  const emailUnicoTrim = req.body.email.trim().toLowerCase();
-  const codigoEmpleadoUnicoTrim = req.body.id_empleado.trim();
+  const emailUnicoTrim = req.body.datosRegistroUsuario.email.trim().toLowerCase();
   const emailUnico = await User.find({ email: emailUnicoTrim });
-  const codigoEmpleadoUnico = await User.find({
-    id_empleado: codigoEmpleadoUnicoTrim,
-  });
+  let nombres, password, passphrase, salt, vh, keys;
   console.log(
     "emailUnico",
     emailUnico,
-    "codigoEmpleadoUnico",
-    codigoEmpleadoUnico
+
   );
   console.log(
     "emailUnico.length>0",
     emailUnico.length > 0,
-    "codigoEmpleadoUnico.length>0",
-    codigoEmpleadoUnico.length > 0
+
   );
-  if (emailUnico.length > 0 || codigoEmpleadoUnico.length > 0) {
+  if (emailUnico.length > 0) {
     let mensaje = "";
     if (emailUnico.length > 0) {
       //error numero email repetido o numero empleado
       mensaje = "este email ya existe";
     }
-    if (codigoEmpleadoUnico.length > 0) {
-      //error numero email repetido o numero empleado
-      if (mensaje !== "") {
-        mensaje += " y ";
-      } else {
-        mensaje += ".";
-      }
-      mensaje += "este código de empleado ya existe.";
-    }
+
     res.status(200).send({ errorInfo: true, message: mensaje });
   } else {
     // buscar proximo ut_id
-    const userCount = await User.aggregate([
-      {
-        $group: {
-          _id: null,
-          count: { $sum: 1 },
+  const userMax = await User.aggregate([
+    {
+      $group: {
+        _id: null,
+        max: {
+          $max: {
+            $toInt: "$ut_id",
+          },
         },
       },
-    ]);
+    },
+  ]);
+  console.log("userMax", userMax[0]);
+let otMaxima = 0;
+if(userMax[0]===undefined || userMax[0]===null  ){
+  otMaxima=0
+}else{
+  otMaxima = userMax[0].max
+}
+
     // crear password temporal
 
-    const password = req.body.nombre.split(" ")[0] + "1234";
-    console.log("userCount y password", userCount, password);
+    const password = req.body.datosRegistroUsuario.nombre.split(" ")[0] + "1234";
+    console.log("otMaxima y password", otMaxima, password);
+    passphrase = createPassphrase(20, "hex");
+    salt = createPassphrase(20, "hex");
+    keys = getKeys(passphrase); //puede tomar un rato.
+    vh = createHash(
+      "sha256",
+      createPassphrase(55, "hex"),
+      req.body.datosRegistroUsuario.email.toLowerCase(),
+      "hex"
+    );
     try {
       const user = new User({
-        ut_id: userCount[0].count + 1,
-        razon_social: req.body.razon_social,
-        grupo: req.body.grupo,
-        vista: req.body.vista,
-        isSuper: req.body.isSuper,
-        isRH: req.body.isRH,
-        id_empleado: req.body.id_empleado,
-        nombre: req.body.nombre,
-        email: req.body.email.toLowerCase(),
+        ut_id: otMaxima + 1,
+        isUser: req.body.isUser,
+        isSuper: req.body.datosRegistroUsuario.isSuper,
+        isHiper: req.body.datosRegistroUsuario.isHiper,
+        nombre:req.body.datosRegistroUsuario.nombre,
+
+        oficina: req.body.datosRegistroUsuario.oficina,
+        empresa: req.body.datosRegistroUsuario.cliente,
+        vista: req.body.proyVistas,
+       
+        email: req.body.datosRegistroUsuario.email.toLowerCase(),
+
+        isActive:true,
         password: createHash(
           "sha256",
           process.env.SECRET,
@@ -573,15 +598,13 @@ router.post("/register", isAuth, isRH, async (req, res) => {
           "hex"
         ), //password+salt
         // password: password,
-        oficina: req.body.oficina,
-        puesto: req.body.puesto,
-        area: req.body.area,
-        departamento: req.body.departamento,
-        id_lider: req.body.id_lider,
-        nombre_lider: req.body.nombre_lider,
-        puesto_lider: req.body.puesto_lider,
-        area_lider: req.body.area_lider,
-        departamento_lider: req.body.departamento_lider,
+        verificationHash: vh,
+        salt: salt,
+        passphrase: passphrase,
+        pubKey: keys.public,
+        privKey: keys.private,
+        lastRecover: fechaRegional(config.TIMEZONE_OFFSET),
+        creationDate: fechaRegional(config.TIMEZONE_OFFSET),
       });
 
       console.log("user", user);
@@ -589,356 +612,12 @@ router.post("/register", isAuth, isRH, async (req, res) => {
       const newUser = await user.save();
       res.status(200).send({ message: "Usuario Creado exitosamente." });
     } catch (error) {
-      res.status(501).send({ message: "Error creando Usuario." });
+      res.status(401).send({ message: "Error creando Usuario." });
     }
   }
 });
 
-router.get("/infoactualizar", isAuth, isRH, async (req, res) => {
 
-  try {
-    const usuarios = await User.find().distinct("nombre");
-    const lideres = await User.find({ isSuper: true }, { nombre: 1, id_empleado: 1, ut_id: 1, vista: 1 });
-    const areas = await User.find().distinct("area");
-    const departamentos = await User.find().distinct("departamento");
-    const rs = await User.find().distinct("razon_social");
-
-
-    var uniquePuestos = [
-      {
-        '$group': {
-          '_id': null, 
-          'values': {
-            '$addToSet': {
-              'id':'$_id',
-              'codigo_puesto': '$codigo_puesto', 
-              'puesto': '$puesto',
-              'oficina': '$oficina',
-              'departamento': '$departamento',
-              'area': '$area'
-            }
-          }
-        }
-      }
-    ]
-
-    // console.log('puestos ', puestos)
-    const grupos = await User.find().distinct("grupo");
-
-    const InfoAut = {
-      usuarios: usuarios,
-      areas: areas,
-      departamentos: departamentos,
-      grupos: grupos,
-      lideres: lideres,
-      rs: rs,
-    };
-    // console.log('InfoAut ', InfoAut)
-    res.status(200).send(InfoAut);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
-  }
-});
-
-router.get("/buscarnombre", isAuth, isRH, async (req, res) => {
-  console.log("req", req.query);
-  try {
-    const usuario = await User.findOne({ nombre: req.query.nombre }, {
-      razon_social: 1,
-      ut_id: 1,
-      id_empleado: 1,
-      nombre: 1,
-      email: 1,
-      oficina: 1,
-      codigo_puesto: 1,
-      puesto: 1,
-      area: 1,
-      departamento: 1,
-      grupo: 1,
-      vista: 1,
-      id_lider: 1,
-      nombre_lider: 1,
-      isSuper: 1,
-      isRH: 1,
-      isActive: 1,
-      dias_laborables: 1,
-      tiempo_comida:1,
-      hora_entrada: 1,
-      minutos_entrada: 1,
-      hora_salida: 1,
-      minutos_salida: 1,
-      hora_entrada_sabado: 1,
-      minutos_entrada_sabado: 1,
-      hora_salida_sabado: 1,
-      minutos_salida_sabado: 1,
-
-    });
-
-    const grup = [
-      {
-        $group: {
-          _id: "$grupo",
-          integrantes: { $push: "$nombre" },
-        },
-        //   $project: {
-        //     razon_social: 1,
-        //     ut_id: 1,
-        //     id_empleado: 1,
-        //     nombre: 1,
-        //     email: 1,
-        //     oficina: 1,
-        //     puesto: 1,
-        //     area: 1,
-        //     departamento: 1,
-        //     grupo: 1,
-        //     vista: 1,
-        //     id_lider:1,
-        //     nombre_lider: 1
-        //   }
-      },
-    ];
-
-    const miembros = await User.aggregate(grup);
-    const lideres = await User.find({ isSuper: true }, { nombre: 1, id_empleado: 1, ut_id: 1, vista: 1 });
-    const InfoAut = {
-      usuario: usuario,
-      miembros: miembros,
-      lideres: lideres
-    };
-    // console.log('InfoAut ', InfoAut)
-    res.status(200).send(InfoAut);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
-  }
-});
-
-router.get("/buscarKPIUsuario", isAuth, isRH, async (req, res) => {
-  console.log("req", req.query);
-  const d = fechaRegional(process.env.TIMEZONE_OFFSET);
-  const userId = req.query.ut_id;
-  const fechaFormato = fechaRegionalUnicaInput( req.query.fecha, process.env.TIMEZONE_OFFSET);
-  let registroDia = await KPIs.findOne({
-    uniqueId: userId + fechaFormato,
-  });
-  console.log("req", req.query);
-  if(registroDia){
-    res.status(200).send({ data: registroDia });
-  } else{
-    res.status(500).send({ message: "KPI no existe." });
-  }
-    
-});
-
-router.post("/actualizarKPI", isAuth, isRH, async (req, res) => {
-  const d = fechaRegional(process.env.TIMEZONE_OFFSET);
-  console.log("inforkpi", req.body);
-  const userId = req.body.ut_id;
-  const fechaFormato = fechaRegionalUnicaInput( req.body.fecha, process.env.TIMEZONE_OFFSET);
-  try {
-      let registroDia = await KPIs.findOne({
-        uniqueId: userId + fechaFormato,
-      });
-      console.log("inforkregistroDiapi", registroDia);
-      const offset = new Date(req.body.comidaOut).getTimezoneOffset()/60*-1 ;
-    if(req.body.entradaChange){
-      registroDia.hora_entrada.fechaUTC= fechaRegionalInput(req.body.entrada, offset);
-      registroDia.hora_entrada.hora_decimal = new Date(req.body.entrada).getHours() + new Date(req.body.entrada).getMinutes()/60
-      registroDia.hora_entrada.hora = new Date(req.body.entrada).getHours();
-      registroDia.hora_entrada.minutos = new Date(req.body.entrada).getMinutes()
-    }
-    if(req.body.comidaInChange){
-      registroDia.hora_almuerzo_entrada.fechaUTC= fechaRegionalInput(req.body.comidaIn, offset);
-      registroDia.hora_almuerzo_entrada.hora_decimal = new Date(req.body.comidaIn).getHours() + new Date(req.body.comidaIn).getMinutes()/60
-      registroDia.hora_almuerzo_entrada.hora = new Date(req.body.comidaIn).getHours();
-      registroDia.hora_almuerzo_entrada.minutos = new Date(req.body.comidaIn).getMinutes()
-    }
-    if(req.body.comidaOutChange){
-      console.log("salida Alm",req.body.comidaOut , fechaRegionalInput(req.body.comidaOut, offset), new Date(req.body.comidaOut).getTimezoneOffset()  )
-      registroDia.hora_almuerzo_salida.fechaUTC= fechaRegionalInput(req.body.comidaOut, offset);
-      registroDia.hora_almuerzo_salida.hora_decimal = new Date(req.body.comidaOut).getHours() + new Date(req.body.comidaOut).getMinutes()/60
-      registroDia.hora_almuerzo_salida.hora = new Date(req.body.comidaOut).getHours();
-      registroDia.hora_almuerzo_salida.minutos = new Date(req.body.comidaOut).getMinutes()
-    }
-    console.log("registroDia Modificado", registroDia);
-
-    //falta grabar 
-    const kpiUpdated = await registroDia.save()
-    res.status(200).send({
-      error: false, message: "Exito crear actualizando el kpi."
-    });
-  } catch(error){
-    res.status(200).send({ error: true, message: "Datos invalidos" });
-  }
-
-});
-
-router.post("/guardarActualizacion", isAuth, isRH, async (req, res) => {
-  const lider = await User.findOne({nombre:req.body.nombre_lider})
-  const usuario = await User.findOne({ ut_id: req.body.ut_id })
-  console.log("req.body", req.body)
-  usuario.nombre = req.body.nombre;
-  // usuario.id_empleado= req.body.nombre;
-  usuario.puesto = req.body.puesto;
-  usuario.codigo_puesto = req.body.codigo_puesto;
-  usuario.email = req.body.email;
-  usuario.razon_social = req.body.razon_social;
-  usuario.oficina = req.body.oficina;
-  usuario.area = req.body.area;
-  usuario.departamento = req.body.departamento;
-  usuario.nombre_lider = req.body.nombre_lider;
-  // datos del lider 
-  usuario.id_lider = lider.id_empleado; 
-  usuario.puesto_lider= lider.puesto;
-  usuario.area_lider= lider.area;
-  usuario.departamento_lider = lider.departamento
-  usuario.grupo = lider.vista;
-  // sus datos como lider
-  usuario.vista = req.body.vista;
-  usuario.isSuper = Boolean(req.body.isSuper);
-  usuario.isRH = Boolean(req.body.isRH);
-  usuario.isActive = Boolean(req.body.isActive);
-  usuario.hora_entrada = Number(req.body.horaEntrada);
-  usuario.minutos_entrada = Number(req.body.minEntrada);
-  usuario.hora_salida = Number(req.body.horaSalida);
-  usuario.minutos_salida = Number(req.body.minSalida);
-  usuario.hora_entrada_sabado = Number(req.body.horaEntradaSabado);
-  usuario.minutos_entrada_sabado = Number(req.body.minEntradaSabado);
-  usuario.hora_salida_sabado = Number(req.body.horaSalidaSabado);
-  usuario.minutos_salida_sabado = Number(req.body.minSalidaSabado);
-  usuario.dias_laborables = Number(req.body.dias_laborables);
-  usuario.tiempo_comida = Number(req.body.tiempo_comida);
-
-  try {
-    const actualizUsuarioGuardada = await usuario.save();
-    res.status(200).send({ data: actualizUsuarioGuardada });
-  } catch {
-    res.status(400).send({ message: "Error actualizando Usuario." });
-  }
-
-});
-
-router.post("/almuerzo", isAuth, async (req, res) => {
-  console.log("almuerzo post")
-  const userId = req.user.ut_id;
-  const fechaUTC = fechaRegional(process.env.TIMEZONE_OFFSET);
-  // const fechaFormato = fechaUnica(fechaUTC);
-  const fechaFormato = fechaRegionalUnica(process.env.TIMEZONE_OFFSET);
-  const fecha = fechaRegional(process.env.TIMEZONE_OFFSET);
-
-  // chequeo si ya existe un registro
-  const kpi = await KPIs.findOne({
-    uniqueId: userId + fechaFormato,
-  });
-  // console.log('kpi', kpi);
-  
-  if (kpi) {
-    if(req.body.almuerzo_cambio == false){  // solo se necesita Chequeo del KPI
-      res.status(200).send({ data: kpi });
-    } else if(req.body.almuerzo_cambio == true ){ // hay cambio de almuerzo
-
-    if (kpi.status_almuerzo + 1 < 3 ) {//&& kpi.status_almuerzo !== req.body.almuerzo) {
-      if (kpi.status_almuerzo + 1 === 2) {
-        console.log("salida alm")
-        kpi.hora_almuerzo_salida = {
-          fechaUTC: fechaUTC,
-          hora_decimal: Number(
-            fechaUTC.getUTCHours() + fechaUTC.getUTCMinutes() / 60.0
-          ),
-          hora: fechaUTC.getUTCHours(),
-          minutos: fechaUTC.getUTCMinutes(),
-
-        };
-      } else if (kpi.status_almuerzo + 1 === 1) {
-        console.log("entrada alm")
-
-        kpi.hora_almuerzo_entrada = {
-          fechaUTC: fechaUTC,
-          hora_decimal: Number(
-            fechaUTC.getUTCHours() + fechaUTC.getUTCMinutes() / 60.0
-          ),
-          hora: fechaUTC.getUTCHours(),
-          minutos: fechaUTC.getUTCMinutes(),
-
-        };
-      }
-    }
-      try {
-        kpi.status_almuerzo++;
-        const almuerzoMarcada = await kpi.save();
-        // console.log('almuerzoMarcada}', almuerzoMarcada);
-        if (almuerzoMarcada) {
-          res.status(200).send({ data: almuerzoMarcada }); // se envian los cambios de almuerzo al backend
-        } 
-        } catch {
-        res.status(400).send({ message: "Error marcando almuerzo." });
-        }
-    }
-  
-} else {
-  res.status(400).send({ message: "Error no ha marcado hoy." });
-}
-});
-
-router.post("/permiso", isAuth, async (req, res) => {
-  const userId = req.user.ut_id;
-  const fechaUTC = fechaRegional(process.env.TIMEZONE_OFFSET);
-  // const fechaFormato = fechaUnica(fechaUTC);
-  const fechaFormato = fechaRegionalUnica(process.env.TIMEZONE_OFFSET);
-  const fecha = fechaRegional(process.env.TIMEZONE_OFFSET);
-
-  // chequeo si ya existe un registro
-  const kpi = await KPIs.findOne({
-    uniqueId: userId + fechaFormato,
-  });
-  console.log('req body', req.body);
-
-  if (kpi) {
-    if(req.body.permiso_cambio == false){  // solo se necesita Chequeo del KPI
-      res.status(200).send({ data: kpi });
-    } else if(req.body.permiso_cambio == true ){ // hay cambio de permiso
-    if (kpi.status_permiso + 1 < 3 ) {
-      if (kpi.status_permiso + 1 === 2) {
- 
-        kpi.hora_permiso_salida = {
-          fechaUTC: fechaUTC,
-          hora_decimal: Number(
-            fechaUTC.getUTCHours() + fechaUTC.getUTCMinutes() / 60.0
-          ),
-          hora: fechaUTC.getUTCHours(),
-          minutos: fechaUTC.getUTCMinutes(),
-
-        };
-      } else if (kpi.status_permiso + 1 === 1) {
-
-        kpi.hora_permiso_entrada = {
-          fechaUTC: fechaUTC,
-          hora_decimal: Number(
-            fechaUTC.getUTCHours() + fechaUTC.getUTCMinutes() / 60.0
-          ),
-          hora: fechaUTC.getUTCHours(),
-          minutos: fechaUTC.getUTCMinutes(),
-         
-         
-        };
-      }
-    }
-    try {
-      kpi.status_permiso++;
-      const permisoMarcada = await kpi.save();
-      // console.log('kpiD', kpi)
-      if(permisoMarcada){
-      res.status(200).send({ data: permisoMarcada });
-    } 
-    }catch {
-      res.status(400).send({ message: "Error marcando permiso." });
-    }
-  }
- } else {
-    res.status(400).send({ message: "no ha entrado hoy." });
-  }
-});
 
 
 router.get("/statuscheck", isAuth, async (req, res) => {
@@ -964,56 +643,17 @@ router.get("/statuscheck", isAuth, async (req, res) => {
 
 router.post("/salida", isAuth, async (req, res) => {
   console.log("salida")
-  const fechaUTC = fechaRegional(process.env.TIMEZONE_OFFSET);
-  // const fechaFormato = fechaUnica(fechaUTC);
-  const fechaFormato = fechaRegionalUnica(process.env.TIMEZONE_OFFSET);
-  // const fecha = fechaRegional(process.env.TIMEZONE_OFFSET);
-  const userId = req.user.ut_id;
-  // console.log('fecha SALIENDO', fecha);
-  const kpi = await KPIs.findOne({
-    uniqueId: userId + fechaFormato,
-  });
-  // console.log('kpi fecha', kpi, kpi.marco_salida, 'req.body', req.body );
-  if (kpi) {
-    if (!kpi.marco_salida) {
+  
       try {
-        console.log("No marcado salida. Saliendo...", req.body.info.salidaAutorizada.salidaAutorizada)
-        kpi.hora_salida.fechaUTC = fechaUTC;
-        kpi.hora_salida.hora_decimal = Number(
-          fechaUTC.getUTCHours() + fechaUTC.getUTCMinutes() / 60.0
-        );
-        kpi.hora_salida.hora = fechaUTC.getUTCHours();
-        kpi.hora_salida.minutos = fechaUTC.getUTCMinutes();
-        console.log(`horas de salida son : ${kpi.hora_salida.fechaUTC.toISOString()} ${kpi.hora_salida.hora_decimal} ${kpi.hora_salida.hora} ${kpi.hora_salida.minutos}`)
-        // kpi.hora_salida.latitude=req.info.crd?  req.info.crd.latitude : null;
-        // kpi.hora_salida.longitude= req.info.crd? req.info.crd.longitude : null;
-
-        kpi.marco_salida = true;
-        kpi.salida_autorizada = (req.body.info.salidaAutorizada.salidaAutorizada=="true" || req.body.info.salidaAutorizada.salidaAutorizada== true) ? true: false;
-        kpi.animoPM = Number(req.body.info.feelingPM);
-
-        const salidaMarcada = await kpi.save();
-        console.log('kpiD', kpi)
-        res.status(200).send({ error: false, data: salidaMarcada });
+        
+        res.status(200).send({ error: false , data:req.body});
       } catch (error) {
         res
           .status(500)
           .send({ error: true, message: "no se puede grabar el registro" });
       }
-    }
-    else {
-      console.log("ya marco el kpi")
-      return res
-        .status(200)
-        .send({ error: false, message: "Ya marco salida." });
-    }
-  } else {
-    console.log("kpi no existe")
-    // console.log('status(200) No hay registro de KPI con ese ID')
-    return res
-      .status(200)
-      .send({ error: true, message: "No hay registro de KPI con ese ID." });
-  }
+    
+   
 });
 
 //test. esto se cambia cuando quieres borrar todo y probar la insercion de los usuarios
@@ -1544,15 +1184,15 @@ console.log('output', output);
       sitios[i].tipo_estructura == "" || //saltarse el usuario que este vacio
       sitios[i].tx == "" || //saltarse el usuario que este vacio
       sitios[i].latitud_validada_grados == "" || //saltarse el usuario que este vacio
-      sitios[i].longitud_validada_grados == "" || //saltarse el usuario que este vacio
-      sitios[i].numero_finca == "" || //saltarse el usuario que este vacio
-      sitios[i].numero_documento_finca == "" || //saltarse el usuario que este vacio
-      sitios[i].direccion_sitio == "" || //saltarse el usuario que este vacio
-      sitios[i].arrendatario == "" || //saltarse el usuario que este vacio
-      sitios[i].area_arrendada == "" || //saltarse el usuario que este vacio
-      sitios[i].area_a_utilizar == "" || //saltarse el usuario que este vacio
-      sitios[i].tipologia_sitio == "" || //saltarse el usuario que este vacio
-      sitios[i].orientacion_torre == "" 
+      sitios[i].longitud_validada_grados == ""  //saltarse el usuario que este vacio
+      // sitios[i].numero_finca == "" || //saltarse el usuario que este vacio
+      // sitios[i].numero_documento_finca == "" || //saltarse el usuario que este vacio
+      // sitios[i].direccion_sitio == "" || //saltarse el usuario que este vacio
+      // sitios[i].arrendatario == "" || //saltarse el usuario que este vacio
+      // sitios[i].area_arrendada == "" || //saltarse el usuario que este vacio
+      // sitios[i].area_a_utilizar == "" || //saltarse el usuario que este vacio
+      // sitios[i].tipologia_sitio == "" || //saltarse el usuario que este vacio
+      // sitios[i].orientacion_torre == "" 
 
     ) {
       
@@ -1571,6 +1211,7 @@ console.log('output', output);
         proyecto: sitios[i].proyecto,
         provincia: sitios[i].provincia,
         departamento: sitios[i].departamento,
+        municipio: sitios[i].municipio,
         pais: sitios[i].pais,
         altura_validada: sitios[i].altura_validada,
         altura_pararrayos: sitios[i].altura_pararrayos,
@@ -1676,28 +1317,20 @@ router.put("/chpass/:vh", async (req, res) => {
           let userInfo = {
             _id: usuario._id,
             ut_id: usuario.ut_id,
-            id_empleado: usuario.id_empleado,
-            razon_social: usuario.razon_social,
+
             oficina: usuario.oficina,
             nombre: usuario.nombre,
-            apellido: usuario.apellido,
+            empresa: usuario.empresa,
             email: usuario.email,
             token: getToken(usuario),
 
-            puesto: usuario.puesto,
-            area: usuario.area,
             departamento: usuario.departamento,
-            grupo: usuario.grupo,
+
             vista: usuario.vista,
             isSuper: usuario.isSuper,
-            isRH: usuario.isRH,
-
-            id_lider: usuario.ut_id,
-            email_lider: usuario.email_lider,
-            nombre_lider: usuario.nombre_lider,
-            puesto_lider: usuario.puesto_lider,
-            area_lider: usuario.area_lider,
-            departamento_lider: usuario.departamento_lider,
+            ishiper: usuario.isHiper,
+            isSuper: usuario.isSuper,
+           
           };
           console.log("cambio de clave exitoso.");
           res.send({
@@ -1806,28 +1439,14 @@ router.put("/chpass", isAuth, async (req, res) => {
       let userInfo = {
         _id: usuario._id,
         ut_id: usuario.ut_id,
-        id_empleado: usuario.id_empleado,
-        razon_social: usuario.razon_social,
         oficina: usuario.oficina,
         nombre: usuario.nombre,
-        apellido: usuario.apellido,
         email: usuario.email,
         token: getToken(usuario),
-
-        puesto: usuario.puesto,
-        area: usuario.area,
-        departamento: usuario.departamento,
-        grupo: usuario.grupo,
         vista: usuario.vista,
         isSuper: usuario.isSuper,
-        isRH: usuario.isRH,
-
-        id_lider: usuario.ut_id,
-        email_lider: usuario.email_lider,
-        nombre_lider: usuario.nombre_lider,
-        puesto_lider: usuario.puesto_lider,
-        area_lider: usuario.area_lider,
-        departamento_lider: usuario.departamento_lider,
+        isHiper: usuario.isHiper,
+        isSuper: usuario.isHSuper,
       };
 
       res.send({
@@ -2024,23 +1643,5 @@ router.put("/recoverEmail", async (req, res) => {
 
 });
 
-// agregar campo de horario a todos los usuarios
-router.get("/agregardiasemana", async (req, res) => {
-  const kpi = await KPIs.find({ semana: 49 });
-  const cambio = [];
-  for (let i = 0; i < kpi.length; i++) {
-    try {
-      if (kpi[i].dia_semana === undefined || kpi[i].dia_semana === null) {
-        // console.log("kpis", i);
-        kpi[i].dia_semana = new Date(kpi[i].fecha).getDay();
-        console.log("kpis", kpi[i]);
-        cambio[i] = await kpi[i].save();
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
-  }
-  console.log("kpi cambiados", cambio);
-  res.send("ok");
-});
+
 export default router;

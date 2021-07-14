@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 
 import Cookies from "js-cookie";
 import {
-    userSigninReducer, userEntradaReducer, userProyectoReducer, userDetallesSitioReducer, userRegisterReducer, userAlmuerzoReducer,userOTSReducer,
-    userPermisoReducer, infoRegisterReducer, createUsersReducer, createSitio, emailRecoveryReducer, infoActualizarReducer, infoBuscarNombreReducer, saveActualizarReducer, infoKPIGetReducer, userStatusReducer, createSitioReducer, listaSitiosCargadosReducer
+    userSigninReducer, userEntradaReducer, userProyectoReducer, userDetallesSitioReducer, userRegisterReducer,userOTSReducer, userSalidaReducer,
+    infoRegisterReducer, createUsersReducer, createSitio, emailRecoveryReducer, infoActualizarReducer, userStatusReducer, createSitioReducer, listaSitiosCargadosReducer
 } from './reducers/userReducer';
 import {
     kpiPendientesListReducer, CrearPendienteReducer, ActualizarPendienteReducer,
@@ -18,7 +18,7 @@ const userKpiEntrada = Cookies.getJSON("userKpiEntrada") || null;
 
 const initialState = {
     userSignin: { userInfo }, userEntrada: { userKpiEntrada },  userStatusInfo: {},userProyecto: {}, userDetallesSitio: {}, userOTS: {}, listaSitiosCargados: {},
-    userRegister: {}, infoRegister: {},userInfoActualizar:{}, infoBuscarNombre:{}, saveActualizar:{},
+    userRegister: {}, infoRegister: {},userInfoActualizar:{}, infoBuscarNombre:{}, saveActualizar:{}, userSalida:{},
      infoKPIGet: {}, kpiPendienteLista: {},  kpiCrearPendiente: {}, kpiModificarPendiente:{}, 
     kpiDeletePendiente: {}, kpiGrupo: {}, kpiMio: {},
     kpiUserDetalle: {}, kpiUserCambioJornadaHora: {},
@@ -30,16 +30,15 @@ const reducer = combineReducers({
     userEntrada: userEntradaReducer,
     userProyecto: userProyectoReducer,
     userDetallesSitio: userDetallesSitioReducer,
-    // userSalida: userSalidaReducer,
+    userSalida: userSalidaReducer,
     userRegister: userRegisterReducer,
     userInfoActualizar:infoActualizarReducer,
 
     userOTS: userOTSReducer,
 
-    infoBuscarNombre: infoBuscarNombreReducer,
+
     infoRegister: infoRegisterReducer,
-    userAlmuerzoInfo: userAlmuerzoReducer,
-    userPermisoInfo: userPermisoReducer,
+
     userStatusInfo: userStatusReducer,
 
     userCreateInfo: createUsersReducer,
@@ -47,8 +46,8 @@ const reducer = combineReducers({
     listaSitiosCargados: listaSitiosCargadosReducer,
 
     emailRecovery: emailRecoveryReducer,
-    saveActualizar:saveActualizarReducer,
-    infoKPIGet: infoKPIGetReducer,
+
+
 
     kpiPendienteLista: kpiPendientesListReducer,
     kpiHoraVista: kpiHoraVistaReducer,

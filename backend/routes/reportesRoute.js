@@ -1,7 +1,7 @@
 import { xlsxKPIsEmpleado } from "../reports/rh/kpisEmpleado.js";
 import { createReporte } from "../pages/reportePage";
 import User from "../models/employee_model"
-import { isAuth, isRH, EnvioEmail } from "../util"
+import { isAuth, isUser, isSuper, isHiper, EnvioEmail } from "../util"
 import { fechaString, fechaRegional } from "../fechas"
 import express from "express"
 import fs from "fs"
@@ -9,7 +9,7 @@ import path from "path"
 const router = express.Router();
  
 
-router.post("/rh/incidencias", isAuth, isRH, async (req, res) => {
+router.post("/rh/incidencias", isAuth, async (req, res) => {
     console.log("reporte solicitado")
     console.log(req.body.email);
     console.log(req.body);
@@ -51,7 +51,7 @@ console.log("filtros", filtros);
 })
 
 
-router.post("/rh/kpis", isAuth, isRH, async (req, res) => {
+router.post("/rh/kpis", isAuth,  async (req, res) => {
     let error = false;
     let fileName, buff, desde, hasta, nombre;
     console.log("reporte solicitado", req.body.email, req.body);//seria bueno buscar quien creo el archivo. 

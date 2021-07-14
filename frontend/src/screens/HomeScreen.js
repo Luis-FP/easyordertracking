@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { buscarDetallesSitio, usersOTs } from "../actions/userActions";
-import { Gauge } from '../components/ReactGauge';
-import { queFecha, horaLocal, fechaActual, fechaUnica } from '../components/fechas';
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
@@ -14,19 +13,18 @@ import BeenhereIcon from '@material-ui/icons/Beenhere';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import ButtonBase from '@material-ui/core/ButtonBase';
+
 import Container from '@material-ui/core/Container';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import Tooltip from '@material-ui/core/Tooltip';
+import { fechaUnica } from '../components/fechas';
 
 
-const verdefondo = grey[900]
+
+const verdefondo = green[900]
 const azulfondo = blue[900]
 const rojoFondo = red[900]
 const greyfondo = grey[300]
@@ -138,7 +136,32 @@ function HomeScreen(props) {
     {_id:"p9",titulo:'pagado', codigo:'pagado', paso:8},
   ]
 
+  let today = new Date().getTime();
+  let fechasVisibles = [
+    {_id:"f1", titulo: fechaUnica(today - 5 * 86400000  ), codigo: new Date(today - 5 * 86400000), paso:0},
+    {_id:"f2", titulo: fechaUnica(today - 4 * 86400000  ), codigo: new Date(today - 4 * 86400000), paso:1},
+    {_id:"f3",titulo: fechaUnica(today - 3 * 86400000  ), codigo: new Date(today - 3 * 86400000), paso:2},
+    {_id:"f4",titulo: fechaUnica(today - 2 * 86400000  ), codigo: new Date(today - 2 * 86400000), paso:3},
+    {_id:"f5",titulo: fechaUnica(today - 1 * 86400000  ), codigo: new Date(today - 1 * 86400000), paso:4},
+    {_id:"f6",titulo: fechaUnica(today - 0 * 86400000  ), codigo: new Date(today - 0 * 86400000), paso:5},
+    {_id:"f7",titulo: fechaUnica(today+ 1 * 86400000  ), codigo: new Date(today + 1 * 86400000), paso:6},
+    {_id:"f8",titulo: fechaUnica(today+ 2 * 86400000  ), codigo: new Date(today + 2 * 86400000), paso:7},
+    {_id:"f9",titulo: fechaUnica(today+ 3 * 86400000  ), codigo: new Date(today + 3 * 86400000), paso:8},
+    {_id:"f10",titulo: fechaUnica(today+ 4 * 86400000  ), codigo: new Date(today + 4 * 86400000), paso:9},
+    {_id:"f11",titulo: fechaUnica(today+ 5 * 86400000  ), codigo: new Date(today + 5 * 86400000), paso:10},
 
+  ]
+
+  const userSignin = useSelector(state => state.userSignin);
+  const { userInfo } = userSignin;
+  console.log("userInfo", userInfo);
+
+
+
+  const userOTS = useSelector(state => state.userOTS);
+  const { userOTsInfo, errorOTS } = userOTS;
+  
+console.log(userOTsInfo)
   const [openModal, setOpenModal] = React.useState(false);
   const [sitio, setSitio] = React.useState([]);
   const [ot, setOt] = useState();
@@ -153,8 +176,13 @@ function HomeScreen(props) {
       ot_number: e.currentTarget.getAttribute('ot_number')
     }
     console.log("Sitio a Buscar",sitioBuscar)
-    dispatch(buscarDetallesSitio(sitioBuscar))
-    props.history.push('/detalleOT');
+    // dispatch(buscarDetallesSitio(sitioBuscar))
+    props.history.push(
+      "/detalleOT/?codigo=" +
+      e.currentTarget.getAttribute('codigo') +
+      "&ot_number=" +
+      e.currentTarget.getAttribute('ot_number')
+    );
 
   };
 
@@ -166,31 +194,12 @@ function HomeScreen(props) {
   };
 
 
-
-
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
-  console.log("userInfo", userInfo);
-
-
-
-  const userOTS = useSelector(state => state.userOTS);
-  const { userOTsInfo, errorOTS } = userOTS;
-  
-console.log(userOTsInfo)
-
   const dispatch = useDispatch();
 
-  
-
   useEffect(() => {
-
-    
     if (!userInfo) {
       props.history.push('/login');
-
   } 
-
       dispatch(usersOTs());
     return () => {
  
@@ -198,40 +207,19 @@ console.log(userOTsInfo)
   }, []);
  
 
-
-
-
   return (
-    <DragDropContext onDragEnd={(result)=> {
-      const {source, destination} = result;
-      if(!destination){
-        return;
-      }
-      if(source.index === destination.index
-      && source.droppableId=== destination.droppableId ){
-        return;
-      }
-      console.log('source.index, destination.index, ot[source.index], procesos[destination.index]', source.index, destination.index, ot[source.index], procesos[destination.index])
-      const valorNuevo = procesos[destination.index].paso
-      // const fuente = {...ot[source.index], [ot[source.index].estado] : valorNuevo}
-      // setOt({...ot, fuente})
-      console.log("ot", ot);
-    }}>
+
     <React.Fragment>
     <CssBaseline />
     <Container width="60%">
-
-
-    <div >
-   
+    <div>
     <Grid container spacing={3} className={classes.grid} >
         {procesos
         .map((fase) => (
-          <Droppable droppableId={fase._id} key={'grid'+fase.codigo}>
-          {(droppableProvided) => (
+
             <Grid 
-            {...droppableProvided.droppableProps}
-            ref={droppableProvided.innerRef}
+            key={'grid'+fase.codigo}
+           
              item xs={12} sm={12}>
           <Paper className={classes.paper}>
             <div className={classes.badge}>
@@ -241,14 +229,11 @@ console.log(userOTsInfo)
             </div>
             <Typography className={classes.title}>{fase.titulo}</Typography>
                
-            
             {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> ot.estado === fase.codigo && (
-            <Draggable key={'chip'+ot._id} draggableId={ot._id} index={index}>
-            { (draggableProvided) => ( 
+
+              <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
-              {...draggableProvided.draggableProps}
-              ref={draggableProvided.innerRef}
-              {...draggableProvided.dragHandleProps}
+              
               className="handle"
               // fontSize="large"
               className={classes.chip}
@@ -258,14 +243,14 @@ console.log(userOTsInfo)
               cliente={ot.cliente}
               ot_number={ot.ot_number}
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
-              label={ot.requerimiento +" - "+ ot.sitio_codigo +" - "+ ot.sitio_nombre + " - " +ot.proyecto}
+              label={ot.requerimiento +" - " +ot.proyecto}
               clickable={true}
               style={ {backgroundColor: ot.prioridad === 'Alta'? 'red': 'green'} }
     
               onClick={(e)=>handleOpenDetalle(e)}
-            />)}
-            </Draggable>
-            ))}
+            /></Tooltip>)
+       
+            )}
        
             <div className={classes.badge}>
               <Badge badgeContent={10} style={{ color: 'red' }}>
@@ -273,15 +258,12 @@ console.log(userOTsInfo)
               </Badge>
             </div>
           </Paper>
-          {droppableProvided.placeholder}
-        </Grid>)}
-        </Droppable>
-        ))}
+
+        </Grid>))}
         </Grid>
     </div>
     </Container>
     </React.Fragment>
-    </DragDropContext>
   );
 
 }

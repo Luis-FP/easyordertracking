@@ -3,27 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { signin, encryptPublic, secureLogin, logout, marcarTCLeido, registroEntrada, autoLogout } from "../actions/userActions";
 
-// import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-// import { makeStyles } from '@material-ui/core/styles';
-import { composeClasses } from '@material-ui/data-grid';
-import green from '@material-ui/core/colors/green';
+
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
-
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-// import Link from '@material-ui/core/Link';
+
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -198,8 +192,8 @@ function LoginScreen(props) {
         open={abrirTYC}
         TransitionComponent={Transition}
         keepMounted
-        // onClose={handleClose}
-        disableBackdropClick={true}
+        onClose={handleCloseNo}
+        // disableBackdropClick={true}
         disableEscapeKeyDown={true}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"

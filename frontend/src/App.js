@@ -5,7 +5,7 @@ import NavBarStore from './screens/NavBarStore';
 import LoginScreen from './screens/LoginScreen';
 import LogoutScreen from './screens/LogoutScreen';
 import HomeScreen from './screens/HomeScreen';
-
+import RegisterScreen from './screens/RegisterScreen'
 import DetalleOTScreen from './screens/DetalleOTScreen'
 import ActualizarScreen from './screens/ActualizarScreen';
 import CrearOTScreen from './screens/CrearOTScreen';
@@ -32,9 +32,9 @@ function App() {
                         <Switch>
                             <Route path="/" exact={true} component={HomeScreen} />
                             <Route path="/login" component={LoginScreen} />
-                            <Route path="/logout" component={LogoutScreen} />
+                            {/* <Route path="/logout" component={LogoutScreen} /> */}
                             <Route path="/detalleOT" component={DetalleOTScreen} />
-                            {/* <Route path="/register" component={RegisterScreen} /> */}
+                            <Route path="/register" component={RegisterScreen} />
                             <Route path="/actualizar" component={ActualizarScreen} />
                             <Route path="/crearOT" component={CrearOTScreen} />
                             <Route path="/crearSitio" component={CrearSitioScreen} />

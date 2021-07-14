@@ -245,7 +245,7 @@ router.get("/listagrupo", isAuth, isSuper, async (req, res) => {
         'isSuper': 1,
         // 'isActive':1,
         'dias_laborables':1,
-        'isRH': 1,
+
         'id_lider': 1,
         'nombre_lider': 1,
         'puesto_lider': 1,

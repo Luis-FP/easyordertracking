@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { actualizarOT } from "../actions/userActions";
-import { Gauge } from '../components/ReactGauge';
-import { queFecha, horaLocal, fechaActual, fechaUnica } from '../components/fechas';
+import { actualizarOT, buscarDetallesSitio } from "../actions/userActions";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -10,32 +9,20 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import EditAttributesIcon from '@material-ui/icons/EditAttributes';
+
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { withStyles, useTheme } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import MenuItem from '@material-ui/core/MenuItem';
-import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -43,6 +30,17 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Fab from '@material-ui/core/Fab';
 import SaveIcon from '@material-ui/icons/Save';
+
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+
+
+const verdefondo = green[900]
+const azulfondo = blue[900]
+const rojoFondo = red[900]
+const greyfondo = grey[300]
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,16 +54,24 @@ const useStyles = makeStyles((theme) => ({
   },
   title2: {
     fontSize: 25,
-    color: 'white',
-    backgroundColor:'grey',
+    color: azulfondo,
+    borderRadius:10,
+    backgroundColor: greyfondo,
     border:'30px',
     textTransform: 'capitalize',
     textAlign:'center'
   },
   subtitle: {
     fontSize: 15,
-    color: 'blue',
+    color: azulfondo,
     textAlign:'left'
+  },
+  proceso: {
+    width:"100%",
+    borderRadius:10,
+    backgroundColor: 'white',
+    border: 'black',
+
   },
   formControl: {
     margin: theme.spacing(1),
@@ -87,16 +93,25 @@ const useStyles = makeStyles((theme) => ({
   nextButton: {
     aligned: 'right',
   },
+  warning: {
+    width:"100%",
+    textAlign:"center",
+    border: "black",
+    borderRadius:6,
+    fontSize: 15,
+    color:"white",
+    backgroundColor:rojoFondo
+  },
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     fontSize: 20,
-    color:"blue"
+    color:azulfondo
   },
   fab: {
     position: 'absolute',
-    top: theme.spacing(22),
-    right: theme.spacing(26),
+    top: '24%', //theme.spacing(22),
+    right: '6%',//theme.spacing(26),
   },
 }));
 
@@ -123,6 +138,18 @@ function getSteps() {
   {_id:"p9",titulo:'pagado', codigo:'pagado', paso:8},
 ]}
 
+const responsablesOT = [
+
+  {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmail.com'},
+  {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
+
+];
+const prioridades = [
+  '',
+  'Normal',
+  'Alta',
+  'Inmediata',
+]
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
@@ -149,11 +176,7 @@ function getStepContent(stepIndex) {
   }
 }
 
-const prioridades = [
-  'Normal',
-  'Alta',
-  'Inmediata',
-]
+
 
 
 function DetalleOTScreen(props) {
@@ -161,10 +184,11 @@ function DetalleOTScreen(props) {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
-  const userDetallesSitio = useSelector(state => state.userDetallesSitio);
-  const { detallesSitio } = userDetallesSitio;
-  const dispatch = useDispatch();
+  const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
+  const { loadingSitio, detallesSitio } = userDetallesSitio;
 
+  const dispatch = useDispatch();
+  const history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
   const [edit, setEdit] = React.useState(false);
@@ -177,10 +201,16 @@ function DetalleOTScreen(props) {
   };
  
   const steps = getSteps();
-  const responsablesOT = [
-    {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmail.com'},
-    {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
-  ];
+
+  const split = props.location.search.split("&");
+  console.log("split", split) 
+  
+  const sitioBuscar ={
+    codigo: props.location.search ? split[0].substring(+ 8) : 1,
+    ot_number: props.location.search ? split[1].substring(+ 10) : 1
+  }
+
+
 
 console.log( responsablesOT.map((option) => {
   return(<MenuItem key={option._id} selected={option === ''}  >
@@ -211,7 +241,18 @@ console.log( responsablesOT.map((option) => {
     setActiveStep(0);
   };
 
-  // const [selectedDate, setSelectedDate] = React.useState(rows);
+  const defaultProps = {
+    options: responsablesOT,
+    getOptionLabel: (option) =>  option.responsable_ot,
+  };
+
+  const handleDateChangefecha_requerida = (date) => {
+    setDetalleSitioInfo({...detalleSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})
+  };
+
+  const handleDateChangefecha_sla = (date) => {
+    setDetalleSitioInfo({...detalleSitioInfo, ['fecha_sla']: new Date(date), ['fecha_slaChange']:true})
+  };
 
   const [detalleSitioInfo, setDetalleSitioInfo] = React.useState({
       cliente: detallesSitio? detallesSitio.data[0].cliente : "",
@@ -219,7 +260,8 @@ console.log( responsablesOT.map((option) => {
       detallesSitio: detallesSitio? detallesSitio.data[0].detallesSitio: "",
       email_responsable_cliente: detallesSitio? detallesSitio.data[0].email_responsable_cliente: "",
       estado: detallesSitio? detallesSitio.data[0].estado: "",
-      fecha_requerida: detallesSitio? detallesSitio.data[0].fecha_requerida: "",
+      fecha_requerida: detallesSitio? detallesSitio.data[0].fecha_requerida: new Date(),
+      fecha_sla: detallesSitio? detallesSitio.data[0].fecha_sla: new Date(),
       ot_number: detallesSitio? detallesSitio.data[0].ot_number: "",
       pais: detallesSitio? detallesSitio.data[0].pais: "",
       prioridad: detallesSitio? detallesSitio.data[0].prioridad: "",
@@ -231,10 +273,16 @@ console.log( responsablesOT.map((option) => {
       responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: "",
       comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
     });
-    // const pasoInicial = getSteps().filter(paso => detalleSitioInfo && paso.codigo===detalleSitioInfo.estado)[0].paso
-    //  console.log(pasoInicial)
+    // const [detalleSitioInfo, setDetalleSitioInfo] = React.useState([]);
     const [activeStep, setActiveStep] = React.useState(0);
 
+   
+
+
+    // const pasoInicial = getSteps().filter(paso => detalleSitioInfo && paso.codigo===detalleSitioInfo.estado)[0].paso
+    //  console.log(pasoInicial)
+   
+ 
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -245,119 +293,132 @@ console.log( responsablesOT.map((option) => {
   };
 
  
-
+  
 
   useEffect(() => {
-
-    
+      
     if (!userInfo ) {
       props.history.push('/login');
 
-  }
-
-  if(detallesSitio){
-    setDetalleSitioInfo({
-      cliente: detallesSitio.data[0].cliente,
-      detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
-      detallesSitio: detallesSitio.data[0].detallesSitio,
-      email_responsable_cliente: detallesSitio.data[0].email_responsable_cliente,
-      estado: detallesSitio.data[0].estado,
-      fecha_requerida: detallesSitio.data[0].fecha_requerida,
-      ot_number: detallesSitio.data[0].ot_number,
-      pais: detallesSitio.data[0].pais,
-      prioridad: detallesSitio.data[0].prioridad,
-      proyecto: detallesSitio.data[0].proyecto,
-      requerimiento: detallesSitio.data[0].requerimiento,
-      responsable_cliente: detallesSitio.data[0].responsable_cliente,
-      sitio_codigo: detallesSitio.data[0].sitio_codigo,
-      sitio_nombre: detallesSitio.data[0].sitio_nombre,
-      responsable_ot: detallesSitio.data[0].responsable_ot? detallesSitio.data[0].responsable_ot :"Sin Asignar" ,
-      email_responsable_ot: detallesSitio.data[0].email_responsable_ot? detallesSitio.data[0].email_responsable_ot :"" ,
-      comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
-      altura_pararrayos:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_pararrayos: "",
-      altura_validada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_validada: "",
-      area_a_utilizar:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_a_utilizar: "",
-      area_arrendada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_arrendada: "",
-      arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].arrendatario: "",
-      identificacion_arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].identificacion_arrendatario: "",
-      departamento:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].departamento: "",
-      direccion_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].direccion_sitio: "",
-      latitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].latitud_validada_grados: "",
-      longitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].longitud_validada_grados: "",
-      numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
-      orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
-      pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
-      provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
-      proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
-      resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
-      tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
-      tipologia_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipologia_sitio: "",
-      tx: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tx: "",
-      derecho_paso_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].derecho_paso_sitio: "",
-      electricidad_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].electricidad_sitio: "",
-      observaciones_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].observaciones_sitio: "",
-// flag cambio
-      clienteChange: false,
-      detalle_requerimientoChange: false,
-      detallesSitioChange: false,
-      email_responsable_clienteChange: false,
-      estado:  false,
-      fecha_requeridaChange: false,
-      ot_numberChange: false,
-      paisChange: false,
-      prioridadChange: false,
-      proyectoChange: false,
-      requerimientoChange: false,
-      responsable_clienteChange: false,
-      sitio_codigoChange: false,
-      sitio_nombreChange: false,
-      responsable_otChange: false,
-      email_responsable_otChange: false,
-      comentarios_responsable_otChange: false,
-      altura_pararrayosChange: false,
-      altura_validadaChange: false,
-      area_a_utilizarChange: false,
-      area_arrendadaChange: false,
-      arrendatarioChange: false,
-      identificacion_arrendatarioChange: false,
-      departamentoChange: false,
-      direccion_sitioChange: false,
-      latitud_validada_gradosChange: false,
-      longitud_validada_gradosChange: false,
-      numero_fincaChange: false,
-      orientacion_torreChange: false,
-      paisChange: false,
-      provinciaChange: false,
-      proyectoChange: false,
-      resistencia_vientoChange: false,
-      tipo_estructuraChange: false,
-      tipologia_sitioChange: false,
-      txChange: false,
-      derecho_paso_sitioChange: false,
-      electricidad_sitioChange: false,
-      observaciones_sitioChange: false,
-    });
-    setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
-  }
+    }
+    if(!detallesSitio){
+      dispatch(buscarDetallesSitio(sitioBuscar))
+    }
+    if(detallesSitio){
+      setDetalleSitioInfo({
+        cliente: detallesSitio.data[0].cliente,
+        detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
+        detallesSitio: detallesSitio.data[0].detallesSitio,
+        email_responsable_cliente: detallesSitio.data[0].email_responsable_cliente,
+        estado: detallesSitio.data[0].estado,
+        fecha_requerida: detallesSitio.data[0].fecha_requerida,
+        ot_number: detallesSitio.data[0].ot_number,
+        pais: detallesSitio.data[0].pais,
+        prioridad: detallesSitio.data[0].prioridad ? detallesSitio.data[0].prioridad : "",
+        proyecto: detallesSitio.data[0].proyecto,
+        requerimiento: detallesSitio.data[0].requerimiento,
+        responsable_cliente: detallesSitio.data[0].responsable_cliente,
+        sitio_codigo: detallesSitio.data[0].sitio_codigo,
+        sitio_nombre: detallesSitio.data[0].sitio_nombre,
+        responsable_ot: detallesSitio.data[0].responsable_ot? detallesSitio.data[0].responsable_ot :"" ,
+        email_responsable_ot: detallesSitio.data[0].email_responsable_ot? detallesSitio.data[0].email_responsable_ot :"" ,
+        comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
+        altura_pararrayos:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_pararrayos: "",
+        altura_validada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_validada: "",
+        area_a_utilizar:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_a_utilizar: "",
+        area_arrendada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_arrendada: "",
+        arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].arrendatario: "",
+        identificacion_arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].identificacion_arrendatario: "",
+        departamento:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].departamento: "",
+        direccion_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].direccion_sitio: "",
+        latitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].latitud_validada_grados: "",
+        longitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].longitud_validada_grados: "",
+        numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
+        orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
+        pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
+        provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
+        proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
+        resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
+        tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
+        tipologia_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipologia_sitio: "",
+        tx: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tx: "",
+        derecho_paso_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].derecho_paso_sitio: "",
+        electricidad_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].electricidad_sitio: "",
+        observaciones_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].observaciones_sitio: "",
+  // flag cambio
+        clienteChange: false,
+        detalle_requerimientoChange: false,
+        detallesSitioChange: false,
+        email_responsable_clienteChange: false,
+        estado:  false,
+        fecha_requeridaChange: false,
+        ot_numberChange: false,
+        paisChange: false,
+        prioridadChange: false,
+        proyectoChange: false,
+        requerimientoChange: false,
+        responsable_clienteChange: false,
+        sitio_codigoChange: false,
+        sitio_nombreChange: false,
+        responsable_otChange: false,
+        email_responsable_otChange: false,
+        comentarios_responsable_otChange: false,
+        altura_pararrayosChange: false,
+        altura_validadaChange: false,
+        area_a_utilizarChange: false,
+        area_arrendadaChange: false,
+        arrendatarioChange: false,
+        identificacion_arrendatarioChange: false,
+        departamentoChange: false,
+        direccion_sitioChange: false,
+        latitud_validada_gradosChange: false,
+        longitud_validada_gradosChange: false,
+        numero_fincaChange: false,
+        orientacion_torreChange: false,
+        paisChange: false,
+        provinciaChange: false,
+        proyectoChange: false,
+        resistencia_vientoChange: false,
+        tipo_estructuraChange: false,
+        tipologia_sitioChange: false,
+        txChange: false,
+        derecho_paso_sitioChange: false,
+        electricidad_sitioChange: false,
+        observaciones_sitioChange: false,
+      });
+      setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
+    }
 
     return () => {
- 
+    
     };
-  }, [ detallesSitio]);
+  }, [loadingSitio]);
   
+
+ 
 
   const handleProceso = (e) =>{
     e.preventDefault();
     console.log("a grabar!", detalleSitioInfo)
     dispatch(actualizarOT(detalleSitioInfo))
+    props.history.push('/');
+  }
+
+  function checkFulliness(info){
+    console.log('info',info)
+    
+    // info.data[0].detallesSitio[0].forEach(element => {
+    //   console.log('elemento',element)
+    // });
+    return true
   }
 
   return (<div>
      <React.Fragment>
       <CssBaseline />
       <Container width="70%">
-      <form autoComplete onSubmit={handleProceso}>
-    <Grid container margintop className={classes.root} spacing={2}>
+      <form autoComplete='true' onSubmit={handleProceso}>
+    <Grid container margintop='true' className={classes.root} spacing={2}>
         <Grid item xs={12}>  
 
           <Paper elevation={5} className={classes.title2} >
@@ -369,7 +430,9 @@ console.log( responsablesOT.map((option) => {
           <div>Proyecto: {detallesSitio.data[0].proyecto + " - " +  detallesSitio.data[0].pais} </div></div>}
           </Paper>
         </Grid>
-
+        { detallesSitio  && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio && checkFulliness(detallesSitio) && <Typography  className={classes.warning} >
+            Informacion Incompleta
+          </Typography>}
         
                 { detallesSitio && 
                 <Grid item xs={12} sm={12} container>
@@ -380,13 +443,14 @@ console.log( responsablesOT.map((option) => {
                 <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="responsable_cliente">Responsable Cliente</InputLabel>
                       <OutlinedInput id="responsable_cliente" value={detalleSitioInfo['responsable_cliente']} 
-                      disabled="true" 
+                      disabled={true} 
                       label="Responsable Cliente" 
-                      fullWidth="true" />
+                      fullWidth={true} />
                       </FormControl>
                     </Grid>
+                    {console.log("detalleSitioInfo",detalleSitioInfo)}
                     <Grid item xs={12} sm={4}> 
-                    <Autocomplete
+                    { prioridades && detalleSitioInfo && <Autocomplete
                         id="prioridad"
                         required={true}
                         onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['prioridad']:value , ['prioridadChange']:true })}
@@ -394,30 +458,31 @@ console.log( responsablesOT.map((option) => {
                         getOptionLabel={(option) => option}
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Prioridad" variant="outlined" />}
-                        value={detalleSitioInfo['prioridad']} 
-                      />
+                        value={detalleSitioInfo?detalleSitioInfo['prioridad']:null} 
+                      />}
                    
 
                     </Grid>
                     <Grid item xs={12} sm={4}> 
-                    <Autocomplete
+                    { responsablesOT && detalleSitioInfo && <Autocomplete
+                        options={responsablesOT}
+                        getOptionLabel={(option) => option.responsable_ot}
                         id="responsable_ot"
                         required={true}
                         onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
                          ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
-                        options={responsablesOT}
-                        getOptionLabel={(option) => option.responsable_ot}
+
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
-                        value={detalleSitioInfo['responsable_ot']} 
-                      />
+                        value={detalleSitioInfo?detalleSitioInfo['responsable_ot']:null} 
+                      />}
                     
                     </Grid>
                     <Grid item md={3}  xs={5}  sm={5}> 
                       
                       <MuiPickersUtilsProvider utils={DateFnsUtils}>
                      
-                        <KeyboardDatePicker
+                      {detalleSitioInfo && <KeyboardDatePicker
                         
                           margin="normal"
                           disabled={userInfo.isSuper? true : false}
@@ -425,30 +490,31 @@ console.log( responsablesOT.map((option) => {
                           label="Fecha SLA"
                           format="MM/dd/yyyy"
                           value={detalleSitioInfo['fecha_sla']}
-                          onChange={(date)=> setDetalleSitioInfo({...detalleSitioInfo, ['fecha_sla']: new Date(date),  ['fecha_slaChange']:true})}
+                          onChange={handleDateChangefecha_sla}
                           KeyboardButtonProps={{
                             'aria-label': 'change date', 
                           }}
-                        />
+                        />}
                         </MuiPickersUtilsProvider>
                     </Grid>
                       <Grid item md={4}  xs={6}  sm={6}> 
                       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                      <KeyboardDatePicker
+                     {detalleSitioInfo && detalleSitioInfo['fecha_requerida'] && <KeyboardDatePicker
                         margin="normal"
                         id="fecha_requerida"
                         label="Fecha Requerida"
-                        format="MM/dd/yyyy"
-                        onChange={(date)=> setDetalleSitioInfo({...detalleSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})}
+                        format="MM/dd/yyyy"                       
                         value={detalleSitioInfo['fecha_requerida']}
+                        onChange={handleDateChangefecha_requerida}
                         disabled={userInfo.isSuper? true : false}
                         KeyboardButtonProps={{
                           'aria-label': 'change date',
                         }}
-                      />
+                      />}
                       </MuiPickersUtilsProvider>
                       </Grid>
-                {activeStep === steps.length ? (
+                        <Paper elevation={4} className={classes.proceso}>
+                      {activeStep === steps.length ? (
                           <div>
                             <Typography className={classes.instructions}>Proceso Terminado</Typography>
                             <Button onClick={handleReset}>Reset</Button>
@@ -476,20 +542,20 @@ console.log( responsablesOT.map((option) => {
                               </Grid>
                             </Grid>
                           </div>
-                          
                         )}
+                       
                 <div className={classes.root}>
                       <Stepper activeStep={activeStep} alternativeLabel>
                         {steps.map((label, index) => (userInfo.isSuper===false && index< 7) || (userInfo.isSuper===true ) && (
-                          <Step key={label.id}>
+                          <Step key={label._id}>
                             <StepLabel>{label.titulo}</StepLabel>
                           </Step>
                         ))}
                       </Stepper>
           
                     </div>
-
-                    <Grid item xs={4} sm={4}> 
+                    </Paper>
+                    <Grid item xs={4} sm={4} className={classes.root}> 
                     <FormControl variant="outlined" className={classes.formControl}>
                       <InputLabel htmlFor="Requerimiento">Requerimiento</InputLabel>
                       <OutlinedInput id="Requerimiento" value={detalleSitioInfo['requerimiento']} 

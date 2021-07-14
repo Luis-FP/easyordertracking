@@ -108,11 +108,11 @@ function userOTSReducer(state = {}, action) {
 function userDetallesSitioReducer(state = {}, action) {
   switch (action.type) {
     case USER_PROYECTO_DETALLES_REQUEST:
-      return { loading: true };
+      return { loadingSitio: true };
     case USER_PROYECTO_DETALLES_SUCCESS:
-      return { loading: false, detallesSitio: action.payload };
+      return { loadingSitio: false, detallesSitio: action.payload };
     case USER_PROYECTO_DETALLES_FAIL:
-      return { loading: false, errorVista: action.payload };
+      return { loadingSitio: false, errorVista: action.payload };
     default:
       return state;
   }
@@ -145,18 +145,18 @@ function userEntradaReducer(state = {}, action) {
   }
 }
 
-// function userSalidaReducer(state = {}, action) {
-//   switch (action.type) {
-//     case USER_SALIDA_REQUEST:
-//       return { loading: true };
-//     case USER_SALIDA_SUCCESS:
-//       return { loading: false, logoutSuccess: true, payload: action.payload };
-//     case USER_SALIDA_FAIL:
-//       return { loading: false, logoutSuccess: false, error: action.payload };
-//     default:
-//       return state;
-//   }
-// }
+function userSalidaReducer(state = {}, action) {
+  switch (action.type) {
+    case USER_SALIDA_REQUEST:
+      return { loading: true };
+    case USER_SALIDA_SUCCESS:
+      return { loading: false, logoutSuccess: true, payload: action.payload };
+    case USER_SALIDA_FAIL:
+      return { loading: false, logoutSuccess: false, error: action.payload };
+    default:
+      return state;
+  }
+}
 
 function userRegisterReducer(state = {}, action) {
   switch (action.type) {
@@ -197,69 +197,12 @@ function infoActualizarReducer(state = {}, action) {
   }
 }
 
-function infoKPIGetReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_INFO_KPI_GET_REQUEST:
-      return { loading: true };
-    case USER_INFO_KPI_GET_SUCCESS:
-      return { loading: false, infoKPIActive: action.payload };
-    case USER_INFO_KPI_GET_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
-function saveActualizarReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_SAVE_ACTUALIZAR_REQUEST:
-      return { loading: true };
-    case USER_SAVE_ACTUALIZAR_SUCCESS:
-      return { loading: false, saveAct: action.payload };
-    case USER_SAVE_ACTUALIZAR_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
 
-function infoBuscarNombreReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_INFO_ACTUALIZAR_NOMBRE_REQUEST:
-      return { loading: true };
-    case USER_INFO_ACTUALIZAR_NOMBRE_SUCCESS:
-      return { loading: false, infoNombre: action.payload };
-    case USER_INFO_ACTUALIZAR_NOMBRE_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
 
-function userAlmuerzoReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_ALMUERZO_REQUEST:
-      return { loading: true };
-    case USER_ALMUERZO_SUCCESS:
-      return { loading: false, userKpiAlmuerzo: action.payload };
-    case USER_ALMUERZO_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
 
-function userPermisoReducer(state = {}, action) {
-  switch (action.type) {
-    case USER_PERMISO_REQUEST:
-      return { loading: true };
-    case USER_PERMISO_SUCCESS:
-      return { loading: false, userKpiPermisos: action.payload };
-    case USER_PERMISO_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
+
+
+
 function userStatusReducer(state = {}, action) {
   switch (action.type) {
     case USER_STATUS_REQUEST:
@@ -329,12 +272,11 @@ export {
   userEntradaReducer,
   userProyectoReducer,
   userDetallesSitioReducer,
-  // userSalidaReducer,
+  userSalidaReducer,
   userRegisterReducer,
   infoActualizarReducer,
-  infoBuscarNombreReducer,
-  userAlmuerzoReducer,
-  userPermisoReducer,
+ 
+
   userStatusReducer,
 
   userOTSReducer,
@@ -345,7 +287,7 @@ export {
  
   emailRecoveryReducer,
   userMarcarLeidoReducer,
-  saveActualizarReducer,
-  infoKPIGetReducer,
+
+
 
 };

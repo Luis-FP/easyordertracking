@@ -8,14 +8,13 @@ const getToken = (user) => {
     { 
       ut_id: user.ut_id,
       nombre: user.nombre,
-      apellido: user.apellido,
       empresa: user.empresa,
       oficina: user.oficina,
       email: user.email,
       terms_cond_acepted: user.terms_cond_acepted,
       isSuper: user.isSuper,
       isHiper: user.isHiper,
-      grupo: user.grupo,
+      isUser: user.isUser,
       vista: user.vista,
       
       // verified: user.verified,
@@ -53,9 +52,17 @@ const isSuper = (req, res, next) => {
   return res.status(401).send({ message: "Admin Token is not valid." });
 };
 
-const isRH = (req, res, next) => {
+const isHiper = (req, res, next) => {
   console.log(req.user);
-  if (req.user && req.user.isRH) {
+  if (req.user && req.user.isHiper) {
+    return next();
+  }
+  return res.status(401).send({ message: "Admin Token is not valid." });
+};
+
+const isUser = (req, res, next) => {
+  console.log(req.user);
+  if (req.user && req.user.isUser) {
     return next();
   }
   return res.status(401).send({ message: "Admin Token is not valid." });
@@ -173,7 +180,8 @@ export {
   getToken,
   isAuth,
   isSuper,
-  isRH,
+  isHiper,
+  isUser,
   createHash,
   encryptPrivate,
   decryptPrivate,
