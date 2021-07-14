@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
     vista: { type: Array, required: true},
     isSuper: { type: Boolean, required: true, default: false },
     isHiper: { type: Boolean, required: true, default: false },
+    isInge: { type: Boolean, required: true, default: true },
     isUser: { type: Boolean, required: true, default: true },
     isActive: { type: Boolean, required: true, default: true },
     

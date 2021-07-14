@@ -68,6 +68,14 @@ const isUser = (req, res, next) => {
   return res.status(401).send({ message: "Admin Token is not valid." });
 };
 
+const isInge = (req, res, next) => {
+  console.log(req.user);
+  if (req.user && req.user.isInge) {
+    return next();
+  }
+  return res.status(401).send({ message: "Admin Token is not valid." });
+};
+
 const createHash = (algorithm, secret, data, digest) => {
   return crypto.createHmac(algorithm, secret).update(data).digest(digest);
 };
@@ -182,6 +190,7 @@ export {
   isSuper,
   isHiper,
   isUser,
+  isInge,
   createHash,
   encryptPrivate,
   decryptPrivate,

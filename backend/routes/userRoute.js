@@ -24,6 +24,7 @@ import {
   isHiper,
   isSuper,
   isUser,
+  isInge,
   createPassphrase,
   createHash,
   crearTransporteEmail,
@@ -136,7 +137,8 @@ router.post("/login", async (req, res) => {
             vista: signinUser.vista,
             isUser: signinUser.isUser,
             isSuper: signinUser.isSuper,
-            isHiper: signinUser.isHiper
+            isHiper: signinUser.isHiper,
+            isInge: signinUser.isInge
 
           });
         
@@ -368,7 +370,7 @@ router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => 
       console.log("req datos actualizar", otInfo);
       try{
         let otactualizada = await OTs.findOne({ot_number: req.body.ot_number})
-        let sitioactualizado = await Detallesings.find({sitio_codigo: req.body.sitio_codigo})
+        let sitioactualizado = await Detallesings.findOne({sitio_codigo: req.body.sitio_codigo})
         console.log('otActualizada', otactualizada)
         // console.log("sitioactualizado", sitioactualizado)
      // cambios de OT
@@ -409,7 +411,7 @@ router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => 
           if(otInfo.txChange) sitioactualizado.tx =  otInfo.tx;
           if(otInfo.derecho_paso_sitioChange) sitioactualizado.derecho_paso_sitio =  otInfo.derecho_paso_sitio;
           if(otInfo.electricidad_sitioChange) sitioactualizado.electricidad_sitio =  otInfo.electricidad_sitio;
-
+          console.log("ok", sitioactualizado)
           const otAct = await otactualizada.save();
           const sitioAct = await sitioactualizado.save();
       
@@ -582,6 +584,7 @@ if(userMax[0]===undefined || userMax[0]===null  ){
         isUser: req.body.isUser,
         isSuper: req.body.datosRegistroUsuario.isSuper,
         isHiper: req.body.datosRegistroUsuario.isHiper,
+        isInge: req.body.datosRegistroUsuario.isInge,
         nombre:req.body.datosRegistroUsuario.nombre,
 
         oficina: req.body.datosRegistroUsuario.oficina,
@@ -1329,7 +1332,8 @@ router.put("/chpass/:vh", async (req, res) => {
             vista: usuario.vista,
             isSuper: usuario.isSuper,
             ishiper: usuario.isHiper,
-            isSuper: usuario.isSuper,
+            isUser: usuario.isUser,
+            isInge: usuario.isInge,
            
           };
           console.log("cambio de clave exitoso.");
@@ -1446,7 +1450,8 @@ router.put("/chpass", isAuth, async (req, res) => {
         vista: usuario.vista,
         isSuper: usuario.isSuper,
         isHiper: usuario.isHiper,
-        isSuper: usuario.isHSuper,
+        isSuper: usuario.isSuper,
+        isInge: usuario.isInge,
       };
 
       res.send({

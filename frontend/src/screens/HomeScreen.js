@@ -21,13 +21,27 @@ import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import Tooltip from '@material-ui/core/Tooltip';
 import { fechaUnica } from '../components/fechas';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import { orange } from '@material-ui/core/colors';
+
+
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import DirectionsIcon from '@material-ui/icons/Directions';
 
 
 
-const verdefondo = green[900]
+const naranja7 = orange[700]
+const verdefondo = green[500]
 const azulfondo = blue[900]
-const rojoFondo = red[900]
+const azulClaro = blue[300]
+const rojoFondo = red[700]
 const greyfondo = grey[300]
+const greyfondo2 = grey[400]
 
 
 
@@ -117,6 +131,24 @@ const useStyles = makeStyles((theme)=>({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  root2: {
+
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    width: 500,
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+  divider: {
+    height: 28,
+    margin: 4,
+  },
 }));
 
 
@@ -137,7 +169,7 @@ function HomeScreen(props) {
   ]
 
   let today = new Date().getTime();
-  let fechasVisibles = [
+  let tiempos = [
     {_id:"f1", titulo: fechaUnica(today - 5 * 86400000  ), codigo: new Date(today - 5 * 86400000), paso:0},
     {_id:"f2", titulo: fechaUnica(today - 4 * 86400000  ), codigo: new Date(today - 4 * 86400000), paso:1},
     {_id:"f3",titulo: fechaUnica(today - 3 * 86400000  ), codigo: new Date(today - 3 * 86400000), paso:2},
@@ -205,16 +237,50 @@ console.log(userOTsInfo)
  
     };
   }, []);
- 
+
+  const [state, setState] = React.useState({
+    checkedA: false,
+
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   return (
 
     <React.Fragment>
     <CssBaseline />
-    <Container width="60%">
+    <Container width="60%" style={{alignItems:'center'}}>
+    <Typography component="div">
+        <Grid component="label" container alignItems="center" spacing={1}>
+        <Grid>Procesos</Grid>
+          <Grid item>
+    <FormControlLabel
+        control={<Switch checked={state.checkedA} onChange={handleChange}  color="primary" name="checkedA" />}
+      />
+      </Grid>
+      <Grid item >Tiempos</Grid>
+      <Paper component="form" className={classes.root2}>
+      <IconButton className={classes.iconButton} aria-label="menu">
+        <MenuIcon />
+      </IconButton>
+      <InputBase
+        className={classes.input}
+        placeholder="Coloque OT o Nombre"
+        inputProps={{ 'aria-label': 'Buscar' }}
+      />
+      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+      <Divider className={classes.divider} orientation="vertical" />
+
+    </Paper>
+      </Grid>
+      </Typography>
     <div>
     <Grid container spacing={3} className={classes.grid} >
-        {procesos
+        {!state['checkedA'] && procesos
         .map((fase) => (
 
             <Grid 
@@ -223,7 +289,9 @@ console.log(userOTsInfo)
              item xs={12} sm={12}>
           <Paper className={classes.paper}>
             <div className={classes.badge}>
-              <Badge badgeContent={4}  style={{ color: 'black' }} >
+              <Badge badgeContent={
+                 userOTsInfo && userOTsInfo.data && userOTsInfo.data.filter((ot, index)=> ot.estado === fase.codigo).length 
+              }  style={{ color: rojoFondo }} >
                 <SettingsIcon />
               </Badge>
             </div>
@@ -245,21 +313,72 @@ console.log(userOTsInfo)
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
               label={ot.requerimiento +" - " +ot.proyecto}
               clickable={true}
-              style={ {backgroundColor: ot.prioridad === 'Alta'? 'red': 'green'} }
+              style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo: verdefondo} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             /></Tooltip>)
        
             )}
        
-            <div className={classes.badge}>
+            {/* <div className={classes.badge}>
               <Badge badgeContent={10} style={{ color: 'red' }}>
                 <BeenhereIcon fontSize="large"  style={{ color: 'green' }}/>
               </Badge>
-            </div>
+            </div> */}
           </Paper>
 
         </Grid>))}
+
+        {state['checkedA'] && tiempos
+        .map((fase) => userOTsInfo && userOTsInfo.data && userOTsInfo.data.filter((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo)).length > 0 &&( 
+
+            <Grid 
+            key={'grid'+fase.codigo}
+           
+             item xs={12} sm={12}>
+          <Paper className={classes.paper} style={{ backgroundColor: fechaUnica(fase.titulo) === fechaUnica(new Date()) ? greyfondo2 :greyfondo}}>
+            <div className={classes.badge}>
+  
+              <Badge badgeContent={
+                userOTsInfo && userOTsInfo.data && userOTsInfo.data.filter((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo)).length 
+              }  style={{ color:  naranja7 }} >
+                <SettingsIcon />
+              </Badge>
+            </div>
+            <Typography className={classes.title}  >{fase.titulo}</Typography>
+               
+            {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo) && (
+
+              <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
+              <Chip
+              
+              className="handle"
+              // fontSize="large"
+              className={classes.chip}
+              codigo={ot.sitio_codigo}
+              id={ot.id}
+              nombre={ot.sitio_nombre}
+              cliente={ot.cliente}
+              ot_number={ot.ot_number}
+              avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
+              label={ot.requerimiento +" - " +ot.proyecto}
+              clickable={true}
+              style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo : verdefondo} }
+    
+              onClick={(e)=>handleOpenDetalle(e)}
+            /></Tooltip>)
+       
+            )}
+       
+            {/* <div className={classes.badge}>
+              <Badge badgeContent={10} style={{ color: 'red' }}>
+                <BeenhereIcon fontSize="large"  style={{ color: 'green' }}/>
+              </Badge>
+            </div> */}
+          </Paper>
+
+        </Grid>))}
+
         </Grid>
     </div>
     </Container>

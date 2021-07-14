@@ -35,6 +35,7 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+import { Tooltip } from '@material-ui/core';
 
 
 const verdefondo = green[900]
@@ -110,8 +111,8 @@ const useStyles = makeStyles((theme) => ({
   },
   fab: {
     position: 'absolute',
-    top: '24%', //theme.spacing(22),
-    right: '6%',//theme.spacing(26),
+    bottom: '2%', //theme.spacing(22),
+    right: '2%',//theme.spacing(26),
   },
 }));
 
@@ -436,9 +437,11 @@ console.log( responsablesOT.map((option) => {
         
                 { detallesSitio && 
                 <Grid item xs={12} sm={12} container>
+                <Tooltip title="Guardar" aria-label="add" placement="left-start">
                 <Fab color="primary" aria-label="add" className={classes.fab} type="submit">
                   <SaveIcon />
                 </Fab>
+                </Tooltip>
                 <Grid item xs={12} sm={4}> 
                 <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="responsable_cliente">Responsable Cliente</InputLabel>
@@ -614,8 +617,8 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
                                         <OutlinedInput id="tipo_estructura" value={detalleSitioInfo['tipo_estructura']} 
-                                        disabled={userInfo.isSuper? true : false}
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipo_estructura']:value, ['tipo_estructuraChange']:true })}
+                                        // disabled={userInfo.isSuper? true : false}
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
                                         label="Tipo de Estructura" />
                                       </FormControl>
                               </Grid>
@@ -623,7 +626,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
                                         <OutlinedInput id="area" value={detalleSitioInfo['area_arrendada']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_arrendada']:value, ['area_arrendadaChange']:true })}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_arrendada']:value.target.value, ['area_arrendadaChange']:true })}
                                          label="Área Rentada" />
                                       </FormControl>
                               </Grid>
@@ -631,7 +634,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="area_a_utilizar">Area a Utilizar</InputLabel>
                                         <OutlinedInput id="area_a_utilizar" value={detalleSitioInfo['area_a_utilizar']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_a_utilizar']:value, ['area_a_utilizarChange']:true })}
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_a_utilizar']:value.target.value, ['area_a_utilizarChange']:true })}
                                          label="Área a Utilizar" />
                                       </FormControl>
                               </Grid>
@@ -639,7 +642,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="tipologia_sitio">Tipologia Sitio</InputLabel>
                                         <OutlinedInput id="tipologia_sitio" value={detalleSitioInfo['tipologia_sitio']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipologia_sitio']:value, ['tipologia_sitioChange']:true })}
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipologia_sitio']:value.target.value, ['tipologia_sitioChange']:true })}
                                         label="Tipología Sitio" />
                                       </FormControl>
                               </Grid>
@@ -647,7 +650,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="arrendatario">Arrendatario/Propietario</InputLabel>
                                         <OutlinedInput id="arrendatario" value={detalleSitioInfo['arrendatario']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['arrendatario']:value, ['arrendatarioChange']:true })}
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
                                         label="Arrendatario/Propietario" />
                                       </FormControl>
                               </Grid>
@@ -656,7 +659,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="identificacion_arrendatario">Identificacion Arrendatario</InputLabel>
                                         <OutlinedInput id="identificacion_arrendatario" value={detalleSitioInfo['identificacion_arrendatario']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['identificacion_arrendatario']:value, ['identificacion_arrendatarioChange']:true })}
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
                                         label="Identificacion Arrendatario" />
                                       </FormControl>
                               </Grid>
@@ -664,7 +667,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="numero_finca">Número de Finca</InputLabel>
                                         <OutlinedInput id="numero_finca" value={detalleSitioInfo['numero_finca']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['numero_finca']:value, ['numero_fincaChange']:true })} 
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
                                          label="Número de Finca" />
                                       </FormControl>
                               </Grid>
@@ -672,7 +675,7 @@ console.log( responsablesOT.map((option) => {
                               <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="direccion_sitio">Direccion de la Finca</InputLabel>
                                         <OutlinedInput id="direccion_sitio" value={detalleSitioInfo['direccion_sitio']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['direccion_sitio']:value, ['direccion_sitioChange']:true })} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
                                         label="Direccion de la Finca" />
                                       </FormControl>
                               </Grid>
@@ -680,7 +683,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="provincia">Provincia</InputLabel>
                                         <OutlinedInput id="provincia" value={detalleSitioInfo['provincia']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['provincia']:value, ['provinciaChange']:true })}  
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['provincia']:value.target.value, ['provinciaChange']:true })}  
                                         label="Provincia" />
                                       </FormControl>
                               </Grid>
@@ -688,7 +691,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="departamento">Departamento</InputLabel>
                                         <OutlinedInput id="departamento" value={detalleSitioInfo['departamento']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['departamento']:value, ['departamentoChange']:true })}  
+                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
                                          label="Departamento" />
                                       </FormControl>
                               </Grid>
@@ -696,7 +699,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="latitud_validada_grados">Latitud Validada en Grados</InputLabel>
                                         <OutlinedInput id="latitud_validada_grados" value={detalleSitioInfo['latitud_validada_grados']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['latitud_validada_grados']:value, ['latitud_validada_gradosChange']:true })}  
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['latitud_validada_grados']:value.target.value, ['latitud_validada_gradosChange']:true })}  
                                         label="Latitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
@@ -704,7 +707,7 @@ console.log( responsablesOT.map((option) => {
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="longitud_validada_grados">Longitud Validada en Grados</InputLabel>
                                         <OutlinedInput id="longitud_validada_grados" value={detalleSitioInfo['longitud_validada_grados']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['longitud_validada_grados']:value, ['longitud_validada_gradosChange']:true })} 
+                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['longitud_validada_grados']:value.target.value, ['longitud_validada_gradosChange']:true })} 
                                         label="Longitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
@@ -718,7 +721,7 @@ console.log( responsablesOT.map((option) => {
                                   placeholder="describa el Derecho de paso..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo.isSuper? true : false}
+                                  // disabled={userInfo.isSuper? true : false}
                                   value={detalleSitioInfo['derecho_paso_sitio']} 
                                   onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['derecho_paso_sitio']:e.target.value , ['derecho_paso_sitioChange']:true })}
                                 />
@@ -733,7 +736,7 @@ console.log( responsablesOT.map((option) => {
                                   placeholder="Datos de la electricidad del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo.isSuper? true : false}
+                                  // disabled={userInfo.isSuper? true : false}
                                   value={detalleSitioInfo['electricidad_sitio']} 
                                   onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['electricidad_sitio']:e.target.value, ['electricidad_sitioChange']:true })}
                                 />
@@ -748,7 +751,7 @@ console.log( responsablesOT.map((option) => {
                                   defaultValue="Observaciones del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo.isSuper? true : false}
+                                  // disabled={userInfo.isSuper? true : false}
                                   value={detalleSitioInfo['observaciones_sitio']} 
                                   onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
                                 />

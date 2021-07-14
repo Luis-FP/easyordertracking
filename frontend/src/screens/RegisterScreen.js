@@ -82,6 +82,7 @@ function RegisterScreen(props){
       isUser: true,
       isSuper: false,
       isHiper: false,
+      isInge: false,
       nombre:"",
       email: "",
       oficina: "",
@@ -337,6 +338,17 @@ function RegisterScreen(props){
           />
         }
         label="isUser"
+      />
+         <FormControlLabel
+        control={
+          <Checkbox
+            checked={datosRegistroUsuario['user']}
+            onChange={(e) => setDatosRegistroUsuario( {...datosRegistroUsuario, ['isInge']: e.target.checked})}
+            name="isInge"
+            color="primary"
+          />
+        }
+        label="isInge"
       />
       </FormGroup>
         </Grid>
