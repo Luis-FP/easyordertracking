@@ -32,6 +32,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
+import { set } from 'js-cookie';
 
 
 
@@ -246,7 +247,16 @@ console.log(userOTsInfo)
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
+  const [busquedaKey1, setBusquedaKey1] = React.useState(null);
+  const [busquedaKey2, setBusquedaKey2] = React.useState(null);
+  const busquedaNombre = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    setBusquedaKey1(valueLowerCase)
+  }
+  const busquedaFecha = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    setBusquedaKey2(valueLowerCase)
+  }
   return (
 
     <React.Fragment>
@@ -267,8 +277,15 @@ console.log(userOTsInfo)
       </IconButton>
       <InputBase
         className={classes.input}
-        placeholder="Coloque OT o Nombre"
+        placeholder="Coloque Nombre"
         inputProps={{ 'aria-label': 'Buscar' }}
+        onChange={busquedaNombre}
+      />
+       <InputBase
+        className={classes.input}
+        placeholder="Coloque Fecha"
+        inputProps={{ 'aria-label': 'Buscar' }}
+        onChange={busquedaFecha}
       />
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
@@ -296,10 +313,14 @@ console.log(userOTsInfo)
               </Badge>
             </div>
             <Typography className={classes.title}>{fase.titulo}</Typography>
-               
-            {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> ot.estado === fase.codigo && (
-
+             
+            {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> ot.estado === fase.codigo &&
+            // criterio busqueda
+            !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
+            !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
+             (
               <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
+              
               <Chip
               
               className="handle"
@@ -347,8 +368,10 @@ console.log(userOTsInfo)
             </div>
             <Typography className={classes.title}  >{fase.titulo}</Typography>
                
-            {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo) && (
-
+            {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo) && 
+              !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
+              !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
+             (
               <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
               

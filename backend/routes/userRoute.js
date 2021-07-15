@@ -621,6 +621,23 @@ if(userMax[0]===undefined || userMax[0]===null  ){
 });
 
 
+router.get("/inforegister", isAuth, isHiper, async (req, res) => {
+  try {
+    let datosUsuario = await User.find();
+    
+      console.log("datosUsuario", datosUsuario)
+      res.status(200)
+      .send({ message: "lista de Usuarios", data: datosUsuario})
+   
+
+  } catch (errorinfo) {
+    console.log(errorinfo);
+    res
+      .status(500)
+      .send({ error: errorinfo, message: "Error  busqueda de Usuarios." });
+  }
+});
+
 
 
 router.get("/statuscheck", isAuth, async (req, res) => {
@@ -1253,7 +1270,36 @@ console.log('output', output);
       });
 
 
+
+
       console.log("despues de user insertmany");
+      let timeout = 500; 
+      //esta aqui afuera porque no queremos nuevo transporte a cada rato
+      let emailTransport = crearTransporteEmail();
+      let i = 0;
+      // console.log(users.length)
+ // enviar email al responsable del recibir OTs
+    
+        let conf = {
+          to: 'luis.parparcen@gmail.com',
+          subject: "Solicitud de OT",
+          html: "",
+          };
+      conf.html = otNuevaEmail();
+
+        // if (i <= 600) {
+        //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
+        //conf.para = usuarios[i].email;
+        // }
+        setTimeout(() => {
+          EnvioEmail(conf, emailTransport);
+        }, timeout);
+        timeout += 500;
+        i++;
+
+        // bitacora
+        
+
 
     } else {
       if (error.code === 11000) {

@@ -111,8 +111,8 @@ const useStyles = makeStyles((theme) => ({
   },
   fab: {
     position: 'absolute',
-    bottom: '2%', //theme.spacing(22),
-    right: '2%',//theme.spacing(26),
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
 }));
 

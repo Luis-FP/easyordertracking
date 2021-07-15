@@ -280,7 +280,29 @@ const userStatusCheck = () => async (dispatch, getState) => {
   }
 }
 
+const InfoRegister = () => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
+  console.log('data RegisterInfo');
+  dispatch({ type: USER_INFO_REGISTER_REQUEST });
+  try {
+    const { data } = await axios.get("/api/users/inforegister", {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log('data RegisterInfo', data);
+    if (data.errorInfo) {
+      ////console.log'entro en error en user action')
+      dispatch({ type: USER_INFO_REGISTER_FAIL, payload: data.message });
+    } else {
+      dispatch({ type: USER_INFO_REGISTER_SUCCESS, payload: data });
+    }
 
+
+  } catch (error) {
+    dispatch({ type: USER_INFO_REGISTER_FAIL, payload: error.message });
+  }
+}
 
 
 const register = (datosRegistroUsuario, proyVistas) => async (dispatch, getState) => {
@@ -686,6 +708,7 @@ export {
   actualizarOT,
   
   register,
+  InfoRegister,
   infoActualizacion,
   actualizarKPIUsuario,
   actualizarUsuarioEnviar,

@@ -1,7 +1,7 @@
 import React, {useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import { register,  autoLogout } from "../actions/userActions";
+import { register,  autoLogout, InfoRegister } from "../actions/userActions";
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
@@ -30,6 +30,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const verdefondo = green[900]
 const azulfondo = blue[900]
@@ -146,6 +151,21 @@ function RegisterScreen(props){
 
    
     const dispatch = useDispatch();
+   
+    useEffect(() => {
+      console.log("userEffect")
+      if (!userInfo) {
+        props.history.push('/login');
+    } 
+    if(!infoReg){
+       dispatch(InfoRegister())
+    }
+   
+   
+        return () => {
+           //
+        }
+    }, []);
 
     useEffect(() => {
       console.log("userEffect")
@@ -157,12 +177,11 @@ function RegisterScreen(props){
         document.formaRegistro.reset();
         handleClickOpen(true)
       }
-     
-      
         return () => {
            //
         }
-    }, [userRegisterInfo]);
+      }, [userRegisterInfo]);
+
 
     const submitHandler = (e) => {
       e.preventDefault();
@@ -188,6 +207,26 @@ function RegisterScreen(props){
   const handleClose = () => {
     setOpen(false);
   };
+
+  const cargarFormato = (user)  =>{
+    // e.preventDefault()
+    console.log('usuario' , user.target)//.getAttribute('data')
+    // #panel1a-content > div > nav > div:nth-child(1) > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-3 > input
+    // document.querySelector("#panel1a-content > div > nav > div:nth-child(1) > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-3 > input")
+    // document.querySelector("#panel1a-content > div > nav > div:nth-child(2) > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-3")
+  //  setDatosRegistroUsuario( {
+  //   isUser: usuario.isUser,
+  //   isSuper: usuario.isSuper,
+  //   isHiper: usuario.isHiper,
+  //   isInge: usuario.isInge,
+  //   nombre: usuario.nombre,
+  //   email: usuario.email,
+  //   oficina: usuario.oficina,
+  //   cliente: usuario.cliente,
+  //   vista: usuario.vista
+  //  })
+
+  }
 
   const customList = (items) => (
     <Paper className={classes.paper}>
@@ -216,37 +255,71 @@ function RegisterScreen(props){
     return (    
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="xs">
+      <Container maxWidth="sm">
         <Typography component="div" style={{ height: '3vh' }} />
-    <Typography className={classes.titulo} >Crear Usuario</Typography>
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.titulo} >Lista de Usuarios Activos</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+            <List component="nav" aria-label="usuarios">
+              { infoReg && infoReg.data.map(user =>  <ListItem key={user._id} button id={user.nombre}  onClick={cargarFormato} >
+                <Grid item xs={1} xm={1}>
+                    <ListItemIcon >
+                      <AccountBoxIcon style={{color:rojoFondo}} />
+                      
+                    </ListItemIcon>
+                </Grid>
+                    <Grid item xs={3} xm={3}>
+                    <input hidden data={user}  id={user.nombre} name={user.nombre}/>
+                     {user.nombre}
+                    </Grid>
+                    <Grid item  xs={8} xm={8}>
+                      <FormGroup row>
+                      <FormControlLabel
+                        control={<Checkbox checked={user.isHiper} disabled />}
+                        label="Hiper"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox checked={user.isSuper} disabled />}
+                        label="Super"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox checked={user.isInge} disabled />}
+                        label="Inge"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox checked={user.isUser} disabled />}
+                        label="User"
+                      />
+                      </FormGroup>
+                    </Grid>
+                   
+              </ListItem>)}
+            </List>
+        </AccordionDetails>
+      </Accordion>
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+         <Typography className={classes.titulo} >Crear Usuario</Typography>
     {errorRegistro && <div className="w3-border w3-round w3-red w3-text-white">{errorRegistro}</div>}
-    <div>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">{"Usuario Creado Exitosamente"}</DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                El usuario ha sido creado exitosamente
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color="primary" autoFocus>
-                Cerrar
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </div>
-
-
-     <form name="formaRegistro" className={classes.root} onSubmit={submitHandler} >
+          {/* <Typography className={classes.heading}>Accordion 1</Typography> */}
+          {loading && <CircularProgress/>}
+        </AccordionSummary>
+        <AccordionDetails>
+        <form name="formaRegistro" className={classes.root} onSubmit={submitHandler} >
      <Grid container margintop='true' className={classes.root} spacing={1}>
         {/* <Grid item xs={12}>   */}
    
-        {loading && <CircularProgress/>}
+        
         <Grid item xs={12} sm={6}> 
             <TextField
               required
@@ -416,6 +489,34 @@ function RegisterScreen(props){
     > Crear Usuario</Button>
     </Grid>
     </form>
+        </AccordionDetails>
+      </Accordion>
+
+
+   
+    <div>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">{"Usuario Creado Exitosamente"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                El usuario ha sido creado exitosamente
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary" autoFocus>
+                Cerrar
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+
+
+   
 
     </Container>
     </React.Fragment>
