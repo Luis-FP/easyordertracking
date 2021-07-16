@@ -77,8 +77,8 @@ function LoginScreen(props) {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo, errorLogin } = userSignin;
 
-  const userEntrada = useSelector(state => state.userEntrada);
-  const { horaEntrada } = userEntrada;
+  // const userEntrada = useSelector(state => state.userEntrada);
+  // const { horaEntrada } = userEntrada;
 
   const dispatch = useDispatch();
 
