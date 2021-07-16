@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "w3-css/w3.css";
 import Papa from "papaparse";
 import { fechaActual } from '../components/fechas';
-import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva} from "../actions/userActions";
+import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva, usersOTs} from "../actions/userActions";
 import { autoLogout } from '../actions/userActions';
 import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,7 +20,19 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { Typography } from "@material-ui/core";
+import { ListItemText, Typography } from "@material-ui/core";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 40,
     fullWidth: 'true',
+  },
+  table: {
+    minWidth: 650,
   },
 }));
 
@@ -61,7 +76,7 @@ function CrearOTScreen(props) {
 
   // const userPermisoInfo = useSelector((state) => state.userPermisoInfo);
   // const { userKpiPermisos } = userPermisoInfo;
-  const offsetSLA =[
+  const offsetSLA =[ // dependiendo del dia de la semana se suman dias para que no caiga ni sabado ni domingo
       {offset:1},
       {offset:1},
       {offset:1},
@@ -77,16 +92,23 @@ function CrearOTScreen(props) {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
-  const { loadingSitio, createSitio, errorSitio } = useSelector((state) => state.createSitioR)
+  const createSitioR = useSelector((state) => state.createSitioR)
+  const { loadingSitio, createSitio, errorSitio } = createSitioR;
 
-  const { loadingOT, createUser, errorOT } = useSelector((state) => state.userCreateInfo)
-  // const [incapacidad, setIncapacidad] = useState(0);
-  // const [permiso, setPermiso] = useState(0);
+  const userOTSCreate = useSelector((state) => state.userOTSCreate)
+  const { loadingNuevaOT, OTNuevaInfo } = userOTSCreate;
+
+  const [open, setOpen] = React.useState(false);
+
   const [disabled, setDisabled] = useState(true);
   const [usuarios, setUsuarios] = useState([]);
   const [loadingFiles, setLoadingFiles] = useState(false);
   const [fileCliente, setFileCliente] = useState("");
-  const [referenciaAWS, setReferenciaAWS] = useState("");
+  const [indice, setIndice] = useState(0);
+  const [referenciaAWS, setReferenciaAWS] = useState([]);
+  const [listaArchivos, setListaArchivos] = useState([
+  
+  ]);
   const [uploading, setUploading] = useState(false);
   const [otInfo, setOtInfo] = React.useState({
     cliente: "",
@@ -108,6 +130,15 @@ function CrearOTScreen(props) {
   const [loadingFilesSitios, setLoadingFilesSitios] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+if(OTNuevaInfo){
+  setOpen(true);
+}
+   
+
+  }, [OTNuevaInfo]);
+
 
   useEffect(() => {
 
@@ -195,8 +226,15 @@ function CrearOTScreen(props) {
     })
       .then((response) => {
         console.log('response.data',response.data)
-        setReferenciaAWS("Subido Exitosamente")
-        // setFileCliente(fileCliente + "Subido Exitosamente");
+        let x = [];
+        x.push(response.data)
+        const y = listaArchivos.length +1
+        setListaArchivos({...listaArchivos, [indice]: {'file': file.name, 'path': response.data, fileMeta:file} })
+        setIndice(indice+1);
+        // setReferenciaAWS({...referenciaAWS , x})
+ 
+        setReferenciaAWS(fileCliente + "Subido Exitosamente");
+        // setFileCliente("Subido Exitosamente");
         setUploading(false);
       })
       .catch((err) => {
@@ -280,10 +318,17 @@ const handleSitio = (e, value) => {
 
 const crearOT = (e) => {
   e.preventDefault()
-  console.log('despacho crear OT')
-  dispatch(crearOTNueva(otInfo))
+ 
+  console.log('despacho crear OT', otInfo,  listaArchivos)
+  dispatch(crearOTNueva(otInfo, listaArchivos))
+  
 }
 
+
+
+const handleClose = () => {
+  setOpen(false);
+};
   return (
     <div className="w3-row w3-center  w3-margin-bottom">
 
@@ -434,54 +479,8 @@ const crearOT = (e) => {
                     </Grid>
 
                   </Grid>
-                  <Button variant="contained" color="primary" fullWidth={true} type='submit' >
-                    Crear OT
-                  </Button>
-        {/* <div className="w3-row">
-          <div className="w3-col m3 l4 w3-container"></div>
-          <input
-            className="w3-col s12 m6 l4 w3-padding"
-            type="file"
-            id="file-selector"
-            onChange={(e) => {
-              onChangeOT(e);
-            }}
-            multiple
-          />
-          <div className="w3-col m3 l4 w3-container"></div>
-        </div>
-
-        {loadingFiles || loadingOT ? <CircularProgress /> : <div></div>}
-        {createUser ? <div className="w3-section w3-center w3-green w3-round">{createUser.message}</div> : <div></div>}
-        {errorOT ? <div className="w3-section w3-center w3-red w3-round">{errorOT.message}</div> : <div></div>}
-
-        <div className="w3-col s12 w3-section">
-          <div className="w3-col m3 l4 w3-container"></div>
-          <button
-            id="crearUsuarios"
-            disabled={disabled || loadingOT}
-            className="w3-col s12 m6 l4 w3-btn w3-button w3-hover-blue w3-blue w3-round"
-            onClick={(e) => {
-              onLoadOT(e);
-            }}
-          >
-            Crear OTs
-          </button>
-          <div className="w3-col m3 l4 w3-container"></div>
-        </div> */}
-      </form>
-      <div className="w3-row w3-margin-bottom">
-        <div className="w3-col m2 l1 w3-container"></div>
-        <table className="w3-col s12 m8 l10 w3-responsive w3-table-all w3-hoverable w3-centered w3-round w3-border w3-margin-bottom">
-          <thead id="titulosOTs"></thead>
-          <tbody id="datosOTs"></tbody>
-        </table>
-        <div className="w3-col m2 l1 w3-container"></div>
-      </div>
-      <div className={classes.root}>
-      <h1 className="w3-xxlarge w3-text-dark-grey">3- Subir Documentos Relacionados</h1>
-            <div>{fileCliente}</div>
-            <div>{referenciaAWS}</div>
+                  <div className={classes.root}>
+      <Typography>3- Subir Documentos Relacionados</Typography> 
       <input
         accept="*"
         className={classes.input}
@@ -495,7 +494,57 @@ const crearOT = (e) => {
       <label htmlFor="contained-button-file">       
         {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" component="span">Subir Documentos</Button> }         
       </label>
+      {console.log("Array.from(listaArchivos)", listaArchivos, "Object.keys(listaArchivos).length>0",Object.keys(listaArchivos).length>0)}
+      <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Nombre Archivo</TableCell>
+                <TableCell align="left">Path</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+            { Object.keys(listaArchivos).length>0 && Object.values(listaArchivos).map((item, index) => (
+                <TableRow key={index}>
+                  <TableCell component="th" scope="row">
+                  {item.file} 
+                  </TableCell>
+                  <TableCell align="left">{item.path}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
     </div>
+                  <Button variant="contained" color="primary" fullWidth={true} type='submit' >
+                    Crear OT
+                  </Button>
+       
+      </form>
+     
+     
+    <div>
+    {console.log("OTNuevaInfo", OTNuevaInfo)}
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">{"OT Creada Exitosamente"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                La OT #{OTNuevaInfo? OTNuevaInfo.ot_number:""} ha sido creada exitosamente
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary" autoFocus>
+                Cerrar
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
     </div>
 
   );

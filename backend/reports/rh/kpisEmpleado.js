@@ -1,5 +1,5 @@
 import ExcelJS from 'exceljs';
-import KPIsModel from "../../models/kpi_model"
+
 import Users from "../../models/employee_model"
 import {
     fechaRegional, getMonthText, getQuincena,
@@ -105,18 +105,18 @@ const xlsxKPIsEmpleado = async (filtros) => {
                 { fecha: { $gte: DESDE } },
                 { fecha: { $lte: HASTA } }]
         }))
-        let kpis = await KPIsModel.find({
-            $and: [
-                { ut_id: usuario.ut_id },
-                {
-                    ut_id: {
-                        "$nin": ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-                    }
-                },
-                { fecha: { $lte: fechaRegional(config.TIMEZONE_OFFSET) } },
-                { fecha: { $gte: DESDE } },
-                { fecha: { $lte: HASTA } }]
-        }).sort({ "fecha": 1 })
+        // let kpis = await KPIsModel.find({
+        //     $and: [
+        //         { ut_id: usuario.ut_id },
+        //         {
+        //             ut_id: {
+        //                 "$nin": ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        //             }
+        //         },
+        //         { fecha: { $lte: fechaRegional(config.TIMEZONE_OFFSET) } },
+        //         { fecha: { $gte: DESDE } },
+        //         { fecha: { $lte: HASTA } }]
+        // }).sort({ "fecha": 1 })
         console.log("KPIS", kpis)
         // if (!kpis.length){("No se encontro ningun kpi.")}
 

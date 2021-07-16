@@ -499,12 +499,12 @@ const autoLogout = () => async (dispatch, getState) => {
 }
 
 
-const crearOTNueva = (otInfo) => async (dispatch, getState) => {
+const crearOTNueva = (otInfo, archivos) => async (dispatch, getState) => {
   const { userSignin: { userInfo } } = getState();
   dispatch({ type: OT_NUEVA_CREATE_REQUEST });
   try {
     // seria bueno cifrar con server.
-    const { data } = await axios.post("/api/users/createotnueva", otInfo, {
+    const { data } = await axios.post("/api/users/createotnueva", {otInfo, archivos}, {
       headers: {
         Authorization: ' Bearer ' + userInfo.token
       }

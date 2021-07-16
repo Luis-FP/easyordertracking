@@ -18,6 +18,7 @@ const otsSchema = new mongoose.Schema({
     responsable_ot: { type: String, required: false },
     email_responsable_ot:  { type: String, required: false },
     comentarios_responsable_ot: { type: String, required: false },
+    archivos: { type: Array, required: false},
 
     
 });

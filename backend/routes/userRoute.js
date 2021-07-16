@@ -3,12 +3,14 @@ import querystring from "querystring";
 import https from "https";
 import User from "../models/employee_model.js";
 import Detallesings from "../models/detalles_model.js";
-import KPIs from "../models/kpi_model.js";
+
 import OTs from "../models/ots_model.js";
 import Bitacoras from "../models/bitacora_model.js";
 import { createRecoveryEmailPage } from "../pages/recoveryEmailPage";
 import { createEmailValidation } from "../pages/validationPage";
 import { otNuevaEmail} from "../pages/otNuevaEnvioEmail";
+import { otActualizadaEmail} from "../pages/otActualizadaEnvioEmail";
+
 import { 
   getWeekNumber,
   fechaUnica,
@@ -280,11 +282,12 @@ router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req
   try {
 
       console.log("req usuario", req.user);
-      let otInfo = req.body;
+      let otInfo = req.body.otInfo;
+      let archivos = req.body.archivos;
       console.log("req datos crear", otInfo);
       
       
-      if (otInfo == null || otInfo == "")
+      if (otInfo === null || otInfo == "")
         res.send({ error: true, message: "No envio ninguna OT para crear." });
         //busca el ultimo numero de OT
 
@@ -341,9 +344,19 @@ router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req
             detalle_requerimiento: otInfo.detalle_requerimiento,
             prioridad: otInfo.prioridad,
             estado: 'ini',
-            fecha_requerida: otInfo.fecha_requerida
+            fecha_requerida: otInfo.fecha_requerida,
+            archivos: archivos
           })
        
+            // email informando
+            let emailTransport = crearTransporteEmail();         
+              let conf = {
+                to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+                subject: "OT Nueva Creada",
+                html: "",
+                };
+            conf.html = otNuevaEmail(otNueva);
+            EnvioEmail(conf, emailTransport);
     
       console.log(otNueva);
        await otNueva.save();
@@ -415,6 +428,20 @@ router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => 
           const otAct = await otactualizada.save();
           const sitioAct = await sitioactualizado.save();
       
+          // email informando
+          let emailTransport = crearTransporteEmail();
+
+        
+            let conf = {
+              to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+              subject: "OT Actualizada",
+              html: "",
+              };
+          conf.html = otActualizadaEmail(otactualizada);
+    
+
+              EnvioEmail(conf, emailTransport);
+
   
        res
        .status(200)
@@ -640,26 +667,26 @@ router.get("/inforegister", isAuth, isHiper, async (req, res) => {
 
 
 
-router.get("/statuscheck", isAuth, async (req, res) => {
-  console.log("req", req);
-  const userId = req.user.ut_id;
-  const fechaUTC = fechaRegional(process.env.TIMEZONE_OFFSET);
-  // const fechaFormato = fechaUnica(fechaUTC);
-  const fechaFormato = fechaRegionalUnica(process.env.TIMEZONE_OFFSET);
-  const fecha = fechaRegional(process.env.TIMEZONE_OFFSET);
+// router.get("/statuscheck", isAuth, async (req, res) => {
+//   console.log("req", req);
+//   const userId = req.user.ut_id;
+//   const fechaUTC = fechaRegional(process.env.TIMEZONE_OFFSET);
+//   // const fechaFormato = fechaUnica(fechaUTC);
+//   const fechaFormato = fechaRegionalUnica(process.env.TIMEZONE_OFFSET);
+//   const fecha = fechaRegional(process.env.TIMEZONE_OFFSET);
 
-  // chequeo si ya existe un registro
-  const kpi = await KPIs.findOne({
-    uniqueId: userId + fechaFormato,
-  });
-  console.log('kpi get', kpi);
-  if (kpi) {
-      res.status(200).send({ data: kpi });
+//   // chequeo si ya existe un registro
+//   const kpi = await KPIs.findOne({
+//     uniqueId: userId + fechaFormato,
+//   });
+//   console.log('kpi get', kpi);
+//   if (kpi) {
+//       res.status(200).send({ data: kpi });
 
-  } else {
-    res.status(200).send({ message: "no ha entrado hoy." });
-  }
-});
+//   } else {
+//     res.status(200).send({ message: "no ha entrado hoy." });
+//   }
+// });
 
 router.post("/salida", isAuth, async (req, res) => {
   console.log("salida")
@@ -1281,8 +1308,8 @@ console.log('output', output);
  // enviar email al responsable del recibir OTs
     
         let conf = {
-          to: 'luis.parparcen@gmail.com',
-          subject: "Solicitud de OT",
+          to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+          subject: "Sitios Nuevos subidos al sistema",
           html: "",
           };
       conf.html = otNuevaEmail();

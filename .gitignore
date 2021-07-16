@@ -4,3 +4,4 @@ package-lock.json
 *.xslx 
 /backend/reports/sent/*
 detalles_ocs.csv
+detalles_ingenieria.csv

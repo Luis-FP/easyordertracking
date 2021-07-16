@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Container from '@material-ui/core/Container';
+import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
@@ -35,7 +36,7 @@ import DirectionsIcon from '@material-ui/icons/Directions';
 import { set } from 'js-cookie';
 
 
-
+const purple3 = purple[300]
 const naranja7 = orange[700]
 const verdefondo = green[500]
 const azulfondo = blue[900]
@@ -192,12 +193,12 @@ function HomeScreen(props) {
 
 
   const userOTS = useSelector(state => state.userOTS);
-  const { userOTsInfo, errorOTS } = userOTS;
+  const { loadingOTs, userOTsInfo, errorOTS } = userOTS;
   
 console.log(userOTsInfo)
   const [openModal, setOpenModal] = React.useState(false);
   const [sitio, setSitio] = React.useState([]);
-  const [ot, setOt] = useState();
+  const [updated, setUpdated] = useState(false);
 
   const handleOpenDetalle = (e) => {
     
@@ -233,11 +234,14 @@ console.log(userOTsInfo)
     if (!userInfo) {
       props.history.push('/login');
   } 
-      dispatch(usersOTs());
+  if(!updated){
+    dispatch(usersOTs());
+    setUpdated(true)
+  }
     return () => {
  
     };
-  }, []);
+  }, [loadingOTs]);
 
   const [state, setState] = React.useState({
     checkedA: false,
@@ -257,6 +261,19 @@ console.log(userOTsInfo)
     const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
     setBusquedaKey2(valueLowerCase)
   }
+
+  function colorAlerta(nivel) {
+    let color = null;
+    if(nivel==='Alta'){
+      color = rojoFondo;
+    }else if(nivel==='Inmediata'){
+      color = purple3;
+    }else if(nivel==='Normal'){
+      color = verdefondo;
+    }
+    return color;
+  }
+
   return (
 
     <React.Fragment>
@@ -334,7 +351,7 @@ console.log(userOTsInfo)
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
               label={ot.requerimiento +" - " +ot.proyecto}
               clickable={true}
-              style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo: verdefondo} }
+              style={ {backgroundColor: colorAlerta(ot.prioridad)} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             /></Tooltip>)
@@ -386,7 +403,8 @@ console.log(userOTsInfo)
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
               label={ot.requerimiento +" - " +ot.proyecto}
               clickable={true}
-              style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo : verdefondo} }
+              // style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo : verdefondo} }
+              style={ {backgroundColor: colorAlerta(ot.prioridad)} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             /></Tooltip>)

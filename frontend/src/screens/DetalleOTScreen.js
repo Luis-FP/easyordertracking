@@ -140,13 +140,14 @@ function getSteps() {
 ]}
 
 const responsablesOT = [
-
+  {_id:"r0", responsable_ot:'', email_responsable_ot:''},
   {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmail.com'},
   {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
+  
 
 ];
 const prioridades = [
-  '',
+  "",
   'Normal',
   'Alta',
   'Inmediata',
@@ -187,6 +188,26 @@ function DetalleOTScreen(props) {
 
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
+  // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState(
+  const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([{
+    cliente: detallesSitio? detallesSitio.data[0].cliente : "",
+    detalle_requerimiento: detallesSitio? detallesSitio.data[0].detalle_requerimiento: "",
+    detallesSitio: detallesSitio? detallesSitio.data[0].detallesSitio: "",
+    email_responsable_cliente: detallesSitio? detallesSitio.data[0].email_responsable_cliente: "",
+    estado: detallesSitio? detallesSitio.data[0].estado: "",
+    fecha_requerida: detallesSitio? detallesSitio.data[0].fecha_requerida: new Date(),
+    fecha_sla: detallesSitio? detallesSitio.data[0].fecha_sla: new Date(),
+    ot_number: detallesSitio? detallesSitio.data[0].ot_number: "",
+    pais: detallesSitio? detallesSitio.data[0].pais: "",
+    prioridad: detallesSitio? detallesSitio.data[0].prioridad: "",
+    proyecto: detallesSitio? detallesSitio.data[0].proyecto: "",
+    requerimiento: detallesSitio? detallesSitio.data[0].requerimiento: "",
+    responsable_cliente: detallesSitio? detallesSitio.data[0].responsable_cliente: "",
+    sitio_codigo: detallesSitio? detallesSitio.data[0].sitio_codigo: "",
+    sitio_nombre: detallesSitio? detallesSitio.data[0].sitio_nombre: "",
+    responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: "",
+    comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
+  }]);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -221,18 +242,18 @@ console.log( responsablesOT.map((option) => {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setDetalleSitioInfo( {
-      ...detalleSitioInfo,
+    setDetallesSitioInfo( {
+      ...detallesSitioInfo,
       ['estado']: getStepContent(activeStep+1).codigo,
       ['estadoChange']: true,
   })
-  console.log('detalleSitioInfo', detalleSitioInfo['estado'],'getStep', getStepContent(activeStep+1).codigo)
+  console.log('detallesSitioInfo', detallesSitioInfo['estado'],'getStep', getStepContent(activeStep+1).codigo)
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    setDetalleSitioInfo({
-      ...detalleSitioInfo,
+    setDetallesSitioInfo({
+      ...detallesSitioInfo,
       ['estado']: getStepContent(activeStep-1).codigo,
       ['estadoChange']: true,
   })
@@ -248,47 +269,29 @@ console.log( responsablesOT.map((option) => {
   };
 
   const handleDateChangefecha_requerida = (date) => {
-    setDetalleSitioInfo({...detalleSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})
+    setDetallesSitioInfo({...detallesSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})
   };
 
   const handleDateChangefecha_sla = (date) => {
-    setDetalleSitioInfo({...detalleSitioInfo, ['fecha_sla']: new Date(date), ['fecha_slaChange']:true})
+    setDetallesSitioInfo({...detallesSitioInfo, ['fecha_sla']: new Date(date), ['fecha_slaChange']:true})
   };
 
-  const [detalleSitioInfo, setDetalleSitioInfo] = React.useState({
-      cliente: detallesSitio? detallesSitio.data[0].cliente : "",
-      detalle_requerimiento: detallesSitio? detallesSitio.data[0].detalle_requerimiento: "",
-      detallesSitio: detallesSitio? detallesSitio.data[0].detallesSitio: "",
-      email_responsable_cliente: detallesSitio? detallesSitio.data[0].email_responsable_cliente: "",
-      estado: detallesSitio? detallesSitio.data[0].estado: "",
-      fecha_requerida: detallesSitio? detallesSitio.data[0].fecha_requerida: new Date(),
-      fecha_sla: detallesSitio? detallesSitio.data[0].fecha_sla: new Date(),
-      ot_number: detallesSitio? detallesSitio.data[0].ot_number: "",
-      pais: detallesSitio? detallesSitio.data[0].pais: "",
-      prioridad: detallesSitio? detallesSitio.data[0].prioridad: "",
-      proyecto: detallesSitio? detallesSitio.data[0].proyecto: "",
-      requerimiento: detallesSitio? detallesSitio.data[0].requerimiento: "",
-      responsable_cliente: detallesSitio? detallesSitio.data[0].responsable_cliente: "",
-      sitio_codigo: detallesSitio? detallesSitio.data[0].sitio_codigo: "",
-      sitio_nombre: detallesSitio? detallesSitio.data[0].sitio_nombre: "",
-      responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: "",
-      comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
-    });
-    // const [detalleSitioInfo, setDetalleSitioInfo] = React.useState([]);
+  
+    // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([]);
     const [activeStep, setActiveStep] = React.useState(0);
 
    
 
 
-    // const pasoInicial = getSteps().filter(paso => detalleSitioInfo && paso.codigo===detalleSitioInfo.estado)[0].paso
+    // const pasoInicial = getSteps().filter(paso => detallesSitioInfo && paso.codigo===detallesSitioInfo.estado)[0].paso
     //  console.log(pasoInicial)
    
  
 
   const handleChange = (event) => {
     const name = event.target.name;
-    setDetalleSitioInfo({
-      ...detalleSitioInfo,
+    setDetallesSitioInfo({
+      ...detallesSitioInfo,
       [name]: event.target.value,
     });
   };
@@ -302,106 +305,122 @@ console.log( responsablesOT.map((option) => {
       props.history.push('/login');
 
     }
-    if(!detallesSitio){
-      dispatch(buscarDetallesSitio(sitioBuscar))
-    }
-    if(detallesSitio){
-      setDetalleSitioInfo({
-        cliente: detallesSitio.data[0].cliente,
-        detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
-        detallesSitio: detallesSitio.data[0].detallesSitio,
-        email_responsable_cliente: detallesSitio.data[0].email_responsable_cliente,
-        estado: detallesSitio.data[0].estado,
-        fecha_requerida: detallesSitio.data[0].fecha_requerida,
-        ot_number: detallesSitio.data[0].ot_number,
-        pais: detallesSitio.data[0].pais,
-        prioridad: detallesSitio.data[0].prioridad ? detallesSitio.data[0].prioridad : "",
-        proyecto: detallesSitio.data[0].proyecto,
-        requerimiento: detallesSitio.data[0].requerimiento,
-        responsable_cliente: detallesSitio.data[0].responsable_cliente,
-        sitio_codigo: detallesSitio.data[0].sitio_codigo,
-        sitio_nombre: detallesSitio.data[0].sitio_nombre,
-        responsable_ot: detallesSitio.data[0].responsable_ot? detallesSitio.data[0].responsable_ot :"" ,
-        email_responsable_ot: detallesSitio.data[0].email_responsable_ot? detallesSitio.data[0].email_responsable_ot :"" ,
-        comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
-        altura_pararrayos:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_pararrayos: "",
-        altura_validada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_validada: "",
-        area_a_utilizar:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_a_utilizar: "",
-        area_arrendada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_arrendada: "",
-        arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].arrendatario: "",
-        identificacion_arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].identificacion_arrendatario: "",
-        departamento:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].departamento: "",
-        direccion_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].direccion_sitio: "",
-        latitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].latitud_validada_grados: "",
-        longitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].longitud_validada_grados: "",
-        numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
-        orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
-        pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
-        provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
-        proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
-        resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
-        tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
-        tipologia_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipologia_sitio: "",
-        tx: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tx: "",
-        derecho_paso_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].derecho_paso_sitio: "",
-        electricidad_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].electricidad_sitio: "",
-        observaciones_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].observaciones_sitio: "",
-  // flag cambio
-        clienteChange: false,
-        detalle_requerimientoChange: false,
-        detallesSitioChange: false,
-        email_responsable_clienteChange: false,
-        estado:  false,
-        fecha_requeridaChange: false,
-        ot_numberChange: false,
-        paisChange: false,
-        prioridadChange: false,
-        proyectoChange: false,
-        requerimientoChange: false,
-        responsable_clienteChange: false,
-        sitio_codigoChange: false,
-        sitio_nombreChange: false,
-        responsable_otChange: false,
-        email_responsable_otChange: false,
-        comentarios_responsable_otChange: false,
-        altura_pararrayosChange: false,
-        altura_validadaChange: false,
-        area_a_utilizarChange: false,
-        area_arrendadaChange: false,
-        arrendatarioChange: false,
-        identificacion_arrendatarioChange: false,
-        departamentoChange: false,
-        direccion_sitioChange: false,
-        latitud_validada_gradosChange: false,
-        longitud_validada_gradosChange: false,
-        numero_fincaChange: false,
-        orientacion_torreChange: false,
-        paisChange: false,
-        provinciaChange: false,
-        proyectoChange: false,
-        resistencia_vientoChange: false,
-        tipo_estructuraChange: false,
-        tipologia_sitioChange: false,
-        txChange: false,
-        derecho_paso_sitioChange: false,
-        electricidad_sitioChange: false,
-        observaciones_sitioChange: false,
-      });
-      setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
-    }
+      let caso =0;
+      if(!detallesSitio){
+        caso=1; //no existe
+      }else if(detallesSitio.data.sitio_codigo === sitioBuscar.codigo){
+      caso = 1 // diferente
+      }else {
+        caso =0 // no hay cambio
+      }
+      console.log("caso", caso) 
+      switch (caso){
+        case 0:
+        setDetallesSitioInfo({
+          cliente: detallesSitio.data[0].cliente,
+          detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
+          detallesSitio: detallesSitio.data[0].detallesSitio,
+          email_responsable_cliente: detallesSitio.data[0].email_responsable_cliente,
+          estado: detallesSitio.data[0].estado,
+          fecha_requerida: detallesSitio.data[0].fecha_requerida,
+          ot_number: detallesSitio.data[0].ot_number,
+          pais: detallesSitio.data[0].pais,
+          prioridad: detallesSitio.data[0].prioridad ? detallesSitio.data[0].prioridad : "",
+          proyecto: detallesSitio.data[0].proyecto,
+          requerimiento: detallesSitio.data[0].requerimiento,
+          responsable_cliente: detallesSitio.data[0].responsable_cliente,
+          sitio_codigo: detallesSitio.data[0].sitio_codigo,
+          sitio_nombre: detallesSitio.data[0].sitio_nombre,
+          responsable_ot: detallesSitio.data[0].responsable_ot? detallesSitio.data[0].responsable_ot :"" ,
+          email_responsable_ot: detallesSitio.data[0].email_responsable_ot? detallesSitio.data[0].email_responsable_ot :"" ,
+          comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
+          altura_pararrayos:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_pararrayos: "",
+          altura_validada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].altura_validada: "",
+          area_a_utilizar:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_a_utilizar: "",
+          area_arrendada:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].area_arrendada: "",
+          arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].arrendatario: "",
+          identificacion_arrendatario:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].identificacion_arrendatario: "",
+          departamento:  detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].departamento: "",
+          direccion_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].direccion_sitio: "",
+          latitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].latitud_validada_grados: "",
+          longitud_validada_grados: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].longitud_validada_grados: "",
+          numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
+          orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
+          pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
+          provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
+          proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
+          resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
+          tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
+          tipologia_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipologia_sitio: "",
+          tx: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tx: "",
+          derecho_paso_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].derecho_paso_sitio: "",
+          electricidad_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].electricidad_sitio: "",
+          observaciones_sitio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].observaciones_sitio: "",
+    // flag cambio
+          clienteChange: false,
+          detalle_requerimientoChange: false,
+          detallesSitioChange: false,
+          email_responsable_clienteChange: false,
+          estado:  false,
+          fecha_requeridaChange: false,
+          ot_numberChange: false,
+          paisChange: false,
+          prioridadChange: false,
+          proyectoChange: false,
+          requerimientoChange: false,
+          responsable_clienteChange: false,
+          sitio_codigoChange: false,
+          sitio_nombreChange: false,
+          responsable_otChange: false,
+          email_responsable_otChange: false,
+          comentarios_responsable_otChange: false,
+          altura_pararrayosChange: false,
+          altura_validadaChange: false,
+          area_a_utilizarChange: false,
+          area_arrendadaChange: false,
+          arrendatarioChange: false,
+          identificacion_arrendatarioChange: false,
+          departamentoChange: false,
+          direccion_sitioChange: false,
+          latitud_validada_gradosChange: false,
+          longitud_validada_gradosChange: false,
+          numero_fincaChange: false,
+          orientacion_torreChange: false,
+          paisChange: false,
+          provinciaChange: false,
+          proyectoChange: false,
+          resistencia_vientoChange: false,
+          tipo_estructuraChange: false,
+          tipologia_sitioChange: false,
+          txChange: false,
+          derecho_paso_sitioChange: false,
+          electricidad_sitioChange: false,
+          observaciones_sitioChange: false,
+        });
+        setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
+        break;
+        case 1:
+        dispatch(buscarDetallesSitio(sitioBuscar))
+        break;
 
+        default:
+          // nadaa
+      }
+     
+  
+  
     return () => {
     
     };
-  }, [loadingSitio]);
+  }, [loadingSitio,detallesSitio ]);
   
 
  
 
   const handleProceso = (e) =>{
     e.preventDefault();
-    console.log("a grabar!", detalleSitioInfo)
-    dispatch(actualizarOT(detalleSitioInfo))
+    console.log("a grabar!", detallesSitioInfo)
+    dispatch(actualizarOT(detallesSitioInfo))
     props.history.push('/');
   }
 
@@ -445,39 +464,40 @@ console.log( responsablesOT.map((option) => {
                 <Grid item xs={12} sm={4}> 
                 <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="responsable_cliente">Responsable Cliente</InputLabel>
-                      <OutlinedInput id="responsable_cliente" value={detalleSitioInfo['responsable_cliente']} 
+                      <OutlinedInput id="responsable_cliente" value={detallesSitioInfo['responsable_cliente']? detallesSitioInfo['responsable_cliente']:""} 
                       disabled={true} 
+                      onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['responsable_cliente']: value.target.value })}
                       label="Responsable Cliente" 
                       fullWidth={true} />
                       </FormControl>
                     </Grid>
-                    {console.log("detalleSitioInfo",detalleSitioInfo)}
+                    {console.log("detallesSitioInfo",detallesSitioInfo)}
                     <Grid item xs={12} sm={4}> 
-                    { prioridades && detalleSitioInfo && <Autocomplete
+                    { prioridades && detallesSitioInfo && <Autocomplete
                         id="prioridad"
                         required={true}
-                        onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['prioridad']:value , ['prioridadChange']:true })}
+                        onChange={(e, value)=> setDetallesSitioInfo({...detallesSitioInfo, ['prioridad']:value , ['prioridadChange']:true })}
                         options={prioridades}
                         getOptionLabel={(option) => option}
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Prioridad" variant="outlined" />}
-                        value={detalleSitioInfo?detalleSitioInfo['prioridad']:null} 
+                        value={detallesSitioInfo['prioridad']} 
                       />}
                    
 
                     </Grid>
                     <Grid item xs={12} sm={4}> 
-                    { responsablesOT && detalleSitioInfo && <Autocomplete
+                    { responsablesOT && detallesSitioInfo&& <Autocomplete
                         options={responsablesOT}
                         getOptionLabel={(option) => option.responsable_ot}
                         id="responsable_ot"
                         required={true}
-                        onChange={(e, value)=> setDetalleSitioInfo({...detalleSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
+                        onChange={(e, value)=> setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
                          ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
 
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
-                        value={detalleSitioInfo?detalleSitioInfo['responsable_ot']:null} 
+                        value={detallesSitioInfo['responsable_ot']? "": detallesSitioInfo['responsable_ot']} 
                       />}
                     
                     </Grid>
@@ -485,14 +505,14 @@ console.log( responsablesOT.map((option) => {
                       
                       <MuiPickersUtilsProvider utils={DateFnsUtils}>
                      
-                      {detalleSitioInfo && <KeyboardDatePicker
+                      {detallesSitioInfo && detallesSitioInfo['fecha_sla'] && <KeyboardDatePicker
                         
                           margin="normal"
-                          disabled={userInfo.isSuper? true : false}
+                          disabled={false}
                           id="fecha_sla"
                           label="Fecha SLA"
                           format="MM/dd/yyyy"
-                          value={detalleSitioInfo['fecha_sla']}
+                          value={detallesSitioInfo['fecha_sla']? detallesSitioInfo['fecha_sla']:null}
                           onChange={handleDateChangefecha_sla}
                           KeyboardButtonProps={{
                             'aria-label': 'change date', 
@@ -502,12 +522,12 @@ console.log( responsablesOT.map((option) => {
                     </Grid>
                       <Grid item md={4}  xs={6}  sm={6}> 
                       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                     {detalleSitioInfo && detalleSitioInfo['fecha_requerida'] && <KeyboardDatePicker
+                     {detallesSitioInfo && detallesSitioInfo['fecha_requerida'] && <KeyboardDatePicker
                         margin="normal"
                         id="fecha_requerida"
                         label="Fecha Requerida"
                         format="MM/dd/yyyy"                       
-                        value={detalleSitioInfo['fecha_requerida']}
+                        value={detallesSitioInfo['fecha_requerida']? detallesSitioInfo['fecha_requerida']:null}
                         onChange={handleDateChangefecha_requerida}
                         disabled={userInfo.isSuper? true : false}
                         KeyboardButtonProps={{
@@ -561,8 +581,8 @@ console.log( responsablesOT.map((option) => {
                     <Grid item xs={4} sm={4} className={classes.root}> 
                     <FormControl variant="outlined" className={classes.formControl}>
                       <InputLabel htmlFor="Requerimiento">Requerimiento</InputLabel>
-                      <OutlinedInput id="Requerimiento" value={detalleSitioInfo['requerimiento']} 
-                      onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
+                      <OutlinedInput id="Requerimiento" value={detallesSitioInfo['requerimiento']?detallesSitioInfo['requerimiento']:""} 
+                      onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
                       disabled={userInfo.isSuper? true : false}
                       label="Requerimiento" />
                     </FormControl>
@@ -576,8 +596,8 @@ console.log( responsablesOT.map((option) => {
                                   variant="outlined"
                                   fullWidth
                                   disabled={userInfo.isSuper? true : false}
-                                  value={detalleSitioInfo['detalle_requerimiento']} 
-                                  onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
+                                  value={detallesSitioInfo['detalle_requerimiento']? detallesSitioInfo['detalle_requerimiento']:""} 
+                                  onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
                                 />
                     </Grid>
                     <Grid item xs={12} sm={12}> 
@@ -590,8 +610,8 @@ console.log( responsablesOT.map((option) => {
                                   placeholder="Comente cualquier observación sobre esta Orden de Trabajo..."
                                   variant="outlined"
                                   fullWidth
-                                  value={detalleSitioInfo['comentarios_responsable_ot']} 
-                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
+                                  value={detallesSitioInfo['comentarios_responsable_ot']? detallesSitioInfo['comentarios_responsable_ot']:""} 
+                                  onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
               </Grid>}
@@ -616,41 +636,41 @@ console.log( responsablesOT.map((option) => {
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
-                                        <OutlinedInput id="tipo_estructura" value={detalleSitioInfo['tipo_estructura']} 
+                                        <OutlinedInput id="tipo_estructura" value={detallesSitioInfo['tipo_estructura']} 
                                         // disabled={userInfo.isSuper? true : false}
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
                                         label="Tipo de Estructura" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
-                                        <OutlinedInput id="area" value={detalleSitioInfo['area_arrendada']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_arrendada']:value.target.value, ['area_arrendadaChange']:true })}
+                                        <OutlinedInput id="area" value={detallesSitioInfo['area_arrendada']}
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['area_arrendada']:value.target.value, ['area_arrendadaChange']:true })}
                                          label="Área Rentada" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="area_a_utilizar">Area a Utilizar</InputLabel>
-                                        <OutlinedInput id="area_a_utilizar" value={detalleSitioInfo['area_a_utilizar']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['area_a_utilizar']:value.target.value, ['area_a_utilizarChange']:true })}
+                                        <OutlinedInput id="area_a_utilizar" value={detallesSitioInfo['area_a_utilizar']}
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['area_a_utilizar']:value.target.value, ['area_a_utilizarChange']:true })}
                                          label="Área a Utilizar" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="tipologia_sitio">Tipologia Sitio</InputLabel>
-                                        <OutlinedInput id="tipologia_sitio" value={detalleSitioInfo['tipologia_sitio']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['tipologia_sitio']:value.target.value, ['tipologia_sitioChange']:true })}
+                                        <OutlinedInput id="tipologia_sitio" value={detallesSitioInfo['tipologia_sitio']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipologia_sitio']:value.target.value, ['tipologia_sitioChange']:true })}
                                         label="Tipología Sitio" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="arrendatario">Arrendatario/Propietario</InputLabel>
-                                        <OutlinedInput id="arrendatario" value={detalleSitioInfo['arrendatario']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
+                                        <OutlinedInput id="arrendatario" value={detallesSitioInfo['arrendatario']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
                                         label="Arrendatario/Propietario" />
                                       </FormControl>
                               </Grid>
@@ -658,56 +678,56 @@ console.log( responsablesOT.map((option) => {
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="identificacion_arrendatario">Identificacion Arrendatario</InputLabel>
-                                        <OutlinedInput id="identificacion_arrendatario" value={detalleSitioInfo['identificacion_arrendatario']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
+                                        <OutlinedInput id="identificacion_arrendatario" value={detallesSitioInfo['identificacion_arrendatario']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
                                         label="Identificacion Arrendatario" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="numero_finca">Número de Finca</InputLabel>
-                                        <OutlinedInput id="numero_finca" value={detalleSitioInfo['numero_finca']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
+                                        <OutlinedInput id="numero_finca" value={detallesSitioInfo['numero_finca']}
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
                                          label="Número de Finca" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                               <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="direccion_sitio">Direccion de la Finca</InputLabel>
-                                        <OutlinedInput id="direccion_sitio" value={detalleSitioInfo['direccion_sitio']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
+                                        <OutlinedInput id="direccion_sitio" value={detallesSitioInfo['direccion_sitio']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
                                         label="Direccion de la Finca" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="provincia">Provincia</InputLabel>
-                                        <OutlinedInput id="provincia" value={detalleSitioInfo['provincia']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['provincia']:value.target.value, ['provinciaChange']:true })}  
+                                        <OutlinedInput id="provincia" value={detallesSitioInfo['provincia']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['provincia']:value.target.value, ['provinciaChange']:true })}  
                                         label="Provincia" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="departamento">Departamento</InputLabel>
-                                        <OutlinedInput id="departamento" value={detalleSitioInfo['departamento']}
-                                         onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
+                                        <OutlinedInput id="departamento" value={detallesSitioInfo['departamento']}
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
                                          label="Departamento" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="latitud_validada_grados">Latitud Validada en Grados</InputLabel>
-                                        <OutlinedInput id="latitud_validada_grados" value={detalleSitioInfo['latitud_validada_grados']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['latitud_validada_grados']:value.target.value, ['latitud_validada_gradosChange']:true })}  
+                                        <OutlinedInput id="latitud_validada_grados" value={detallesSitioInfo['latitud_validada_grados']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['latitud_validada_grados']:value.target.value, ['latitud_validada_gradosChange']:true })}  
                                         label="Latitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="longitud_validada_grados">Longitud Validada en Grados</InputLabel>
-                                        <OutlinedInput id="longitud_validada_grados" value={detalleSitioInfo['longitud_validada_grados']} 
-                                        onChange={(value)=> setDetalleSitioInfo({...detalleSitioInfo, ['longitud_validada_grados']:value.target.value, ['longitud_validada_gradosChange']:true })} 
+                                        <OutlinedInput id="longitud_validada_grados" value={detallesSitioInfo['longitud_validada_grados']} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['longitud_validada_grados']:value.target.value, ['longitud_validada_gradosChange']:true })} 
                                         label="Longitud Validada en Grados" />
                                       </FormControl>
                               </Grid>
@@ -722,8 +742,8 @@ console.log( responsablesOT.map((option) => {
                                   variant="outlined"
                                   fullWidth
                                   // disabled={userInfo.isSuper? true : false}
-                                  value={detalleSitioInfo['derecho_paso_sitio']} 
-                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['derecho_paso_sitio']:e.target.value , ['derecho_paso_sitioChange']:true })}
+                                  value={detallesSitioInfo['derecho_paso_sitio']} 
+                                  onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['derecho_paso_sitio']:e.target.value , ['derecho_paso_sitioChange']:true })}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={12} className={classes.multitexto}> 
@@ -737,8 +757,8 @@ console.log( responsablesOT.map((option) => {
                                   variant="outlined"
                                   fullWidth
                                   // disabled={userInfo.isSuper? true : false}
-                                  value={detalleSitioInfo['electricidad_sitio']} 
-                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['electricidad_sitio']:e.target.value, ['electricidad_sitioChange']:true })}
+                                  value={detallesSitioInfo['electricidad_sitio']} 
+                                  onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['electricidad_sitio']:e.target.value, ['electricidad_sitioChange']:true })}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={12} className={classes.multitexto}> 
@@ -752,8 +772,8 @@ console.log( responsablesOT.map((option) => {
                                   variant="outlined"
                                   fullWidth
                                   // disabled={userInfo.isSuper? true : false}
-                                  value={detalleSitioInfo['observaciones_sitio']} 
-                                  onChange={(e)=> setDetalleSitioInfo({...detalleSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
+                                  value={detallesSitioInfo['observaciones_sitio']} 
+                                  onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
                                 />
                               </Grid>
                               </Grid>}

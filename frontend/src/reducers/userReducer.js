@@ -60,6 +60,9 @@ import {
   SITIOS_CARGADOS_REQUEST,
   SITIOS_CARGADOS_SUCCESS,
   SITIOS_CARGADOS_FAIL,
+  OT_NUEVA_CREATE_REQUEST,
+  OT_NUEVA_CREATE_SUCCESS,
+  OT_NUEVA_CREATE_FAIL,
 } from "../constants/userConstants";
 
 function userSigninReducer(state = {}, action) {
@@ -95,15 +98,28 @@ function userProyectoReducer(state = {}, action) {
 function userOTSReducer(state = {}, action) {
   switch (action.type) {
     case USER_OTS_REQUEST:
-      return { loading: true };
+      return { loadingOTs: true };
     case USER_OTS_SUCCESS:
-      return { loading: false, userOTsInfo: action.payload };
+      return { loadingOTs: false, userOTsInfo: action.payload };
     case USER_OTS_FAIL:
-      return { loading: false, errorOTS: action.payload };
+      return { loadingOTs: false, errorOTS: action.payload };
     default:
       return state;
   }
 }
+
+function userOTSCreateReducer(state = {}, action) {
+  switch (action.type) {
+    case OT_NUEVA_CREATE_REQUEST:
+      return { loadingNuevaOT: true };
+    case OT_NUEVA_CREATE_SUCCESS:
+      return { loadingNuevaOT: false, OTNuevaInfo: action.payload };
+    case OT_NUEVA_CREATE_FAIL:
+      return { loadingNuevaOT: false, errorOTNueva: action.payload };
+    default:
+      return state;
+  }
+} 
 
 function userDetallesSitioReducer(state = {}, action) {
   switch (action.type) {
@@ -278,7 +294,7 @@ export {
  
 
   userStatusReducer,
-
+  userOTSCreateReducer,
   userOTSReducer,
   createSitioReducer,
   createUsersReducer,

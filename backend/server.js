@@ -5,9 +5,8 @@ import config from "./config";
 import mongoose from "mongoose";
 import bodyParser from "body-parser"
 import userRoute from "./routes/userRoute";
-import pendientesRoute from './routes/pendientesRoute';
 import uploadRoute from './routes/uploadRoute';
-import kpisRoute from './routes/kpisRoute';
+
 import sendEmailRoute from './routes/sendEmailRoute';
 import secureRoute from './routes/secureRoute';
 import reportesRoute from "./routes/reportesRoute";
@@ -39,8 +38,6 @@ app.use(bodyParser.json({ limit: "3mb" }));
 
 app.use("/api/uploads", uploadRoute);
 app.use("/api/users", userRoute);
-app.use("/api/pendientes", pendientesRoute);
-app.use("/api/kpis", kpisRoute);
 app.use("/api/email", sendEmailRoute);
 app.use("/api/secure", secureRoute);
 app.use("/api/reportes", reportesRoute);
@@ -49,7 +46,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/${pathDominio}/index.html`));
 });
 
-app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 
 app.listen(config.PORT, () => {
   console.log("Server started at https://localhost:5000");

@@ -1,5 +1,5 @@
 
- const otNuevaEmail = (info) => {
+ const otActualizadaEmail = (info) => {
      console.log('info', info)
      let html = 
      `<!DOCTYPE html>
@@ -43,10 +43,10 @@
      <div class="row justify-content-center">
      <div class="col-12 jumbotron bg-blueish text-blueish mx-auto">
       <!-- <img width="70" src="./icon-48x48.png" alt="logo"/>  -->
-     <h1 class="col-12 text-center">OT # ${info.ot_number} Creada</h1>
+     <h1 class="col-12 text-center">OT # '${info.ot_number} Actualizada</h1>
      
      </div> 
-    
+     <div class="row justify-content-center">
      <div class="col-12 mx-auto">
      <p class="col-12 text-center">Cliente:${info.cliente} </p>
      <p class="col-12 text-center">Proyecto:${info.proyecto} </p>
@@ -55,7 +55,7 @@
      <p class="col-12 text-center">Requerimiento:${info.requerimiento} </p>
      <p class="col-12 text-center">Detalle:${info.detalle_requerimiento} </p>
      </div>
-   
+     </div>
      </div>
      <div class="row justify-content-center"> 
      <a href="#" class="col-6 mx-auto"> 
@@ -63,6 +63,8 @@
      <h3>Ir a sistema de OTs</h3> 
      </button> 
      </a>
+     
+     
      </div>
      </body>
      </html>`
@@ -70,4 +72,4 @@
 
 return html;
 };
-export {otNuevaEmail};
+export {otActualizadaEmail};

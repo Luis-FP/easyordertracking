@@ -3,6 +3,7 @@ import multer from 'multer';
 import multerS3 from 'multer-s3';
 import aws from 'aws-sdk';
 import config  from '../config';
+import fileDownload from 'js-file-download';
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -17,9 +18,11 @@ const upload = multer({ storage });
 
 const router = express.Router();
 
-router.post('/', upload.single('image'), (req, res) => {
-    res.send('/'+ req.file.path);
-});
+// router.post('/', upload.single('image'), (req, res) => {
+//     res.send('/'+ req.file.path);
+// });
+
+
 
 aws.config.update({
   accessKeyId: config.accessKeyId,
@@ -39,6 +42,7 @@ const storageS3 = multerS3({
 
 const uploadS3 = multer({ storage: storageS3 });
 router.post('/s3', uploadS3.single('image'), (req, res) => {
+  console.log("infoS3",req.file)
   res.send(req.file.location);
 });
 
