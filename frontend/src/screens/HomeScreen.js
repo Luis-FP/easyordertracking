@@ -160,14 +160,13 @@ function HomeScreen(props) {
   
   let procesos = [
     {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
-    {_id:"p2",titulo:'Programación y Asignación', codigo:'plan', paso:1},
-    {_id:"p3",titulo:'Revision con Cliente', codigo:'rev', paso:2},
-    {_id:"p4",titulo:'En Ejecución', codigo:'ejec', paso:3},
-    {_id:"p5",titulo:'Revisión de Calidad', codigo:'qa', paso:4},
-    {_id:"p6",titulo:'Finalizado Entregado', codigo:'entregado', paso:5},
-    {_id:"p7",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:6},
-    {_id:"p8",titulo:'Facturación', codigo:'facturacion', paso:7},
-    {_id:"p9",titulo:'pagado', codigo:'pagado', paso:8},
+    {_id:"p2",titulo:'Revision con Cliente y Programación', codigo:'rev', paso:1},
+    {_id:"p3",titulo:'En Ejecución', codigo:'ejec', paso:2},
+    {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
+    {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
+    {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
+    {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
+    {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
   ]
 
   let today = new Date().getTime();
