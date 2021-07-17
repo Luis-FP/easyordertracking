@@ -111,8 +111,8 @@ const useStyles = makeStyles((theme) => ({
   },
   fab: {
     position: 'absolute',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    bottom: '1%',
+    right: '2%',
   },
   zona2: {
     width: '100%',
@@ -432,12 +432,8 @@ function DetalleOTScreen(props) {
           </Typography>}
         
                 { detallesSitio && 
-                <Grid item xs={12} sm={12} container>
-                <Tooltip title="Guardar" aria-label="add" placement="left-start">
-                <Fab color="primary" aria-label="add" className={classes.fab} type="submit">
-                  <SaveIcon />
-                </Fab>
-                </Tooltip>
+                <Grid item xs={12} sm={12} container >
+              
                 <Grid item xs={12} sm={4}> 
                 <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="responsable_cliente">Responsable Cliente</InputLabel>
@@ -767,6 +763,13 @@ function DetalleOTScreen(props) {
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
                                 />
                               </Grid>
+                              {/* <Grid item xs={12} sm={12} >  */}
+                              <Tooltip title="Guardar" aria-label="add" placement="left-start" >
+                              <Fab color="primary" aria-label="add" className={classes.fab} type="submit">
+                                <SaveIcon />
+                              </Fab>
+                              </Tooltip>
+                              {/* </Grid> */}
                               </Grid>}
                               </Grid>}
                             </Grid>
