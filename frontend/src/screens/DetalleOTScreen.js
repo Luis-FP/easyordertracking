@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    // minWidth: 220,
     fullWidth: 'true',
   },
   table: {
@@ -113,6 +113,11 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+  },
+  zona2: {
+    width: '100%',
+    marginTop: 20,
+
   },
 }));
 
@@ -212,7 +217,12 @@ function DetalleOTScreen(props) {
   const history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
-  const [edit, setEdit] = React.useState(false);
+  const split = props.location.search.split("&");
+  const [sitioBuscar, setSitioBuscar] = React.useState({
+    codigo: props.location.search ? split[0].substring(+ 8) : 1,
+    ot_number: props.location.search ? split[1].substring(+ 10) : 1
+  });
+  const [updatedCodigo, setUpdatedCodigo] = React.useState(false);
   const [state, setState] = React.useState({
     checkedDetalles: false,
     checkedProcesos: false
@@ -222,23 +232,7 @@ function DetalleOTScreen(props) {
   };
  
   const steps = getSteps();
-
-  const split = props.location.search.split("&");
-  console.log("split", split) 
-  
-  const sitioBuscar ={
-    codigo: props.location.search ? split[0].substring(+ 8) : 1,
-    ot_number: props.location.search ? split[1].substring(+ 10) : 1
-  }
-
-
-
-console.log( responsablesOT.map((option) => {
-  return(<MenuItem key={option._id} selected={option === ''}  >
-    {option}
-  </MenuItem>)
-}));
-
+ 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setDetallesSitioInfo( {
@@ -279,13 +273,7 @@ console.log( responsablesOT.map((option) => {
     // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([]);
     const [activeStep, setActiveStep] = React.useState(0);
 
-   
 
-
-    // const pasoInicial = getSteps().filter(paso => detallesSitioInfo && paso.codigo===detallesSitioInfo.estado)[0].paso
-    //  console.log(pasoInicial)
-   
- 
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -304,18 +292,8 @@ console.log( responsablesOT.map((option) => {
       props.history.push('/login');
 
     }
-      let caso =0;
-      if(!detallesSitio){
-        caso=1; //no existe
-      }else if(detallesSitio.data.sitio_codigo === sitioBuscar.codigo){
-      caso = 1 // diferente
-      }else {
-        caso =0 // no hay cambio
-      }
-      console.log("caso", caso) 
-      switch (caso){
-        case 0:
-        setDetallesSitioInfo({
+    if( detallesSitio){
+     setDetallesSitioInfo({
           cliente: detallesSitio.data[0].cliente,
           detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
           detallesSitio: detallesSitio.data[0].detallesSitio,
@@ -397,21 +375,17 @@ console.log( responsablesOT.map((option) => {
           observaciones_sitioChange: false,
         });
         setActiveStep(getSteps().filter(paso => paso.codigo===detallesSitio.data[0].estado)[0].paso)
-        break;
-        case 1:
-        dispatch(buscarDetallesSitio(sitioBuscar))
-        break;
-
-        default:
-          // nadaa
       }
-     
-  
+ 
+      if( !detallesSitio || !updatedCodigo ){
+        dispatch(buscarDetallesSitio(sitioBuscar))
+        setUpdatedCodigo(true)
+      }
   
     return () => {
     
     };
-  }, [loadingSitio,detallesSitio ]);
+  }, [loadingSitio,detallesSitio, updatedCodigo ]);
   
 
  
@@ -419,8 +393,12 @@ console.log( responsablesOT.map((option) => {
   const handleProceso = (e) =>{
     e.preventDefault();
     console.log("a grabar!", detallesSitioInfo)
-    dispatch(actualizarOT(detallesSitioInfo))
-    props.history.push('/');
+    dispatch(actualizarOT(detallesSitioInfo)).then(response =>{
+      
+        props.history.push('/');
+      
+    })
+    
   }
 
   function checkFulliness(info){
@@ -577,19 +555,23 @@ console.log( responsablesOT.map((option) => {
           
                     </div>
                     </Paper>
-                    <Grid item xs={4} sm={4} className={classes.root}> 
-                    <FormControl variant="outlined" className={classes.formControl}>
-                      <InputLabel htmlFor="Requerimiento">Requerimiento</InputLabel>
-                      <OutlinedInput id="Requerimiento" value={detallesSitioInfo['requerimiento']?detallesSitioInfo['requerimiento']:""} 
+                    <Grid container className={classes.zona2}> 
+                    <Grid item xs={12} sm={12}   className={classes.formControl}> 
+                    <TextField
+                      id="Requerimiento" 
+                      variant="outlined"
+                      fullWidth
+                      rows={1}
+                      value={detallesSitioInfo['requerimiento']?detallesSitioInfo['requerimiento']:""} 
                       onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
                       disabled={userInfo.isSuper? true : false}
                       label="Requerimiento" />
-                    </FormControl>
+
                     </Grid>
-                    <Grid item xs={8} sm={8}> 
+                    <Grid item xs={12} sm={12} className={classes.formControl}> 
                     <TextField
                                   id="Detalle"
-                                  label="Detalle"                               
+                                  label="Detalle del Requerimiento"                               
                                   multiline
                                   rows={4}
                                   variant="outlined"
@@ -599,7 +581,7 @@ console.log( responsablesOT.map((option) => {
                                   onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
                                 />
                     </Grid>
-                    <Grid item xs={12} sm={12}> 
+                    <Grid item xs={12} sm={12} className={classes.formControl}> 
                     <TextField
                                   id="comentarios_responsable_ot"
                                   label="Comentarios de Ingeniería"
@@ -613,11 +595,12 @@ console.log( responsablesOT.map((option) => {
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
-              </Grid>}
+                    </Grid>
+              {/* </Grid>
 
-                            <Grid  container>
+                            <Grid  container> */}
                           
-                            <Grid item xs={12} sm={12} >
+                            {/* <Grid item xs={12} sm={12} >
                              <FormControlLabel
                                 control={
                                   <Switch
@@ -629,20 +612,29 @@ console.log( responsablesOT.map((option) => {
                                 }
                                 label="Detalles del Sitio"
                               />
-                            </Grid>
-                           
-                            {state.checkedDetalles && <Grid  container>
+                            </Grid> */}
+                            {/* {state.checkedDetalles && <Grid  container> */}
+                            {<Grid  container className={classes.zona2}>
                               <Grid item xs={6} sm={3}> 
-                                      <FormControl variant="outlined" className={classes.formControl}>
+                              {/* <TextField
+                                  id="tipo_estructura"
+                                  onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
+                                  label="Tipo de Estructura" 
+                                  variant="outlined"
+                                  color="secondary"
+                                  value={detallesSitioInfo['tipo_estructura']} 
+                                /> */}
+                                      <FormControl variant="outlined" >
                                         <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
                                         <OutlinedInput id="tipo_estructura" value={detallesSitioInfo['tipo_estructura']} 
                                         // disabled={userInfo.isSuper? true : false}
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
-                                        label="Tipo de Estructura" />
+                                        label="Tipo de Estructura" 
+                                        />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
-                                      <FormControl variant="outlined" className={classes.formControl}>
+                                      <FormControl variant="outlined"   >
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
                                         <OutlinedInput id="area" value={detallesSitioInfo['area_arrendada']}
                                          onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['area_arrendada']:value.target.value, ['area_arrendadaChange']:true })}
@@ -776,7 +768,7 @@ console.log( responsablesOT.map((option) => {
                                 />
                               </Grid>
                               </Grid>}
-                            </Grid>
+                              </Grid>}
                             </Grid>
                             </form>
                           </Container>

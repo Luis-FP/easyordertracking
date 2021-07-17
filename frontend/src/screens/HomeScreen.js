@@ -198,18 +198,11 @@ console.log(userOTsInfo)
   const [openModal, setOpenModal] = React.useState(false);
   const [sitio, setSitio] = React.useState([]);
   const [updated, setUpdated] = useState(false);
-
+console.log('updated', updated)
   const handleOpenDetalle = (e) => {
-    
     console.log(e.currentTarget.getAttribute('codigo') )
     console.log(e.currentTarget.getAttribute('nombre') )
-    const sitioBuscar={
-      cliente: e.currentTarget.getAttribute('cliente'),
-      codigo: e.currentTarget.getAttribute('codigo'),
-      ot_number: e.currentTarget.getAttribute('ot_number')
-    }
-    console.log("Sitio a Buscar",sitioBuscar)
-    // dispatch(buscarDetallesSitio(sitioBuscar))
+    setUpdated(false)
     props.history.push(
       "/detalleOT/?codigo=" +
       e.currentTarget.getAttribute('codigo') +
@@ -240,7 +233,7 @@ console.log(userOTsInfo)
     return () => {
  
     };
-  }, [loadingOTs]);
+  }, [loadingOTs, updated]);
 
   const [state, setState] = React.useState({
     checkedA: false,
@@ -252,6 +245,7 @@ console.log(userOTsInfo)
   };
   const [busquedaKey1, setBusquedaKey1] = React.useState(null);
   const [busquedaKey2, setBusquedaKey2] = React.useState(null);
+  const [busquedaKey3, setBusquedaKey3] = React.useState(null);
   const busquedaNombre = (e) =>{
     const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
     setBusquedaKey1(valueLowerCase)
@@ -259,6 +253,10 @@ console.log(userOTsInfo)
   const busquedaFecha = (e) =>{
     const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
     setBusquedaKey2(valueLowerCase)
+  }
+  const busquedaProyecto = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    setBusquedaKey3(valueLowerCase)
   }
 
   function colorAlerta(nivel) {
