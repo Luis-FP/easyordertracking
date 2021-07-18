@@ -201,8 +201,7 @@ function LoginScreen(props) {
         <DialogTitle id="alert-dialog-slide-title">{"Términos y Condiciones del GENN App NAD"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Por medio de los presentes términos se le avisa a usted como usuario que sus datos se encuentran seguros y protegidos para el buen uso, dichos datos únicamente serán utilizados para efectos de la aplicación y resguardo de la base de datos. Esta aplicación trata los datos personales por encargo de la empresa conocida comercialmente como Nad Global, y no se entiende que se hayan transferido, si no que derivado de la relación contractual que se tiene con dicha empresa los datos son tratados única y exclusivamente para aquellos fines que se encuentran autorizados ya sea expresa o tácitamente y en general en el sistema de protección de datos personales de Nad Global.
-            Si usted desea conocer más información sobre el tratamiento de sus datos, así como conocer el procedimiento para ejercer sus Derechos ARCO, puede consultar el Aviso de Privacidad en su versión integral ingresando a la página de internet www.nadglobal.com.
+            Por medio de los presentes términos se le avisa a usted como usuario que sus datos se encuentran seguros y protegidos para el buen uso, dichos datos únicamente serán utilizados para efectos de la aplicación y resguardo de la base de datos. Esta aplicación trata los datos personales por encargo de la empresa conocida comercialmente como Geminatech, y no se entiende que se hayan transferido, si no que derivado de la relación contractual que se tiene con dicha empresa los datos son tratados única y exclusivamente para aquellos fines que se encuentran autorizados ya sea expresa o tácitamente y en general en el sistema de protección de datos personales de Geminatech.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

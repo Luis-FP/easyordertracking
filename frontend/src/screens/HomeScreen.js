@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { buscarDetallesSitio, usersOTs } from "../actions/userActions";
+import { usersOTs } from "../actions/userActions";
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,7 +9,7 @@ import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import Badge from '@material-ui/core/Badge';
 import SettingsIcon from '@material-ui/icons/Settings';
-import BeenhereIcon from '@material-ui/icons/Beenhere';
+// import BeenhereIcon from '@material-ui/icons/Beenhere';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,7 +18,7 @@ import Container from '@material-ui/core/Container';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
-import blue from '@material-ui/core/colors/blue';
+// import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import Tooltip from '@material-ui/core/Tooltip';
 import { fechaUnica } from '../components/fechas';
@@ -32,15 +32,15 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
-import { set } from 'js-cookie';
+// import DirectionsIcon from '@material-ui/icons/Directions';
+// import { set } from 'js-cookie';
 
 
 const purple3 = purple[300]
 const naranja7 = orange[700]
 const verdefondo = green[500]
-const azulfondo = blue[900]
-const azulClaro = blue[300]
+// const azulfondo = blue[900]
+// const azulClaro = blue[300]
 const rojoFondo = red[700]
 const greyfondo = grey[300]
 const greyfondo2 = grey[400]
@@ -192,11 +192,11 @@ function HomeScreen(props) {
 
 
   const userOTS = useSelector(state => state.userOTS);
-  const { loadingOTs, userOTsInfo, errorOTS } = userOTS;
+  const { loadingOTs, userOTsInfo } = userOTS;
   
 console.log(userOTsInfo)
-  const [openModal, setOpenModal] = React.useState(false);
-  const [sitio, setSitio] = React.useState([]);
+  // const [openModal, setOpenModal] = React.useState(false);
+  // const [sitio, setSitio] = React.useState([]);
   const [updated, setUpdated] = useState(false);
 console.log('updated', updated)
   const handleOpenDetalle = (e) => {
@@ -212,12 +212,12 @@ console.log('updated', updated)
 
   };
 
-  const handleCloseModal = (e) => {
-    console.log(e.target)
-    setOpenModal(false);
-    setSitio(sitio)
-    // console.log(sitio, sitio)
-  };
+  // const handleCloseModal = (e) => {
+  //   console.log(e.target)
+  //   setOpenModal(false);
+  //   setSitio(sitio)
+  //   // console.log(sitio, sitio)
+  // };
 
 
   const dispatch = useDispatch();
@@ -337,7 +337,7 @@ console.log('updated', updated)
               
               <Chip
               
-              className="handle"
+              // className="handle"
               // fontSize="large"
               className={classes.chip}
               codigo={ot.sitio_codigo}
@@ -389,7 +389,7 @@ console.log('updated', updated)
               <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
               
-              className="handle"
+              // className="handle"
               // fontSize="large"
               className={classes.chip}
               codigo={ot.sitio_codigo}

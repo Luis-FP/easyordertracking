@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import NavBarStore from './screens/NavBarStore';
 import LoginScreen from './screens/LoginScreen';
-import LogoutScreen from './screens/LogoutScreen';
 import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen'
 import DetalleOTScreen from './screens/DetalleOTScreen'

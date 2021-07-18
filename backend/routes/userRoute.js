@@ -278,7 +278,7 @@ router.get("/listasitios", isAuth, async (req, res) => {
 });
 
 
-router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req, res) => {
+router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
   try {
 
       console.log("req usuario", req.user);
@@ -351,7 +351,7 @@ router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req
             // email informando
             let emailTransport = crearTransporteEmail();         
               let conf = {
-                to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+                to: 'luis.parparcen@gmail.com, ${req.user.email}',
                 subject: "OT Nueva Creada",
                 html: "",
                 };
@@ -375,7 +375,7 @@ router.post("/createotnueva", isAuth, (isUser || isHiper || isSuper), async (req
 });
 
 
-router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => {
+router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
   // try {
 
       console.log("req usuario", req.user);
@@ -433,7 +433,7 @@ router.post("/actualizarot", isAuth, ( isHiper || isSuper), async (req, res) => 
 
         
             let conf = {
-              to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+              to: 'luis.parparcen@gmail.com, ${req.user.email}, ${otInfo.email_responsable_ot}',
               subject: "OT Actualizada",
               html: "",
               };
@@ -465,16 +465,44 @@ router.get("/otsuser", isAuth, async (req, res) => {
     var vistaUsuario= datosUsuario.vista
     console.log(vistaUsuario )
 
-    // if([vistaUsuario].includes(vistaSolicitada)){
-      // console.log(vistaUsuario,"incluye la vista solicitada",vistaSolicitada )
-      const filtro = [
+    let filtro  = [
+      {
+      '$skip': 0
+      },
+  ];;
+    if(req.user.isHiper){
+      // vista total
+    }else if(req.user.isSuper){
+      filtro = [
         {
         '$match':
               {
-                'proyecto': { $in: vistaUsuario}
+                'proyecto': { $in: vistaUsuario},
               }
         },
     ];
+    } else if(req.user.isInge){
+      filtro = [
+        {
+        '$match':
+              {
+                'proyecto': { $in: vistaUsuario},
+                'responsable_ot': req.user.nombre
+              }
+        },
+    ];
+  }else if(req.user.isUser){
+    filtro = [
+      {
+      '$match':
+            {
+              'proyecto': { $in: vistaUsuario},
+              'responsable_cliente': req.user.nombre
+            }
+      },
+    ];
+  };
+
     const ots = await OTs.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
 
       console.log("ots", ots)
@@ -495,10 +523,49 @@ router.get("/otsuser", isAuth, async (req, res) => {
 });
 
 
-router.post("/detalles", isAuth, (isUser || isHiper || isSuper), async (req, res) => {
-  console.log( req.body.cliente,  req.body.codigo, req.body)
+router.post("/detalles", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
+  console.log("detalles>",  req.user)
+  let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
+  var vistaUsuario= datosUsuario.vista
+// filtro de autorizaciones
+  let filtro  = 
+    {
+    '$skip': 0
+    };
 
+  if(req.user.isHiper){
+    // vista total
+  }else if(req.user.isSuper){
+    filtro = 
+      {
+      '$match':
+            {
+              'proyecto': { $in: vistaUsuario},
+            }
+      };
+  
+  } else if(req.user.isInge){
+    filtro = 
+      {
+      '$match':
+            {
+              'proyecto': { $in: vistaUsuario},
+              'responsable_ot': datosUsuario.nombre
+            }
+      };
+  
+}else if(req.user.isUser){
+  filtro = 
+    {
+    '$match':
+          {
+            'proyecto': { $in: vistaUsuario},
+            'responsable_cliente': req.user.nombre
+          }
+    };
+};
 const detalleFiltro =  [
+    filtro,
       {
         '$match':
               {

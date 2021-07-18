@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { makeStyles, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
+// import Backdrop from '@material-ui/core/Backdrop';
 // import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 import Button from '@material-ui/core/Button';
 import GetApp from '@material-ui/icons/GetApp';
@@ -30,9 +30,9 @@ export default function UpdateModal() {
     //     setOpen(true);
     // };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    // const handleClose = () => {
+    //     setOpen(false);
+    // };
     const ColorButton = withStyles((theme) => ({
         root: {
             color: green[50],

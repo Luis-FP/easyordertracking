@@ -1,12 +1,11 @@
 import React, {useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import { register,  autoLogout, InfoRegister } from "../actions/userActions";
+import { register,  InfoRegister } from "../actions/userActions";
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { fechaActual } from '../components/fechas';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -36,10 +35,10 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const verdefondo = green[900]
+// const verdefondo = green[900]
 const azulfondo = blue[900]
 const rojoFondo = red[900]
-const greyfondo = grey[300]
+// const greyfondo = grey[300]
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -485,7 +484,7 @@ function RegisterScreen(props){
       
       style={{color:'white', backgroundColor:azulfondo}}
       type={"submit"}
-      fullWidth
+      fullWidth={true}
     > Crear Usuario</Button>
     </Grid>
     </form>

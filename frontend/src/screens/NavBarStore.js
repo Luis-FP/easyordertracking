@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import {  logout } from "../actions/userActions";
@@ -69,7 +69,7 @@ function NavBarStore(props){
   const [value, setValue] = React.useState(0);
 
   const userSignin = useSelector(state => state.userSignin );
-  const  { userInfo, errorLogin, salida } = userSignin;
+  const  { userInfo, salida } = userSignin;
   const userDetallesSitio = useSelector(state => state.userDetallesSitio);
   const { detallesSitio } = userDetallesSitio;
   const dispatch = useDispatch();

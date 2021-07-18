@@ -41,12 +41,13 @@ app.use("/api/users", userRoute);
 app.use("/api/email", sendEmailRoute);
 app.use("/api/secure", secureRoute);
 app.use("/api/reportes", reportesRoute);
+app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/../frontend/" + pathDominio)));
 app.get("*", (req, res) => {
   res.sendFile(path.join(`${__dirname}/../frontend/${pathDominio}/index.html`));
 });
 
-app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
+
 
 app.listen(config.PORT, () => {
   console.log("Server started at https://localhost:5000");

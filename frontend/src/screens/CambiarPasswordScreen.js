@@ -145,7 +145,7 @@ function CambiarPasswordScreen(props) {
             let hash;
             if (newUser && props) {
                 hash = props.match.params.vh
-                if (hash == undefined || hash == "") {
+                if (hash === undefined || hash === "") {
                     setError({
                         mensaje: "Link incorrecto o Viejo", flag: true
                     })
