@@ -66,7 +66,7 @@ const proyectos = [
 ]
 
 const oficinas = [
-  'Panama', 'El Salvador', 'Nicaragua'
+  'Panama', 'El Salvador', 'Nicaragua', 'Guatemala'
 ]
 
 

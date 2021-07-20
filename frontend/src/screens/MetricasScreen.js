@@ -1,40 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+
+import { orange, purple, green, grey, red, blue } from '@material-ui/core/colors';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import Container from '@material-ui/core/Container';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-import grey from '@material-ui/core/colors/grey';
-
-import red from '@material-ui/core/colors/red';
-
-import { fechaUnica } from '../components/fechas';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import { orange } from '@material-ui/core/colors';
-
-
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
+import { fechaUnica } from '../components/fechas';
 
-import { Chart } from 'react-charts'
+import {Bar} from 'react-chartjs-2';
+
+
 
 const purple3 = purple[300]
 const naranja7 = orange[700]
 const verdefondo = green[500]
-// const azulfondo = blue[900]
-// const azulClaro = blue[300]
+const azulfondo = blue[900]
+const azulClaro = blue[300]
 const rojoFondo = red[700]
 const greyfondo = grey[300]
 const greyfondo2 = grey[400]
@@ -145,6 +139,10 @@ const useStyles = makeStyles((theme)=>({
     height: 28,
     margin: 4,
   },
+  grafico:{
+    height:10,
+
+  }
 }));
 
 
@@ -178,6 +176,24 @@ function MetricasScreen(props) {
     {_id:"f11",titulo: fechaUnica(today+ 5 * 86400000  ), codigo: new Date(today + 5 * 86400000), paso:10},
 
   ]
+  const [grafico, setGrafico] = React.useState(
+    {
+      labels: ['January', 'February', 'March',
+               'April', 'May'],
+      datasets: [
+        {
+          label: 'OTs por Mes',
+          backgroundColor: 'rgba(75,192,192,1)',
+          borderColor: azulClaro,
+          borderWidth: 2,
+          data: [65, 59, 80, 81, 56]
+        }
+      ]
+    }
+  );
+
+
+
 
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
@@ -265,31 +281,7 @@ console.log('updated', updated)
     return color;
   }
 
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Series 1',
-        data: [{ x: 1, y: 10 }, { x: 2, y: 15 }, { x: 3, y: 20 }]
-      },
-      {
-        label: 'Series 2',
-        data: [{ x: 1, y: 10 }, { x: 2, y: 10 }, { x: 3, y: 10 }]
-      },
-      {
-        label: 'Series 3',
-        data: [{ x: 1, y: 13 }, { x: 2, y: 14 }, { x: 3, y: 15}]
-      }
-    ],
-    []
-  )
- 
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'linear', position: 'bottom' },
-      { type: 'linear', position: 'left' }
-    ],
-    []
-  )
+
 
   return (
 
@@ -329,14 +321,23 @@ console.log('updated', updated)
     </Paper>
       </Grid>
       </Typography>
-      <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-      <Chart data={data} axes={axes} />
-    </div>
+
+      <div style={{ width:'80%'}}>
+        <Bar
+          data={grafico}
+          options={{
+            title:{
+              display:true,
+              text:'Average Rainfall per month',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+      </div>
     </Container>
     </React.Fragment>
   );
