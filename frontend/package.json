@@ -19,7 +19,6 @@
     "js-file-download": "^0.4.12",
     "papaparse": "^5.3.0",
     "react": "^16.13.1",
-    "react-charts": "^2.0.0-beta.7",
     "react-clear-cache": "^1.4.12",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
