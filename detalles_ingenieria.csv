@@ -1,2 +1,4 @@
 ﻿sitio_codigo,sitio_nombre,proyecto,departamento,municipio,pais,altura_validada,altura_pararrayos,resistencia_viento,tipo_estructura,tx,latitud_validada_grados,longitud_validada_grados,numero_finca,direccion_sitio,arrendatario,identificacion_arrendatario,area_arrendada,area_a_utilizar,tipologia_sitio,orientacion_torre,derecho_paso_sitio,electricidad_sitio,observaciones_sitio
-B-002,Salud,DT_PA,Colon,,Panama,60,4,140Km/h,Autosoportada,FO,9.211056,-80.124417,,,,,,,,,,,
+410063,Km 79 Carretera a León,Tigo_NI,LEÓN,,Nicaragua,60m,4,165 km/h,TAS,FO,12.3373,-86.8125,,,,,,,,,,,
+410107,Tola,Tigo_NI,RIVAS,,Nicaragua,45m,4,165 km/h,TAS,MW,11.444079,-85.939527,,,,,,,,,,,
+410117,La Trinidad,Tigo_NI,ESTELI,,Nicaragua,60m,4,165 km/h,TAS,FO,12.96572,-86.23704,,,,,,,,,,,

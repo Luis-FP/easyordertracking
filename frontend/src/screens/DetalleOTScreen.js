@@ -145,7 +145,7 @@ function getSteps() {
 ]}
 
 const responsablesOT = [
-  {_id:"r0", responsable_ot:'', email_responsable_ot:''},
+  {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
   {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmail.com'},
   {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
   
@@ -157,6 +157,10 @@ const prioridades = [
   'Alta',
   'Inmediata',
 ]
+
+
+
+
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
@@ -187,7 +191,12 @@ function getStepContent(stepIndex) {
 
 
 function DetalleOTScreen(props) {
-  
+
+  const defaultProps = {
+    options: responsablesOT,
+    getOptionLabel: (option) => option.responsable_ot,
+  };
+
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
@@ -409,6 +418,16 @@ function DetalleOTScreen(props) {
     return true
   }
 
+  function controlAccesoProceso(userInfo, index){
+    if(userInfo.isInge || userInfo.isHiper || userInfo.isSuper ){
+      return true
+    }else if(userInfo.isUser && index< 7){
+      return true
+    }else if(userInfo.isUser && index>= 7){
+     return false
+  }
+}
+
   function colorAlerta(nivel) {
     let color = null;
     if(nivel==='Alta'){
@@ -458,11 +477,11 @@ function DetalleOTScreen(props) {
                     </Grid>
                     {console.log("detallesSitioInfo",detallesSitioInfo)}
                     <Grid item xs={12} sm={4}> 
-                    { prioridades && detallesSitioInfo && <FormControl variant="outlined" className={classes.formControl}>
+                    { prioridades && detallesSitioInfo && detallesSitioInfo['prioridad'] && <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="prioridad">Prioridad</InputLabel>
                       <OutlinedInput 
                       id="prioridad" 
-                      value={detallesSitioInfo['prioridad']? detallesSitioInfo['prioridad'] : null} 
+                      value={detallesSitioInfo['prioridad']} 
                       disabled={true} 
                       style={{borderStyle: "solid", borderColor: colorAlerta(detallesSitioInfo['prioridad']), color: colorAlerta(detallesSitioInfo['prioridad']) }}
                       label="Prioridad" 
@@ -472,54 +491,57 @@ function DetalleOTScreen(props) {
 
                     </Grid>
                     <Grid item xs={12} sm={4}> 
-                    { responsablesOT && detallesSitioInfo&& <Autocomplete
-                        options={responsablesOT}
-                        getOptionLabel={(option) => option.responsable_ot}
+                    { responsablesOT && detallesSitioInfo && detallesSitioInfo['responsable_ot'] && responsablesOT &&<Autocomplete
+
+                        {...defaultProps}
                         id="responsable_ot"
                         required={true}
-                        onChange={(e, value)=> setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
-                         ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
-
+                        // autoComplete
+                        // includeInputInList
+                        className={classes.formControl}
                         style={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
-                        value={detallesSitioInfo['responsable_ot']? null: detallesSitioInfo['responsable_ot']} 
+                        
+                        defaultValue={detallesSitioInfo}  //detallesSitioInfo['responsable_ot']
+                        onChange={(e, value)=> console.log('value',value) && setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
+                         ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
+                         renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
                       />}
                     
                     </Grid>
                     <Grid item md={3}  xs={5}  sm={5}> 
                       
-                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    {detallesSitioInfo && detallesSitioInfo['fecha_sla'] && <MuiPickersUtilsProvider utils={DateFnsUtils}>
                      
-                      {detallesSitioInfo && detallesSitioInfo['fecha_sla'] && <KeyboardDatePicker
+                       <KeyboardDatePicker
                         
                           margin="normal"
                           disabled={false}
                           id="fecha_sla"
                           label="Fecha SLA"
                           format="MM/dd/yyyy"
-                          value={detallesSitioInfo['fecha_sla']? detallesSitioInfo['fecha_sla']:null}
+                          value={detallesSitioInfo['fecha_sla']}
                           onChange={handleDateChangefecha_sla}
                           KeyboardButtonProps={{
                             'aria-label': 'change date', 
                           }}
-                        />}
-                        </MuiPickersUtilsProvider>
+                        />
+                        </MuiPickersUtilsProvider>}
                     </Grid>
                       <Grid item md={4}  xs={6}  sm={6}> 
-                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                     {detallesSitioInfo && detallesSitioInfo['fecha_requerida'] && userInfo && <KeyboardDatePicker
+                      {detallesSitioInfo && detallesSitioInfo['fecha_requerida'] && userInfo &&<MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <KeyboardDatePicker
                         margin="normal"
                         id="fecha_requerida"
                         label="Fecha Requerida"
                         format="MM/dd/yyyy"                       
-                        value={detallesSitioInfo['fecha_requerida']? detallesSitioInfo['fecha_requerida']:null}
+                        value={detallesSitioInfo['fecha_requerida']}
                         onChange={handleDateChangefecha_requerida}
                         disabled={userInfo && userInfo.isSuper? true : false}
                         KeyboardButtonProps={{
                           'aria-label': 'change date',
                         }}
-                      />}
-                      </MuiPickersUtilsProvider>
+                      />
+                      </MuiPickersUtilsProvider>}
                       </Grid>
                         <Paper elevation={4} className={classes.proceso}>
                       {activeStep === steps.length ? (
@@ -558,11 +580,8 @@ function DetalleOTScreen(props) {
                        
                 <div className={classes.root}>
                 {userInfo && <Stepper activeStep={activeStep} alternativeLabel>
-                        {steps.map((label, index) => (userInfo.isUser===true && index< 7) 
-                        || (userInfo.isInge===true && index< 7)  
-                        ||  userInfo.isHiper
-                        || userInfo.isSuper  
-                        && (
+                        {steps.map((label, index) =>  controlAccesoProceso(userInfo, index)  &&
+                         (
                           <Step key={label._id}>
                             <StepLabel>{label.titulo}</StepLabel>
                           </Step>
@@ -580,7 +599,7 @@ function DetalleOTScreen(props) {
                       rows={1}
                       value={detallesSitioInfo['requerimiento']?detallesSitioInfo['requerimiento']:""} 
                       onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
-                      disabled={userInfo && userInfo.isSuper? true : false}
+                      disabled={userInfo && userInfo.isUser? false : true }
                       label="Requerimiento" />
 
                     </Grid>
@@ -592,7 +611,7 @@ function DetalleOTScreen(props) {
                                   rows={4}
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && userInfo.isUser? false : true }
                                   value={detallesSitioInfo['detalle_requerimiento']? detallesSitioInfo['detalle_requerimiento']:""} 
                                   onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
                                 />
@@ -601,7 +620,7 @@ function DetalleOTScreen(props) {
                     <TextField
                                   id="comentarios_responsable_ot"
                                   label="Comentarios de Ingeniería"
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && (userInfo.isSuper || userInfo.isInge || userInfo.isHiper)? false : true}
                                   multiline
                                   rows={4}
                                   placeholder="Comente cualquier observación sobre esta Orden de Trabajo..."
@@ -612,39 +631,15 @@ function DetalleOTScreen(props) {
                                 />
                     </Grid>
                     </Grid>
-              {/* </Grid>
 
-                            <Grid  container> */}
-                          
-                            {/* <Grid item xs={12} sm={12} >
-                             <FormControlLabel
-                                control={
-                                  <Switch
-                                    checked={state.checkedDetalles}
-                                    onChange={handleChangeSwitch}
-                                    name="checkedDetalles"
-                                    color="primary"
-                                  />
-                                }
-                                label="Detalles del Sitio"
-                              />
-                            </Grid> */}
-                            {/* {state.checkedDetalles && <Grid  container> */}
                             {<Grid  container className={classes.zona2}>
                               <Grid item xs={6} sm={3}> 
-                              {/* <TextField
-                                  id="tipo_estructura"
-                                  onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
-                                  label="Tipo de Estructura" 
-                                  variant="outlined"
-                                  color="secondary"
-                                  value={detallesSitioInfo['tipo_estructura']} 
-                                /> */}
+                             
                                       <FormControl variant="outlined" >
                                         <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
                                         <OutlinedInput id="tipo_estructura" 
                                         value={detallesSitioInfo['tipo_estructura'] ? detallesSitioInfo['tipo_estructura'] :""} 
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipo_estructura']:value.target.value, ['tipo_estructuraChange']:true })}
                                         label="Tipo de Estructura" 
                                         />
@@ -655,7 +650,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
                                         <OutlinedInput id="area" 
                                         value={detallesSitioInfo['area_arrendada']?detallesSitioInfo['area_arrendada']:""}
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                          onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['area_arrendada']:value.target.value, ['area_arrendadaChange']:true })}
                                          label="Área Rentada" />
                                       </FormControl>
@@ -665,7 +660,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="area_a_utilizar">Area a Utilizar</InputLabel>
                                         <OutlinedInput id="area_a_utilizar" 
                                         value={detallesSitioInfo['area_a_utilizar']?detallesSitioInfo['area_a_utilizar']:""}
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                          onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['area_a_utilizar']:value.target.value, ['area_a_utilizarChange']:true })}
                                          label="Área a Utilizar" />
                                       </FormControl>
@@ -675,7 +670,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="tipologia_sitio">Tipologia Sitio</InputLabel>
                                         <OutlinedInput id="tipologia_sitio" 
                                         value={detallesSitioInfo['tipologia_sitio']?detallesSitioInfo['tipologia_sitio']:""} 
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tipologia_sitio']:value.target.value, ['tipologia_sitioChange']:true })}
                                         label="Tipología Sitio" />
                                       </FormControl>
@@ -685,22 +680,13 @@ function DetalleOTScreen(props) {
                                 className={classes.formControl}
                                   id="arrendatario" 
                                   onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && userInfo.isUser? false : true }
                                   label="Arrendatario/Propietario" 
                                   variant="outlined"
                                   // color="secondary"
                                   fullWidth
                                   value={detallesSitioInfo['arrendatario']?detallesSitioInfo['arrendatario']:""} 
                                 /> 
-                                      {/* <FormControl variant="outlined" className={classes.formControl2}>
-                                        <InputLabel htmlFor="arrendatario"</InputLabel>
-                                        <OutlinedInput id="arrendatario" >Arrendatario/Propietario
-                                        value={detallesSitioInfo['arrendatario']?detallesSitioInfo['arrendatario']:""} 
-                                        disabled={userInfo.isUser? false : true}
-                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
-                                        fullWidth={true}
-                                        label="Arrendatario/Propietario" />
-                                      </FormControl> */}
                               </Grid>
                              
                               <Grid item xs={6} sm={6}> 
@@ -708,68 +694,45 @@ function DetalleOTScreen(props) {
                                       className={classes.formControl}
                                       id="identificacion_arrendatario" 
                                       onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
-                                      disabled={userInfo && userInfo.isSuper? true : false}
+                                      disabled={userInfo && userInfo.isUser? false : true }
                                       label="Identificacion Arrendatario"
                                       variant="outlined"
                                       // color="secondary"
                                       fullWidth
                                       value={detallesSitioInfo['identificacion_arrendatario']?detallesSitioInfo['identificacion_arrendatario']:""} 
                                     /> 
-                                      {/* <FormControl variant="outlined" className={classes.formControl2}>
-                                        <InputLabel htmlFor="identificacion_arrendatario">Identificacion Arrendatario</InputLabel>
-                                        <OutlinedInput id="identificacion_arrendatario" 
-                                       fullWidth={true}
-                                        value={detallesSitioInfo['identificacion_arrendatario']?detallesSitioInfo['identificacion_arrendatario']:""} 
-                                        disabled={userInfo.isUser? false : true}
-                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
-                                        label="Identificacion Arrendatario" />
-                                      </FormControl> */}
+
                               </Grid>
                               <Grid item xs={6} sm={6}> 
                                   <TextField
                                       id="direccion_sitio" 
                                       className={classes.formControl}
                                       value={detallesSitioInfo['direccion_sitio']?detallesSitioInfo['direccion_sitio']:""} 
-                                      disabled={userInfo && userInfo.isSuper? true : false}
+                                      disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
                                         label="Direccion de la Finca" 
                                         variant="outlined"
                                       fullWidth
                                     /> 
-                                      {/* <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="numero_finca">Número de Finca</InputLabel>
-                                        <OutlinedInput id="numero_finca" 
-                                        value={detallesSitioInfo['numero_finca']?detallesSitioInfo['numero_finca']:""}
-                                        disabled={userInfo.isUser? false : true}
-                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
-                                         label="Número de Finca" />
-                                      </FormControl> */}
                               </Grid>
                               <Grid item xs={6} sm={6}> 
                               <TextField
                                       id="numero_finca" 
                                       className={classes.formControl}
                                       value={detallesSitioInfo['numero_finca']?detallesSitioInfo['numero_finca']:""}
-                                      disabled={userInfo && userInfo.isSuper? true : false}
+                                      disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
                                         label="Número de Finca" 
                                         variant="outlined"
                                       fullWidth
                                     /> 
-                              {/* <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="direccion_sitio">Direccion de la Finca</InputLabel>
-                                        <OutlinedInput id="direccion_sitio" 
-                                        value={detallesSitioInfo['direccion_sitio']?detallesSitioInfo['direccion_sitio']:""} 
-                                        disabled={userInfo.isUser? false : true}
-                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
-                                        label="Direccion de la Finca" />
-                                      </FormControl> */}
+
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
                                         <InputLabel htmlFor="provincia">Provincia</InputLabel>
                                         <OutlinedInput id="provincia" 
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                         value={detallesSitioInfo['provincia']?detallesSitioInfo['provincia']:""} 
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['provincia']:value.target.value, ['provinciaChange']:true })}  
                                         label="Provincia" />
@@ -780,7 +743,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="departamento">Departamento</InputLabel>
                                         <OutlinedInput id="departamento" 
                                         value={detallesSitioInfo['departamento']?detallesSitioInfo['departamento']:""}
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                          onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
                                          label="Departamento" />
                                       </FormControl>
@@ -790,7 +753,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="latitud_validada_grados">Latitud Validada en Grados</InputLabel>
                                         <OutlinedInput id="latitud_validada_grados" 
                                         value={detallesSitioInfo['latitud_validada_grados']?detallesSitioInfo['latitud_validada_grados']:""} 
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['latitud_validada_grados']:value.target.value, ['latitud_validada_gradosChange']:true })}  
                                         label="Latitud Validada en Grados" />
                                       </FormControl>
@@ -800,7 +763,7 @@ function DetalleOTScreen(props) {
                                         <InputLabel htmlFor="longitud_validada_grados">Longitud Validada en Grados</InputLabel>
                                         <OutlinedInput id="longitud_validada_grados" 
                                         value={detallesSitioInfo['longitud_validada_grados']?detallesSitioInfo['longitud_validada_grados']:""} 
-                                        disabled={userInfo && userInfo.isSuper? true : false}
+                                        disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['longitud_validada_grados']:value.target.value, ['longitud_validada_gradosChange']:true })} 
                                         label="Longitud Validada en Grados" />
                                       </FormControl>
@@ -815,7 +778,7 @@ function DetalleOTScreen(props) {
                                   placeholder="describa el Derecho de paso..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && userInfo.isUser? false : true }
                                   value={detallesSitioInfo['derecho_paso_sitio']? detallesSitioInfo['derecho_paso_sitio']:""} 
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['derecho_paso_sitio']:e.target.value , ['derecho_paso_sitioChange']:true })}
                                 />
@@ -830,7 +793,7 @@ function DetalleOTScreen(props) {
                                   placeholder="Datos de la electricidad del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && userInfo.isUser? false : true }
                                   value={detallesSitioInfo['electricidad_sitio'] ? detallesSitioInfo['electricidad_sitio']: ""} 
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['electricidad_sitio']:e.target.value, ['electricidad_sitioChange']:true })}
                                 />
@@ -842,10 +805,10 @@ function DetalleOTScreen(props) {
                                   label="Observaciones del Sitio"
                                   multiline
                                   rows={4}
-                                  defaultValue="Observaciones del sitio..."
+                                  placeholder="Observaciones del sitio..."
                                   variant="outlined"
                                   fullWidth
-                                  disabled={userInfo && userInfo.isSuper? true : false}
+                                  disabled={userInfo && userInfo.isUser? false : true }
                                   value={detallesSitioInfo['observaciones_sitio']?detallesSitioInfo['observaciones_sitio']:""} 
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['observaciones_sitio']:e.target.value, ['observaciones_sitioChange']:true  })}
                                 />

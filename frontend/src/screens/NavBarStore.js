@@ -147,7 +147,7 @@ console.log(props)
               {userInfo && (userInfo.isHiper ) &&
               <BottomNavigationAction label="Usuarios" icon={<PersonAddIcon fontSize="large" />} href={'/register'}/>}
               {userInfo && (userInfo.isHiper || userInfo.isSuper) &&
-              <BottomNavigationAction label="Métricas" icon={<TimelineIcon fontSize="large"/>} />}
+              <BottomNavigationAction label="Métricas" icon={<TimelineIcon fontSize="large"   />}  href={'/metricas'} />}
              
           </BottomNavigation>
           <Dialog

@@ -142,7 +142,7 @@ function crearTransporteEmail() {
     port: config.PUERTO_EMAIL, //desde correo de NAD
     // requireTLS: true, //desde correo de NAD
     // secure: true,
-    // service: tipoEmail, // solo para Gmail
+    service: 'gmail', // solo para Gmail
     auth: {
       user: config.USUARIO_EMAIL,
       pass: config.PW_NAD,

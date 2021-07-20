@@ -12,7 +12,7 @@ import CrearSitioScreen from './screens/CrearSitioScreen';
 import CambiarPasswordScreen from './screens/CambiarPasswordScreen';
 import emailRecuperacionScreen from './screens/EmailRecuperacionScreen';
 import UpdateModal from "./components/update"
-
+import MetricasScreen from "./screens/MetricasScreen"
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
                             <Route path="/login" component={LoginScreen} />
                             {/* <Route path="/logout" component={LogoutScreen} /> */}
                             <Route path="/detalleOT" component={DetalleOTScreen} />
+                            <Route path="/metricas" component={MetricasScreen} />
                             <Route path="/register" component={RegisterScreen} />
                             <Route path="/actualizar" component={ActualizarScreen} />
                             <Route path="/crearOT" component={CrearOTScreen} />

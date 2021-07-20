@@ -5,6 +5,7 @@ import User from "../models/employee_model.js";
 import Detallesings from "../models/detalles_model.js";
 
 import OTs from "../models/ots_model.js";
+import OTSRegistros from "../models/ots_registros_model.js";
 import Bitacoras from "../models/bitacora_model.js";
 import { createRecoveryEmailPage } from "../pages/recoveryEmailPage";
 import { createEmailValidation } from "../pages/validationPage";
@@ -347,11 +348,18 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
             fecha_requerida: otInfo.fecha_requerida,
             archivos: archivos
           })
-       
+          const otRegistro = new OTSRegistros({
+            ot_number:  otMaxima ,
+            estado: 'ini',
+            fecha_registro: new Date(),
+            comentarios_responsable_ot: "",
+            detalle_requerimiento:  otInfo.detalle_requerimiento,
+          });
+          // coordinge@atmotechnologies.com,
             // email informando
             let emailTransport = crearTransporteEmail();         
               let conf = {
-                to: 'luis.parparcen@gmail.com, ${req.user.email}',
+                to: 'luis.parparcen@gmail.com,'+req.user.email,
                 subject: "OT Nueva Creada",
                 html: "",
                 };
@@ -359,6 +367,7 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
             EnvioEmail(conf, emailTransport);
     
       console.log(otNueva);
+      await otRegistro.save();
        await otNueva.save();
        res.send({
         error: false,
@@ -424,6 +433,16 @@ router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), a
           if(otInfo.txChange) sitioactualizado.tx =  otInfo.tx;
           if(otInfo.derecho_paso_sitioChange) sitioactualizado.derecho_paso_sitio =  otInfo.derecho_paso_sitio;
           if(otInfo.electricidad_sitioChange) sitioactualizado.electricidad_sitio =  otInfo.electricidad_sitio;
+
+
+          const otRegistro = new OTSRegistros({
+            ot_number:   req.body.ot_number ,
+            estado: otInfo.estado,
+            fecha_registro: new Date(),
+            comentarios_responsable_ot: otInfo.comentarios_responsable_ot? otInfo.comentarios_responsable_ot:"" ,
+            detalle_requerimiento:  otInfo.detalle_requerimiento? otInfo.detalle_requerimiento : "",
+          });
+          await otRegistro.save();
           console.log("ok", sitioactualizado)
           const otAct = await otactualizada.save();
           const sitioAct = await sitioactualizado.save();
@@ -431,7 +450,7 @@ router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), a
           // email informando
           let emailTransport = crearTransporteEmail();
 
-        
+          // coordinge@atmotechnologies.com
             let conf = {
               to: 'luis.parparcen@gmail.com, ${req.user.email}, ${otInfo.email_responsable_ot}',
               subject: "OT Actualizada",
