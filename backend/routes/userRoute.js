@@ -346,6 +346,8 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
             prioridad: otInfo.prioridad,
             estado: 'ini',
             fecha_requerida: otInfo.fecha_requerida,
+            fecha_sla: otInfo.fecha_sla,
+            fecha_apertura: new Date(),
             archivos: archivos
           })
           const otRegistro = new OTSRegistros({

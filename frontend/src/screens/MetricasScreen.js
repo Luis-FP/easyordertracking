@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { usersOTs } from "../actions/userActions";
 
 import { orange, purple, green, grey, red, blue } from '@material-ui/core/colors';
 
@@ -176,6 +176,17 @@ function MetricasScreen(props) {
     {_id:"f11",titulo: fechaUnica(today+ 5 * 86400000  ), codigo: new Date(today + 5 * 86400000), paso:10},
 
   ]
+
+  const userSignin = useSelector(state => state.userSignin);
+  const { userInfo } = userSignin;
+  // console.log("userInfo", userInfo);
+
+
+  const userOTS = useSelector(state => state.userOTS);
+  const { loadingOTs, userOTsInfo } = userOTS;
+
+  // const distribucionOTs = userOTsInfo.map(ot => ot.fech)
+
   const [grafico, setGrafico] = React.useState(
     {
       labels: ['January', 'February', 'March',
@@ -195,14 +206,7 @@ function MetricasScreen(props) {
 
 
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
-  console.log("userInfo", userInfo);
-
-
-
-  const userOTS = useSelector(state => state.userOTS);
-  const { loadingOTs, userOTsInfo } = userOTS;
+ 
   
 console.log(userOTsInfo)
   // const [openModal, setOpenModal] = React.useState(false);
@@ -237,7 +241,7 @@ console.log('updated', updated)
       props.history.push('/login');
   } 
   if(!updated){
-    // dispatch(usersOTs());
+    dispatch(usersOTs());
     setUpdated(true)
   }
     return () => {
