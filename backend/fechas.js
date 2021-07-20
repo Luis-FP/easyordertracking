@@ -127,6 +127,20 @@ const getMonthText = (date) => {
 const getDayOfWeekText = (value) => {
   return Semana[value];
 }
+
+const queMes = (mes) => {
+
+  var monthNames = [
+    "Ene", "Feb", "Mar",
+    "Abr", "May", "Jun", "Jul",
+    "Ago", "Sep", "Oct",
+    "Nov", "Dec"
+  ];
+
+  return (monthNames[mes]);
+
+};
+
 export {
   getWeekNumber,
   getWeekNumber2,
@@ -140,5 +154,6 @@ export {
   horaString,
   getQuincena,
   getMonthText,
-  getDayOfWeekText
+  getDayOfWeekText,
+  queMes
 };

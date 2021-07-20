@@ -18,7 +18,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
-import { fechaUnica } from '../components/fechas';
+import { fechaUnica, queMes } from '../components/fechas';
 
 import {Bar} from 'react-chartjs-2';
 
@@ -185,23 +185,74 @@ function MetricasScreen(props) {
   const userOTS = useSelector(state => state.userOTS);
   const { loadingOTs, userOTsInfo } = userOTS;
 
-  // const distribucionOTs = userOTsInfo.map(ot => ot.fech)
+  // const distribucionOTs = userOTsInfo.map(ot => new Date(ot.fecha_apertura).getMonth() === )
+  // const esteMes = new Date().getMonth()
 
-  const [grafico, setGrafico] = React.useState(
-    {
-      labels: ['January', 'February', 'March',
-               'April', 'May'],
-      datasets: [
-        {
-          label: 'OTs por Mes',
-          backgroundColor: 'rgba(75,192,192,1)',
-          borderColor: azulClaro,
-          borderWidth: 2,
-          data: [65, 59, 80, 81, 56]
-        }
-      ]
-    }
-  );
+  // const mes = queMes(new Date().getMonth())
+  // const [estadisticaOTs, setEstadisticaOTs] = useState([]);
+  // const [meses, setMeses] = useState([]);
+  // const grafico=[
+  //   {
+  //     labels: meses,
+  //     datasets: [
+  //       {
+  //         label: 'OTs por Mes',
+  //         backgroundColor: 'rgba(75,192,192,1)',
+  //         borderColor: azulClaro,
+  //         borderWidth: 2,
+  //         data: estadisticaOTs//[0,0,0,0,3]
+  //       }
+  //     ]
+  //   }
+  // ];
+
+  // const [grafico, setGrafico] = React.useState(undefined)
+
+
+  // useEffect(() => {
+  //   if(userOTsInfo){
+  //     let diaActual = new Date();
+  //     let dia, mes
+  //     let arregloMes= []
+  //     let arregloData = []
+  //     for (let x = 4; x>-1; x--){
+  //       dia = new Date(diaActual).getTime() - 2629750000 * x;
+  //       mes = queMes(new Date(dia).getMonth())
+  //       arregloMes.push(mes);
+  //       if(userOTsInfo){
+  //         arregloData.push(userOTsInfo.data.filter(ot => new Date(ot.fecha_apertura).getMonth() === new Date(dia).getMonth() ).length); 
+  //       }else{
+  //         arregloData.push(0);
+  //       }
+        
+  //     }
+  //     console.log('arregloData', arregloData, 'arregloMes',arregloMes)
+  //     setEstadisticaOTs(arregloData);
+  //     setMeses(arregloMes)
+  //     setGrafico(
+  //       {
+  //         labels: meses,
+  //         datasets: [
+  //           {
+  //             label: 'OTs por Mes',
+  //             backgroundColor: 'rgba(75,192,192,1)',
+  //             borderColor: azulClaro,
+  //             borderWidth: 2,
+  //             data: estadisticaOTs//[0,0,0,0,3]//
+  //           }
+  //         ]
+  //       }
+  //     );
+  //   }
+
+  // }, []);
+    // let diaActual = queMes(new Date())
+  
+
+   
+
+  
+
 
 
 
@@ -209,8 +260,7 @@ function MetricasScreen(props) {
  
   
 console.log(userOTsInfo)
-  // const [openModal, setOpenModal] = React.useState(false);
-  // const [sitio, setSitio] = React.useState([]);
+
   const [updated, setUpdated] = useState(false);
 console.log('updated', updated)
   const handleOpenDetalle = (e) => {
@@ -292,7 +342,7 @@ console.log('updated', updated)
     <React.Fragment>
     <CssBaseline />
     <Container width="60%" style={{alignItems:'center'}}>
-    <Typography component="div">
+    {/* <Typography component="div">
         <Grid component="label" container alignItems="center" spacing={1}>
         <Grid>Procesos</Grid>
           <Grid item>
@@ -324,15 +374,16 @@ console.log('updated', updated)
 
     </Paper>
       </Grid>
-      </Typography>
+      </Typography> */}
 
       <div style={{ width:'80%'}}>
-        <Bar
-          data={grafico}
+      {/* {console.log('grafico', grafico)} */}
+       {userOTsInfo && userOTsInfo.grafico && <Bar
+          data={userOTsInfo.grafico[0]}
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
+              text:'Cantidad OT por Mes',
               fontSize:20
             },
             legend:{
@@ -340,7 +391,7 @@ console.log('updated', updated)
               position:'right'
             }
           }}
-        />
+        />}
       </div>
     </Container>
     </React.Fragment>

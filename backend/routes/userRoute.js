@@ -14,6 +14,7 @@ import { otActualizadaEmail} from "../pages/otActualizadaEnvioEmail";
 
 import { 
   getWeekNumber,
+  queMes,
   fechaUnica,
   fechaRegional,
   fechaRegionalUnica,
@@ -527,10 +528,40 @@ router.get("/otsuser", isAuth, async (req, res) => {
   };
 
     const ots = await OTs.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
+  // datos para metricas
 
+  let diaActual = new Date();
+  let dia, mes
+  let arregloMes= []
+  let arregloData = []
+  for (let x = 4; x>-1; x--){
+    dia = new Date(diaActual).getTime() - 2629750000 * x;
+    mes = queMes(new Date(dia).getMonth())
+    arregloMes.push(mes);
+    if(ots){
+      arregloData.push(ots.filter(ot => new Date(ot.fecha_apertura).getMonth() === new Date(dia).getMonth() ).length); 
+    }else{
+      arregloData.push(0);
+    }
+    
+  }
+ const grafico=[
+    {
+      labels: arregloMes,
+      datasets: [
+        {
+          label: 'OTs por Mes',
+          backgroundColor: 'rgba(75,192,192,1)',
+          borderColor: '#64b5f6',
+          borderWidth: 2,
+          data: arregloData//[0,0,0,0,3]
+        }
+      ]
+    }
+  ];
       console.log("ots", ots)
       res.status(200)
-      .send({ message: "lista de OTs", data: ots})
+      .send({ message: "lista de OTs", data: ots, grafico: grafico})
     // } else {
     // // let detalle = await Detalles.find({ cliente: req.body.cliente.toLowerCase() });
 

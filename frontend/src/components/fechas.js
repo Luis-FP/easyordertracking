@@ -100,7 +100,7 @@ const queMesAnoEficiencia = (mes, ano) => {
 
 };
 
-const queMesEficiencia = (mes) => {
+const queMes = (mes) => {
 
   var monthNames = [
     "Ene", "Feb", "Mar",
@@ -109,7 +109,7 @@ const queMesEficiencia = (mes) => {
     "Nov", "Dec"
   ];
 
-  return (monthNames[mes - 1]);
+  return (monthNames[mes]);
 
 };
 
@@ -337,7 +337,7 @@ export {
   getDateOfISOWeek,
   fechaUnicaVariable,
   queMesAnoEficiencia,
-  queMesEficiencia,
+  queMes,
   weeksInYear,
   getMondayDate,
   getYear,
