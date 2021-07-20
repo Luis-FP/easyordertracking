@@ -333,7 +333,7 @@ console.log('updated', updated)
             !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
             !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
              (
-              <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
+              <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               
               <Chip
               
@@ -346,7 +346,7 @@ console.log('updated', updated)
               cliente={ot.cliente}
               ot_number={ot.ot_number}
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
-              label={ot.requerimiento +" - " +ot.proyecto}
+              label={ ot.sitio_nombre+" - " +ot.proyecto}
               clickable={true}
               style={ {backgroundColor: colorAlerta(ot.prioridad)} }
     
@@ -386,7 +386,7 @@ console.log('updated', updated)
               !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
               !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
              (
-              <Tooltip key={'chip'+ot._id} title={ot.sitio_nombre + " " + fechaUnica(ot.fecha_requerida)}  arrow>
+              <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
               
               // className="handle"
@@ -398,7 +398,7 @@ console.log('updated', updated)
               cliente={ot.cliente}
               ot_number={ot.ot_number}
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
-              label={ot.requerimiento +" - " +ot.proyecto}
+              label={  ot.sitio_nombre +" - " +ot.proyecto}
               clickable={true}
               // style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo : verdefondo} }
               style={ {backgroundColor: colorAlerta(ot.prioridad)} }

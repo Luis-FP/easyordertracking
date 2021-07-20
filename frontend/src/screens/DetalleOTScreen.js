@@ -146,7 +146,7 @@ function getSteps() {
 
 const responsablesOT = [
   {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
-  {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardo@gmails.com'},
+  {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardodomingo@hotmail.com'},
   {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
   
 
