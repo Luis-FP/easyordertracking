@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { usersOTs } from "../actions/userActions";
-
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
-import Badge from '@material-ui/core/Badge';
-import SettingsIcon from '@material-ui/icons/Settings';
-// import BeenhereIcon from '@material-ui/icons/Beenhere';
+
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,9 +12,9 @@ import Container from '@material-ui/core/Container';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
-// import blue from '@material-ui/core/colors/blue';
+
 import red from '@material-ui/core/colors/red';
-import Tooltip from '@material-ui/core/Tooltip';
+
 import { fechaUnica } from '../components/fechas';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -32,12 +26,9 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-// import DirectionsIcon from '@material-ui/icons/Directions';
-// import { set } from 'js-cookie';
-// import useChartConfig from 'hooks/useChartConfig'
-// import Box from 'components/Box'
-// import SyntaxHighlighter from 'components/SyntaxHighlighter'
-// import { Chart } from 'react-charts'
+
+
+import { Chart } from 'react-charts'
 
 const purple3 = purple[300]
 const naranja7 = orange[700]
@@ -274,24 +265,31 @@ console.log('updated', updated)
     return color;
   }
 
-//   const { data, randomizeData } = useChartConfig({
-//     series: 8,
-//     datums: 3,
-//     dataType: 'ordinal'
-//   })
-//   const series = React.useMemo(
-//     () => ({
-//       type: 'bar'
-//     }),
-//     []
-//   )
-//   const axes = React.useMemo(
-//     () => [
-//       { primary: true, type: 'ordinal', position: 'bottom' },
-//       { position: 'left', type: 'linear', stacked: false }
-//     ],
-//     []
-//   )
+  const data = React.useMemo(
+    () => [
+      {
+        label: 'Series 1',
+        data: [{ x: 1, y: 10 }, { x: 2, y: 15 }, { x: 3, y: 20 }]
+      },
+      {
+        label: 'Series 2',
+        data: [{ x: 1, y: 10 }, { x: 2, y: 10 }, { x: 3, y: 10 }]
+      },
+      {
+        label: 'Series 3',
+        data: [{ x: 1, y: 13 }, { x: 2, y: 14 }, { x: 3, y: 15}]
+      }
+    ],
+    []
+  )
+ 
+  const axes = React.useMemo(
+    () => [
+      { primary: true, type: 'linear', position: 'bottom' },
+      { type: 'linear', position: 'left' }
+    ],
+    []
+  )
 
   return (
 
@@ -331,16 +329,14 @@ console.log('updated', updated)
     </Paper>
       </Grid>
       </Typography>
-      {/* <>
-      <button onClick={randomizeData}>Randomize Data</button>
-      <br />
-      <br />
-      <Box>
-        <Chart data={data} series={series} axes={axes} tooltip />
-      </Box>
-      <br />
-      <SyntaxHighlighter code={sourceCode} />
-    </> */}
+      <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+      <Chart data={data} axes={axes} />
+    </div>
     </Container>
     </React.Fragment>
   );

@@ -355,11 +355,12 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
             comentarios_responsable_ot: "",
             detalle_requerimiento:  otInfo.detalle_requerimiento,
           });
-          // coordinge@atmotechnologies.com,
+          // ,
             // email informando
             let emailTransport = crearTransporteEmail();         
               let conf = {
-                to: 'luis.parparcen@gmail.com,'+req.user.email,
+                to: req.user.email,
+                bcc:  ['luis.parparcen@gmail.com,','coordinge@atmotechnologies.com'],
                 subject: "OT Nueva Creada",
                 html: "",
                 };
@@ -452,7 +453,8 @@ router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), a
 
           // coordinge@atmotechnologies.com
             let conf = {
-              to: 'luis.parparcen@gmail.com, ${req.user.email}, ${otInfo.email_responsable_ot}',
+              to:  req.user.email ,
+              bcc:  ['luis.parparcen@gmail.com,','coordinge@atmotechnologies.com',  otInfo.email_responsable_ot],
               subject: "OT Actualizada",
               html: "",
               };
