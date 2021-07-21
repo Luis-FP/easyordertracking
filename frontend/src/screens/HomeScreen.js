@@ -68,12 +68,11 @@ const useStyles = makeStyles((theme)=>({
     textAlign:'center'
   },
   chip: {
-    // display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(0.5),
-      padding: 0.5,
     },
   },
   chip2: {
@@ -336,7 +335,7 @@ console.log('updated', updated)
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               
               <Chip
-              
+              // variant="outlined"
               // className="handle"
               // fontSize="large"
               className={classes.chip}
@@ -388,7 +387,7 @@ console.log('updated', updated)
              (
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
-              
+              // variant="outlined"
               // className="handle"
               // fontSize="large"
               className={classes.chip}
