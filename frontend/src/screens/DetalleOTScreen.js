@@ -146,8 +146,9 @@ function getSteps() {
 
 const responsablesOT = [
   {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
-  {_id:"r1", responsable_ot:'Bayardo', email_responsable_ot:'bayardodomingo@hotmail.com'},
-  {_id:"r2", responsable_ot:'Royer', email_responsable_ot:'royer@gmail.com'},
+  {_id:"r1", responsable_ot:'Bayardo Domingo', email_responsable_ot:'bayardodomingo@hotmail.com'},
+  {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'rruizp555@gmail.com'},
+
   
 
 ];
@@ -491,7 +492,7 @@ function DetalleOTScreen(props) {
 
                     </Grid>
                     <Grid item xs={12} sm={4}> 
-                    { responsablesOT && detallesSitioInfo && detallesSitioInfo['responsable_ot'] && responsablesOT &&<Autocomplete
+                    { responsablesOT && detallesSitioInfo &&  responsablesOT &&<Autocomplete
 
                         {...defaultProps}
                         id="responsable_ot"
@@ -555,7 +556,7 @@ function DetalleOTScreen(props) {
                           <Grid item xs={12} sm={12} container>
                           <Grid item xs={3} sm={3}> 
                              {userInfo && <Button
-                                disabled={activeStep === 0 && (!userInfo.isHiper || !userInfo.isSuper  || !userInfo.isInge ) }
+                                disabled={activeStep === 0 && (!userInfo.isHiper && !userInfo.isSuper  && !userInfo.isInge ) }
                                 onClick={handleBack}
                                 className={classes.backButton}
                               >
@@ -569,7 +570,7 @@ function DetalleOTScreen(props) {
                             </Grid>
                             <Grid item xs={3} sm={3}> 
                             {userInfo && <Button variant="contained" color="primary" className={classes.nextButton} 
-                            disabled={ !userInfo.isHiper || !userInfo.isSuper  || !userInfo.isInge  }
+                            disabled={ !userInfo.isHiper && !userInfo.isSuper  && !userInfo.isInge  }
                             onClick={handleNext}>
                                 {activeStep === steps.length - 1 ? 'Finish' : 'Próximo'}
                               </Button>}

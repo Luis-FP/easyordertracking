@@ -577,7 +577,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
 });
 
 
-router.post("/detalles", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
+router.post("/detalles", isAuth, async (req, res) => {
   console.log("detalles>",  req.user)
   let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
   var vistaUsuario= datosUsuario.vista
