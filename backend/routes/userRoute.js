@@ -511,7 +511,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
         '$match':
               {
                 'proyecto': { $in: vistaUsuario},
-                'responsable_ot': req.user.nombre
+                'responsable_ot': req.user.nombre // ingenieros solo ven sus asignaciones
               }
         },
     ];
@@ -521,7 +521,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
       '$match':
             {
               'proyecto': { $in: vistaUsuario},
-              'responsable_cliente': req.user.nombre
+              'responsable_cliente': req.user.nombre // usuarios solo ven sus ordenes
             }
       },
     ];

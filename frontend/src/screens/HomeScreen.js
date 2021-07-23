@@ -164,8 +164,8 @@ function HomeScreen(props) {
     {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
     {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
     {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
-    {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
-    {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
+    // {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
+    // {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
   ]
 
   let today = new Date().getTime();
@@ -300,6 +300,12 @@ console.log('updated', updated)
         inputProps={{ 'aria-label': 'Buscar' }}
         onChange={busquedaFecha}
       />
+       <InputBase
+        className={classes.input}
+        placeholder="Coloque Proyecto"
+        inputProps={{ 'aria-label': 'Buscar' }}
+        onChange={busquedaProyecto}
+      />
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
@@ -331,6 +337,8 @@ console.log('updated', updated)
             // criterio busqueda
             !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
             !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
+            !(busquedaKey3 !== null && !ot.proyecto.toLowerCase().includes(busquedaKey3)) &&
+            ot.estado !== "cerrado" &&
              (
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               
@@ -384,6 +392,8 @@ console.log('updated', updated)
             {userOTsInfo && userOTsInfo.data && userOTsInfo.data.map((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo) && 
               !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
               !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
+              !(busquedaKey3 !== null && !ot.proyecto.toLowerCase().includes(busquedaKey3)) &&
+              ot.estado !== "cerrado" &&
              (
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip

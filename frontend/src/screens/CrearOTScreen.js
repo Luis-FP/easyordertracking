@@ -33,6 +33,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { secondsToMilliseconds } from "date-fns";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 650,
+  },
+  error: {
+    borderRadius:8,
+    maxWidth:'90%',
+    backgroundColor:"red",
+    color:"white",
+    // width:"80%",
+    fontSize:11
   },
 }));
 
@@ -125,7 +134,13 @@ function CrearOTScreen(props) {
     sitio_codigo:  "",
     sitio_nombre:  "",
   });
-  // const [disabled, setDisabled] = useState(true);
+  // const [erroresIngreso, setErroresIngreso] = useState({
+  //   sitio_codigo:"" ,
+  //   requerimiento: "",
+  //   detalle_requerimiento:"" ,
+  //   prioridad:""
+  // });
+  
   const [datosSitios, setDatosSitios] = useState([]);
   const [loadingFilesSitios, setLoadingFilesSitios] = useState(false);
 
@@ -134,8 +149,9 @@ function CrearOTScreen(props) {
   useEffect(() => {
 if(OTNuevaInfo){
   setOpen(true);
+  
 }
-   
+
 
   }, [OTNuevaInfo]);
 
@@ -318,17 +334,59 @@ const handleSitio = (e, value) => {
 
 const crearOT = (e) => {
   e.preventDefault()
- 
-  console.log('despacho crear OT', otInfo,  listaArchivos)
-  dispatch(crearOTNueva(otInfo, listaArchivos))
+  let erroresIngreso = [];
+  const error1 = document.getElementById("error1")
+  const error2 = document.getElementById("error2")
+  const error3 = document.getElementById("error3")
+  const error4 = document.getElementById("error4")
+ // revisar calidad de las entradas
+ console.log("otInfo crearOT", otInfo);
+if( otInfo['sitio_codigo']==="" ||
+    otInfo['requerimiento']==="" || 
+    otInfo['detalle_requerimiento']==="" ||
+    otInfo['prioridad']===""
+){
   
+  if(otInfo['sitio_codigo']===""){
+    error1.innerHTML="Escoja un sitio, si no esta en la lista debe subirlo en el paso anterior";
+    erroresIngreso.push('error')
+    // console.log('aqui!!!!!!!!!!!!!!!!!!!!!!!!!!!', erroresIngreso)
+  }
+  if(otInfo['requerimiento']===""){
+    error2.innerHTML="Debe seleccionar su requerimiento";
+    erroresIngreso.push('error')
+  }
+ 
+  if(otInfo['prioridad']===""){
+    error3.innerHTML="Debe seleccionar el nivel de prioridad que tiene su trabajo";
+    erroresIngreso.push('error')
+  }
+  if(otInfo['detalle_requerimiento']===""){
+    error4.innerHTML="Debe seleccionar el nivel de prioridad que tiene su trabajo";
+    erroresIngreso.push('error')
+  }
+}
+console.log("errorCampo",erroresIngreso);
+  if(erroresIngreso.length>0){
+    // document.querySelector('#errorCampoSitio').innerHTML=erroresIngreso['sitio_codigo'];
+    // console.log('error')
+  }else{
+    // console.log('despacho crear OT', otInfo,  listaArchivos)
+    dispatch(crearOTNueva(otInfo, listaArchivos))
+
+  }
+
+
 }
 
 
 
 const handleClose = () => {
   setOpen(false);
+  props.history.push('/');
 };
+
+
   return (
     <div className="w3-row w3-center  w3-margin-bottom">
 
@@ -379,19 +437,23 @@ const handleClose = () => {
     </div>
 
       <h1 className="w3-xxlarge w3-text-dark-grey">2- Crear OT</h1>
-      <form className="w3-col s12 w3-padding w3-section" onSubmit={crearOT}>
+      <form className="w3-col s12 w3-padding w3-section" id="formaCreaOT" onSubmit={crearOT}>
       <Grid item xs={12} sm={12} container>
-      {console.log('otInfo', otInfo)} 
+      {console.log('otInfo, erroresIngreso', otInfo)} 
       { sitiosCargados && sitiosCargados.data && <Grid item md={4}  xs={12}  sm={6}> 
                 <Autocomplete
                 id="listaSitiosCargados"
+                required
                 onChange={handleSitio}
                 options={sitiosCargados.data}
                 getOptionLabel={(option) => option.sitio_nombre}
                 style={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Sitio" variant="outlined" />}
               />
+               <div className={classes.error} id="error1"></div>
+              {/* {erroresIngreso && erroresIngreso['sitio_codigo'] && <div style={{ color: 'red', height:15}}>{erroresIngreso['sitio_codigo']}</div>} */}
               </Grid>}
+              
               <Grid item md={4}  xs={12}  sm={6}> 
               {console.log('offsetSLA[new Date().getDay()]', offsetSLA[new Date().getDay()])}
               <Autocomplete
@@ -408,6 +470,7 @@ const handleClose = () => {
                 style={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Servicios" variant="outlined" />}
               />
+                <div className={classes.error} id="error2"></div>
                     </Grid>
             
                     <Grid item md={4}  xs={12}  sm={6}> 
@@ -420,7 +483,7 @@ const handleClose = () => {
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Prioridad" variant="outlined" />}
                       />
-                  
+                  <div className={classes.error}  id="error3"></div>
                     </Grid>
                     <Grid item md={4}  xs={6}  sm={6}>
                     </Grid>
@@ -476,6 +539,7 @@ const handleClose = () => {
                                   required={true}
                                   // value={detalleSitioInfo['detalle_requerimiento']} 
                                 />
+                               <div className={classes.error} id="error4"></div>
                     </Grid>
 
                   </Grid>

@@ -140,27 +140,22 @@ function getSteps() {
   {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
   {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
   {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
-  {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
-  {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
+  {_id:"p7",titulo:'Cerrado', codigo:'cerrado', paso:6},
+  // {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
 ]}
 
 const responsablesOT = [
   {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
   {_id:"r1", responsable_ot:'Bayardo Domingo', email_responsable_ot:'bayardodomingo@hotmail.com'},
   {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'rruizp555@gmail.com'},
-
-  
-
 ];
+
 const prioridades = [
   "",
   'Normal',
   'Alta',
   'Inmediata',
 ]
-
-
-
 
 
 function getStepContent(stepIndex) {
@@ -251,7 +246,7 @@ function DetalleOTScreen(props) {
       ['estado']: getStepContent(activeStep+1).codigo,
       ['estadoChange']: true,
   })
-  console.log('detallesSitioInfo', detallesSitioInfo['estado'],'getStep', getStepContent(activeStep+1).codigo)
+  // console.log('detallesSitioInfo', detallesSitioInfo['estado'],'getStep', getStepContent(activeStep+1).codigo)
   };
 
   const handleBack = () => {
@@ -293,9 +288,6 @@ function DetalleOTScreen(props) {
       [name]: event.target.value,
     });
   };
-
- 
-  
 
   useEffect(() => {
       
@@ -394,10 +386,8 @@ function DetalleOTScreen(props) {
     return () => {
     
     };
-  }, [loadingSitio,detallesSitio, updatedCodigo ]);
+  }, [loadingSitio, detallesSitio, updatedCodigo ]);
   
-
- 
 
   const handleProceso = (e) =>{
     e.preventDefault();
@@ -422,10 +412,18 @@ function DetalleOTScreen(props) {
   function controlAccesoProceso(userInfo, index){
     if(userInfo.isInge || userInfo.isHiper || userInfo.isSuper ){
       return true
-    }else if(userInfo.isUser && index< 7){
+    }else if(userInfo.isUser && index<6 ){
       return true
-    }else if(userInfo.isUser && index>= 7){
+    }else if(userInfo.isUser && index>= 6){
      return false
+  }
+}
+
+function controlBotonProceso(userInfo, activeStep){
+  if (!userInfo.isHiper && !userInfo.isSuper  && !userInfo.isInge && activeStep===5){
+    return true
+  }else {
+   return false
   }
 }
 
@@ -476,7 +474,7 @@ function DetalleOTScreen(props) {
                       fullWidth={true} />
                       </FormControl>
                     </Grid>
-                    {console.log("detallesSitioInfo",detallesSitioInfo)}
+                    {/* {console.log("detallesSitioInfo",detallesSitioInfo)} */}
                     <Grid item xs={12} sm={4}> 
                     { prioridades && detallesSitioInfo && detallesSitioInfo['prioridad'] && <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel htmlFor="prioridad">Prioridad</InputLabel>
@@ -488,20 +486,14 @@ function DetalleOTScreen(props) {
                       label="Prioridad" 
                       fullWidth={true} />
                       </FormControl>}
-                  
-
                     </Grid>
-                    <Grid item xs={12} sm={4}> 
-                    { responsablesOT && detallesSitioInfo &&  responsablesOT &&<Autocomplete
-
+                    <Grid item xs={12} sm={4}>
+                    { responsablesOT && detallesSitioInfo &&  responsablesOT && <Autocomplete
                         {...defaultProps}
                         id="responsable_ot"
                         required={true}
-                        // autoComplete
-                        // includeInputInList
                         className={classes.formControl}
-                        style={{ width: 300 }}
-                        
+                        style={{ width: 300 }}              
                         defaultValue={detallesSitioInfo}  //detallesSitioInfo['responsable_ot']
                         onChange={(e, value)=> console.log('value',value) && setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
                          ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
@@ -570,7 +562,7 @@ function DetalleOTScreen(props) {
                             </Grid>
                             <Grid item xs={3} sm={3}> 
                             {userInfo && <Button variant="contained" color="primary" className={classes.nextButton} 
-                            disabled={ !userInfo.isHiper && !userInfo.isSuper  && !userInfo.isInge  }
+                            disabled={ controlBotonProceso(userInfo, activeStep) }
                             onClick={handleNext}>
                                 {activeStep === steps.length - 1 ? 'Finish' : 'Próximo'}
                               </Button>}
