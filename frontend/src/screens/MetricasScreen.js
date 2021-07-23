@@ -127,11 +127,12 @@ const useStyles = makeStyles((theme)=>({
     maxHeight: '100%',
   },
   root2: {
-
+    border: "solid",
+    borderColor: azulfondo,
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 500,
+    fullWidth:true
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -193,79 +194,6 @@ function MetricasScreen(props) {
   const userOTS = useSelector(state => state.userOTS);
   const { loadingOTs, userOTsInfo } = userOTS;
 
-  // const distribucionOTs = userOTsInfo.map(ot => new Date(ot.fecha_apertura).getMonth() === )
-  // const esteMes = new Date().getMonth()
-
-  // const mes = queMes(new Date().getMonth())
-  // const [estadisticaOTs, setEstadisticaOTs] = useState([]);
-  // const [meses, setMeses] = useState([]);
-  // const grafico=[
-  //   {
-  //     labels: meses,
-  //     datasets: [
-  //       {
-  //         label: 'OTs por Mes',
-  //         backgroundColor: 'rgba(75,192,192,1)',
-  //         borderColor: azulClaro,
-  //         borderWidth: 2,
-  //         data: estadisticaOTs//[0,0,0,0,3]
-  //       }
-  //     ]
-  //   }
-  // ];
-
-  // const [grafico, setGrafico] = React.useState(undefined)
-
-
-  // useEffect(() => {
-  //   if(userOTsInfo){
-  //     let diaActual = new Date();
-  //     let dia, mes
-  //     let arregloMes= []
-  //     let arregloData = []
-  //     for (let x = 4; x>-1; x--){
-  //       dia = new Date(diaActual).getTime() - 2629750000 * x;
-  //       mes = queMes(new Date(dia).getMonth())
-  //       arregloMes.push(mes);
-  //       if(userOTsInfo){
-  //         arregloData.push(userOTsInfo.data.filter(ot => new Date(ot.fecha_apertura).getMonth() === new Date(dia).getMonth() ).length); 
-  //       }else{
-  //         arregloData.push(0);
-  //       }
-        
-  //     }
-  //     console.log('arregloData', arregloData, 'arregloMes',arregloMes)
-  //     setEstadisticaOTs(arregloData);
-  //     setMeses(arregloMes)
-  //     setGrafico(
-  //       {
-  //         labels: meses,
-  //         datasets: [
-  //           {
-  //             label: 'OTs por Mes',
-  //             backgroundColor: 'rgba(75,192,192,1)',
-  //             borderColor: azulClaro,
-  //             borderWidth: 2,
-  //             data: estadisticaOTs//[0,0,0,0,3]//
-  //           }
-  //         ]
-  //       }
-  //     );
-  //   }
-
-  // }, []);
-    // let diaActual = queMes(new Date())
-  
-
-   
-
-  
-
-
-
-
-
- 
   
 console.log(userOTsInfo)
 
@@ -283,14 +211,6 @@ console.log('updated', updated)
     );
 
   };
-
-  // const handleCloseModal = (e) => {
-  //   console.log(e.target)
-  //   setOpenModal(false);
-  //   setSitio(sitio)
-  //   // console.log(sitio, sitio)
-  // };
-
 
   const dispatch = useDispatch();
 
@@ -318,18 +238,18 @@ console.log('updated', updated)
   const [busquedaKey1, setBusquedaKey1] = React.useState(null);
   const [busquedaKey2, setBusquedaKey2] = React.useState(null);
   const [busquedaKey3, setBusquedaKey3] = React.useState(null);
-  const busquedaNombre = (e) =>{
-    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+  const busquedaOT = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() : null
     setBusquedaKey1(valueLowerCase)
   }
-  const busquedaFecha = (e) =>{
-    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
-    setBusquedaKey2(valueLowerCase)
-  }
-  const busquedaProyecto = (e) =>{
-    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
-    setBusquedaKey3(valueLowerCase)
-  }
+  // const busquedaFecha = (e) =>{
+  //   const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+  //   setBusquedaKey2(valueLowerCase)
+  // }
+  // const busquedaProyecto = (e) =>{
+  //   const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+  //   setBusquedaKey3(valueLowerCase)
+  // }
 
   function colorAlerta(nivel) {
     let color = null;
@@ -349,42 +269,10 @@ console.log('updated', updated)
 
     <React.Fragment>
     <CssBaseline />
-    <Container width="60%" style={{alignItems:'center'}}>
-    {/* <Typography component="div">
-        <Grid component="label" container alignItems="center" spacing={1}>
-        <Grid>Procesos</Grid>
-          <Grid item>
-    <FormControlLabel
-        control={<Switch checked={state.checkedA} onChange={handleChange}  color="primary" name="checkedA" />}
-      />
-      </Grid>
-      <Grid item >Tiempos</Grid>
-      <Paper component="form" className={classes.root2}>
-      <IconButton className={classes.iconButton} aria-label="menu">
-        <MenuIcon />
-      </IconButton>
-      <InputBase
-        className={classes.input}
-        placeholder="Coloque Nombre"
-        inputProps={{ 'aria-label': 'Buscar' }}
-        onChange={busquedaNombre}
-      />
-       <InputBase
-        className={classes.input}
-        placeholder="Coloque Fecha"
-        inputProps={{ 'aria-label': 'Buscar' }}
-        onChange={busquedaFecha}
-      />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-      <Divider className={classes.divider} orientation="vertical" />
+    <Container width="60%" style={{display: 'flex', justifyContent:'center'}}>
+   
 
-    </Paper>
-      </Grid>
-      </Typography> */}
-
-      <div style={{ width:'80%'}}>
+      <div style={{ width:'60%'}}>
       {/* {console.log('grafico', grafico)} */}
        {userOTsInfo && userOTsInfo.grafico && <Bar
           data={userOTsInfo.grafico[0]}
@@ -400,8 +288,36 @@ console.log('updated', updated)
             }
           }}
         />}
-      </div>
+ <Typography className={classes.title2}>Estadística por OT</Typography>
+ <Typography component="div">
+        {/* <Grid component="label" container alignItems="center" spacing={1} > */}
 
+      <Paper component="form" className={classes.root2} >
+      <IconButton className={classes.iconButton} aria-label="menu">
+        <MenuIcon />
+      </IconButton>
+      <InputBase
+        className={classes.input}
+        placeholder="Coloque OT"
+        inputProps={{ 'aria-label': 'Buscar' }}
+        onChange={busquedaOT}
+        fullWidth
+      />
+       {/* <InputBase
+        className={classes.input}
+        placeholder="Tiempo Respuesta"
+        inputProps={{ 'aria-label': 'Buscar' }}
+        onChange={busquedaFecha}
+        fullWidth
+      /> */}
+      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+      {/* <Divider className={classes.divider} orientation="vertical" /> */}
+
+    </Paper>
+      {/* </Grid> */}
+      </Typography>
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -412,7 +328,9 @@ console.log('updated', updated)
           </TableRow>
         </TableHead>
         <TableBody>
-          {userOTsInfo && userOTsInfo.estadistica.map((row, index) => index>0 &&(
+          {userOTsInfo && userOTsInfo.estadistica.map((row, index) => row && 
+           (!busquedaKey1 || Number(busquedaKey1)===index) &&
+          (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {index}
@@ -425,7 +343,7 @@ console.log('updated', updated)
         </TableBody>
       </Table>
     </TableContainer>
-
+    </div>
     </Container>
     </React.Fragment>
   );

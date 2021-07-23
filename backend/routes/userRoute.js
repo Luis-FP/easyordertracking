@@ -562,8 +562,11 @@ router.get("/otsuser", isAuth, async (req, res) => {
     if(element.ini && element.entregado){
       otEstadistica[index]= {
         tiempo: (new Date(element.entregado).getTime() - new Date(element.ini).getTime())/86400000 ,
-         sla: '3 dias'// ots.filter(ot => ot.ot_number===index ).fecha_sla}// dias 
+        // servicio: 
+         sla: ((new Date(ots.filter(ot => Number(ot.ot_number)===index )[0].fecha_sla).getTime() - 
+         new Date(ots.filter(ot => Number(ot.ot_number)===index )[0].fecha_apertura).getTime())/86400000).toFixed(2) // dias 
     }
+    // console.log("ots.filter(ot => ot.ot_number===index )", ots.filter(ot => Number(ot.ot_number)===index ));
   }
   })
 
