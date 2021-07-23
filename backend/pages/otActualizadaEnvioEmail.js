@@ -1,4 +1,27 @@
 
+ const fechaLegible = (dia) => {
+   const diaX = new Date(dia).getDay()
+   const mes = new Date(dia).getMonth()
+   const ano = new Date(dia).getFullYear()
+   var monthNames = [
+     "Ene", "Feb", "Mar",
+     "Abr", "May", "Jun", "Jul",
+     "Ago", "Sep", "Oct",
+     "Nov", "Dec"
+   ];
+ const fecha = diaX + "-" + monthNames[mes] + "-" + ano; 
+   return (fecha);
+}
+
+let procesos = [
+   {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
+   {_id:"p2",titulo:'Revision con Cliente y Programación', codigo:'rev', paso:1},
+   {_id:"p3",titulo:'En Ejecución', codigo:'ejec', paso:2},
+   {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
+   {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
+   {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
+];
+ 
  const otActualizadaEmail = (info) => {
      console.log('info', info)
      let html = 
@@ -49,8 +72,11 @@
      <div class="row justify-content-center">
         <div class="col-12 jumbotron bg-blueish text-blueish mx-auto">
         <p class="col-12 text-center text-blueish">Cliente:${info.cliente} </p>
-        <p class="col-12 text-center text-blueish">Proyecto:${info.proyecto} </p>
+        <p class="col-12 text-center text-blueish">Proyecto:${info.proyecto} </p>   
+        <p class="col-12 text-center text-blueish">Estatus:${procesos.filter( proc => proc.codigo === info.estado)[0].titulo} </p>
         <p class="col-12 text-center text-blueish">Prioridad:${info.prioridad} </p>
+        <p class="col-12 text-center text-blueish">Fecha SLA:${fechaLegible(info.fecha_sla)} </p>
+        <p class="col-12 text-center text-blueish">Fecha Requerida: ${fechaLegible(info.fecha_requerida)} </p>
         <p class="col-12 text-center text-blueish">Sitio:${info.sitio_codigo} - ${info.sitio_nombre} </p>
         <p class="col-12 text-center text-blueish">Requerimiento:${info.requerimiento} </p>
         <p class="col-12 text-center text-blueish">Detalle:${info.detalle_requerimiento} </p>

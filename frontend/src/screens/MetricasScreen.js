@@ -7,8 +7,7 @@ import { orange, purple, green, grey, red, blue } from '@material-ui/core/colors
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import Paper from '@material-ui/core/Paper';
+
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -17,7 +16,13 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import { fechaUnica, queMes } from '../components/fechas';
 
 import {Bar} from 'react-chartjs-2';
@@ -142,7 +147,10 @@ const useStyles = makeStyles((theme)=>({
   grafico:{
     height:10,
 
-  }
+  },
+    table: {
+      
+    },
 }));
 
 
@@ -393,6 +401,31 @@ console.log('updated', updated)
           }}
         />}
       </div>
+
+      <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>OT</TableCell>
+            <TableCell align="right">SLA</TableCell>
+            <TableCell align="right">Dias</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {userOTsInfo && userOTsInfo.estadistica.map((row, index) => index>0 &&(
+            <TableRow key={index}>
+              <TableCell component="th" scope="row">
+                {index}
+              </TableCell>
+              <TableCell align="right">{row.sla} Dias</TableCell>
+              <TableCell align="right">{row.tiempo.toFixed(2)} Dias</TableCell>
+
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+
     </Container>
     </React.Fragment>
   );

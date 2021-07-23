@@ -495,11 +495,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
       },
   ];;
 
-  let filtro2  = [
-    {
-    '$skip': 0
-    },
-];;
+ 
 
     if(req.user.isHiper){
       // vista total
@@ -538,11 +534,39 @@ router.get("/otsuser", isAuth, async (req, res) => {
 
 
 
+    let filtro2  = [
+      {
+      '$skip': 0
+      },
+  ];;
+  
+  filtro2  = [
+    {
+      '$match':
+            {
+              'estado': { $in: ["ini", "entregado"]},
+            }
+      },
+];;
 
+    const ots_registos = await OTSRegistros.aggregate(filtro2); 
+    let otContainer =[]
+    ots.forEach((element, index) => {
+      otContainer[element.ot_number] = {
+        ini: ots_registos.filter(registro => registro.ot_number === element.ot_number && registro.estado==="ini")[0]? ots_registos.filter(registro => registro.ot_number === element.ot_number && registro.estado==="ini")[0].fecha_registro :"",
+        entregado: ots_registos.filter(registro => registro.ot_number === element.ot_number && registro.estado==="entregado")[0]? ots_registos.filter(registro => registro.ot_number === element.ot_number && registro.estado==="entregado")[0].fecha_registro : "",
+    };
+  });
+  let otEstadistica = [];
+  otContainer.forEach((element, index)=>{
+    if(element.ini && element.entregado){
+      otEstadistica[index]= {
+        tiempo: (new Date(element.entregado).getTime() - new Date(element.ini).getTime())/86400000 ,
+         sla: '3 dias'// ots.filter(ot => ot.ot_number===index ).fecha_sla}// dias 
+    }
+  }
+  })
 
-
-    // const ots_registos = await OTSRegistros.aggregate(filtro2); 
-    
   // datos para metricas
 
   let diaActual = new Date();
@@ -576,7 +600,7 @@ router.get("/otsuser", isAuth, async (req, res) => {
   ];
       console.log("ots", ots)
       res.status(200)
-      .send({ message: "lista de OTs", data: ots, grafico: grafico})
+      .send({ message: "lista de OTs", data: ots, grafico: grafico, otInfo: otContainer, estadistica: otEstadistica})
     // } else {
     // // let detalle = await Detalles.find({ cliente: req.body.cliente.toLowerCase() });
 
