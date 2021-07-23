@@ -363,7 +363,7 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
             let emailTransport = crearTransporteEmail();         
               let conf = {
                 to: req.user.email,
-                bcc:  ['luis.parparcen@gmail.com,','coordinge@atmotechnologies.com'],
+                bcc:  ['luis.parparcen@gmail.com','coordinge@atmotechnologies.com'],
                 subject: "OT Nueva Creada",
                 html: "",
                 };
@@ -457,7 +457,7 @@ router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), a
           // coordinge@atmotechnologies.com
             let conf = {
               to:  req.user.email ,
-              bcc:  ['luis.parparcen@gmail.com,','coordinge@atmotechnologies.com',  otInfo.email_responsable_ot],
+              bcc:  ['luis.parparcen@gmail.com','coordinge@atmotechnologies.com',  otInfo.email_responsable_ot],
               subject: "OT Actualizada",
               html: "",
               };
@@ -494,6 +494,13 @@ router.get("/otsuser", isAuth, async (req, res) => {
       '$skip': 0
       },
   ];;
+
+  let filtro2  = [
+    {
+    '$skip': 0
+    },
+];;
+
     if(req.user.isHiper){
       // vista total
     }else if(req.user.isSuper){
@@ -528,6 +535,14 @@ router.get("/otsuser", isAuth, async (req, res) => {
   };
 
     const ots = await OTs.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
+
+
+
+
+
+
+    // const ots_registos = await OTSRegistros.aggregate(filtro2); 
+    
   // datos para metricas
 
   let diaActual = new Date();

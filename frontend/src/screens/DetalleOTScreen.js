@@ -83,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl2: {
     margin: theme.spacing(1),
-    // maxWidth: 500,
-    // fullWidth: 'true'
+    justifyContent: "space-between",
+
   },
   table: {
     // minWidth: 650,
@@ -126,6 +126,7 @@ const useStyles = makeStyles((theme) => ({
   zona2: {
     width: '100%',
     marginTop: 20,
+  
 
   },
 }));
@@ -626,9 +627,53 @@ function controlBotonProceso(userInfo, activeStep){
                     </Grid>
 
                             {<Grid  container className={classes.zona2}>
+                            <Grid item xs={6} sm={3}> 
+                             
+                                      <FormControl variant="outlined" className={classes.formControl}>
+                                        <InputLabel htmlFor="altura_validada">Altura Validada</InputLabel>
+                                        <OutlinedInput id="altura_validada" 
+                                        value={detallesSitioInfo['altura_validada'] ? detallesSitioInfo['altura_validada'] :""} 
+                                        disabled={userInfo && userInfo.isUser? false : true }
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['altura_validada']:value.target.value, ['altura_validadaChange']:true })}
+                                        label="Altura Validada" 
+                                        />
+                                      </FormControl>
+                              </Grid>
+                              <Grid item xs={6} sm={3}> 
+                                      <FormControl variant="outlined"  className={classes.formControl}  >
+                                        <InputLabel htmlFor="altura_pararrayos">Altura Pararayos</InputLabel>
+                                        <OutlinedInput id="altura_pararrayos" 
+                                        value={detallesSitioInfo['altura_pararrayos']?detallesSitioInfo['altura_pararrayos']:""}
+                                        disabled={userInfo && userInfo.isUser? false : true }
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['altura_pararrayos']:value.target.value, ['altura_pararrayosChange']:true })}
+                                         label="Altura Pararayos" />
+                                      </FormControl>
+                              </Grid>
                               <Grid item xs={6} sm={3}> 
                              
-                                      <FormControl variant="outlined" >
+                                      <FormControl variant="outlined"  className={classes.formControl}>
+                                        <InputLabel htmlFor="resistencia_viento">Resistencia Viento</InputLabel>
+                                        <OutlinedInput id="resistencia_viento" 
+                                        value={detallesSitioInfo['resistencia_viento'] ? detallesSitioInfo['resistencia_viento'] :""} 
+                                        disabled={userInfo && userInfo.isUser? false : true }
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['resistencia_viento']:value.target.value, ['resistencia_vientoChange']:true })}
+                                        label="Resistencia Viento" 
+                                        />
+                                      </FormControl>
+                              </Grid>
+                              <Grid item xs={6} sm={3}> 
+                                      <FormControl variant="outlined"  className={classes.formControl}  >
+                                        <InputLabel htmlFor="tx">Tipo de Transmisión</InputLabel>
+                                        <OutlinedInput id="tx" 
+                                        value={detallesSitioInfo['tx']?detallesSitioInfo['tx']:""}
+                                        disabled={userInfo && userInfo.isUser? false : true }
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['tx']:value.target.value, ['txChange']:true })}
+                                         label="Tipo de Transmisión" />
+                                      </FormControl>
+                              </Grid>
+                              <Grid item xs={6} sm={3}> 
+                             
+                                      <FormControl variant="outlined"  className={classes.formControl}>
                                         <InputLabel htmlFor="tipo_estructura">Tipo de Estructura</InputLabel>
                                         <OutlinedInput id="tipo_estructura" 
                                         value={detallesSitioInfo['tipo_estructura'] ? detallesSitioInfo['tipo_estructura'] :""} 
@@ -639,7 +684,7 @@ function controlBotonProceso(userInfo, activeStep){
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
-                                      <FormControl variant="outlined"   >
+                                      <FormControl variant="outlined"   className={classes.formControl} >
                                         <InputLabel htmlFor="area">Área Rentada</InputLabel>
                                         <OutlinedInput id="area" 
                                         value={detallesSitioInfo['area_arrendada']?detallesSitioInfo['area_arrendada']:""}
@@ -668,9 +713,9 @@ function controlBotonProceso(userInfo, activeStep){
                                         label="Tipología Sitio" />
                                       </FormControl>
                               </Grid>
-                              <Grid item xs={6} sm={6}> 
+                              <Grid item xs={8} sm={8} > 
                               <TextField
-                                className={classes.formControl}
+                                className={classes.formControl2}
                                   id="arrendatario" 
                                   onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['arrendatario']:value.target.value, ['arrendatarioChange']:true })}
                                   disabled={userInfo && userInfo.isUser? false : true }
@@ -682,9 +727,9 @@ function controlBotonProceso(userInfo, activeStep){
                                 /> 
                               </Grid>
                              
-                              <Grid item xs={6} sm={6}> 
+                              <Grid item xs={4} sm={4}> 
                                   <TextField
-                                      className={classes.formControl}
+                                      className={classes.formControl2}
                                       id="identificacion_arrendatario" 
                                       onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['identificacion_arrendatario']:value.target.value, ['identificacion_arrendatarioChange']:true })}
                                       disabled={userInfo && userInfo.isUser? false : true }
@@ -696,10 +741,10 @@ function controlBotonProceso(userInfo, activeStep){
                                     /> 
 
                               </Grid>
-                              <Grid item xs={6} sm={6}> 
+                              <Grid item xs={8} sm={8}> 
                                   <TextField
                                       id="direccion_sitio" 
-                                      className={classes.formControl}
+                                      className={classes.formControl2}
                                       value={detallesSitioInfo['direccion_sitio']?detallesSitioInfo['direccion_sitio']:""} 
                                       disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['direccion_sitio']:value.target.value, ['direccion_sitioChange']:true })} 
@@ -708,10 +753,10 @@ function controlBotonProceso(userInfo, activeStep){
                                       fullWidth
                                     /> 
                               </Grid>
-                              <Grid item xs={6} sm={6}> 
+                              <Grid item xs={4} sm={4}> 
                               <TextField
                                       id="numero_finca" 
-                                      className={classes.formControl}
+                                      className={classes.formControl2}
                                       value={detallesSitioInfo['numero_finca']?detallesSitioInfo['numero_finca']:""}
                                       disabled={userInfo && userInfo.isUser? false : true }
                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['numero_finca']:value.target.value, ['numero_fincaChange']:true })} 
