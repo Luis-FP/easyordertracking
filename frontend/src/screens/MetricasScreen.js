@@ -28,7 +28,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {Bar} from 'react-chartjs-2';
 
 
@@ -162,7 +162,9 @@ const useStyles = makeStyles((theme)=>({
 
 function MetricasScreen(props) {
   const classes = useStyles();
-  
+  const matches600 = useMediaQuery('(min-width:600px)');
+
+
   let procesos = [
     {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
     {_id:"p2",titulo:'Revision con Cliente y Programación', codigo:'rev', paso:1},
@@ -251,7 +253,7 @@ console.log('updated', updated)
     setBusquedaKey2(valueLowerCase)
   }
   const busquedaCumple = (e) =>{
-    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    const valueLowerCase = e.target.value!==null? (e.target.value) :""
     setBusquedaKey3(valueLowerCase)
   }
 
@@ -273,10 +275,10 @@ console.log('updated', updated)
 
     <React.Fragment>
     <CssBaseline />
-    <Container width="60%" style={{display: 'flex', justifyContent:'center'}}>
+    <Container  style={{display: 'flex', justifyContent:'center'}}>
    
 
-      <div style={{ width:'60%'}}>
+      <div styles={{width: matches600? '80%': '100%'}}  >
       {/* {console.log('grafico', grafico)} */}
        {userOTsInfo && userOTsInfo.grafico && <Bar
           data={userOTsInfo.grafico[0]}
@@ -300,6 +302,8 @@ console.log('updated', updated)
       <IconButton className={classes.iconButton} aria-label="menu">
         <MenuIcon />
       </IconButton>
+      <Grid container>
+      <Grid item>
       <InputBase
         className={classes.input}
         placeholder="Coloque OT"
@@ -307,6 +311,8 @@ console.log('updated', updated)
         onChange={busquedaOT}
         fullWidth
       />
+      </Grid>
+      <Grid item>
        <InputBase
         className={classes.input}
         placeholder="Servicio"
@@ -314,15 +320,18 @@ console.log('updated', updated)
         onChange={busquedaServicio}
         fullWidth
       />
+      </Grid>
+      <Grid item>
       {/* <FormControl variant="outlined" className={classes.formControl}> */}
         <InputLabel id="demo-simple-select-outlined-label">Cumplimiento</InputLabel>
         <Select
+          variant="outlined"
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          // value={age}
+          defaultValue=""
           onChange={busquedaCumple}
           label="Cumplimiento"
-          
+          fullWidth
         >
           <MenuItem value="">
             <em>None</em>
@@ -331,11 +340,12 @@ console.log('updated', updated)
           <MenuItem value={'Fuera SLA'}>Fuera SLA</MenuItem>
         </Select>
       {/* </FormControl> */}
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+      {/* <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
-      </IconButton>
+      </IconButton> */}
       {/* <Divider className={classes.divider} orientation="vertical" /> */}
-
+</Grid>
+</Grid>
     </Paper>
       {/* </Grid> */}
       </Typography>
@@ -354,7 +364,7 @@ console.log('updated', updated)
           {userOTsInfo && userOTsInfo.estadistica.map((row, index) => row && 
            (!busquedaKey1 || Number(busquedaKey1)===index) &&
            (!busquedaKey2 || row.servicio.toLowerCase().includes(busquedaKey2)) &&
-           (!busquedaKey3 || busquedaKey3===row.cumplimiento.toLowerCase().includes(busquedaKey3)) &&
+           (!busquedaKey3 || row.cumplimiento.includes(busquedaKey3)) &&
           (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
