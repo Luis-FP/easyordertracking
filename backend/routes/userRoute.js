@@ -11,7 +11,8 @@ import { createRecoveryEmailPage } from "../pages/recoveryEmailPage";
 import { createEmailValidation } from "../pages/validationPage";
 import { otNuevaEmail} from "../pages/otNuevaEnvioEmail";
 import { otActualizadaEmail} from "../pages/otActualizadaEnvioEmail";
-
+import { sitiosNuevosEmail} from "../pages/sitiosNuevosEnvioEmail";
+sitiosNuevosEmail
 import { 
   getWeekNumber,
   queMes,
@@ -1320,35 +1321,12 @@ if(userMax[0]===undefined || userMax[0]===null  ){
 
 
 
-router.post("/createSitios", async (req, res) => {
+router.post("/createSitios", isAuth, async (req, res) => {
   // console.log("req datos crear", req.body.datosSitios);
-  // console.log("req usuario", req.user);
+  console.log("req usuario", req.user);
   let sitios = req.body.datosSitios;
   if (sitios == null || sitios == "")
     req.send({ error: true, message: "No envio ningun usuario para crear." });
-
-
-  //busca el ultimo numero de OT
-//   const sitioMax = await DetallesIng.aggregate([
-//     {
-//       $group: {
-//         _id: null,
-//         max: {
-//           $max: {
-//             $toInt: "$sitio_codigo",
-//           },
-//         },
-//       },
-//     },
-//   ]);
-//   console.log("sitioMax", sitioMax[0]);
-// let sitioMaxima = 0;
-// if(sitioMax[0]===undefined || sitioMax[0]===null  ){
-//   sitioMaxima=0
-// }else{
-//   sitioMaxima = sitioMax[0].max
-// }
-
 
   //validacion de datos
   let k = 0;
@@ -1466,7 +1444,7 @@ console.log('output', output);
 
 
       console.log("despues de user insertmany");
-      let timeout = 500; 
+ 
       //esta aqui afuera porque no queremos nuevo transporte a cada rato
       let emailTransport = crearTransporteEmail();
       let i = 0;
@@ -1474,26 +1452,15 @@ console.log('output', output);
  // enviar email al responsable del recibir OTs
     
         let conf = {
-          to: 'luis.parparcen@gmail.com, luis_parparcen@yahoo.com',
+          to: ['luis.parparcen@gmail.com', 'coordinge@atmotechnologies.com',  req.user.email],
           subject: "Sitios Nuevos subidos al sistema",
           html: "",
           };
-      conf.html = otNuevaEmail();
+      conf.html = sitiosNuevosEmail(req.user);
 
-        // if (i <= 600) {
-        //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
-        //conf.para = usuarios[i].email;
-        // }
-        setTimeout(() => {
-          EnvioEmail(conf, emailTransport);
-        }, timeout);
-        timeout += 500;
-        i++;
+        EnvioEmail(conf, emailTransport);
 
-        // bitacora
-        
-
-
+  
     } else {
       if (error.code === 11000) {
         res.status(200).send({
