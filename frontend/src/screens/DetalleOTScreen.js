@@ -28,6 +28,14 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Fab from '@material-ui/core/Fab';
 import SaveIcon from '@material-ui/icons/Save';
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
@@ -624,9 +632,36 @@ function controlBotonProceso(userInfo, activeStep){
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
+                    <Typography  align="center" className={classes.title} >
+           Documentos Relacionados a la OT
+          </Typography>
+                    <TableContainer component={Paper}>
+                        <Table className={classes.table} aria-label="simple table">
+                          <TableHead>
+                            <TableRow>
+                              <TableCell>Nombre Archivo</TableCell>
+                              <TableCell align="left">Path</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                          {console.log("Object.keys(detallesSitio.data[0].archivos[0])", detallesSitio.data, Object.values(detallesSitio.data[0]))}
+                          { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell component="th" scope="row">
+                                {item.file} 
+                                </TableCell>
+                                <TableCell align="left">{item.path}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
                     </Grid>
-
+                    <Typography  align="center" className={classes.title} >
+           Detalle del Sitio
+          </Typography>
                             {<Grid  container className={classes.zona2}>
+   
                             <Grid item xs={6} sm={3}> 
                              
                                       <FormControl variant="outlined" className={classes.formControl}>
