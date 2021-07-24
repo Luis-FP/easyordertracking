@@ -6,7 +6,7 @@ import { orange, purple, green, grey, red, blue } from '@material-ui/core/colors
 
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -24,6 +24,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { fechaUnica, queMes } from '../components/fechas';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 import {Bar} from 'react-chartjs-2';
 
@@ -242,14 +246,14 @@ console.log('updated', updated)
     const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() : null
     setBusquedaKey1(valueLowerCase)
   }
-  // const busquedaFecha = (e) =>{
-  //   const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
-  //   setBusquedaKey2(valueLowerCase)
-  // }
-  // const busquedaProyecto = (e) =>{
-  //   const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
-  //   setBusquedaKey3(valueLowerCase)
-  // }
+  const busquedaServicio = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    setBusquedaKey2(valueLowerCase)
+  }
+  const busquedaCumple = (e) =>{
+    const valueLowerCase = e.target.value!==null? (e.target.value).toLowerCase() :""
+    setBusquedaKey3(valueLowerCase)
+  }
 
   function colorAlerta(nivel) {
     let color = null;
@@ -303,13 +307,30 @@ console.log('updated', updated)
         onChange={busquedaOT}
         fullWidth
       />
-       {/* <InputBase
+       <InputBase
         className={classes.input}
-        placeholder="Tiempo Respuesta"
+        placeholder="Servicio"
         inputProps={{ 'aria-label': 'Buscar' }}
-        onChange={busquedaFecha}
+        onChange={busquedaServicio}
         fullWidth
-      /> */}
+      />
+      {/* <FormControl variant="outlined" className={classes.formControl}> */}
+        <InputLabel id="demo-simple-select-outlined-label">Cumplimiento</InputLabel>
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          // value={age}
+          onChange={busquedaCumple}
+          label="Cumplimiento"
+          
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={'Cumple'}>Cumple</MenuItem>
+          <MenuItem value={'Fuera SLA'}>Fuera SLA</MenuItem>
+        </Select>
+      {/* </FormControl> */}
       <IconButton type="submit" className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
@@ -323,20 +344,26 @@ console.log('updated', updated)
         <TableHead>
           <TableRow>
             <TableCell>OT</TableCell>
+            <TableCell align="right">Servicio</TableCell>
             <TableCell align="right">SLA</TableCell>
             <TableCell align="right">Dias</TableCell>
+            <TableCell align="right">cumplimiento</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {userOTsInfo && userOTsInfo.estadistica.map((row, index) => row && 
            (!busquedaKey1 || Number(busquedaKey1)===index) &&
+           (!busquedaKey2 || row.servicio.toLowerCase().includes(busquedaKey2)) &&
+           (!busquedaKey3 || busquedaKey3===row.cumplimiento.toLowerCase().includes(busquedaKey3)) &&
           (
             <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {index}
               </TableCell>
+              <TableCell align="right">{row.servicio}</TableCell>
               <TableCell align="right">{row.sla} Dias</TableCell>
               <TableCell align="right">{row.tiempo.toFixed(2)} Dias</TableCell>
+              <TableCell align="right" style={{color: row.cumplimiento==="Cumple"? "green":"red" }}>{row.cumplimiento}</TableCell>
 
             </TableRow>
           ))}
