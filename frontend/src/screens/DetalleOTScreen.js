@@ -635,7 +635,7 @@ function controlBotonProceso(userInfo, activeStep){
                     <Typography  align="center" className={classes.title} >
            Documentos Relacionados a la OT
           </Typography>
-                    <TableContainer component={Paper}>
+          { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                           <TableHead>
                             <TableRow>
@@ -644,18 +644,18 @@ function controlBotonProceso(userInfo, activeStep){
                             </TableRow>
                           </TableHead>
                           <TableBody>
-                          {console.log("Object.keys(detallesSitio.data[0].archivos[0])", detallesSitio.data, Object.values(detallesSitio.data[0]))}
-                          { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
+                        
+                          {/* { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
                               <TableRow key={index}>
                                 <TableCell component="th" scope="row">
                                 {item.file} 
                                 </TableCell>
                                 <TableCell align="left">{item.path}</TableCell>
                               </TableRow>
-                            ))}
+                            ))} */}
                           </TableBody>
                         </Table>
-                      </TableContainer>
+                      </TableContainer>}
                     </Grid>
                     <Typography  align="center" className={classes.title} >
            Detalle del Sitio

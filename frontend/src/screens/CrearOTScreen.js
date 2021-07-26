@@ -426,15 +426,29 @@ const handleClose = () => {
           <div className="w3-col m3 l4 w3-container"></div>
         </div>
       </form>
-      <div className="w3-row w3-margin-bottom">
-        <div className="w3-col m2 l1 w3-container"></div>
-        <table className="w3-col s12 m8 l10 w3-responsive w3-table-all w3-hoverable w3-centered w3-round w3-border w3-margin-bottom">
-          <thead id="titulosSitios"></thead>
-          <tbody id="datosSitios"></tbody>
-        </table>
-        <div className="w3-col m2 l1 w3-container"></div>
       </div>
-    </div>
+      <Typography>Listado de sitios disponibles</Typography> 
+      <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+              <TableCell align="left">Sitio</TableCell>
+                <TableCell align="left">Codigo</TableCell>
+                <TableCell align="left">Proyecto</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+            {/* { Object.keys(listaArchivos).length>0 && Object.values(listaArchivos).map((item, index) => (
+                <TableRow key={index}>
+                  <TableCell component="th" scope="row">
+                  {item.file} 
+                  </TableCell>
+                  <TableCell align="left">{item.path}</TableCell>
+                </TableRow>
+              ))} */}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
       <h1 className="w3-xxlarge w3-text-dark-grey">2- Crear OT</h1>
       <form className="w3-col s12 w3-padding w3-section" id="formaCreaOT" onSubmit={crearOT}>
