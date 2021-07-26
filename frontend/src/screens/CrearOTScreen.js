@@ -430,8 +430,8 @@ const handleClose = () => {
       <div className="w3-row w3-margin-bottom">
         <div className="w3-col m2 l1 w3-container"></div>
         <table className="w3-col s12 m8 l10 w3-responsive w3-table-all w3-hoverable w3-centered w3-round w3-border w3-margin-bottom">
-          <thead id="titulos"></thead>
-          <tbody id="usuarios"></tbody>
+          <thead id="titulosSitios"></thead>
+          <tbody id="datosSitios"></tbody>
         </table>
         <div className="w3-col m2 l1 w3-container"></div>
       </div>
