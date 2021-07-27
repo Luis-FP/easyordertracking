@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+import axios from "axios";
+import fileDownload from 'js-file-download';
 import { actualizarOT, buscarDetallesSitio } from "../actions/userActions";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -157,6 +159,7 @@ const responsablesOT = [
   {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
   {_id:"r1", responsable_ot:'Bayardo Domingo', email_responsable_ot:'bayardodomingo@hotmail.com'},
   {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'rruizp555@gmail.com'},
+  {_id:"r3", responsable_ot:'Roberto Domingo', email_responsable_ot:'coordinge@atmotechnologies.com'},
 ];
 
 const prioridades = [
@@ -207,6 +210,7 @@ function DetalleOTScreen(props) {
 
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
+  const [downloading, setDownloading] = useState(false);
   // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState(
   const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([{
     cliente: detallesSitio? detallesSitio.data[0].cliente : "",
@@ -448,6 +452,39 @@ function controlBotonProceso(userInfo, activeStep){
     return color;
   }
 
+// bajar archivo de AWS S3 protegido
+  const downloadFileHandler = () => {
+    const key = {key:'INGENIERIA SITIO 405081 LOS ALGARROBOS-45m.pdf'}
+    // setFileBajado(url)
+    // const file = e.target.files[0];
+
+    setDownloading(true);
+    axios.post("/api/uploads/s3download", key, {
+      // headers: {
+      //   "Content-Type": "string",
+      // },
+    })
+      .then((response) => {
+        console.log('response.data',response.data, response.error)
+
+        if (!response.error) {
+          fileDownload(Buffer.from(response.data.data.Body.data), response.data.nombre.key);
+          return response.data.data.Body.data;
+        }
+        else {
+          return response.error;
+        }
+
+        // setDownloading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        // setReferenciaAWS("Error")
+        setDownloading(false);
+      });
+  };
+
+
   return (<div>
      <React.Fragment>
       <CssBaseline />
@@ -635,7 +672,7 @@ function controlBotonProceso(userInfo, activeStep){
                     <Typography  align="center" className={classes.title} >
            Documentos Relacionados a la OT
           </Typography>
-          { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
+          {/* { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                           <TableHead>
                             <TableRow>
@@ -645,17 +682,17 @@ function controlBotonProceso(userInfo, activeStep){
                           </TableHead>
                           <TableBody>
                         
-                          {/* { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
+                          { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
                               <TableRow key={index}>
                                 <TableCell component="th" scope="row">
                                 {item.file} 
                                 </TableCell>
                                 <TableCell align="left">{item.path}</TableCell>
                               </TableRow>
-                            ))} */}
+                            ))}
                           </TableBody>
                         </Table>
-                      </TableContainer>}
+                      </TableContainer>} */}
                     </Grid>
                     <Typography  align="center" className={classes.title} >
            Detalle del Sitio

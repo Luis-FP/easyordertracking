@@ -1163,161 +1163,161 @@ router.post("/salida", isAuth, async (req, res) => {
 // });
 
 //funcion real de crear usuarios
-router.post("/create", async (req, res) => {
-  console.log("req datos crear", req.body.usuarios.length, req.body.usuarios);
-  console.log("req usuario", req.user);
-  let usuarios = req.body.usuarios;
-  if (usuarios == null || usuarios == "")
-    req.send({ error: true, message: "No envio ninguna OT para crear." });
+// router.post("/create", async (req, res) => {
+//   console.log("req datos crear", req.body.usuarios.length, req.body.usuarios);
+//   console.log("req usuario", req.user);
+//   let usuarios = req.body.usuarios;
+//   if (usuarios == null || usuarios == "")
+//     req.send({ error: true, message: "No envio ninguna OT para crear." });
 
 
-  //busca el ultimo numero de OT
-  const userMax = await OTs.aggregate([
-    {
-      $group: {
-        _id: null,
-        max: {
-          $max: {
-            $toInt: "$ot_number",
-          },
-        },
-      },
-    },
-  ]);
-  console.log("userMax", userMax[0]);
-let otMaxima = 0;
-if(userMax[0]===undefined || userMax[0]===null  ){
-  otMaxima=0
-}else{
-  otMaxima = userMax[0].max
-}
+//   //busca el ultimo numero de OT
+//   const userMax = await OTs.aggregate([
+//     {
+//       $group: {
+//         _id: null,
+//         max: {
+//           $max: {
+//             $toInt: "$ot_number",
+//           },
+//         },
+//       },
+//     },
+//   ]);
+//   console.log("userMax", userMax[0]);
+// let otMaxima = 0;
+// if(userMax[0]===undefined || userMax[0]===null  ){
+//   otMaxima=0
+// }else{
+//   otMaxima = userMax[0].max
+// }
 
-  //validacion de datos
-  const otsNuevas = [];
-  let errores = [];
+//   //validacion de datos
+//   const otsNuevas = [];
+//   let errores = [];
 
-  for (let i = 0; i < usuarios.length; i++) {
-    if (
-      usuarios[i].pais == "" || //saltarse el usuario que este vacio
-      usuarios[i].cliente == "" ||
-      usuarios[i].sitio_codigo == "" ||
-      usuarios[i].sitio_nombre ==  "" ||
-      usuarios[i].proyecto ==  "" ||
-      usuarios[i].requerimiento ==  "" ||
-      usuarios[i].prioridad ==  "" 
+//   for (let i = 0; i < usuarios.length; i++) {
+//     if (
+//       usuarios[i].pais == "" || //saltarse el usuario que este vacio
+//       usuarios[i].cliente == "" ||
+//       usuarios[i].sitio_codigo == "" ||
+//       usuarios[i].sitio_nombre ==  "" ||
+//       usuarios[i].proyecto ==  "" ||
+//       usuarios[i].requerimiento ==  "" ||
+//       usuarios[i].prioridad ==  "" 
 
-    ) {
-      errores.push(
-        `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`
-      );
-      console.log("errores", `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`);
-      continue;
-    }
-
-
-
-    otsNuevas.push(
-      new OTs({
-        ot_number:  otMaxima + i + 1 ,
-        pais: usuarios[i].pais,
-        cliente: usuarios[i].cliente,
-        sitio_codigo: usuarios[i].sitio_codigo,
-        sitio_nombre: usuarios[i].sitio_nombre,
-        proyecto: usuarios[i].proyecto,
-        responsable_cliente: 'Luis Felipe',
-        email_responsable_cliente: 'luis_parparcen@yahoo.com',
-        requerimiento: usuarios[i].requerimiento,
-        detalle_requerimiento: usuarios[i].detalle_requerimiento,
-        prioridad: usuarios[i].prioridad,
-        estado: 'ini',
-        fecha_requerida: new Date(usuarios[i].fecha_requerida)
-      })
-    );
-  }
-
-  console.log(otsNuevas);
-  //  agregar esto luego otra vez
-  OTs.insertMany(otsNuevas, (error, docs) => {
-    console.log("error", String(error).substring(0, 300));
-    console.log("errores finales:", errores);
-    // console.log("docs??", docs);
-
-    if (error == null) {
-      //mandar emails
-      //mandar que todo funciono, y o la informacion que no funciono.
-      console.log("personas: errores ", errores);
-      res.send({
-        error: false,
-        message: errores.length != 0 ? errores : "Exito al subir los datos.",
-      });
+//     ) {
+//       errores.push(
+//         `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`
+//       );
+//       console.log("errores", `${usuarios[i].sitio_codigo} ${usuarios[i].requerimiento}`);
+//       continue;
+//     }
 
 
-      console.log("despues de user insertmany");
-      let timeout = 500; 
-      //esta aqui afuera porque no queremos nuevo transporte a cada rato
-      let emailTransport = crearTransporteEmail();
-      let i = 0;
-      // console.log(users.length)
- // enviar email al responsable del recibir OTs
+
+//     otsNuevas.push(
+//       new OTs({
+//         ot_number:  otMaxima + i + 1 ,
+//         pais: usuarios[i].pais,
+//         cliente: usuarios[i].cliente,
+//         sitio_codigo: usuarios[i].sitio_codigo,
+//         sitio_nombre: usuarios[i].sitio_nombre,
+//         proyecto: usuarios[i].proyecto,
+//         responsable_cliente: 'Luis Felipe',
+//         email_responsable_cliente: 'luis_parparcen@yahoo.com',
+//         requerimiento: usuarios[i].requerimiento,
+//         detalle_requerimiento: usuarios[i].detalle_requerimiento,
+//         prioridad: usuarios[i].prioridad,
+//         estado: 'ini',
+//         fecha_requerida: new Date(usuarios[i].fecha_requerida)
+//       })
+//     );
+//   }
+
+//   console.log(otsNuevas);
+//   //  agregar esto luego otra vez
+//   OTs.insertMany(otsNuevas, (error, docs) => {
+//     console.log("error", String(error).substring(0, 300));
+//     console.log("errores finales:", errores);
+//     // console.log("docs??", docs);
+
+//     if (error == null) {
+//       //mandar emails
+//       //mandar que todo funciono, y o la informacion que no funciono.
+//       console.log("personas: errores ", errores);
+//       res.send({
+//         error: false,
+//         message: errores.length != 0 ? errores : "Exito al subir los datos.",
+//       });
+
+
+//       console.log("despues de user insertmany");
+//       let timeout = 500; 
+//       //esta aqui afuera porque no queremos nuevo transporte a cada rato
+//       let emailTransport = crearTransporteEmail();
+//       let i = 0;
+//       // console.log(users.length)
+//  // enviar email al responsable del recibir OTs
     
-        let conf = {
-          to: 'luis.parparcen@gmail.com',
-          subject: "Solicitud de OT",
-          html: "",
-          };
-      conf.html = otNuevaEmail();
+//         let conf = {
+//           to: 'luis.parparcen@gmail.com',
+//           subject: "Solicitud de OT",
+//           html: "",
+//           };
+//       conf.html = otNuevaEmail();
 
-        // if (i <= 600) {
-        //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
-        //conf.para = usuarios[i].email;
-        // }
-        setTimeout(() => {
-          EnvioEmail(conf, emailTransport);
-        }, timeout);
-        timeout += 500;
-        i++;
+//         // if (i <= 600) {
+//         //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
+//         //conf.para = usuarios[i].email;
+//         // }
+//         setTimeout(() => {
+//           EnvioEmail(conf, emailTransport);
+//         }, timeout);
+//         timeout += 500;
+//         i++;
 
       
 
-      // //enviar emails
-      // let timeout = 1000;
-      // //esta aqui afuera porque no queremos nuevo transporte a cada rato
-      // let emailTransport = crearTransporteEmail();
-      // let i = 0;
-      // while (i < docs.length) {
-      //   // if (i <= 600) {
-      //   //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
-      //   //conf.para = usuarios[i].email;
-      //   // }
-      //   setTimeout(
-      //     ((index) => {
-      //       // console.log("config1", configUsersEmail);
-      //       return () => {
-      //         // EnvioEmail(configUsersEmail[index], emailTransport);
-      //         // console.log(timeout)
-      //       };
-      //     })(i),
-      //     timeout
-      //   );
-      //   timeout += 1000;
-      //   i++;
-      // }
-    } else {
-      if (error.code === 11000) {
-        res.status(200).send({
-          error: true,
-          message: "Datos duplicado: " + String(error).match(/\{.*\}/g),
-        });
-      } else {
-        res.status(200).send({
-          error: true,
-          message: "Invalid User Data. " + String(error).substring(1, 300),
-        });
-      }
-    }
-  });
+//       // //enviar emails
+//       // let timeout = 1000;
+//       // //esta aqui afuera porque no queremos nuevo transporte a cada rato
+//       // let emailTransport = crearTransporteEmail();
+//       // let i = 0;
+//       // while (i < docs.length) {
+//       //   // if (i <= 600) {
+//       //   //enviar email -- por ahora no lo coloco porque despues envia emails a personas que no deberian tener emails
+//       //   //conf.para = usuarios[i].email;
+//       //   // }
+//       //   setTimeout(
+//       //     ((index) => {
+//       //       // console.log("config1", configUsersEmail);
+//       //       return () => {
+//       //         // EnvioEmail(configUsersEmail[index], emailTransport);
+//       //         // console.log(timeout)
+//       //       };
+//       //     })(i),
+//       //     timeout
+//       //   );
+//       //   timeout += 1000;
+//       //   i++;
+//       // }
+//     } else {
+//       if (error.code === 11000) {
+//         res.status(200).send({
+//           error: true,
+//           message: "Datos duplicado: " + String(error).match(/\{.*\}/g),
+//         });
+//       } else {
+//         res.status(200).send({
+//           error: true,
+//           message: "Invalid User Data. " + String(error).substring(1, 300),
+//         });
+//       }
+//     }
+//   });
   
-});
+// });
 
 
 
@@ -1415,6 +1415,7 @@ console.log('output', output);
         numero_documento_finca: sitios[i].numero_documento_finca,
         direccion_sitio: sitios[i].direccion_sitio,
         arrendatario: sitios[i].arrendatario,
+        identificacion_arrendatario:  sitios[i].identificacion_arrendatario,
         area_arrendada: sitios[i].area_arrendada,
         area_a_utilizar: sitios[i].area_a_utilizar,
         tipologia_sitio: sitios[i].tipologia_sitio,

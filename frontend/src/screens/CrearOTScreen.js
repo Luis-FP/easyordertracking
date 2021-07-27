@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { Link } from "react-router-dom";
 import "w3-css/w3.css";
 import Papa from "papaparse";
+import fileDownload from 'js-file-download';
 import { fechaActual } from '../components/fechas';
 import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva, usersOTs} from "../actions/userActions";
 import { autoLogout } from '../actions/userActions';
@@ -112,12 +113,15 @@ function CrearOTScreen(props) {
   const [disabled, setDisabled] = useState(true);
   const [usuarios, setUsuarios] = useState([]);
   const [loadingFiles, setLoadingFiles] = useState(false);
+
   const [fileCliente, setFileCliente] = useState("");
   const [indice, setIndice] = useState(0);
   const [referenciaAWS, setReferenciaAWS] = useState([]);
   const [listaArchivos, setListaArchivos] = useState([
-  
   ]);
+  const [datosSitios, setDatosSitios] = useState([]);
+  const [fileBajado, setFileBajado] = useState(false);
+  const [loadingFilesSitios, setDownloadingFiles] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [otInfo, setOtInfo] = React.useState({
     cliente: "",
@@ -141,8 +145,7 @@ function CrearOTScreen(props) {
   //   prioridad:""
   // });
   
-  const [datosSitios, setDatosSitios] = useState([]);
-  const [loadingFilesSitios, setLoadingFilesSitios] = useState(false);
+ 
 
   const dispatch = useDispatch();
 
@@ -260,6 +263,8 @@ if(OTNuevaInfo){
       });
   };
 
+
+  
   const onChangeSitio = (event) => {
     setDatosSitios([]);//informacion de usuarios
     setLoadingFiles(true);//visual nada mas
@@ -581,6 +586,7 @@ const handleClose = () => {
       <label htmlFor="contained-button-file">       
         {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" component="span">Subir Documentos</Button> }         
       </label>
+     
       {console.log("Array.from(listaArchivos)", listaArchivos, "Object.keys(listaArchivos).length>0",Object.keys(listaArchivos).length>0)}
       <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
@@ -609,8 +615,7 @@ const handleClose = () => {
                   </Button>
        
       </form>
-     
-     
+          
     <div>
     {console.log("OTNuevaInfo", OTNuevaInfo)}
           <Dialog
