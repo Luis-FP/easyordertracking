@@ -1366,7 +1366,7 @@ console.log('output', output);
       sitios[i].sitio_codigo == "" || //saltarse el usuario que este vacio
       sitios[i].sitio_nombre == "" || //saltarse el usuario que este vacio
       sitios[i].proyecto == "" || //saltarse el usuario que este vacio
-      sitios[i].provincia == "" || //saltarse el usuario que este vacio
+      sitios[i].departamento == "" || //saltarse el usuario que este vacio
       sitios[i].pais == "" || //saltarse el usuario que este vacio
       // sitiosId[i].departamento == "" || //saltarse el usuario que este vacio
       sitios[i].altura_validada == "" || //saltarse el usuario que este vacio

@@ -340,7 +340,7 @@ function DetalleOTScreen(props) {
           numero_finca: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].numero_finca: "",
           orientacion_torre: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].orientacion_torre: "",
           pais: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].pais: "",
-          provincia: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].provincia: "",
+          municipio: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].municipio: "",
           // proyecto: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].proyecto: "",
           resistencia_viento: detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].resistencia_viento: "",
           tipo_estructura:detallesSitio && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio[0] ? detallesSitio.data[0].detallesSitio[0].tipo_estructura: "",
@@ -379,7 +379,7 @@ function DetalleOTScreen(props) {
           longitud_validada_gradosChange: false,
           numero_fincaChange: false,
           orientacion_torreChange: false,
-          provinciaChange: false,
+          municipioChange: false,
           resistencia_vientoChange: false,
           tipo_estructuraChange: false,
           tipologia_sitioChange: false,
@@ -840,22 +840,22 @@ function controlBotonProceso(userInfo, activeStep){
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="provincia">Provincia</InputLabel>
-                                        <OutlinedInput id="provincia" 
+                                        <InputLabel htmlFor="departamento">Provincia/Departamento</InputLabel>
+                                        <OutlinedInput id="departamento" 
                                         disabled={userInfo && userInfo.isUser? false : true }
-                                        value={detallesSitioInfo['provincia']?detallesSitioInfo['provincia']:""} 
-                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['provincia']:value.target.value, ['provinciaChange']:true })}  
-                                        label="Provincia" />
+                                        value={detallesSitioInfo['departamento']?detallesSitioInfo['departamento']:""} 
+                                        onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
+                                        label="Provincia/Departamento" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
                                       <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="departamento">Departamento</InputLabel>
-                                        <OutlinedInput id="departamento" 
-                                        value={detallesSitioInfo['departamento']?detallesSitioInfo['departamento']:""}
+                                        <InputLabel htmlFor="municipio">Municipio</InputLabel>
+                                        <OutlinedInput id="municipio" 
+                                        value={detallesSitioInfo['municipio']?detallesSitioInfo['municipio']:""}
                                         disabled={userInfo && userInfo.isUser? false : true }
-                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['departamento']:value.target.value, ['departamentoChange']:true })}  
-                                         label="Departamento" />
+                                         onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['municipio']:value.target.value, ['municipioChange']:true })}  
+                                         label="Municipio" />
                                       </FormControl>
                               </Grid>
                               <Grid item xs={6} sm={3}> 
