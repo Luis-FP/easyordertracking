@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
@@ -29,7 +30,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Fab from '@material-ui/core/Fab';
 import SaveIcon from '@material-ui/icons/Save';
-
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -42,7 +43,7 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
-import { Tooltip } from '@material-ui/core';
+import { Divider, Tooltip } from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
 
 
@@ -158,7 +159,7 @@ function getSteps() {
 const responsablesOT = [
   {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
   {_id:"r1", responsable_ot:'Bayardo Domingo', email_responsable_ot:'bayardodomingo@hotmail.com'},
-  {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'rruizp555@gmail.com'},
+  {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'estructuras@atmotechnologies.com'},
   {_id:"r3", responsable_ot:'Roberto Domingo', email_responsable_ot:'coordinge@atmotechnologies.com'},
 ];
 
@@ -211,6 +212,12 @@ function DetalleOTScreen(props) {
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
   const [downloading, setDownloading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [fileCliente, setFileCliente] = useState("");
+  const [indice, setIndice] = useState(0);
+  const [referenciaAWS, setReferenciaAWS] = useState([]);
+  const [listaArchivos, setListaArchivos] = useState([
+  ]);
   // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState(
   const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([{
     cliente: detallesSitio? detallesSitio.data[0].cliente : "",
@@ -242,13 +249,6 @@ function DetalleOTScreen(props) {
     ot_number: props.location.search ? split[1].substring(+ 10) : 1
   });
   const [updatedCodigo, setUpdatedCodigo] = React.useState(false);
-  // const [state, setState] = React.useState({
-  //   checkedDetalles: false,
-  //   checkedProcesos: false
-  // });
-  // const handleChangeSwitch = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.checked });
-  // };
  
   const steps = getSteps();
  
@@ -453,37 +453,64 @@ function controlBotonProceso(userInfo, activeStep){
   }
 
 // bajar archivo de AWS S3 protegido
-  const downloadFileHandler = () => {
-    const key = {key:'INGENIERIA SITIO 405081 LOS ALGARROBOS-45m.pdf'}
-    // setFileBajado(url)
-    // const file = e.target.files[0];
+  const downloadFileHandler = (e) => {
 
+    const key = {key: e}
     setDownloading(true);
     axios.post("/api/uploads/s3download", key, {
-      // headers: {
-      //   "Content-Type": "string",
-      // },
+
     })
       .then((response) => {
-        console.log('response.data',response.data, response.error)
-
         if (!response.error) {
           fileDownload(Buffer.from(response.data.data.Body.data), response.data.nombre.key);
+          setDownloading(false);
           return response.data.data.Body.data;
         }
         else {
+          setDownloading(false);
           return response.error;
         }
 
-        // setDownloading(false);
       })
       .catch((err) => {
         console.log(err);
         // setReferenciaAWS("Error")
-        setDownloading(false);
+
       });
   };
 
+ // subida de archivos a Amazon
+ const uploadFileHandler = (e) => {
+  setFileCliente(e.target.value)
+  const file = e.target.files[0];
+
+  const bodyFormData = new FormData();
+  bodyFormData.append("image", file);
+  setUploading(true);
+  axios.post("/api/uploads/s3", bodyFormData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  })
+    .then((response) => {
+      console.log('response.data',response.data)
+      let x = [];
+      x.push(response.data)
+      const y = listaArchivos.length +1
+      setListaArchivos({...listaArchivos, [indice]: {'file': file.name, 'path': response.data, fileMeta:file} })
+      setIndice(indice+1);
+      // setReferenciaAWS({...referenciaAWS , x})
+
+      setReferenciaAWS(fileCliente + "Subido Exitosamente");
+      // setFileCliente("Subido Exitosamente");
+      setUploading(false);
+    })
+    .catch((err) => {
+      console.log(err);
+      setReferenciaAWS("Error")
+      setUploading(false);
+    });
+};
 
   return (<div>
      <React.Fragment>
@@ -669,30 +696,54 @@ function controlBotonProceso(userInfo, activeStep){
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
+                    <ButtonGroup color="primary" fullWidth   disabled  aria-label="outlined primary button group">
+                    <Button align="center" className={classes.title} >Plano Terminado Ingeniería</Button> 
+ 
+                        <input
+                        disabled
+                          hidden
+                          accept="*"
+                          className={classes.input}
+                          id="contained-button-file"
+                          multiple
+                          type="file"
+                          value={fileCliente}
+                          // onChange={(e) => setFileCliente(e.target.value)}
+                          onChange={uploadFileHandler}
+                        />
+
+                        <Button htmlFor="contained-button-file">       
+                          {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" disabled component="span">Subir Documentos</Button> }         
+                        </Button>
+
+                    </ButtonGroup>
+ 
+
+        
                     <Typography  align="center" className={classes.title} >
            Documentos Relacionados a la OT
           </Typography>
-          {/* { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
+          { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                           <TableHead>
                             <TableRow>
                               <TableCell>Nombre Archivo</TableCell>
-                              <TableCell align="left">Path</TableCell>
+
                             </TableRow>
                           </TableHead>
                           <TableBody>
                         
-                          { Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
+                          { detallesSitio.data[0].archivos && detallesSitio.data[0].archivos.length>0 && Object.values(detallesSitio.data[0].archivos[0]).length>0 && Object.values(detallesSitio.data[0].archivos[0]).map((item, index) => (
                               <TableRow key={index}>
-                                <TableCell component="th" scope="row">
-                                {item.file} 
+                                <TableCell component="th" scope="row"  >
+                               <Button   onClick={()=>downloadFileHandler(item.file)}>{item.file}</Button>
+                               {downloading && <CircularProgress/>}
                                 </TableCell>
-                                <TableCell align="left">{item.path}</TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
                         </Table>
-                      </TableContainer>} */}
+                      </TableContainer>}
                     </Grid>
                     <Typography  align="center" className={classes.title} >
            Detalle del Sitio

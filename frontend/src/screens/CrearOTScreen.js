@@ -120,8 +120,8 @@ function CrearOTScreen(props) {
   const [listaArchivos, setListaArchivos] = useState([
   ]);
   const [datosSitios, setDatosSitios] = useState([]);
-  const [fileBajado, setFileBajado] = useState(false);
-  const [loadingFilesSitios, setDownloadingFiles] = useState(false);
+  // const [fileBajado, setFileBajado] = useState(false);
+  // const [loadingFilesSitios, setDownloadingFiles] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [otInfo, setOtInfo] = React.useState({
     cliente: "",
