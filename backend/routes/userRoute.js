@@ -281,6 +281,70 @@ router.get("/listasitios", isAuth, async (req, res) => {
 });
 
 
+router.post("/archivosSitio", isAuth, async (req, res) => {
+
+    let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
+    const vistaUsuario= datosUsuario.vista
+    console.log('req', req.body);
+// ver si el usuario esta autorizado para datos de ese sitio
+if(vistaUsuario.includes([req.body.proyecto])){
+  
+  try {
+    const filtro = [
+      {
+      '$match':
+            {
+              'sitio_codigo': req.body.sitio_codigo
+            }
+      },
+      {
+        '$project': 
+        {
+          archivos: 1,
+        }
+      }
+  ];
+    let archivosSitioDB = await OTs.aggregate(filtro);
+// console.log("busqueda", archivosSitioDB)
+  let archivosSitios =[]
+  if(archivosSitioDB && archivosSitioDB.length>0){
+    archivosSitioDB.forEach(element => {
+      // console.log( element.archivos[0])
+      if(element.archivos && element.archivos[0] && Object.keys(element.archivos[0]).length===1){
+        archivosSitios.push({file:element.archivos[0][0].file})
+      }
+      else 
+      if(element.archivos && element.archivos[0] && Object.values(element.archivos[0]).length>1){
+        console.log( Object.values(element.archivos[0]))
+        Object.values(element.archivos[0]).forEach(element2 => {
+          // console.log('varios archivos', element2.file);
+          archivosSitios.push({file:element2.file})
+        }); 
+      }
+    });
+  }
+    
+    // console.log("archivosSitios",archivosSitios)
+    res.status(200)
+    .send({ message: "lista de archivos", data: archivosSitios})
+  } catch (errorBuscando) {
+    console.log(errorBuscando);
+    res
+      .status(500)
+      .send({ error: errorBuscando, message: "Error  busqueda de erchivo." });
+  }
+
+}else{
+  //pajuera
+  res
+      .status(200)
+      .send({  message: "No esta autorizado para ese proyecto." });
+}
+     
+     
+ 
+});
+
 router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
   try {
 
@@ -396,24 +460,29 @@ router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), a
       let otInfo = req.body;
       console.log("req datos actualizar", otInfo);
       try{
-        let otactualizada = await OTs.findOne({ot_number: req.body.ot_number})
+        let otactualizada = await OTs.findById( req.body._id)
         let sitioactualizado = await Detallesings.findOne({sitio_codigo: req.body.sitio_codigo})
-        console.log('otActualizada', otactualizada)
+       
         // console.log("sitioactualizado", sitioactualizado)
      // cambios de OT
-          if(otInfo.email_responsable_clienteChange) otactualizada['email_responsable_cliente'] = {email_responsable_cliente:  otInfo.email_responsable_cliente}
-          if(otInfo.responsable_clienteChange) otactualizada = {responsable_cliente:  otInfo.responsable_cliente}
-          if(otInfo.estadoChange) otactualizada['estado'] =  otInfo.estado;
-          if(otInfo.fecha_requeridaChange) otactualizada.fecha_requerida =  otInfo.fecha_requerida;
-          if(otInfo.prioridadChange) otactualizada.prioridad =  otInfo.prioridad;
-          if(otInfo.requerimientoChange) otactualizada.requerimiento =  otInfo.requerimiento;  
-          if(otInfo.detalle_requerimientoChange) otactualizada.detalle_requerimiento =  otInfo.detalle_requerimiento;  
-          if(otInfo.responsable_otChange) otactualizada.responsable_ot =  otInfo.responsable_ot;
-          if(otInfo.email_responsable_otChange) otactualizada.email_responsable_ot =  otInfo.email_responsable_ot;
-          if(otInfo.comentarios_responsable_otChange) otactualizada.comentarios_responsable_ot =  otInfo.comentarios_responsable_ot;
+          // let otactualizada = [];
+          console.log('otActualizada', otactualizada)
+          if(otInfo.email_responsable_clienteChange) otactualizada['email_responsable_cliente']= otInfo.email_responsable_cliente
+          if(otInfo.responsable_clienteChange) otactualizada['responsable_cliente']=  otInfo.responsable_cliente
+          if(otInfo.estadoChange) otactualizada['estado']= otInfo.estado
+          if(otInfo.fecha_requeridaChange) otactualizada['fecha_requerida'] = otInfo.fecha_requerida
+          if(otInfo.estadoChange && otInfo.estado==="entregado") otactualizada['fecha_entregado']= new Date()
+          if(otInfo.prioridadChange) otactualizada['prioridad']=  otInfo.prioridad
+          if(otInfo.requerimientoChange) otactualizada['requerimiento']= otInfo.requerimiento
+          if(otInfo.detalle_requerimientoChange) otactualizada['detalle_requerimiento']= otInfo.detalle_requerimiento
+          if(otInfo.responsable_otChange) otactualizada['responsable_ot']= otInfo.responsable_ot
+          if(otInfo.email_responsable_otChange) otactualizada['email_responsable_ot'] =  otInfo.email_responsable_ot
+          if(otInfo.comentarios_responsable_otChange) otactualizada['comentarios_responsable_ot'] =  otInfo.comentarios_responsable_ot
+         
 
           console.log('otActualizada2', otactualizada)
-
+          // otactualizada1 = {...otactualizada1, otactualizada }
+          // console.log('otActualizada3', otactualizada1)
         // cambios de Sitio
           if(otInfo.altura_pararrayosChange) sitioactualizado.altura_pararrayos =  otInfo.altura_pararrayos;
           if(otInfo.altura_validadaChange) sitioactualizado.altura_validada =  otInfo.altura_validada;

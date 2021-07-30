@@ -6,13 +6,15 @@ import "w3-css/w3.css";
 import Papa from "papaparse";
 import fileDownload from 'js-file-download';
 import { fechaActual } from '../components/fechas';
-import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva, usersOTs} from "../actions/userActions";
+import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva, usersOTs, archivosSitio} from "../actions/userActions";
 import { autoLogout } from '../actions/userActions';
 import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Grid from '@material-ui/core/Grid';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
@@ -35,7 +37,17 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { secondsToMilliseconds } from "date-fns";
+import { purple, red , blue , grey, green } from '@material-ui/core/colors';
 
+
+const purple3 = purple[300]
+// const naranja7 = orange[700]
+const verdefondo = green[500]
+const azulfondo = blue[900]
+const azulClaro = blue[300]
+const rojoFondo = red[700]
+const greyfondo = grey[300]
+// const greyfondo2 = grey[400]
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -60,6 +72,14 @@ const useStyles = makeStyles((theme) => ({
     color:"white",
     // width:"80%",
     fontSize:11
+  },
+  instructions: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    fontSize: 20,
+    border: 'solid',
+    borderColor: azulClaro,
+    color:azulfondo
   },
 }));
 
@@ -107,6 +127,10 @@ function CrearOTScreen(props) {
 
   const userOTSCreate = useSelector((state) => state.userOTSCreate)
   const { loadingNuevaOT, OTNuevaInfo } = userOTSCreate;
+
+  const archivosDisponiblesSitio = useSelector((state) => state.archivosDisponiblesSitio)
+  const { archivosDelSitio, loadingArchivo } = archivosDisponiblesSitio;
+  console.log("archivosDelSitio", archivosDelSitio)
 
   const [open, setOpen] = React.useState(false);
 
@@ -329,12 +353,16 @@ if(OTNuevaInfo){
   };
 
 const handleSitio = (e, value) => {
-  setOtInfo({...otInfo, 
-    ['proyecto']: value.proyecto, 
-    ['sitio_codigo']: value.sitio_codigo, 
-    ['sitio_nombre']: value.sitio_nombre,
-    ['pais']: value.pais
-  })
+  if(value){
+    setOtInfo({...otInfo, 
+      ['proyecto']: value.proyecto, 
+      ['sitio_codigo']: value.sitio_codigo, 
+      ['sitio_nombre']: value.sitio_nombre,
+      ['pais']: value.pais
+    })
+    dispatch(archivosSitio(value))
+  }
+
 }
 
 const crearOT = (e) => {
@@ -393,78 +421,74 @@ const handleClose = () => {
 
 
   return (
-    <div className="w3-row w3-center  w3-margin-bottom">
-
-<div className="w3-row w3-center  w3-margin-bottom">
-      <h1 className="w3-xxlarge w3-text-dark-grey">1- Subir Datos de Sitios</h1>
-      <form className="w3-col s12 w3-padding w3-section">
-        <div className="w3-row">
-          <div className="w3-col m3 l4 w3-container"></div>
-          <input
-            className="w3-col s12 m6 l4 w3-padding"
-            type="file"
-            id="file-selector"
-            onChange={(e) => {
+     <React.Fragment>
+      <CssBaseline />
+      <Container width="60%">
+<Typography  align="center" className={classes.instructions} >1- Subir Datos de Sitios</Typography>
+      
+      <form className={classes.root}>
+      <input
+        accept="*"
+        className={classes.input}
+        id="contained-button-file2"
+        multiple
+        // hidden
+        type="file"
+        // value={fileCliente}
+        // onChange={(e) => setFileCliente(e.target.value)}
+        onChange={(e) => {
               onChangeSitio(e);
-            }}
-            multiple
-          />
-          <div className="w3-col m3 l4 w3-container"></div>
-        </div>
+        }}
+      />
+      <label htmlFor="contained-button-file2">       
+        {loadingSitio ? <CircularProgress /> :  <Button variant="contained" color="primary"  fullWidth component="span">Subir Sitios</Button> }
+        {createSitio &&  <Button variant="contained" style={{backgroundColor: verdefondo, width: '60%' }} fullWidth component="span">{createSitio.message}</Button>}
+        {errorSitio &&  <Button variant="contained"  style={{backgroundColor: rojoFondo }} fullWidth component="span">{errorSitio.message}</Button>}       
+      </label>
 
-        {loadingFiles || loadingSitio ? <CircularProgress />: <div></div>}
-        {createSitio ? <div className="w3-section w3-center w3-green w3-round">{createSitio.message}</div> : <div></div>}
-        {errorSitio ? <div className="w3-section w3-center w3-red w3-round">{errorSitio.message}</div> : <div></div>}
-
-        <div className="w3-col s12 w3-section">
-          <div className="w3-col m3 l4 w3-container"></div>
-          <button
-            id="crearUsuarios"
-            disabled={disabled || loadingSitio}
-            className="w3-col s12 m6 l4 w3-btn w3-button w3-hover-blue w3-blue w3-round"
-            onClick={(e) => {
+      <Button 
+      id="crearUsuarios"
+      variant="contained" 
+      // style={{backgroundColor:rojoFondo}}
+        color="secondary"
+      fullWidth={true} 
+      type='submit' 
+      disabled={disabled || loadingSitio}
+      onClick={(e) => {
               onLoadSitio(e);
             }}
-          >
-            Crear Sitio
-          </button>
-          <div className="w3-col m3 l4 w3-container"></div>
-        </div>
-      </form>
+      >
+      Crear Sitios
+      </Button>
+
+        {/* {loadingFiles || loadingSitio ? <CircularProgress />: <div></div>}
+        {createSitio ? <div className="w3-section w3-center w3-green w3-round">{createSitio.message}</div> : <div></div>}
+        {errorSitio ? <div className="w3-section w3-center w3-red w3-round">{errorSitio.message}</div> : <div></div>} */}
+
       
-      <div className="w3-row w3-margin-bottom">
-        <div className="w3-col m2 l1 w3-container"></div>
-        <table className="w3-col s12 m8 l10 w3-responsive w3-table-all w3-hoverable w3-centered w3-round w3-border w3-margin-bottom">
+      </form>
+      <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead id="titulosSitios">
+             
+            </TableHead>
+            <TableBody  id="datosSitios">
+           
+            </TableBody>
+          </Table>
+        </TableContainer>
+      {/* <div className="w3-row w3-margin-bottom"> */}
+        {/* <div className="w3-col m2 l1 w3-container"></div> */}
+        {/* <table className="w3-col s12 m8 l10 w3-responsive w3-table-all w3-hoverable w3-centered w3-round w3-border w3-margin-bottom">
           <thead id="titulosSitios"></thead>
           <tbody id="datosSitios"></tbody>
         </table>
         <div className="w3-col m2 l1 w3-container"></div>
-      </div>
-      </div>
-      <Typography>Listado de sitios disponibles</Typography> 
-      <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-              <TableCell align="left">Sitio</TableCell>
-                <TableCell align="left">Codigo</TableCell>
-                <TableCell align="left">Proyecto</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-            {/* { Object.keys(listaArchivos).length>0 && Object.values(listaArchivos).map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell component="th" scope="row">
-                  {item.file} 
-                  </TableCell>
-                  <TableCell align="left">{item.path}</TableCell>
-                </TableRow>
-              ))} */}
-            </TableBody>
-          </Table>
-        </TableContainer>
+      </div> */}
 
-      <h1 className="w3-xxlarge w3-text-dark-grey">2- Crear OT</h1>
+
+      <Typography  align="center" className={classes.instructions} >2- Crear OT</Typography>
+      {/* <h1 className="w3-xxlarge w3-text-dark-grey">2- Crear OT</h1> */}
       <form className="w3-col s12 w3-padding w3-section" id="formaCreaOT" onSubmit={crearOT}>
       <Grid item xs={12} sm={12} container>
       {console.log('otInfo, erroresIngreso', otInfo)} 
@@ -478,7 +502,7 @@ const handleClose = () => {
                 style={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Sitio" variant="outlined" />}
               />
-               <div className={classes.error} id="error1"></div>
+               <div className={classes.error} align="center" id="error1"></div>
               {/* {erroresIngreso && erroresIngreso['sitio_codigo'] && <div style={{ color: 'red', height:15}}>{erroresIngreso['sitio_codigo']}</div>} */}
               </Grid>}
               
@@ -498,7 +522,7 @@ const handleClose = () => {
                 style={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Servicios" variant="outlined" />}
               />
-                <div className={classes.error} id="error2"></div>
+                <div className={classes.error} align="center" id="error2"></div>
                     </Grid>
             
                     <Grid item md={4}  xs={12}  sm={6}> 
@@ -511,7 +535,7 @@ const handleClose = () => {
                         style={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="Prioridad" variant="outlined" />}
                       />
-                  <div className={classes.error}  id="error3"></div>
+                  <div className={classes.error} align="center" id="error3"></div>
                     </Grid>
                     <Grid item md={4}  xs={6}  sm={6}>
                     </Grid>
@@ -567,12 +591,36 @@ const handleClose = () => {
                                   required={true}
                                   // value={detalleSitioInfo['detalle_requerimiento']} 
                                 />
-                               <div className={classes.error} id="error4"></div>
+                               <div className={classes.error} align="center" id="error4"></div>
                     </Grid>
 
                   </Grid>
                   <div className={classes.root}>
-      <Typography>3- Subir Documentos Relacionados</Typography> 
+      <Typography align="center" className={classes.instructions}>Documentos ya disponibles del Sitio</Typography> 
+           
+     
+      { archivosDelSitio && archivosDelSitio.data && archivosDelSitio.data.length>0 && <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Nombre Archivo</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+            { Object.keys(archivosDelSitio.data).length>0 && Object.values(archivosDelSitio.data).map((item, index) => (
+              <TableRow key={index}>
+                  <TableCell component="th" scope="row"> 
+                  {item.file}
+                  </TableCell>
+                </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>}
+
+    </div>
+      <div className={classes.root}>
+      <Typography align="center" className={classes.instructions} >3- Subir Documentos Relacionados</Typography> 
       <input
         accept="*"
         className={classes.input}
@@ -592,8 +640,7 @@ const handleClose = () => {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Nombre Archivo</TableCell>
-                <TableCell align="left">Path</TableCell>
+                <TableCell align="center">Nombre Archivo</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -602,7 +649,6 @@ const handleClose = () => {
                   <TableCell component="th" scope="row">
                   {item.file} 
                   </TableCell>
-                  <TableCell align="left">{item.path}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -637,8 +683,9 @@ const handleClose = () => {
             </DialogActions>
           </Dialog>
         </div>
-    </div>
-
+    {/* </div> */}
+  </Container>
+  </React.Fragment>
   );
 }
 export default CrearOTScreen;

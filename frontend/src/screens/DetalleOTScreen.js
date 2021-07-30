@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
 import fileDownload from 'js-file-download';
-import { actualizarOT, buscarDetallesSitio } from "../actions/userActions";
+import { actualizarOT, buscarDetallesSitio, archivosSitio } from "../actions/userActions";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -39,19 +39,20 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 
-import green from '@material-ui/core/colors/green';
-import grey from '@material-ui/core/colors/grey';
-import blue from '@material-ui/core/colors/blue';
-import red from '@material-ui/core/colors/red';
-import { Divider, Tooltip } from '@material-ui/core';
-import { purple } from '@material-ui/core/colors';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import Select from '@material-ui/core/Select';
+
+import { Tooltip } from '@material-ui/core';
+
+import { purple, red , blue , grey, green } from '@material-ui/core/colors';
 
 
 const purple3 = purple[300]
 // const naranja7 = orange[700]
 const verdefondo = green[500]
 const azulfondo = blue[900]
-// const azulClaro = blue[300]
+const azulClaro = blue[300]
 const rojoFondo = red[700]
 const greyfondo = grey[300]
 // const greyfondo2 = grey[400]
@@ -97,6 +98,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
 
   },
+  formControl3: {
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
   table: {
     // minWidth: 650,
   },
@@ -126,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     fontSize: 20,
     border: 'solid',
-    borderColor: azulfondo,
+    borderColor: azulClaro,
     color:azulfondo
   },
   fab: {
@@ -137,8 +142,9 @@ const useStyles = makeStyles((theme) => ({
   zona2: {
     width: '100%',
     marginTop: 20,
-  
-
+  },
+  input: {
+    display: 'none',
   },
 }));
 
@@ -157,10 +163,10 @@ function getSteps() {
 ]}
 
 const responsablesOT = [
-  {_id:"r0", responsable_ot:'Sin Asignar', email_responsable_ot:''},
-  {_id:"r1", responsable_ot:'Bayardo Domingo', email_responsable_ot:'bayardodomingo@hotmail.com'},
-  {_id:"r2", responsable_ot:'Roger Ruiz', email_responsable_ot:'estructuras@atmotechnologies.com'},
-  {_id:"r3", responsable_ot:'Roberto Domingo', email_responsable_ot:'coordinge@atmotechnologies.com'},
+  {_id:"r0", responsable_ot: '', email_responsable_ot: ''},
+  {_id:"r1", responsable_ot: 'Bayardo Domingo', email_responsable_ot: 'bayardodomingo@hotmail.com'},
+  {_id:"r2", responsable_ot: 'Roger Ruiz', email_responsable_ot: 'estructuras@atmotechnologies.com'},
+  {_id:"r3", responsable_ot: 'Roberto Domingo', email_responsable_ot: 'coordinge@atmotechnologies.com'},
 ];
 
 const prioridades = [
@@ -209,6 +215,11 @@ function DetalleOTScreen(props) {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
+  const archivosDisponiblesSitio = useSelector((state) => state.archivosDisponiblesSitio)
+  const { archivosDelSitio, loadingArchivo } = archivosDisponiblesSitio;
+ 
+
+
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
   const [downloading, setDownloading] = useState(false);
@@ -218,7 +229,7 @@ function DetalleOTScreen(props) {
   const [referenciaAWS, setReferenciaAWS] = useState([]);
   const [listaArchivos, setListaArchivos] = useState([
   ]);
-  // const [detallesSitioInfo, setDetallesSitioInfo] = React.useState(
+  const [inputValue, setInputValue] = React.useState('');
   const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([{
     cliente: detallesSitio? detallesSitio.data[0].cliente : "",
     detalle_requerimiento: detallesSitio? detallesSitio.data[0].detalle_requerimiento: "",
@@ -235,7 +246,7 @@ function DetalleOTScreen(props) {
     responsable_cliente: detallesSitio? detallesSitio.data[0].responsable_cliente: "",
     sitio_codigo: detallesSitio? detallesSitio.data[0].sitio_codigo: "",
     sitio_nombre: detallesSitio? detallesSitio.data[0].sitio_nombre: "",
-    responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: "",
+    responsable_ot: detallesSitio? detallesSitio.data[0].responsable_ot: null,
     comentarios_responsable_ot: detallesSitio? detallesSitio.data[0].comentarios_responsable_ot: "",
   }]);
 
@@ -275,10 +286,7 @@ function DetalleOTScreen(props) {
     setActiveStep(0);
   };
 
-  // const defaultProps = {
-  //   options: responsablesOT,
-  //   getOptionLabel: (option) =>  option.responsable_ot,
-  // };
+
 
   const handleDateChangefecha_requerida = (date) => {
     setDetallesSitioInfo({...detallesSitioInfo, ['fecha_requerida']: new Date(date), ['fecha_requeridaChange']:true})
@@ -295,11 +303,22 @@ function DetalleOTScreen(props) {
 
 
   const handleChange = (event) => {
-    const name = event.target.name;
+    console.log('filtro resp', responsablesOT.filter(resp => resp.responsable_ot === event.target.value && resp.email_responsable_ot))
     setDetallesSitioInfo({
       ...detallesSitioInfo,
-      [name]: event.target.value,
+      ['responsable_ot']: event.target.value, 
+      ['email_responsable_ot']: responsablesOT.filter(resp => resp.responsable_ot === event.target.value )[0].email_responsable_ot,  
+      ['responsable_otChange']:true , 
+      ['email_responsable_otChange']:true 
     });
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -310,6 +329,7 @@ function DetalleOTScreen(props) {
     }
     if( detallesSitio){
      setDetallesSitioInfo({
+          _id: detallesSitio.data[0]['_id'],
           cliente: detallesSitio.data[0].cliente,
           detalle_requerimiento: detallesSitio.data[0].detalle_requerimiento,
           detallesSitio: detallesSitio.data[0].detallesSitio,
@@ -393,8 +413,13 @@ function DetalleOTScreen(props) {
  
       if( !detallesSitio || !updatedCodigo ){
         dispatch(buscarDetallesSitio(sitioBuscar))
+        // dispatch(archivosSitio({sitio_codigo:sitioBuscar.codigo, proyecto: userInfo.vista}))
         setUpdatedCodigo(true)
       }
+      if(detallesSitio && detallesSitio.data){
+        dispatch(archivosSitio({sitio_codigo:sitioBuscar.codigo, proyecto: detallesSitio.data[0].proyecto}))
+      }
+     
   
     return () => {
     
@@ -543,7 +568,7 @@ function controlBotonProceso(userInfo, activeStep){
                       disabled={true} 
                       onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['responsable_cliente']: value.target.value })}
                       label="Responsable Cliente" 
-                      style={{color:"green" }}
+                      style={{color:"black" }}
                       fullWidth={true} />
                       </FormControl>
                     </Grid>
@@ -554,6 +579,7 @@ function controlBotonProceso(userInfo, activeStep){
                       <OutlinedInput 
                       id="prioridad" 
                       value={detallesSitioInfo['prioridad']} 
+                 
                       disabled={true} 
                       style={{borderStyle: "solid", borderColor: colorAlerta(detallesSitioInfo['prioridad']), color: colorAlerta(detallesSitioInfo['prioridad']) }}
                       label="Prioridad" 
@@ -561,17 +587,46 @@ function controlBotonProceso(userInfo, activeStep){
                       </FormControl>}
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                    { responsablesOT && detallesSitioInfo &&  responsablesOT && <Autocomplete
-                        {...defaultProps}
-                        id="responsable_ot"
-                        required={true}
+
+        <FormControl className={classes.formControl3}>
+          <InputLabel id="demo-controlled-open-select-label">Responsable OT</InputLabel>
+          <Select
+            labelId="demo-controlled-open-select-label"
+            id="demo-controlled-open-select"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+
+            value={detallesSitioInfo.responsable_ot? detallesSitioInfo.responsable_ot : ""}  //detallesSitioInfo['responsable_ot']
+            onChange={handleChange}
+            variant="outlined"
+          >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {responsablesOT.map(opcion=> <MenuItem key={opcion._id} value={opcion.responsable_ot}>{opcion.responsable_ot}</MenuItem>)}
+        </Select>
+      </FormControl>
+
+
+
+                    {/* { responsablesOT && detallesSitio && detallesSitioInfo &&  <Autocomplete
+                        // {...defaultProps}
+                        // id="responsable_ot"
+                    
                         className={classes.formControl}
-                        style={{ width: 300 }}              
-                        defaultValue={detallesSitioInfo}  //detallesSitioInfo['responsable_ot']
-                        onChange={(e, value)=> console.log('value',value) && setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, ['email_responsable_ot']:value.email_responsable_ot,  
-                         ['responsable_otChange']:true , ['email_responsable_otChange']:true })}
+                        style={{ width: 300 }}   
+                        options={responsablesOT}
+                        getOptionLabel={responsablesOT.map(option => option['responsable_ot'])}
+                        value={detallesSitioInfo.responsable_ot? detallesSitioInfo.responsable_ot : null}  //detallesSitioInfo['responsable_ot']
+                        onChange={(e, value)=> {
+                          console.log("value Autocomplet", value)
+                          setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, 
+                                                                      ['email_responsable_ot']:value.email_responsable_ot,  
+                                                                      ['responsable_otChange']:true , 
+                                                                      ['email_responsable_otChange']:true })}}
                          renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
-                      />}
+                      />} */}
                     
                     </Grid>
                     <Grid item md={3}  xs={5}  sm={5}> 
@@ -696,33 +751,31 @@ function controlBotonProceso(userInfo, activeStep){
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
-                    <ButtonGroup color="primary" fullWidth   disabled  aria-label="outlined primary button group">
+                    {/* <ButtonGroup color="primary" fullWidth  disabled  aria-label="outlined primary button group">
                     <Button align="center" className={classes.title} >Plano Terminado Ingeniería</Button> 
- 
+                
                         <input
-                        disabled
-                          hidden
                           accept="*"
                           className={classes.input}
-                          id="contained-button-file"
+                          id="boton-ingenieria-lista"
                           multiple
                           type="file"
-                          value={fileCliente}
+                          // value={fileCliente}
                           // onChange={(e) => setFileCliente(e.target.value)}
-                          onChange={uploadFileHandler}
+                          // onChange={uploadFileHandler}
                         />
 
-                        <Button htmlFor="contained-button-file">       
+                        <Button htmlFor="boton-ingenieria-lista">       
                           {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" disabled component="span">Subir Documentos</Button> }         
                         </Button>
-
-                    </ButtonGroup>
+        
+                    </ButtonGroup> */}
  
 
-        
-                    <Typography  align="center" className={classes.title} >
-           Documentos Relacionados a la OT
-          </Typography>
+                    <div className={classes.root}>
+                    <Typography  align="center" className={classes.instructions} >
+                      Documentos Relacionados a la OT
+                      </Typography>
           { detallesSitio && detallesSitio.data[0].archivos && <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="simple table">
                           <TableHead>
@@ -737,15 +790,43 @@ function controlBotonProceso(userInfo, activeStep){
                               <TableRow key={index}>
                                 <TableCell component="th" scope="row"  >
                                <Button   onClick={()=>downloadFileHandler(item.file)}>{item.file}</Button>
-                               {downloading && <CircularProgress/>}
+                           
                                 </TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
                         </Table>
                       </TableContainer>}
+                      </div>
+                      <div className={classes.root}>
+                          <Typography align="center" className={classes.instructions}>Documentos ya disponibles del Sitio</Typography> 
+                              
+                        
+                          { archivosDelSitio && archivosDelSitio.data && archivosDelSitio.data.length>0 && <TableContainer component={Paper}>
+                              <Table className={classes.table} aria-label="simple table">
+                                <TableHead>
+                                  <TableRow>
+                                    <TableCell align="center">Nombre Archivo</TableCell>
+                                  </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                { Object.keys(archivosDelSitio.data).length>0 && Object.values(archivosDelSitio.data).map((item, index) => (
+                                  <TableRow key={index}>
+                                      <TableCell component="th" scope="row"> 
+                                      <Button   onClick={()=>downloadFileHandler(item.file)}>{item.file}</Button>
+                                       
+                          
+                                      </TableCell>
+                                    </TableRow>
+                                    ))}
+                                </TableBody>
+                              </Table>
+                            </TableContainer>}
+                            {downloading && <CircularProgress/>}
+                        </div>
                     </Grid>
-                    <Typography  align="center" className={classes.title} >
+                    <div className={classes.root}>
+                    <Typography  align="center" className={classes.instructions} >
            Detalle del Sitio
           </Typography>
                             {<Grid  container className={classes.zona2}>
@@ -980,6 +1061,7 @@ function controlBotonProceso(userInfo, activeStep){
                               </Fab>
                               </Tooltip>     
                               </Grid>}
+                              </div>
                               </Grid>}
                             </Grid>
                             </form>

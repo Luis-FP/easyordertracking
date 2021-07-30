@@ -17,6 +17,7 @@ const otsSchema = new mongoose.Schema({
     fecha_requerida: { type: Date, required: false },
     fecha_sla: { type: Date, required: false },
     fecha_apertura:  { type: Date, required: false },
+    fecha_entregado:  { type: Date, required: false },
     responsable_ot: { type: String, required: false },
     email_responsable_ot:  { type: String, required: false },
     comentarios_responsable_ot: { type: String, required: false },

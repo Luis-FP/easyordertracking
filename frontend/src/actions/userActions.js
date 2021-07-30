@@ -57,7 +57,10 @@ import {
   OT_NUEVA_CREATE_FAIL,
   OT_ACTUALIZAR_CREATE_REQUEST,
   OT_ACTUALIZAR_CREATE_SUCCESS,
-  OT_ACTUALIZAR_CREATE_FAIL
+  OT_ACTUALIZAR_CREATE_FAIL,
+  ARCHIVOS_CARGADOS_REQUEST,
+  ARCHIVOS_CARGADOS_SUCCESS,
+  ARCHIVOS_CARGADOS_FAIL
 } from "../constants/userConstants";
 
 
@@ -145,7 +148,32 @@ const usersOTs = () => async (dispatch, getState) => {
   }
 };
 
+const archivosSitio = (value) => async (dispatch, getState) => {
 
+  dispatch({ type: ARCHIVOS_CARGADOS_REQUEST });
+  const { userSignin: { userInfo } } = getState();
+
+  try {
+    const { data } = await axios.post("/api/users/archivosSitio", value,{
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log('data', data);
+    if (!data.error) {
+      dispatch({ type: ARCHIVOS_CARGADOS_SUCCESS, payload: data });
+      return true;
+    } else if (data.error) {
+      dispatch({ type: ARCHIVOS_CARGADOS_FAIL, payload: data });
+      return false;
+    } else {
+      console.log("Error Interno");
+    }
+    return false;
+  } catch (error) {
+    console.log("error:", error);
+  }
+};
 
 const buscarSitiosCargados = () => async (dispatch, getState) => {
 
@@ -527,6 +555,7 @@ const actualizarOT = (detalleSitioInfo) => async (dispatch, getState) => {
   dispatch({ type: OT_ACTUALIZAR_CREATE_REQUEST });
   try {
     // seria bueno cifrar con server.
+    console.log("detalleSitioInfo", detalleSitioInfo)
     const { data } = await axios.post("/api/users/actualizarot", detalleSitioInfo, {
       headers: {
         Authorization: ' Bearer ' + userInfo.token
@@ -732,5 +761,6 @@ export {
   secureLogin,
   marcarTCLeido,
   usersOTs,
+  archivosSitio
 
 };

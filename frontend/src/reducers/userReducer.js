@@ -63,6 +63,9 @@ import {
   OT_NUEVA_CREATE_REQUEST,
   OT_NUEVA_CREATE_SUCCESS,
   OT_NUEVA_CREATE_FAIL,
+  ARCHIVOS_CARGADOS_REQUEST,
+  ARCHIVOS_CARGADOS_SUCCESS,
+  ARCHIVOS_CARGADOS_FAIL,
 } from "../constants/userConstants";
 
 function userSigninReducer(state = {}, action) {
@@ -90,6 +93,19 @@ function userProyectoReducer(state = {}, action) {
       return { loading: false, userVista: action.payload };
     case USER_PROYECTO_FAIL:
       return { loading: false, errorVista: action.payload };
+    default:
+      return state;
+  }
+}
+
+function archivosSitioReducer(state = {}, action) {
+  switch (action.type) {
+    case ARCHIVOS_CARGADOS_REQUEST:
+      return { loadingArchivo: true };
+    case ARCHIVOS_CARGADOS_SUCCESS:
+      return { loadingArchivo: false, archivosDelSitio: action.payload };
+    case ARCHIVOS_CARGADOS_FAIL:
+      return { loadingArchivo: false, errorArchivo: action.payload };
     default:
       return state;
   }
@@ -291,7 +307,7 @@ export {
   userSalidaReducer,
   userRegisterReducer,
   infoActualizarReducer,
- 
+  archivosSitioReducer,
 
   userStatusReducer,
   userOTSCreateReducer,

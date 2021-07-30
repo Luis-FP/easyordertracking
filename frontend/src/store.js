@@ -4,7 +4,8 @@ import thunk from 'redux-thunk';
 import Cookies from "js-cookie";
 import {
     userSigninReducer,  userProyectoReducer, userDetallesSitioReducer, userRegisterReducer,userOTSReducer, userOTSCreateReducer, userSalidaReducer,
-    infoRegisterReducer, createUsersReducer, emailRecoveryReducer, infoActualizarReducer, userStatusReducer, createSitioReducer, listaSitiosCargadosReducer
+    infoRegisterReducer, createUsersReducer, emailRecoveryReducer, infoActualizarReducer, userStatusReducer, createSitioReducer, listaSitiosCargadosReducer,
+    archivosSitioReducer
 } from './reducers/userReducer';
 
 
@@ -18,8 +19,7 @@ const initialState = {
     userOTS: {}, userOTSCreate:{},
     listaSitiosCargados: {},
     userRegister: {}, infoRegister: {},userInfoActualizar:{}, userSalida:{},
-
-
+    archivosDisponiblesSitio: {}
 };
 
 
@@ -40,7 +40,7 @@ const reducer = combineReducers({
     userCreateInfo: createUsersReducer,
     createSitioR: createSitioReducer,
     listaSitiosCargados: listaSitiosCargadosReducer,
-
+    archivosDisponiblesSitio: archivosSitioReducer,
     emailRecovery: emailRecoveryReducer,
 
 
