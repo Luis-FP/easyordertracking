@@ -29,7 +29,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {Bar} from 'react-chartjs-2';
+import {Bar, Pie} from 'react-chartjs-2';
 
 
 
@@ -276,10 +276,12 @@ console.log('updated', updated)
     <React.Fragment>
     <CssBaseline />
     <Container  style={{display: 'flex', justifyContent:'center'}}>
-   
+    
+      
 
       <div styles={{width: matches600? '80%': '100%'}}  >
-      {/* {console.log('grafico', grafico)} */}
+      <Grid container >
+      <Grid item xs={12}>  
        {userOTsInfo && userOTsInfo.grafico && <Bar
           data={userOTsInfo.grafico[0]}
           options={{
@@ -294,8 +296,21 @@ console.log('updated', updated)
             }
           }}
         />}
- <Typography className={classes.title2}>Estadística por OT</Typography>
- <Typography component="div">
+        
+</Grid>
+<Grid item xs={6}>  
+          <Typography className={classes.title2}>OTs por Proyecto</Typography>
+
+            {userOTsInfo && userOTsInfo.pie && <Pie data={userOTsInfo.pie} />}
+            </Grid>
+<Grid item xs={6}>  
+            <Typography className={classes.title2}>OTs por Ingeniero</Typography>
+
+{userOTsInfo && userOTsInfo.pie2 && <Pie data={userOTsInfo.pie2} />}
+</Grid>
+ </Grid>
+    <Typography className={classes.title2}>Estadística por OT</Typography>
+    <Typography component="div">
         {/* <Grid component="label" container alignItems="center" spacing={1} > */}
 
       <Paper component="form" className={classes.root2} >
@@ -380,7 +395,9 @@ console.log('updated', updated)
         </TableBody>
       </Table>
     </TableContainer>
+    
     </div>
+    
     </Container>
     </React.Fragment>
   );

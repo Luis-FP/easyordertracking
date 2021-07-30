@@ -602,6 +602,20 @@ router.get("/otsuser", isAuth, async (req, res) => {
 
     const ots = await OTs.aggregate(filtro); //{ cliente: req.body.cliente.toLowerCase() }
 
+    // const proyectos = await OTs.distinct('proyecto')
+
+    const cantProyectos = await OTs.aggregate([
+
+      {$group: {_id: '$proyecto', sum: {$sum: 1}}}
+    ]);
+
+    
+    const cantIngeLoad = await OTs.aggregate([
+
+      {$group: {_id: '$responsable_ot', sum: {$sum: 1}}}
+    ]);
+// console.log("cantProyectos", cantProyectos)
+// console.log("cantProyectos", cantProyectos.map(id=>id._id))
 
 
     let filtro2  = [
@@ -674,9 +688,63 @@ router.get("/otsuser", isAuth, async (req, res) => {
       ]
     }
   ];
-      console.log("ots", ots)
+
+  const pie = {
+    labels: cantProyectos.map(id=>id._id),
+    datasets: [
+      {
+        label: 'OTs por Proyecto',
+        data: cantProyectos.map(id=>id.sum),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const pie2 = {
+    labels: cantIngeLoad.map(id=>id._id),
+    datasets: [
+      {
+        label: 'OTs por Ingeniero',
+        data: cantIngeLoad.map(id=>id.sum),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 206, 100, 0.2)',
+
+        ],
+        borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(255, 206, 100, 0.2)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+
+
+      // console.log("ots", ots)
       res.status(200)
-      .send({ message: "lista de OTs", data: ots, grafico: grafico, otInfo: otContainer, estadistica: otEstadistica})
+      .send({ message: "lista de OTs", data: ots, grafico: grafico, pie: pie, pie2: pie2, otInfo: otContainer, estadistica: otEstadistica})
     // } else {
     // // let detalle = await Detalles.find({ cliente: req.body.cliente.toLowerCase() });
 

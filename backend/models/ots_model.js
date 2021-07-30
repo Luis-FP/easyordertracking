@@ -22,6 +22,7 @@ const otsSchema = new mongoose.Schema({
     email_responsable_ot:  { type: String, required: false },
     comentarios_responsable_ot: { type: String, required: false },
     archivos: { type: Array, required: false},
+    ingenieria: { type: Array, required: false},
 
     
 });

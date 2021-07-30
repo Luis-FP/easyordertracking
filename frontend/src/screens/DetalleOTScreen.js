@@ -45,7 +45,7 @@ import Select from '@material-ui/core/Select';
 
 import { Tooltip } from '@material-ui/core';
 
-import { purple, red , blue , grey, green } from '@material-ui/core/colors';
+import { purple, red , blue , grey, green , orange} from '@material-ui/core/colors';
 
 
 const purple3 = purple[300]
@@ -55,7 +55,7 @@ const azulfondo = blue[900]
 const azulClaro = blue[300]
 const rojoFondo = red[700]
 const greyfondo = grey[300]
-// const greyfondo2 = grey[400]
+const naranja4 = orange[400]
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,6 +125,24 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 15,
     color:"white",
     backgroundColor:rojoFondo
+  },
+  warning2: {
+    width:"100%",
+    textAlign:"center",
+    border: "black",
+    borderRadius:6,
+    fontSize: 15,
+    color:"white",
+    backgroundColor:naranja4
+  },
+  warning3: {
+    width:"100%",
+    textAlign:"center",
+    border: "black",
+    borderRadius:6,
+    fontSize: 15,
+    color:"white",
+    backgroundColor:verdefondo
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -439,12 +457,24 @@ function DetalleOTScreen(props) {
   }
 
   function checkFulliness(info){
-    console.log('info',info)
+    console.log('info',info, Object.values(info.data[0].detallesSitio[0]))
+    let count = 0
+    let porcentaje = 0
+    let color ="";
+    Object.values(info.data[0].detallesSitio[0]).forEach((element, index) => {
+      // console.log('elemento checkfullines',element)
+      if( !element || element==="" ) count++;
+      porcentaje = ((index-count)/index) * 100
+    });
+    // if(porcentaje<50 ){
+    //   color = 'warning'
+    // }else if(porcentaje>51 && porcentaje<80){
+    //   color = 'warning2'
+    // }else {
+    //   color = 'warning3'
+    // }
     
-    // info.data[0].detallesSitio[0].forEach(element => {
-    //   console.log('elemento',element)
-    // });
-    return true
+    return porcentaje.toFixed(0)
   }
 
   function controlAccesoProceso(userInfo, index){
@@ -554,8 +584,13 @@ function controlBotonProceso(userInfo, activeStep){
           <div>Proyecto: {detallesSitio.data[0].proyecto + " - " +  detallesSitio.data[0].pais} </div></div>}
           </Paper>
         </Grid>
-        { detallesSitio  && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio && checkFulliness(detallesSitio) && <Typography  className={classes.warning} >
-            Informacion Incompleta
+        { detallesSitio  && detallesSitio.data[0] && detallesSitio.data[0].detallesSitio  && 
+        <Typography  style={{}}  className={
+          checkFulliness(detallesSitio)<50?  classes.warning :
+          checkFulliness(detallesSitio)>51 && checkFulliness(detallesSitio)<80? classes.warning2 :
+          classes.warning3
+          } >
+            Informacion {checkFulliness(detallesSitio)}% completa
           </Typography>}
         
                 { detallesSitio && 
@@ -607,26 +642,6 @@ function controlBotonProceso(userInfo, activeStep){
           {responsablesOT.map(opcion=> <MenuItem key={opcion._id} value={opcion.responsable_ot}>{opcion.responsable_ot}</MenuItem>)}
         </Select>
       </FormControl>
-
-
-
-                    {/* { responsablesOT && detallesSitio && detallesSitioInfo &&  <Autocomplete
-                        // {...defaultProps}
-                        // id="responsable_ot"
-                    
-                        className={classes.formControl}
-                        style={{ width: 300 }}   
-                        options={responsablesOT}
-                        getOptionLabel={responsablesOT.map(option => option['responsable_ot'])}
-                        value={detallesSitioInfo.responsable_ot? detallesSitioInfo.responsable_ot : null}  //detallesSitioInfo['responsable_ot']
-                        onChange={(e, value)=> {
-                          console.log("value Autocomplet", value)
-                          setDetallesSitioInfo({...detallesSitioInfo, ['responsable_ot']:value.responsable_ot, 
-                                                                      ['email_responsable_ot']:value.email_responsable_ot,  
-                                                                      ['responsable_otChange']:true , 
-                                                                      ['email_responsable_otChange']:true })}}
-                         renderInput={(params) => <TextField {...params} label="Responsable OT" variant="outlined" />}
-                      />} */}
                     
                     </Grid>
                     <Grid item md={3}  xs={5}  sm={5}> 
@@ -751,8 +766,8 @@ function controlBotonProceso(userInfo, activeStep){
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
-                    {/* <ButtonGroup color="primary" fullWidth  disabled  aria-label="outlined primary button group">
-                    <Button align="center" className={classes.title} >Plano Terminado Ingeniería</Button> 
+                    {/* <ButtonGroup color="primary" fullWidth   aria-label="outlined primary button group">
+                    <Button align="center" className={classes.title} >Ingeniería Terminada   Bajar</Button> 
                 
                         <input
                           accept="*"
@@ -766,7 +781,7 @@ function controlBotonProceso(userInfo, activeStep){
                         />
 
                         <Button htmlFor="boton-ingenieria-lista">       
-                          {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" disabled component="span">Subir Documentos</Button> }         
+                          {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" component="span">Subir Documentos</Button> }         
                         </Button>
         
                     </ButtonGroup> */}
