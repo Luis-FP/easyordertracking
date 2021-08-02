@@ -763,6 +763,38 @@ router.get("/otsuser", isAuth, async (req, res) => {
 router.post("/detalles", isAuth, async (req, res) => {
   console.log("detalles>",  req.user)
   let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
+
+  let responsables_ot = await User.aggregate([
+    {
+      '$match': {
+        '$or': [
+          {
+            'isSuper': true
+          }, {
+            'isInge': true
+          }
+        ]
+      }
+    }, {
+      '$project': {
+        '_id': 1, 
+        'responsable_ot': '$nombre', 
+        'email_responsable_ot': '$email'
+      }
+    }
+  ]);
+  //   {
+  //     '$match': {
+  //       $or: [ { $eq: [ "$isInge", true ] }, { $eq: [ "$isSuper", true ] } ] 
+  //     }
+  //   }, {
+  //     '$project': {
+  //       '_id': 1, 
+  //       'nombre': 1, 
+  //       'email': 1
+  //     }
+  //   }
+  // ]);
   var vistaUsuario= datosUsuario.vista
 // filtro de autorizaciones
   let filtro  = 
@@ -821,7 +853,7 @@ const detalleFiltro =  [
   try {
     let detalles = await OTs.aggregate(detalleFiltro);
     res.status(200)
-      .send({ message: "Datos detallados de la OT y El Sitio", data: detalles })
+      .send({ message: "Datos detallados de la OT y El Sitio", data: detalles, responsables_ot:responsables_ot })
   } catch (errorGuardando) {
     console.log(errorGuardando);
     res

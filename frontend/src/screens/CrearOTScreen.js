@@ -36,6 +36,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
 import { secondsToMilliseconds } from "date-fns";
 import { purple, red , blue , grey, green } from '@material-ui/core/colors';
 
@@ -84,11 +85,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const servicios = [
-  {servicio: 'Planos para Permisos', sla: 3 },
-  {servicio: 'Modificación de Planos para Permisos', sla: 2 },
-  {servicio: 'Planos para Construcción', sla: 4 },
-  {servicio: 'Modificación de Planos para Construcción', sla: 3 },
-  {servicio: 'Diseño de Cimentación', sla: 3 },
+  {servicio: 'Planos para Permisos', sla: 3 , checklist: ['Plano Catastral', 'Plano Topográfico']},
+  {servicio: 'Modificación de Planos para Permisos', sla: 2, checklist: ['Plano Catastral', 'Plano Topográfico'] },
+  {servicio: 'Planos para Construcción', sla: 4, checklist: ['Plano Catastral', 'Plano Topográfico', 'Estudio de Suelo', 'Diseño de Cimentación', 'Detalles Adicionales'] },
+  {servicio: 'Modificación de Planos para Construcción', sla: 3, checklist: ['Plano Catastral', 'Plano Topográfico', 'Estudio de Suelo', 'Diseño de Cimentación', 'Detalles Adicionales'] },
+  {servicio: 'Diseño de Cimentación', sla: 3 , checklist: [ 'Estudio de Suelo']},
 ]
 
 const prioridades = [
@@ -108,10 +109,10 @@ function CrearOTScreen(props) {
   // const { userKpiPermisos } = userPermisoInfo;
   const offsetSLA =[ // dependiendo del dia de la semana se suman dias para que no caiga ni sabado ni domingo
       {offset:1},
-      {offset:1},
-      {offset:1},
-      {offset:1},
-      {offset:1},
+      {offset:0},
+      {offset:0},
+      {offset:0},
+      {offset:0},
       {offset:3},
       {offset:2}
   ]
@@ -619,8 +620,57 @@ const handleClose = () => {
         </TableContainer>}
 
     </div>
+    <div className={classes.root}>
+      <Typography align="center" className={classes.instructions} >3- Check List</Typography> 
+      <Typography>Debe subir todos los documentos indicados en el Chechlist para ejecutar su Orden</Typography>
+      <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Check</TableCell>
+                <TableCell align="center">Documento Requerido</TableCell>
+                <TableCell align="center">Acción</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+            { servicios &&  otInfo && otInfo['requerimiento'] && servicios.filter(serv => serv.servicio===otInfo['requerimiento'])[0].checklist.map((item, index) => (
+                <TableRow key={index}>  
+                <TableCell padding="checkbox">
+                  <Checkbox
+                    // indeterminate={numSelected > 0 && numSelected < rowCount}
+                    // checked={rowCount > 0 && numSelected === rowCount}
+                    // onChange={onSelectAllClick}
+                    required
+                    inputProps={{ 'aria-label': 'select all desserts' }}
+                  />
+                </TableCell>
+                  <TableCell component="th" scope="row">
+                  {item} 
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                  {/* <input
+                    accept="*"
+                    className={classes.input}
+                    id={"doc"+item}
+                    multiple
+                    type="file"
+                    value={fileCliente}
+                    // onChange={(e) => setFileCliente(e.target.value)}
+                    onChange={uploadFileHandler}
+                  />
+                  <label htmlFor={"doc"+item}>       
+                    {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" component="span">Subir</Button> }         
+                  </label> */}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+    </div>
       <div className={classes.root}>
-      <Typography align="center" className={classes.instructions} >3- Subir Documentos Relacionados</Typography> 
+      <Typography align="center" className={classes.instructions} >4- Subir Otros Documentos Relacionados</Typography> 
       <input
         accept="*"
         className={classes.input}

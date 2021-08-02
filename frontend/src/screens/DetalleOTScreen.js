@@ -321,11 +321,11 @@ function DetalleOTScreen(props) {
 
 
   const handleChange = (event) => {
-    console.log('filtro resp', responsablesOT.filter(resp => resp.responsable_ot === event.target.value && resp.email_responsable_ot))
+    // console.log('filtro resp', responsablesOT.filter(resp => resp.responsable_ot === event.target.value && resp.email_responsable_ot))
     setDetallesSitioInfo({
       ...detallesSitioInfo,
       ['responsable_ot']: event.target.value, 
-      ['email_responsable_ot']: responsablesOT.filter(resp => resp.responsable_ot === event.target.value )[0].email_responsable_ot,  
+      ['email_responsable_ot']: detallesSitio.responsables_ot.filter(resp => resp.responsable_ot === event.target.value )[0].email_responsable_ot,  
       ['responsable_otChange']:true , 
       ['email_responsable_otChange']:true 
     });
@@ -639,7 +639,7 @@ function controlBotonProceso(userInfo, activeStep){
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {responsablesOT.map(opcion=> <MenuItem key={opcion._id} value={opcion.responsable_ot}>{opcion.responsable_ot}</MenuItem>)}
+          {detallesSitio&& detallesSitio.responsables_ot.map(opcion=> <MenuItem key={opcion._id} value={opcion.responsable_ot}>{opcion.responsable_ot}</MenuItem>)}
         </Select>
       </FormControl>
                     
