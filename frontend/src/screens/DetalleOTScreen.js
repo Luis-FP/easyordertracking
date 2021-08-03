@@ -225,10 +225,10 @@ function getStepContent(stepIndex) {
 
 function DetalleOTScreen(props) {
 
-  const defaultProps = {
-    options: responsablesOT,
-    getOptionLabel: (option) => option.responsable_ot,
-  };
+  // const defaultProps = {
+  //   options: detallesSitio.responsablesOT,
+  //   getOptionLabel: (option) => option.responsable_ot,
+  // };
 
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;

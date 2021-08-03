@@ -66,10 +66,34 @@ router.post('/s3', uploadS3.single('image'), (req, res) => {
 // });
 
 router.post('/s3download', (req , res) => {
-  console.log(req.body)
+  console.log("req.body s3 download",req.body)
+  const keyBreak = req.body.key.split(".")
+  const tipo = keyBreak[1].toLowerCase();
+  let contentType="";
+  console.log("tipo",tipo)
+  switch (tipo) {
+    case "pdf":
+      contentType= 'application/pdf' 
+    break;
+    case "docx":
+      contentType= 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+    break;
+    case "doc":
+      contentType= 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+    break;
+    case "dwg":
+      contentType= 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+    break;
+      
+    default:
+      break;
+  }
+  // image/jpeg
+ //dwg  application/x-ms-application
   const params = {
     Bucket: 'arn:aws:s3:us-east-1:319475440169:accesspoint/acceso-bucket-ingenieria', /* required */
-    Key: 'INGENIERIA SITIO 405081 LOS ALGARROBOS-45m.pdf', /* required */
+    Key: req.body.key, /* required */
+
     // ExpectedBucketOwner: 'STRING_VALUE',
     // RequestPayer: requester,
     // VersionId: 'STRING_VALUE'
@@ -80,10 +104,19 @@ router.post('/s3download', (req , res) => {
       console.log(err, err.stack); // an error occurred
     res.send({ error: true, errorInfo: err.stack})
     }
-    else     
-    
-    res.send({ error: false, data: data, nombre:req.body})
-    console.log(data);           // successful response
+    else{     
+     const dataAjustada = {
+      AcceptRanges: data.AcceptRanges,
+      LastModified: data.LastModified,
+      ContentLength: data.ContentLength,
+      ETag: data.ETag,
+      ContentType: contentType,
+      Metadata: data.Metadata,
+      Body: data.Body
+    }
+    res.send({ error: false, data: dataAjustada, nombre:req.body})
+    console.log("data:",dataAjustada);           // successful response
+  }
   });
   // const file = await s3.getObjectAcl({ 
   //   Bucket: 'arn:aws:s3:us-east-1:319475440169:accesspoint/acceso-bucket-ingenieria',
