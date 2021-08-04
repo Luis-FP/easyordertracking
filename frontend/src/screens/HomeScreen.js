@@ -137,7 +137,15 @@ const useStyles = makeStyles((theme)=>({
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 500,
+    fullWidth: true,
+    // width: 500,
+  },
+  botones: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignContent: 'center',
+    fullWidth: true,
+    // width: 500,
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -164,8 +172,7 @@ function HomeScreen(props) {
     {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
     {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
     {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
-    // {_id:"p7",titulo:'Facturación', codigo:'facturacion', paso:6},
-    // {_id:"p8",titulo:'pagado', codigo:'pagado', paso:7},
+    {_id:"p7",titulo:'Cerrado', codigo:'cerrado', paso:6},
   ]
 
   let today = new Date().getTime();
@@ -236,6 +243,7 @@ console.log('updated', updated)
 
   const [state, setState] = React.useState({
     checkedA: false,
+    checkedB: false,
 
   });
 
@@ -276,14 +284,29 @@ console.log('updated', updated)
     <CssBaseline />
     <Container width="60%" style={{alignItems:'center'}}>
     <Typography component="div">
-        <Grid component="label" container alignItems="center" spacing={1}>
-        <Grid>Procesos</Grid>
-          <Grid item>
-    <FormControlLabel
-        control={<Switch checked={state.checkedA} onChange={handleChange}  color="primary" name="checkedA" />}
-      />
-      </Grid>
-      <Grid item >Tiempos</Grid>
+    <Paper component="div" className={classes.botones} >
+<div style={{margin:"auto", display: 'flex'}}>
+<Grid item >Procesos</Grid>
+            <Grid item>
+              <FormControlLabel
+                  control={<Switch checked={state.checkedA} onChange={handleChange}  color="primary" name="checkedA" />}
+                />
+            </Grid>
+          <Grid item >Tiempos</Grid>
+</div>
+<div  style={{margin:"auto", display: 'flex'}}>
+          <Grid item >
+            <FormControlLabel
+                control={<Switch checked={state.checkedB} onChange={handleChange}  color="primary" name="checkedB" />}
+              />
+            </Grid>
+            <Grid item >Cerrados</Grid>
+</div>
+
+     
+
+         
+</Paper>
       <Paper component="form" className={classes.root2}>
       <IconButton className={classes.iconButton} aria-label="menu">
         <MenuIcon />
@@ -312,7 +335,10 @@ console.log('updated', updated)
       <Divider className={classes.divider} orientation="vertical" />
 
     </Paper>
-      </Grid>
+
+
+      {/* </Grid> */}
+
       </Typography>
     <div>
     <Grid container spacing={3} className={classes.grid} >
@@ -338,7 +364,7 @@ console.log('updated', updated)
             !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
             !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
             !(busquedaKey3 !== null && !ot.proyecto.toLowerCase().includes(busquedaKey3)) &&
-            ot.estado !== "cerrado" &&
+            (ot.estado !== "cerrado" || state['checkedB'] ) && 
              (
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               
@@ -393,7 +419,7 @@ console.log('updated', updated)
               !(busquedaKey1 !== null && !ot.sitio_nombre.toLowerCase().includes(busquedaKey1)) &&
               !(busquedaKey2 !== null && !ot.fecha_requerida.toLowerCase().includes(busquedaKey2)) &&
               !(busquedaKey3 !== null && !ot.proyecto.toLowerCase().includes(busquedaKey3)) &&
-              ot.estado !== "cerrado" &&
+              (ot.estado !== "cerrado" || state['checkedB'] ) && 
              (
               <Tooltip key={'chip'+ot._id} title={ot.requerimiento + " " + fechaUnica(ot.fecha_requerida)}  arrow>
               <Chip
