@@ -453,7 +453,7 @@ router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), 
 });
 
 
-router.post("/actualizarot", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
+router.post("/actualizarot", isAuth,  async (req, res) => {
   // try {
 
       console.log("req usuario", req.user);
