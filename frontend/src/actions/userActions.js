@@ -60,8 +60,12 @@ import {
   OT_ACTUALIZAR_CREATE_FAIL,
   ARCHIVOS_CARGADOS_REQUEST,
   ARCHIVOS_CARGADOS_SUCCESS,
-  ARCHIVOS_CARGADOS_FAIL
+  ARCHIVOS_CARGADOS_FAIL,
+  INGENIERIA_CARGADOS_REQUEST,
+  INGENIERIA_CARGADOS_SUCCESS,
+  INGENIERIA_CARGADOS_FAIL
 } from "../constants/userConstants";
+import { ErrorValue } from "exceljs";
 
 
 const signin = (info) => async (dispatch) => {
@@ -165,6 +169,33 @@ const archivosSitio = (value) => async (dispatch, getState) => {
       return true;
     } else if (data.error) {
       dispatch({ type: ARCHIVOS_CARGADOS_FAIL, payload: data });
+      return false;
+    } else {
+      console.log("Error Interno");
+    }
+    return false;
+  } catch (error) {
+    console.log("error:", error);
+  }
+};
+
+const ingenieriaSitio = (value) => async (dispatch, getState) => {
+console.log("value",value)
+  dispatch({ type: INGENIERIA_CARGADOS_REQUEST });
+  const { userSignin: { userInfo } } = getState();
+
+  try {
+    const { data } = await axios.post("/api/users/ingenieriaSitio", value,{
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+    console.log('data', data);
+    if (!data.error) {
+      dispatch({ type: INGENIERIA_CARGADOS_SUCCESS, payload: data });
+      return true;
+    } else if (data.error) {
+      dispatch({ type: INGENIERIA_CARGADOS_FAIL, payload: data });
       return false;
     } else {
       console.log("Error Interno");
@@ -761,6 +792,6 @@ export {
   secureLogin,
   marcarTCLeido,
   usersOTs,
-  archivosSitio
-
+  archivosSitio,
+  ingenieriaSitio
 };

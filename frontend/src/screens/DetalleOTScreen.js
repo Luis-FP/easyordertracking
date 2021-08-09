@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
 import fileDownload from 'js-file-download';
-import { actualizarOT, buscarDetallesSitio, archivosSitio } from "../actions/userActions";
+import { actualizarOT, buscarDetallesSitio, archivosSitio , ingenieriaSitio} from "../actions/userActions";
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -46,6 +46,7 @@ import Select from '@material-ui/core/Select';
 import { Tooltip } from '@material-ui/core';
 
 import { purple, red , blue , grey, green , orange} from '@material-ui/core/colors';
+import { fechaUnica, queFecha } from '../components/fechas';
 
 
 const purple3 = purple[300]
@@ -103,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 200,
   },
   table: {
-    // minWidth: 650,
+    fullWidth: true,
   },
   multitexto: {
     '& .MuiTextField-root': {
@@ -164,6 +165,23 @@ const useStyles = makeStyles((theme) => ({
   input: {
     display: 'none',
   },
+  grupoInge:{
+
+    // display: 'flex',
+    justifyContent: 'space-evenly',
+    margin: 'auto',
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    // width: 50%;
+    border: '1px solid green',
+    // padding: '20px',
+  },
+  botonInge:{
+
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    // paddingTop: '10px',
+  }
 }));
 
 
@@ -220,7 +238,19 @@ function getStepContent(stepIndex) {
   }
 }
 
+const botonVisible = {
+  isHiper:[1,2,3,4,5,6,7,8],
+  isSuper:[1,2,3,4,5,6,7,8],
+  isInge: [1,2,3,4,5,6,7,8],
+  isUser: [],
+}
 
+const entradasActivas = {
+  isHiper:[1,2,3,4,5,6,7,8],
+  isSuper:[1,2,3,4,5,6,7,8],
+  isInge: [1,2,3,4,5,6,7,8],
+  isUser: [],
+}
 
 
 function DetalleOTScreen(props) {
@@ -235,18 +265,16 @@ function DetalleOTScreen(props) {
 
   const archivosDisponiblesSitio = useSelector((state) => state.archivosDisponiblesSitio)
   const { archivosDelSitio, loadingArchivo } = archivosDisponiblesSitio;
- 
-
 
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
-  const [downloading, setDownloading] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [fileCliente, setFileCliente] = useState("");
-  const [indice, setIndice] = useState(0);
-  const [referenciaAWS, setReferenciaAWS] = useState([]);
-  const [listaArchivos, setListaArchivos] = useState([
-  ]);
+
+  const [downloading, setDownloading] = React.useState(false);
+  const [uploadingInge, setUploadingInge] = React.useState(false);
+  const [fileInge, setFileInge] = React.useState("");
+  const [indiceInge, setIndiceInge] = React.useState(0);
+  const [referenciaAWS, setReferenciaAWS] = React.useState([]);
+  const [listaInge, setListaInge] = React.useState([]);
   const [inputValue, setInputValue] = React.useState('');
   const [detallesSitioInfo, setDetallesSitioInfo] = React.useState([{
     cliente: detallesSitio? detallesSitio.data[0].cliente : "",
@@ -442,7 +470,7 @@ function DetalleOTScreen(props) {
     return () => {
     
     };
-  }, [loadingSitio, detallesSitio, updatedCodigo ]);
+  }, [loadingSitio, detallesSitio, updatedCodigo, uploadingInge ]);
   
 
   const handleProceso = (e) =>{
@@ -495,6 +523,28 @@ function controlBotonProceso(userInfo, activeStep){
   }
 }
 
+function EntradasUsuario(userInfo, activeStep){
+  if (
+    (userInfo.isUser && entradasActivas.isUser.includes(activeStep)) 
+    ){
+    return false
+  }else {
+   return true
+  }
+}
+
+function EntradasAgente(userInfo, activeStep){
+  if (
+    (userInfo.isHiper && entradasActivas.isHiper.includes(activeStep)) ||
+    (userInfo.isSuper  && entradasActivas.isSuper.includes(activeStep)) ||
+    (userInfo.isInge && entradasActivas.isInge.includes(activeStep))
+
+    ){
+    return false
+  }else {
+   return true
+  }
+}
   function colorAlerta(nivel) {
     let color = null;
     if(nivel==='Alta'){
@@ -535,13 +585,13 @@ function controlBotonProceso(userInfo, activeStep){
   };
 
  // subida de archivos a Amazon
- const uploadFileHandler = (e) => {
-  setFileCliente(e.target.value)
+ const uploadFileIngeHandler = (e) => {
+  setFileInge(e.target.value)
   const file = e.target.files[0];
-
+console.log("e.target.value", e.target.value, "fileInge", fileInge)
   const bodyFormData = new FormData();
   bodyFormData.append("image", file);
-  setUploading(true);
+  setUploadingInge(true);
   axios.post("/api/uploads/s3", bodyFormData, {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -549,21 +599,27 @@ function controlBotonProceso(userInfo, activeStep){
   })
     .then((response) => {
       console.log('response.data',response.data)
-      let x = [];
-      x.push(response.data)
-      const y = listaArchivos.length +1
-      setListaArchivos({...listaArchivos, [indice]: {'file': file.name, 'path': response.data, fileMeta:file} })
-      setIndice(indice+1);
+      // let x = [];
+      // x.push(response.data)
+      // const y = listaInge.length + 1
+      setListaInge({...listaInge, [indiceInge]: {'file': file.name, 'path': response.data, fileMeta:file} })
+      setIndiceInge(indiceInge+1);
       // setReferenciaAWS({...referenciaAWS , x})
+      const value = {
+        ot_number:detallesSitioInfo.ot_number,
+        proyecto:detallesSitioInfo.proyecto,  
+        ingenieria: {key:file.name, tipo:detallesSitioInfo.requerimiento, fecha:new Date()}
+      }
 
-      setReferenciaAWS(fileCliente + "Subido Exitosamente");
+      dispatch(ingenieriaSitio(value));
+      setReferenciaAWS(fileInge+ "Subido Exitosamente");
       // setFileCliente("Subido Exitosamente");
-      setUploading(false);
+      setUploadingInge(false);
     })
     .catch((err) => {
       console.log(err);
       setReferenciaAWS("Error")
-      setUploading(false);
+      setUploadingInge(false);
     });
 };
 
@@ -766,27 +822,69 @@ function controlBotonProceso(userInfo, activeStep){
                                   onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['comentarios_responsable_ot']:e.target.value, ['comentarios_responsable_otChange']:true })}
                                 />
                     </Grid>
-                    {/* <ButtonGroup color="primary" fullWidth   aria-label="outlined primary button group">
-                    <Button align="center" className={classes.title} >Ingeniería Terminada   Bajar</Button> 
-                
+
+                    <div className={classes.grupoInge} >
+                    <Button>
+                    <Button align="center" className={classes.title} >Ingeniería Terminada</Button> 
+                      
                         <input
                           accept="*"
                           className={classes.input}
                           id="boton-ingenieria-lista"
                           multiple
                           type="file"
-                          // value={fileCliente}
-                          // onChange={(e) => setFileCliente(e.target.value)}
-                          // onChange={uploadFileHandler}
+                          disabled={!EntradasAgente(userInfo, activeStep)}
+                          value={fileInge}
+                          // onChange={(e) => setFileInge(e.target.value)}
+                          onChange={uploadFileIngeHandler}
                         />
 
-                        <Button htmlFor="boton-ingenieria-lista">       
-                          {uploading? <CircularProgress /> :  <Button variant="contained" color="primary" component="span">Subir Documentos</Button> }         
-                        </Button>
-        
-                    </ButtonGroup> */}
- 
 
+                        {/* // disabled={EntradasAgente(userInfo, activeStep)} */}
+
+                         <label htmlFor="boton-ingenieria-lista" className={classes.botonInge}>     
+                          {uploadingInge? <CircularProgress /> :
+                            <Button variant="contained" color="primary" 
+                            disabled={!EntradasAgente(userInfo, activeStep)}
+                            
+                            component="span">Subir Ingeniería </Button> }         
+                        </label>
+                        </Button>
+                        {/* <TableContainer component={Paper} >
+                        <Table className={classes.table} aria-label="simple table" >
+                          <TableHead>
+                            <TableRow>
+                              <TableCell align="center">Nombre Archivo</TableCell>
+                              <TableCell align="center">Tipo Ingeniería</TableCell>
+                              <TableCell align="center">Fecha Creación</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                        
+                          { detallesSitio.data[0].ingenieria && detallesSitio.data[0].ingenieria.length>0 && Object.values(detallesSitio.data[0].ingenieria[0]).length>0 && Object.values(detallesSitio.data[0].ingenieria).map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell component="th" scope="row"  >
+                               <Button   
+                               style={{color:verdefondo}}
+                               onClick={()=>downloadFileHandler(item.key)}>{item.key}
+                               </Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button   >{item.tipo}</Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button  >{queFecha(item.fecha) }</Button>
+                           
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer> */}
+                        </div>
+   
                     <div className={classes.root}>
                     <Typography  align="center" className={classes.instructions} >
                       Documentos Relacionados a la OT
@@ -837,6 +935,41 @@ function controlBotonProceso(userInfo, activeStep){
                                 </TableBody>
                               </Table>
                             </TableContainer>}
+                            <Typography align="center" className={classes.title}>Ingenierías</Typography> 
+                            { archivosDelSitio && archivosDelSitio.inge && archivosDelSitio.inge.length>0 && <TableContainer component={Paper} >
+                        <Table className={classes.table} aria-label="simple table" >
+                          <TableHead>
+                            <TableRow>
+                              <TableCell align="center">Nombre Archivo</TableCell>
+                              <TableCell align="center">Tipo Ingeniería</TableCell>
+                              <TableCell align="center">Fecha Creación</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                        
+                          { archivosDelSitio.inge.length>0 && Object.values(archivosDelSitio.inge).length>0 && Object.values(archivosDelSitio.inge).map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell component="th" scope="row"  >
+                               <Button   
+                               style={{color:verdefondo}}
+                              //  onClick={()=>downloadFileHandler(item.key)}
+                               >{item.key}
+                               </Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button   >{item.tipo}</Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button  >{queFecha(item.fecha) }</Button>
+                           
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>}
                             {downloading && <CircularProgress/>}
                         </div>
                     </Grid>
