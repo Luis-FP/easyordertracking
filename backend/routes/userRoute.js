@@ -345,7 +345,7 @@ if(vistaUsuario.includes([req.body.proyecto])){
  
 });
 
-router.post("/createotnueva", isAuth, (isUser || isInge || isHiper || isSuper), async (req, res) => {
+router.post("/createotnueva", isAuth,  async (req, res) => {
   try {
 
       console.log("req usuario", req.user);
