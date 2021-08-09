@@ -301,15 +301,17 @@ if(vistaUsuario.includes([req.body.proyecto])){
         '$project': 
         {
           archivos: 1,
+          ingenieria:1
         }
       }
   ];
     let archivosSitioDB = await OTs.aggregate(filtro);
-// console.log("busqueda", archivosSitioDB)
+console.log("busqueda", archivosSitioDB)
   let archivosSitios =[]
+  let ingenieriaSitios =[]
   if(archivosSitioDB && archivosSitioDB.length>0){
     archivosSitioDB.forEach(element => {
-      // console.log( element.archivos[0])
+      // archivos
       if(element.archivos && element.archivos[0] && Object.keys(element.archivos[0]).length===1){
         archivosSitios.push({file:element.archivos[0][0].file})
       }
@@ -321,12 +323,24 @@ if(vistaUsuario.includes([req.body.proyecto])){
           archivosSitios.push({file:element2.file})
         }); 
       }
+      // ingenieria
+
+      if(element.ingenieria && element.ingenieria && Object.values(element.ingenieria).length>1){
+        console.log( "aui", Object.values(element.ingenieria))
+        Object.values(element.ingenieria).forEach(element2 => {
+          // console.log('varios archivos', element2.file);
+          ingenieriaSitios.push({key:element2.key, tipo:element2.tipo, fecha:element2.fecha})
+        }); 
+      }
+
     });
   }
+  
+
     
     // console.log("archivosSitios",archivosSitios)
     res.status(200)
-    .send({ message: "lista de archivos", data: archivosSitios})
+    .send({ message: "lista de archivos", data: archivosSitios, inge:ingenieriaSitios})
   } catch (errorBuscando) {
     console.log(errorBuscando);
     res
@@ -340,9 +354,46 @@ if(vistaUsuario.includes([req.body.proyecto])){
       .status(200)
       .send({  message: "No esta autorizado para ese proyecto." });
 }
-     
-     
- 
+});
+
+
+router.post("/ingenieriaSitio", isAuth, async (req, res) => {
+
+  let datosUsuario = await User.findOne({ ut_id: req.user.ut_id });
+  const vistaUsuario= datosUsuario.vista
+  console.log('req.body.ingenieria', req.body.ingenieria);
+// ver si el usuario esta autorizado para datos de ese sitio
+// if(vistaUsuario.includes([req.body.proyecto])){
+
+try {
+
+  let ingeSitioDB = await OTs.findOne({ot_number:req.body.ot_number});
+console.log("ingeSitioDB", ingeSitioDB)
+
+  
+   
+    ingeSitioDB.ingenieria.push(req.body.ingenieria)
+console.log("ingeSitioDB",ingeSitioDB);
+await ingeSitioDB.save()
+    res.status(200)
+    .send({ message: "Ingenieria Guardada", error:false})
+  
+
+  // console.log("archivosSitios",archivosSitios)
+
+} catch (errorInge) {
+  console.log(errorInge);
+  res
+    .status(500)
+    .send({ error: errorInge, message: "Error  guardando Ingenieria." });
+}
+
+// }else{
+// //pajuera
+// res
+//     .status(200)
+//     .send({  message: "No esta autorizado para ese proyecto." });
+// }
 });
 
 router.post("/createotnueva", isAuth,  async (req, res) => {

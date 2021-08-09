@@ -66,6 +66,9 @@ import {
   ARCHIVOS_CARGADOS_REQUEST,
   ARCHIVOS_CARGADOS_SUCCESS,
   ARCHIVOS_CARGADOS_FAIL,
+  INGENIERIA_CARGADOS_REQUEST,
+  INGENIERIA_CARGADOS_SUCCESS,
+  INGENIERIA_CARGADOS_FAIL,
 } from "../constants/userConstants";
 
 function userSigninReducer(state = {}, action) {
@@ -111,6 +114,18 @@ function archivosSitioReducer(state = {}, action) {
   }
 }
 
+function ingeSitioReducer(state = {}, action) {
+  switch (action.type) {
+    case INGENIERIA_CARGADOS_REQUEST:
+      return { loadingInge: true };
+    case INGENIERIA_CARGADOS_SUCCESS:
+      return { loadingInge: false, ingesDelSitio: action.payload };
+    case INGENIERIA_CARGADOS_FAIL:
+      return { loadingInge: false, errorInge: action.payload };
+    default:
+      return state;
+  }
+}
 function userOTSReducer(state = {}, action) {
   switch (action.type) {
     case USER_OTS_REQUEST:
@@ -319,7 +334,7 @@ export {
  
   emailRecoveryReducer,
   userMarcarLeidoReducer,
-
+  ingeSitioReducer
 
 
 };

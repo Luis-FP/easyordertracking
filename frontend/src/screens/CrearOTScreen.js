@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "w3-css/w3.css";
 import Papa from "papaparse";
 import fileDownload from 'js-file-download';
-import { fechaActual } from '../components/fechas';
+import { fechaActual, queFecha } from '../components/fechas';
 import { crearUsuarios , crearSitios, buscarSitiosCargados, crearOTNueva, usersOTs, archivosSitio} from "../actions/userActions";
 import { autoLogout } from '../actions/userActions';
 import axios from "axios";
@@ -618,7 +618,40 @@ const handleClose = () => {
             </TableBody>
           </Table>
         </TableContainer>}
-
+        { archivosDelSitio && archivosDelSitio.inge && archivosDelSitio.inge.length>0 && <TableContainer component={Paper} >
+                        <Table className={classes.table} aria-label="simple table" >
+                          <TableHead>
+                            <TableRow>
+                              <TableCell align="center">Nombre Archivo</TableCell>
+                              <TableCell align="center">Tipo Ingeniería</TableCell>
+                              <TableCell align="center">Fecha Creación</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                        
+                          { archivosDelSitio.inge.length>0 && Object.values(archivosDelSitio.inge).length>0 && Object.values(archivosDelSitio.inge).map((item, index) => (
+                              <TableRow key={index}>
+                                <TableCell component="th" scope="row"  >
+                               <Button   
+                               style={{color:verdefondo}}
+                              //  onClick={()=>downloadFileHandler(item.key)}
+                               >{item.key}
+                               </Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button   >{item.tipo}</Button>
+                           
+                                </TableCell>
+                                <TableCell component="th" scope="row"  >
+                               <Button  >{queFecha(item.fecha) }</Button>
+                           
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>}
     </div>
     <div className={classes.root}>
       <Typography align="center" className={classes.instructions} >3- Check List</Typography> 

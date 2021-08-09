@@ -372,6 +372,7 @@ console.log('updated', updated)
               // variant="outlined"
               // className="handle"
               // fontSize="large"
+              className="chip"
               className={classes.chip}
               codigo={ot.sitio_codigo}
               id={ot.id}
@@ -381,7 +382,7 @@ console.log('updated', updated)
               avatar={<Avatar style={{ backgroundColor: 'white', color: 'black'}}>{ot.ot_number}</Avatar>}
               label={ ot.sitio_nombre+" - " +ot.proyecto}
               clickable={true}
-              style={ {backgroundColor: colorAlerta(ot.prioridad)} }
+              style={ {backgroundColor: colorAlerta(ot.prioridad), margin:"1px"} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             /></Tooltip>)
@@ -426,6 +427,7 @@ console.log('updated', updated)
               // variant="outlined"
               // className="handle"
               // fontSize="large"
+              className="chip"
               className={classes.chip}
               codigo={ot.sitio_codigo}
               id={ot.id}
@@ -436,7 +438,7 @@ console.log('updated', updated)
               label={  ot.sitio_nombre +" - " +ot.proyecto}
               clickable={true}
               // style={ {backgroundColor: ot.prioridad === 'Alta'? rojoFondo : verdefondo} }
-              style={ {backgroundColor: colorAlerta(ot.prioridad)} }
+              style={ {backgroundColor: colorAlerta(ot.prioridad), margin:"1px"} }
     
               onClick={(e)=>handleOpenDetalle(e)}
             /></Tooltip>)

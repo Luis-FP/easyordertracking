@@ -5,7 +5,8 @@ import Cookies from "js-cookie";
 import {
     userSigninReducer,  userProyectoReducer, userDetallesSitioReducer, userRegisterReducer,userOTSReducer, userOTSCreateReducer, userSalidaReducer,
     infoRegisterReducer, createUsersReducer, emailRecoveryReducer, infoActualizarReducer, userStatusReducer, createSitioReducer, listaSitiosCargadosReducer,
-    archivosSitioReducer
+    archivosSitioReducer,
+    ingeSitioReducer
 } from './reducers/userReducer';
 
 
@@ -19,7 +20,7 @@ const initialState = {
     userOTS: {}, userOTSCreate:{},
     listaSitiosCargados: {},
     userRegister: {}, infoRegister: {},userInfoActualizar:{}, userSalida:{},
-    archivosDisponiblesSitio: {}
+    archivosDisponiblesSitio: {}, ingeSitio:{}
 };
 
 
@@ -41,6 +42,8 @@ const reducer = combineReducers({
     createSitioR: createSitioReducer,
     listaSitiosCargados: listaSitiosCargadosReducer,
     archivosDisponiblesSitio: archivosSitioReducer,
+    ingeSitio:ingeSitioReducer,
+
     emailRecovery: emailRecoveryReducer,
 
 
