@@ -269,6 +269,11 @@ function DetalleOTScreen(props) {
   const userDetallesSitio = useSelector((state) => state.userDetallesSitio);
   const { loadingSitio, detallesSitio } = userDetallesSitio;
 
+  const ingeSitio = useSelector((state) => state.ingeSitio);
+  const { loadingInge, ingesDelSitio } = ingeSitio;
+  
+
+  
   const [downloading, setDownloading] = React.useState(false);
   const [uploadingInge, setUploadingInge] = React.useState(false);
   const [fileInge, setFileInge] = React.useState("");
@@ -306,7 +311,7 @@ function DetalleOTScreen(props) {
     ot_number: props.location.search ? split[1].substring(+ 10) : 1
   });
   const [updatedCodigo, setUpdatedCodigo] = React.useState(false);
- 
+  const [ingeSubida, setIngeSubida] = React.useState(false);
   const steps = getSteps();
  
   const handleNext = () => {
@@ -462,7 +467,7 @@ function DetalleOTScreen(props) {
         // dispatch(archivosSitio({sitio_codigo:sitioBuscar.codigo, proyecto: userInfo.vista}))
         setUpdatedCodigo(true)
       }
-      if(detallesSitio && detallesSitio.data){
+      if(detallesSitio && detallesSitio.data && !loadingArchivo && !loadingInge){
         dispatch(archivosSitio({sitio_codigo:sitioBuscar.codigo, proyecto: detallesSitio.data[0].proyecto}))
       }
      
@@ -470,7 +475,7 @@ function DetalleOTScreen(props) {
     return () => {
     
     };
-  }, [loadingSitio, detallesSitio, updatedCodigo, uploadingInge ]);
+  }, [loadingSitio, detallesSitio, updatedCodigo, uploadingInge, ingesDelSitio ]);
   
 
   const handleProceso = (e) =>{
@@ -586,6 +591,7 @@ function EntradasAgente(userInfo, activeStep){
 
  // subida de archivos a Amazon
  const uploadFileIngeHandler = (e) => {
+  
   setFileInge(e.target.value)
   const file = e.target.files[0];
 console.log("e.target.value", e.target.value, "fileInge", fileInge)
@@ -622,6 +628,11 @@ console.log("e.target.value", e.target.value, "fileInge", fileInge)
       setUploadingInge(false);
     });
 };
+
+function ordenarIngenierias(arreglo) {
+  arreglo.sort(function(b, a){return new Date(a.fecha).getTime() - new Date(b.fecha).getTime()});
+  return arreglo
+}
 
   return (<div>
      <React.Fragment>
@@ -947,7 +958,8 @@ console.log("e.target.value", e.target.value, "fileInge", fileInge)
                           </TableHead>
                           <TableBody>
                         
-                          { archivosDelSitio.inge.length>0 && Object.values(archivosDelSitio.inge).length>0 && Object.values(archivosDelSitio.inge).map((item, index) => (
+                          {/* { archivosDelSitio.inge.length>0 && Object.values(archivosDelSitio.inge).length>0 && Object.values(archivosDelSitio.inge).map((item, index) => ( */}
+                            { archivosDelSitio.inge.length>0 && Object.values(archivosDelSitio.inge).length>0 && ordenarIngenierias(archivosDelSitio.inge).map((item, index) => (
                               <TableRow key={index}>
                                 <TableCell component="th" scope="row"  >
                                <Button   
