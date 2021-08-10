@@ -66,7 +66,7 @@ import {
   INGENIERIA_CARGADOS_FAIL
 } from "../constants/userConstants";
 import { ErrorValue } from "exceljs";
-
+import fileDownload from 'js-file-download';
 
 const signin = (info) => async (dispatch) => {
 
@@ -641,6 +641,33 @@ const crearSitios = (datosSitios) => async (dispatch, getState) => {
   }
 };
 
+const reporteOTs = (value) => async (dispatch, getState) => {
+  const { userSignin: { userInfo } } = getState();
+  // dispatch({ type: RH_FILTRO_REQUEST}); 
+  try {
+ 
+    const { data } = await axios.post("/api/reportes/rh/reporteots", value, {
+      headers: {
+        Authorization: ' Bearer ' + userInfo.token
+      }
+    });
+
+    if (!data.error) {
+      fileDownload(Buffer.from(data.buff), data.fileName);
+      return data;
+    }
+    else {
+      return data;
+    }
+    // dispatch({ type: RH_FILTRO_SUCCESS, payload: data});
+    //console.log"Data",data);
+  } catch (error) {
+    console.log(error)
+    // dispatch({ type: RH_FILTRO_FAIL, payload: error.message });
+  }
+}
+
+
 const chgPasswordNew = (info) => async (dispatch) => {
   dispatch({ type: USER_CHGPASS_REQUEST });
   try {
@@ -793,5 +820,6 @@ export {
   marcarTCLeido,
   usersOTs,
   archivosSitio,
-  ingenieriaSitio
+  ingenieriaSitio,
+  reporteOTs
 };

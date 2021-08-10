@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import {  logout } from "../actions/userActions";
+import {  logout , reporteOTs} from "../actions/userActions";
 
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -23,6 +23,7 @@ import TimelineIcon from '@material-ui/icons/Timeline';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LabelIcon from '@material-ui/icons/Label';
+import PrintIcon from '@material-ui/icons/Print';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -115,6 +116,15 @@ console.log(props)
         }
       );
     };
+
+    const handleReporte = async () =>{
+      console.log('ir a reporte')
+
+      let values = await dispatch(reporteOTs());
+      if (values && !values.error) {
+        // handleOpen()
+      }
+    }
      
     return (  <div><div className={classes.root2}>
       <AppBar position="static" className={classes.barra}>
@@ -148,7 +158,8 @@ console.log(props)
               <BottomNavigationAction label="Usuarios" icon={<PersonAddIcon fontSize="large" />} href={'/register'}/>}
               {userInfo && (userInfo.isHiper || userInfo.isSuper) &&
               <BottomNavigationAction label="Métricas" icon={<TimelineIcon fontSize="large"   />}  href={'/metricas'} />}
-             
+              {userInfo && (userInfo.isHiper || userInfo.isSuper) &&
+              <BottomNavigationAction label="Reporte" icon={<PrintIcon fontSize="large"   />}  onClick={handleReporte} />}
           </BottomNavigation>
           <Dialog
               open={open}
