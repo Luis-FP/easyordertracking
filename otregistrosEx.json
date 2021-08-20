@@ -1,0 +1,5737 @@
+[{
+  "_id": {
+    "$oid": "60f6f4fd41b2770004ffa558"
+  },
+  "ot_number": "1",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-20T16:08:29.656Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboracion de este juego de planos para gestion de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f6f56041b2770004ffa55d"
+  },
+  "ot_number": "2",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-20T16:10:08.698Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f6f57d41b2770004ffa562"
+  },
+  "ot_number": "3",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-20T16:10:37.433Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f85a062cd373000448f979"
+  },
+  "ot_number": "4",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-21T17:31:50.430Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere corrección del pie de plano de los planos de Anteproyecto e Ingeniería, dónde dice propietario: Grupo de Comunicaciones Digitales, debe ir Arrendatario: GRUPO DE COMUNICACIONES DIGITALES, S.A.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f867f4f2d6560004f640bb"
+  },
+  "ot_number": "5",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-21T18:31:16.915Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere el plano de ASEP y Anteproyecto, del sitio La Peña. Trabajarlo con la topografía teórica colocado en la carpeta de repositorio llamada Topografías<Topografías Teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f86961f2d6560004f640d2"
+  },
+  "ot_number": "6",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-21T18:37:21.334Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f887d08ff6cc00041418fe"
+  },
+  "ot_number": "7",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-21T20:47:12.027Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f888fb8ff6cc000414190f"
+  },
+  "ot_number": "8",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-21T20:52:11.341Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b58348a2c80004f6764b"
+  },
+  "ot_number": "9",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-22T00:02:11.101Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b5a048a2c80004f67650"
+  },
+  "ot_number": "10",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-22T00:02:40.864Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b79c48a2c80004f67655"
+  },
+  "ot_number": "11",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-22T00:11:08.278Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b7b448a2c80004f6765a"
+  },
+  "ot_number": "12",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-22T00:11:32.224Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8de313c54fd0004569a90"
+  },
+  "ot_number": "2",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-22T02:55:45.493Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8de3e3c54fd0004569a9c"
+  },
+  "ot_number": "1",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-22T02:55:58.235Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboracion de este juego de planos para gestion de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8de453c54fd0004569aa8"
+  },
+  "ot_number": "3",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-22T02:56:05.572Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f98ef1d42689000421ecb0"
+  },
+  "ot_number": "4",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-22T15:29:53.450Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere corrección del pie de plano de los planos de Anteproyecto e Ingeniería, dónde dice propietario: Grupo de Comunicaciones Digitales, debe ir Arrendatario: GRUPO DE COMUNICACIONES DIGITALES, S.A.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f9b6a44a8b6d0004895fe0"
+  },
+  "ot_number": "13",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-22T18:19:16.984Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f9b7444a8b6d0004895ff8"
+  },
+  "ot_number": "4",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-22T18:21:56.498Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere corrección del pie de plano de los planos de Anteproyecto e Ingeniería, dónde dice propietario: Grupo de Comunicaciones Digitales, debe ir Arrendatario: GRUPO DE COMUNICACIONES DIGITALES, S.A.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fa3b5f5e207d00040aa370"
+  },
+  "ot_number": "5",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-23T03:45:35.433Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere el plano de ASEP y Anteproyecto, del sitio La Peña. Trabajarlo con la topografía teórica colocado en la carpeta de repositorio llamada Topografías<Topografías Teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fa3d1b5e207d00040aa382"
+  },
+  "ot_number": "5",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-23T03:52:59.956Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere el plano de ASEP y Anteproyecto, del sitio La Peña. Trabajarlo con la topografía teórica colocado en la carpeta de repositorio llamada Topografías<Topografías Teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fa40745e207d00040aa3b5"
+  },
+  "ot_number": "13",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-23T04:07:16.402Z"
+  },
+  "comentarios_responsable_ot": "el informe no se encuentra en la carpeta repositorio. subirlo para poder proceder con las modificaciones.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab406c9fbff0004f9bee5"
+  },
+  "ot_number": "12",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:20:22.362Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab40ac9fbff0004f9bef1"
+  },
+  "ot_number": "11",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:20:26.917Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab412c9fbff0004f9befd"
+  },
+  "ot_number": "10",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:20:34.694Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab431c9fbff0004f9bf0f"
+  },
+  "ot_number": "9",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:21:05.890Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab576c9fbff0004f9bf21"
+  },
+  "ot_number": "7",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:26:30.636Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab655c9fbff0004f9bf35"
+  },
+  "ot_number": "8",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:30:13.951Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fab792c9fbff0004f9bf47"
+  },
+  "ot_number": "6",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T12:35:30.728Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60faf84f0c876500040fda53"
+  },
+  "ot_number": "15",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-23T17:11:43.191Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Urgente",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb1391a31ecd0004051950"
+  },
+  "ot_number": "9",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-23T19:08:01.282Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb1399a31ecd000405195c"
+  },
+  "ot_number": "10",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-23T19:08:09.785Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb2be1736bf00004e57fb4"
+  },
+  "ot_number": "11",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-23T20:51:45.452Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb2be8736bf00004e57fc1"
+  },
+  "ot_number": "9",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-23T20:51:52.208Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb2bee736bf00004e57fce"
+  },
+  "ot_number": "10",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-23T20:51:58.495Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb44d1ea74ab0004fbdf55"
+  },
+  "ot_number": "12",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-23T22:38:09.630Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb45b2ea74ab0004fbdf62"
+  },
+  "ot_number": "12",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-23T22:41:54.066Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb460dea74ab0004fbdf72"
+  },
+  "ot_number": "7",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-23T22:43:25.842Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb4614ea74ab0004fbdf7f"
+  },
+  "ot_number": "6",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-23T22:43:32.591Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fb47a1ea74ab0004fbdf8c"
+  },
+  "ot_number": "15",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-23T22:50:09.765Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Urgente",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60fd7bc82d3fc4000449f6d8"
+  },
+  "ot_number": "15",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-25T14:57:12.958Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Urgente",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd0f2481c400049f918e"
+  },
+  "ot_number": "16",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-26T13:47:59.168Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd422481c400049f9198"
+  },
+  "ot_number": "17",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-26T13:48:50.143Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd902481c400049f91a2"
+  },
+  "ot_number": "18",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-26T13:50:08.972Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febe232481c400049f91ac"
+  },
+  "ot_number": "19",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-26T13:52:35.485Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Plano OPAMUR (linea  y calificación)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff11d31a5a4100048ee012"
+  },
+  "ot_number": "6",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-26T19:49:39.236Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff236e1a5a4100048ee025"
+  },
+  "ot_number": "8",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:04:46.706Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff23751a5a4100048ee032"
+  },
+  "ot_number": "15",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:04:53.958Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Urgente",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff237e1a5a4100048ee03f"
+  },
+  "ot_number": "6",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:05:02.727Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff23831a5a4100048ee04c"
+  },
+  "ot_number": "7",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:05:07.997Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff27ba1a5a4100048ee060"
+  },
+  "ot_number": "19",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:23:06.871Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Plano OPAMUR (linea  y calificación)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff27c61a5a4100048ee06d"
+  },
+  "ot_number": "17",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:23:18.341Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff27cc1a5a4100048ee07a"
+  },
+  "ot_number": "16",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:23:24.975Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff2b371a5a4100048ee0b0"
+  },
+  "ot_number": "6",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:37:59.242Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff2b3c1a5a4100048ee0bd"
+  },
+  "ot_number": "7",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:38:04.119Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff2b461a5a4100048ee0ca"
+  },
+  "ot_number": "8",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:38:14.026Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff2b501a5a4100048ee0d7"
+  },
+  "ot_number": "18",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:38:24.960Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff2f361a5a4100048ee0e4"
+  },
+  "ot_number": "13",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-26T21:55:02.531Z"
+  },
+  "comentarios_responsable_ot": "el informe no se encuentra en la carpeta repositorio. subirlo para poder proceder con las modificaciones.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff3b631a5a4100048ee0f3"
+  },
+  "ot_number": "16",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T22:46:59.660Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff3b681a5a4100048ee100"
+  },
+  "ot_number": "17",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T22:47:04.360Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff3b6d1a5a4100048ee10d"
+  },
+  "ot_number": "19",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T22:47:09.100Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Plano OPAMUR (linea  y calificación)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff3b721a5a4100048ee11a"
+  },
+  "ot_number": "18",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-26T22:47:14.570Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff403b1a5a4100048ee131"
+  },
+  "ot_number": "18",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-26T23:07:39.740Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ff45a3aff8c20004cd43a8"
+  },
+  "ot_number": "13",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-26T23:30:43.704Z"
+  },
+  "comentarios_responsable_ot": "pendiente diseño estructural de torre.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610049c9bfc24800046774c8"
+  },
+  "ot_number": "20",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T18:00:41.443Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61004a46bfc24800046774d6"
+  },
+  "ot_number": "21",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T18:02:46.068Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61004af7bfc24800046774e0"
+  },
+  "ot_number": "22",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T18:05:43.594Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61005695bfc248000467753c"
+  },
+  "ot_number": "23",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T18:55:17.106Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610057cebfc2480004677562"
+  },
+  "ot_number": "24",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T19:00:30.660Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610057f7bfc248000467756c"
+  },
+  "ot_number": "25",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T19:01:11.650Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61005822bfc2480004677576"
+  },
+  "ot_number": "26",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T19:01:54.170Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61005854bfc2480004677580"
+  },
+  "ot_number": "27",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T19:02:44.578Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006b9343783a00043b5646"
+  },
+  "ot_number": "28",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:24:51.603Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006bd043783a00043b5650"
+  },
+  "ot_number": "29",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:25:52.752Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006c4643783a00043b566a"
+  },
+  "ot_number": "29",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:27:50.953Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006ce443783a00043b5675"
+  },
+  "ot_number": "30",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:30:28.710Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006d2443783a00043b5683"
+  },
+  "ot_number": "31",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:31:32.369Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006d5a43783a00043b568d"
+  },
+  "ot_number": "32",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:32:26.634Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006d9643783a00043b5697"
+  },
+  "ot_number": "33",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:33:26.374Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61006dc943783a00043b56a1"
+  },
+  "ot_number": "34",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T20:34:17.431Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610088a322d7cc0004b8bbb2"
+  },
+  "ot_number": "35",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-27T22:28:51.059Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6100c0985a3c0300044891fe"
+  },
+  "ot_number": "36",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T02:27:36.056Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Detalle de visita y adicionales en el repositorio.\nTener en cuenta el camino de acceso minimo 3m de ancho",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6100c8015a3c030004489210"
+  },
+  "ot_number": "37",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T02:59:13.253Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610163a762f11c00049bf511"
+  },
+  "ot_number": "20",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:03:19.289Z"
+  },
+  "comentarios_responsable_ot": "Vamos a corroborar la información para determinar si hay estudio de suelos o bien ya hay diseño de cimentación y así proceder con los planos de construcción.",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101644662f11c00049bf51e"
+  },
+  "ot_number": "21",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:05:58.220Z"
+  },
+  "comentarios_responsable_ot": "Se revisara la información proporcionada (estudio de suelos o bien diseño de cimentación) para proceder con los planos de construcción.",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101649662f11c00049bf52b"
+  },
+  "ot_number": "22",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:07:18.563Z"
+  },
+  "comentarios_responsable_ot": "Se solicitara diseño de cimentación para poder realizar planos de construcción.",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610164b162f11c00049bf538"
+  },
+  "ot_number": "1",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:07:45.738Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboracion de este juego de planos para gestion de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610164bf62f11c00049bf545"
+  },
+  "ot_number": "2",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:07:59.281Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610164c962f11c00049bf552"
+  },
+  "ot_number": "3",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:08:09.786Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610164f662f11c00049bf566"
+  },
+  "ot_number": "5",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:08:54.278Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere el plano de ASEP y Anteproyecto, del sitio La Peña. Trabajarlo con la topografía teórica colocado en la carpeta de repositorio llamada Topografías<Topografías Teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101650862f11c00049bf573"
+  },
+  "ot_number": "4",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:09:12.442Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere corrección del pie de plano de los planos de Anteproyecto e Ingeniería, dónde dice propietario: Grupo de Comunicaciones Digitales, debe ir Arrendatario: GRUPO DE COMUNICACIONES DIGITALES, S.A.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101651062f11c00049bf580"
+  },
+  "ot_number": "6",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:09:20.285Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101651e62f11c00049bf58d"
+  },
+  "ot_number": "7",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:09:34.988Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101652662f11c00049bf59a"
+  },
+  "ot_number": "8",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:09:42.840Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101658f62f11c00049bf5a7"
+  },
+  "ot_number": "23",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:11:27.081Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610165d062f11c00049bf5b4"
+  },
+  "ot_number": "23",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:12:32.342Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610165f362f11c00049bf5c1"
+  },
+  "ot_number": "24",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:13:07.826Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61016da662f11c00049bf5d9"
+  },
+  "ot_number": "38",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T14:45:58.785Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dccce8345c000422b23e"
+  },
+  "ot_number": "41",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:40:12.764Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dd0ce8345c000422b248"
+  },
+  "ot_number": "42",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:41:16.523Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dd37e8345c000422b252"
+  },
+  "ot_number": "43",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:41:59.653Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dd64e8345c000422b25c"
+  },
+  "ot_number": "44",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:42:44.743Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dd8de8345c000422b266"
+  },
+  "ot_number": "45",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:43:25.266Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101ddbce8345c000422b270"
+  },
+  "ot_number": "46",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:44:12.609Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101de74e8345c000422b27a"
+  },
+  "ot_number": "47",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-28T22:47:16.375Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101eafa789d8000043ec948"
+  },
+  "ot_number": "19",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T23:40:42.223Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Plano OPAMUR (linea  y calificación)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101eb1c789d8000043ec955"
+  },
+  "ot_number": "18",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T23:41:16.162Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101eb5d789d8000043ec96c"
+  },
+  "ot_number": "17",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T23:42:21.288Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101eb6f789d8000043ec979"
+  },
+  "ot_number": "16",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T23:42:39.643Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101eb89789d8000043ec986"
+  },
+  "ot_number": "15",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-28T23:43:05.892Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Urgente",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101f935789d8000043ec9f7"
+  },
+  "ot_number": "23",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T00:41:25.511Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101f93d789d8000043eca04"
+  },
+  "ot_number": "24",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T00:41:33.288Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610201fd789d8000043eca39"
+  },
+  "ot_number": "23",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T01:18:53.935Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61020205789d8000043eca46"
+  },
+  "ot_number": "24",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T01:19:01.649Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61021238c22330000497b8ae"
+  },
+  "ot_number": "9",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:28:08.571Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61021240c22330000497b8bb"
+  },
+  "ot_number": "10",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:28:16.462Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61021249c22330000497b8c8"
+  },
+  "ot_number": "11",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:28:25.004Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61021252c22330000497b8d5"
+  },
+  "ot_number": "12",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:28:34.872Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61021631c22330000497b8e9"
+  },
+  "ot_number": "29",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:45:05.065Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102163ac22330000497b8f6"
+  },
+  "ot_number": "28",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:45:14.866Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610216a7c22330000497b90a"
+  },
+  "ot_number": "25",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:47:03.722Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610216b8c22330000497b917"
+  },
+  "ot_number": "26",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:47:20.691Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610216e3c22330000497b924"
+  },
+  "ot_number": "35",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:48:03.277Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610216f4c22330000497b931"
+  },
+  "ot_number": "36",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T02:48:20.999Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Detalle de visita y adicionales en el repositorio.\nTener en cuenta el camino de acceso minimo 3m de ancho",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102aca4974ab90004945d09"
+  },
+  "ot_number": "48",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-29T13:27:00.422Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102acd9974ab90004945d13"
+  },
+  "ot_number": "49",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-29T13:27:53.358Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102b5ec974ab90004945d32"
+  },
+  "ot_number": "20",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:06:36.014Z"
+  },
+  "comentarios_responsable_ot": "Vamos a corroborar la información para determinar si hay estudio de suelos o bien ya hay diseño de cimentación y así proceder con los planos de construcción.",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102b620974ab90004945d46"
+  },
+  "ot_number": "28",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:07:28.370Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102b631974ab90004945d53"
+  },
+  "ot_number": "29",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:07:45.260Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102b657974ab90004945d60"
+  },
+  "ot_number": "25",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:08:23.571Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102b674974ab90004945d6d"
+  },
+  "ot_number": "26",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:08:52.060Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102c200974ab90004945de4"
+  },
+  "ot_number": "23",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:58:08.370Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102c20c974ab90004945df1"
+  },
+  "ot_number": "24",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-29T14:58:20.782Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102c9b6974ab90004945e05"
+  },
+  "ot_number": "28",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T15:31:02.631Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102c9c2974ab90004945e12"
+  },
+  "ot_number": "29",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-29T15:31:14.186Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102cf2e974ab90004945e31"
+  },
+  "ot_number": "28",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T15:54:22.994Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102cf3e974ab90004945e3e"
+  },
+  "ot_number": "29",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T15:54:38.860Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102e32952f17a0004531c5c"
+  },
+  "ot_number": "35",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-29T17:19:37.924Z"
+  },
+  "comentarios_responsable_ot": "Estoy pendiente de recibir información adicional para poder realizar los cambios en los planos. Información solicitada vía correo",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102e35852f17a0004531c69"
+  },
+  "ot_number": "28",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-29T17:20:24.919Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102e36552f17a0004531c76"
+  },
+  "ot_number": "29",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-29T17:20:37.789Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6102fcec57b3060004151e12"
+  },
+  "ot_number": "25",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T19:09:32.784Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610311822e14c70004022d16"
+  },
+  "ot_number": "26",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T20:37:22.942Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103118f2e14c70004022d23"
+  },
+  "ot_number": "26",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-29T20:37:35.810Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103553975beaa4a34747b57"
+  },
+  "ot_number": "14",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:26:17.068Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103563b6e42230004752916"
+  },
+  "ot_number": "38",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:30:35.521Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103564f6e42230004752923"
+  },
+  "ot_number": "38",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:30:55.764Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103566e75beaa4a34747b63"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:31:26.109Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610356f9af06335188307d2f"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:33:45.715Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610357736e42230004752930"
+  },
+  "ot_number": "38",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:35:47.198Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610357cdeae74f7ddce59c02"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:37:17.213Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610358a66e4223000475296e"
+  },
+  "ot_number": "38",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:40:54.922Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103595f2a474936b809ee46"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:43:59.052Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610359fb4b2ccc2630ce12d1"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:46:35.909Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035a4c94b03e4cfc35de6e"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:47:56.401Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035a7e0234555240a4f377"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:48:46.139Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035ad5b00781657cafbb6c"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:50:13.310Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035c906e4223000475299e"
+  },
+  "ot_number": "21",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T01:57:36.626Z"
+  },
+  "comentarios_responsable_ot": "Se revisara la información proporcionada (estudio de suelos o bien diseño de cimentación) para proceder con los planos de construcción.",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035dba6e422300047529b2"
+  },
+  "ot_number": "36",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:02:34.080Z"
+  },
+  "comentarios_responsable_ot": "Se requiere Estudio de suelos para proceder con el diseño de cimentación y así realizar planos constructivos  ",
+  "detalle_requerimiento": "Detalle de visita y adicionales en el repositorio.\nTener en cuenta el camino de acceso minimo 3m de ancho",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035e02b00781657cafbb78"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:03:46.843Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035e600e479f65789592db"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:05:20.436Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035e8d49ca6f46c4cf36e2"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:06:05.305Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035eb700c0c56bc45159ae"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:06:47.540Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61035fb100c0c56bc45159c4"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:10:57.321Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103601e00c0c56bc45159d2"
+  },
+  "ot_number": "14",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:12:46.073Z"
+  },
+  "comentarios_responsable_ot": "Comentario de Ingenieria x",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103603a00c0c56bc45159f0"
+  },
+  "ot_number": "39",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T02:13:14.675Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103efc891beba00041b4fac"
+  },
+  "ot_number": "47",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:25:44.726Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103efd591beba00041b4fc1"
+  },
+  "ot_number": "46",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:25:57.859Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103efe191beba00041b4fd6"
+  },
+  "ot_number": "45",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:26:09.508Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f05091beba00041b4feb"
+  },
+  "ot_number": "44",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:00.963Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f05991beba00041b5000"
+  },
+  "ot_number": "43",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:09.372Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f06d91beba00041b5015"
+  },
+  "ot_number": "24",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:29.365Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f07491beba00041b502a"
+  },
+  "ot_number": "23",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:36.845Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f07b91beba00041b503f"
+  },
+  "ot_number": "28",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:43.376Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f08491beba00041b5054"
+  },
+  "ot_number": "29",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:28:52.884Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f09291beba00041b5069"
+  },
+  "ot_number": "42",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:29:06.961Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f0e191beba00041b508b"
+  },
+  "ot_number": "37",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:30:25.799Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f23a91beba00041b50ba"
+  },
+  "ot_number": "34",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:36:10.186Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f3cc91beba00041b50cf"
+  },
+  "ot_number": "33",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:42:52.012Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f4a391beba00041b50f1"
+  },
+  "ot_number": "32",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:46:27.969Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f4ac91beba00041b5106"
+  },
+  "ot_number": "32",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:46:36.661Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f65291beba00041b511b"
+  },
+  "ot_number": "31",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:53:38.822Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103f76f91beba00041b514a"
+  },
+  "ot_number": "30",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T12:58:23.098Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103fa3691beba00041b5179"
+  },
+  "ot_number": "27",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T13:10:14.714Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6103fbb991beba00041b519b"
+  },
+  "ot_number": "49",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-07-30T13:16:41.120Z"
+  },
+  "comentarios_responsable_ot": "Se solicita diseño de cimentación, según estudio de suelos.",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610411fa759c660004bf1a40"
+  },
+  "ot_number": "25",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T14:51:38.839Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61041203759c660004bf1a55"
+  },
+  "ot_number": "26",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T14:51:47.582Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6104120d759c660004bf1a6a"
+  },
+  "ot_number": "26",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T14:51:57.522Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610449b5791b8100040471e4"
+  },
+  "ot_number": "25",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T18:49:25.040Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610449ba791b8100040471f9"
+  },
+  "ot_number": "26",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-07-30T18:49:30.440Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61047501bb54bd0004ca4dee"
+  },
+  "ot_number": "50",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-30T21:54:09.040Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61047555bb54bd0004ca4e04"
+  },
+  "ot_number": "51",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-30T21:55:33.106Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610475c1bb54bd0004ca4e12"
+  },
+  "ot_number": "52",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-30T21:57:21.802Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610476b8bb54bd0004ca4e2d"
+  },
+  "ot_number": "35",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-07-30T22:01:28.098Z"
+  },
+  "comentarios_responsable_ot": "Estoy pendiente de recibir información adicional para poder realizar los cambios en los planos. Información solicitada vía correo",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610476c6bb54bd0004ca4e42"
+  },
+  "ot_number": "20",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-30T22:01:42.042Z"
+  },
+  "comentarios_responsable_ot": "Vamos a corroborar la información para determinar si hay estudio de suelos o bien ya hay diseño de cimentación y así proceder con los planos de construcción.",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610476debb54bd0004ca4e57"
+  },
+  "ot_number": "33",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-30T22:02:06.760Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610476f6bb54bd0004ca4e6c"
+  },
+  "ot_number": "34",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-07-30T22:02:30.096Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61047721bb54bd0004ca4e77"
+  },
+  "ot_number": "53",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-30T22:03:13.141Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6105d2bef09493000499b42b"
+  },
+  "ot_number": "54",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-07-31T22:46:22.353Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106193d0228e700048272d1"
+  },
+  "ot_number": "27",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-01T03:47:09.034Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61061bdb0228e700048272f3"
+  },
+  "ot_number": "30",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-01T03:58:19.836Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61061bf30228e70004827315"
+  },
+  "ot_number": "34",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-01T03:58:43.114Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61061c010228e7000482732a"
+  },
+  "ot_number": "33",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-01T03:58:57.321Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61061f8c0228e70004827359"
+  },
+  "ot_number": "31",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:14:04.255Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610620db0228e70004827388"
+  },
+  "ot_number": "32",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:19:39.317Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6106228a0228e7000482739d"
+  },
+  "ot_number": "32",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:26:50.169Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610622990228e700048273b2"
+  },
+  "ot_number": "45",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:27:05.072Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610622a80228e700048273c7"
+  },
+  "ot_number": "30",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:27:20.979Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610622b20228e700048273dc"
+  },
+  "ot_number": "31",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:27:30.239Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610622f60228e700048273f1"
+  },
+  "ot_number": "47",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-01T04:28:38.614Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61075705b0d4900004f0fb88"
+  },
+  "ot_number": "27",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-02T02:23:01.227Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61075714b0d4900004f0fb9d"
+  },
+  "ot_number": "49",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-02T02:23:16.625Z"
+  },
+  "comentarios_responsable_ot": "Se solicita diseño de cimentación, según estudio de suelos.",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6107ff0470338b00045997e8"
+  },
+  "ot_number": "22",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-02T14:19:48.931Z"
+  },
+  "comentarios_responsable_ot": "Se solicitara diseño de cimentación para poder realizar planos de construcción.",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108293070338b00045998ab"
+  },
+  "ot_number": "55",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-02T17:19:44.530Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108296570338b00045998b9"
+  },
+  "ot_number": "56",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-02T17:20:37.246Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610829d070338b00045998c7"
+  },
+  "ot_number": "57",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-02T17:22:24.874Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610829f870338b00045998d5"
+  },
+  "ot_number": "58",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-02T17:23:04.404Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61082a1670338b00045998e3"
+  },
+  "ot_number": "59",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-02T17:23:34.605Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610876dc6cc1b421b0ee73a9"
+  },
+  "ot_number": "54",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-02T22:51:08.804Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610887dd0e074300043193ae"
+  },
+  "ot_number": "48",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:03:41.509Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610888040e074300043193d9"
+  },
+  "ot_number": "27",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:20.373Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610888090e074300043193f0"
+  },
+  "ot_number": "30",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:25.881Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108880e0e07430004319407"
+  },
+  "ot_number": "31",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:30.301Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610888180e0743000431941e"
+  },
+  "ot_number": "32",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:40.857Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108881f0e07430004319435"
+  },
+  "ot_number": "33",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:47.006Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610888230e0743000431944c"
+  },
+  "ot_number": "34",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T00:04:51.418Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61092f7098a2ca000410cbb6"
+  },
+  "ot_number": "20",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-03T11:58:40.015Z"
+  },
+  "comentarios_responsable_ot": "Vamos a corroborar la información para determinar si hay estudio de suelos o bien ya hay diseño de cimentación y así proceder con los planos de construcción.",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61092f7c98a2ca000410cbcd"
+  },
+  "ot_number": "22",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-03T11:58:52.162Z"
+  },
+  "comentarios_responsable_ot": "Se solicitara diseño de cimentación para poder realizar planos de construcción.",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610931fb98a2ca000410cc46"
+  },
+  "ot_number": "42",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T12:09:31.007Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109321a98a2ca000410cc5d"
+  },
+  "ot_number": "43",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T12:10:02.728Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109323498a2ca000410cc74"
+  },
+  "ot_number": "44",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T12:10:28.317Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109324d98a2ca000410cc8b"
+  },
+  "ot_number": "46",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T12:10:53.886Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610932b298a2ca000410ccb1"
+  },
+  "ot_number": "41",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T12:12:34.017Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61099cb2a0980a00045965b2"
+  },
+  "ot_number": "60",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T19:44:50.710Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b126a0980a0004596727"
+  },
+  "ot_number": "61",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:12:06.871Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b19ba0980a0004596737"
+  },
+  "ot_number": "62",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:14:03.329Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de cimentacion ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b1e1a0980a0004596745"
+  },
+  "ot_number": "63",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:15:13.722Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b221a0980a0004596753"
+  },
+  "ot_number": "64",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:16:17.444Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b265a0980a0004596761"
+  },
+  "ot_number": "65",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:17:25.897Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b2a4a0980a000459676f"
+  },
+  "ot_number": "66",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:18:28.260Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b2d8a0980a000459677d"
+  },
+  "ot_number": "67",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:19:20.225Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b3d1a0980a00045967a0"
+  },
+  "ot_number": "13",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:23:29.035Z"
+  },
+  "comentarios_responsable_ot": "pendiente diseño estructural de torre.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b3e9a0980a00045967c6"
+  },
+  "ot_number": "21",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:23:53.724Z"
+  },
+  "comentarios_responsable_ot": "Se revisara la información proporcionada (estudio de suelos o bien diseño de cimentación) para proceder con los planos de construcción.",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b3fda0980a00045967ec"
+  },
+  "ot_number": "49",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:24:13.804Z"
+  },
+  "comentarios_responsable_ot": "Se solicita diseño de cimentación, según estudio de suelos.",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b409a0980a0004596803"
+  },
+  "ot_number": "48",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:24:25.606Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b460a0980a0004596829"
+  },
+  "ot_number": "20",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:25:52.150Z"
+  },
+  "comentarios_responsable_ot": "Vamos a corroborar la información para determinar si hay estudio de suelos o bien ya hay diseño de cimentación y así proceder con los planos de construcción.",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b465a0980a0004596840"
+  },
+  "ot_number": "22",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:25:57.870Z"
+  },
+  "comentarios_responsable_ot": "Se solicitara diseño de cimentación para poder realizar planos de construcción.",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b46fa0980a0004596857"
+  },
+  "ot_number": "35",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:26:07.247Z"
+  },
+  "comentarios_responsable_ot": "Estoy pendiente de recibir información adicional para poder realizar los cambios en los planos. Información solicitada vía correo",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109bab5a0980a0004596896"
+  },
+  "ot_number": "35",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-03T21:52:53.496Z"
+  },
+  "comentarios_responsable_ot": "Estoy pendiente de recibir información adicional para poder realizar los cambios en los planos. Información solicitada vía correo",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109f0739ec895000431e329"
+  },
+  "ot_number": "47",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T01:42:11.383Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109f1609ec895000431e340"
+  },
+  "ot_number": "35",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-04T01:46:08.421Z"
+  },
+  "comentarios_responsable_ot": "Estoy pendiente de recibir información adicional para poder realizar los cambios en los planos. Información solicitada vía correo",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a0693303a4e00049cdaf8"
+  },
+  "ot_number": "44",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T03:16:35.602Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a069d303a4e00049cdb0f"
+  },
+  "ot_number": "47",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T03:16:45.725Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a0b1f303a4e00049cdb44"
+  },
+  "ot_number": "44",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T03:35:59.735Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610a0b29303a4e00049cdb5b"
+  },
+  "ot_number": "43",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T03:36:09.647Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa1bc523e2e000470c660"
+  },
+  "ot_number": "63",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:18:36.732Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa27b523e2e000470c677"
+  },
+  "ot_number": "65",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:21:47.978Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa2d3523e2e000470c68e"
+  },
+  "ot_number": "67",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:23:15.878Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa53f523e2e000470c6d2"
+  },
+  "ot_number": "66",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:33:35.591Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa548523e2e000470c6e9"
+  },
+  "ot_number": "66",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:33:44.674Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa55d523e2e000470c700"
+  },
+  "ot_number": "65",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:34:05.072Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa572523e2e000470c726"
+  },
+  "ot_number": "67",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:34:26.030Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa813523e2e000470c73d"
+  },
+  "ot_number": "45",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:45:39.496Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa95b523e2e000470c754"
+  },
+  "ot_number": "42",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:51:07.350Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa987523e2e000470c77a"
+  },
+  "ot_number": "46",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:51:51.385Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610aa9ab523e2e000470c791"
+  },
+  "ot_number": "41",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T14:52:27.748Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ac2f6523e2e000470c7dd"
+  },
+  "ot_number": "37",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-04T16:40:22.753Z"
+  },
+  "comentarios_responsable_ot": "Si pudieras compartirme la topografía con curvas de nivel por favor.\nsaludos.",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ac822523e2e000470c803"
+  },
+  "ot_number": "45",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:02:26.573Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ac884523e2e000470c81a"
+  },
+  "ot_number": "42",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:04:04.156Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ac892523e2e000470c831"
+  },
+  "ot_number": "46",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:04:18.995Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad460523e2e000470c870"
+  },
+  "ot_number": "42",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:54:40.436Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad469523e2e000470c887"
+  },
+  "ot_number": "46",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:54:49.573Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad48e523e2e000470c89e"
+  },
+  "ot_number": "45",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:55:26.144Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad52f523e2e000470c8c4"
+  },
+  "ot_number": "62",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:58:07.959Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de cimentacion ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad56f523e2e000470c8db"
+  },
+  "ot_number": "64",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:59:11.210Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad584523e2e000470c8f2"
+  },
+  "ot_number": "61",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-04T17:59:32.153Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad662523e2e000470c918"
+  },
+  "ot_number": "61",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T18:03:14.333Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad66b523e2e000470c92f"
+  },
+  "ot_number": "62",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T18:03:23.517Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de cimentacion ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ad6d4523e2e000470c955"
+  },
+  "ot_number": "64",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T18:05:08.602Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610add66523e2e000470c9b8"
+  },
+  "ot_number": "41",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-04T18:33:10.918Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610af73dd56ab8000479a369"
+  },
+  "ot_number": "68",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-04T20:23:25.193Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Es para permisos. y piden diseno estandar. No tiene que ser la definitiva.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610af828d56ab8000479a37d"
+  },
+  "ot_number": "68",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-04T20:27:20.489Z"
+  },
+  "comentarios_responsable_ot": "Todo esta completo.",
+  "detalle_requerimiento": "Es para permisos. y piden diseno estandar. No tiene que ser la definitiva.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4b87af9fd2000488bc6c"
+  },
+  "ot_number": "41",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:23:03.958Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4ba4af9fd2000488bc83"
+  },
+  "ot_number": "42",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:23:32.700Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4bc5af9fd2000488bc9a"
+  },
+  "ot_number": "43",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:24:05.634Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4bd0af9fd2000488bcb1"
+  },
+  "ot_number": "44",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:24:16.948Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4be3af9fd2000488bcc8"
+  },
+  "ot_number": "45",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:24:35.814Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4bf7af9fd2000488bcdf"
+  },
+  "ot_number": "46",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:24:55.613Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b4c9eaf9fd2000488bcf6"
+  },
+  "ot_number": "47",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:27:42.650Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b505baf9fd2000488bd0d"
+  },
+  "ot_number": "60",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:43:39.061Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b505baf9fd2000488bd13"
+  },
+  "ot_number": "60",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:43:39.987Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b5073af9fd2000488bd2a"
+  },
+  "ot_number": "50",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:44:03.793Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b5080af9fd2000488bd41"
+  },
+  "ot_number": "53",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:44:16.925Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610b50b1af9fd2000488bd58"
+  },
+  "ot_number": "51",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T02:45:05.194Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c215bfbc1f200047627a9"
+  },
+  "ot_number": "13",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T17:35:23.057Z"
+  },
+  "comentarios_responsable_ot": "pendiente diseño estructural de torre.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c2178fbc1f200047627c0"
+  },
+  "ot_number": "21",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-05T17:35:52.919Z"
+  },
+  "comentarios_responsable_ot": "Se revisara la información proporcionada (estudio de suelos o bien diseño de cimentación) para proceder con los planos de construcción. se requiere estudios de suelos para proceder.",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c40a2fbc1f200047628fb"
+  },
+  "ot_number": "37",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-05T19:48:50.067Z"
+  },
+  "comentarios_responsable_ot": "Si pudieras compartirme la topografía con curvas de nivel por favor.\nsaludos.",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c5d891db69204882eab63"
+  },
+  "ot_number": "68",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-05T21:52:09.860Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cadb51f5c270004c83917"
+  },
+  "ot_number": "69",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T03:34:13.769Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cae211f5c270004c83925"
+  },
+  "ot_number": "70",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T03:36:01.855Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610caed31f5c270004c83933"
+  },
+  "ot_number": "71",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T03:38:59.675Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610caf271f5c270004c83941"
+  },
+  "ot_number": "72",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T03:40:23.795Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cb0e11f5c270004c83951"
+  },
+  "ot_number": "73",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T03:47:45.891Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cb6cc5fa06046c85d0329"
+  },
+  "ot_number": "74",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-06T04:13:00.110Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Prueba",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610d4861e5b52c000486a5df"
+  },
+  "ot_number": "50",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-06T14:34:09.903Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610d980e183ab40004930d66"
+  },
+  "ot_number": "51",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-06T20:14:06.546Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610db5ea22cbc90004e64a5d"
+  },
+  "ot_number": "53",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-06T22:21:30.920Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610db9be22cbc90004e64aa1"
+  },
+  "ot_number": "50",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-06T22:37:50.750Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610db9c222cbc90004e64ab8"
+  },
+  "ot_number": "51",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-06T22:37:54.931Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610db9c922cbc90004e64acf"
+  },
+  "ot_number": "37",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-06T22:38:01.524Z"
+  },
+  "comentarios_responsable_ot": "Si pudieras compartirme la topografía con curvas de nivel por favor.\nsaludos.",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ea940187db40004ab8264"
+  },
+  "ot_number": "53",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-07T15:39:44.337Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eaa04187db40004ab827b"
+  },
+  "ot_number": "60",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-07T15:43:00.121Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eb4f8187db40004ab8317"
+  },
+  "ot_number": "37",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-07T16:29:44.111Z"
+  },
+  "comentarios_responsable_ot": "Si pudieras compartirme la topografía con curvas de nivel por favor.\nsaludos.",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eba7a187db40004ab832e"
+  },
+  "ot_number": "52",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-07T16:53:14.457Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ec374187db40004ab8356"
+  },
+  "ot_number": "75",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T17:31:32.869Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Pacora 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ecf4d187db40004ab83a2"
+  },
+  "ot_number": "71",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-07T18:22:05.601Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ee0cd187db40004ab8414"
+  },
+  "ot_number": "76",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T19:36:45.412Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ee104187db40004ab8422"
+  },
+  "ot_number": "77",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T19:37:40.767Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eee9a187db40004ab8430"
+  },
+  "ot_number": "78",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T20:35:38.113Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eefbd187db40004ab843e"
+  },
+  "ot_number": "79",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T20:40:29.334Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ef62f187db40004ab844c"
+  },
+  "ot_number": "80",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T21:07:59.402Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ef74d187db40004ab8460"
+  },
+  "ot_number": "79",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-07T21:12:45.093Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f1d189fe62400047d5b01"
+  },
+  "ot_number": "52",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-07T23:54:00.679Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f2f1d9fe62400047d5b65"
+  },
+  "ot_number": "55",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:10:53.058Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f2f2b9fe62400047d5b7c"
+  },
+  "ot_number": "56",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:11:07.672Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f2f459fe62400047d5ba2"
+  },
+  "ot_number": "57",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:11:33.934Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f2f6c9fe62400047d5bc8"
+  },
+  "ot_number": "58",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:12:12.484Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f302c9fe62400047d5bdf"
+  },
+  "ot_number": "59",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:15:24.224Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f313c9fe62400047d5c14"
+  },
+  "ot_number": "51",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:19:56.785Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f31469fe62400047d5c2b"
+  },
+  "ot_number": "53",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-08T01:20:06.701Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f49479fe62400047d5ca7"
+  },
+  "ot_number": "50",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-08T03:02:31.416Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f49519fe62400047d5cbe"
+  },
+  "ot_number": "52",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-08T03:02:41.317Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610f495a9fe62400047d5cd5"
+  },
+  "ot_number": "60",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-08T03:02:50.640Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6110555227f4710004dabfb5"
+  },
+  "ot_number": "73",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-08T22:06:10.506Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611148332b7cba00043151f4"
+  },
+  "ot_number": "55",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T15:22:27.439Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611149652b7cba0004315218"
+  },
+  "ot_number": "55",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T15:27:33.533Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6111585794f5b60004ab9063"
+  },
+  "ot_number": "56",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T16:31:19.465Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6111598f94f5b60004ab907a"
+  },
+  "ot_number": "57",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-09T16:36:31.988Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6111599794f5b60004ab9091"
+  },
+  "ot_number": "57",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T16:36:39.863Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61115adf94f5b60004ab90a8"
+  },
+  "ot_number": "58",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T16:42:07.160Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61115df894f5b60004ab90bf"
+  },
+  "ot_number": "59",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-09T16:55:20.336Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6111897b6697990004186c76"
+  },
+  "ot_number": "13",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-09T20:00:59.595Z"
+  },
+  "comentarios_responsable_ot": "pendiente diseño estructural de torre.",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611298052841850004677a90"
+  },
+  "ot_number": "81",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-10T15:15:17.919Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Las Cumbres 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bd712841850004677aaa"
+  },
+  "ot_number": "71",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:54:57.145Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bdc52841850004677abf"
+  },
+  "ot_number": "71",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:56:21.610Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bde82841850004677ad1"
+  },
+  "ot_number": "50",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:56:56.158Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bded2841850004677ae6"
+  },
+  "ot_number": "51",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:01.758Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bdf32841850004677afb"
+  },
+  "ot_number": "52",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:07.439Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bdf82841850004677b10"
+  },
+  "ot_number": "53",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:12.553Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112bdfc2841850004677b25"
+  },
+  "ot_number": "60",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:16.582Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112be022841850004677b3a"
+  },
+  "ot_number": "37",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:22.731Z"
+  },
+  "comentarios_responsable_ot": "Si pudieras compartirme la topografía con curvas de nivel por favor.\nsaludos.",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112be192841850004677b5c"
+  },
+  "ot_number": "72",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-10T17:57:45.865Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112c0532841850004677bf4"
+  },
+  "ot_number": "55",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T18:07:15.831Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112c0592841850004677c0b"
+  },
+  "ot_number": "56",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T18:07:21.150Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112c0662841850004677c1e"
+  },
+  "ot_number": "57",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T18:07:34.311Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112c06c2841850004677c33"
+  },
+  "ot_number": "58",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T18:07:40.983Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6112c0712841850004677c48"
+  },
+  "ot_number": "59",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-10T18:07:45.750Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113366cea4d7300049806e1"
+  },
+  "ot_number": "72",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-11T02:31:08.067Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113367bea4d7300049806f6"
+  },
+  "ot_number": "69",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T02:31:23.652Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611336bdea4d73000498070b"
+  },
+  "ot_number": "70",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T02:32:29.745Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61134b2e90aa2a0004be43d4"
+  },
+  "ot_number": "69",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-11T03:59:42.350Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61134cd590aa2a0004be43e9"
+  },
+  "ot_number": "78",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-11T04:06:45.820Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61134ceb90aa2a0004be43fe"
+  },
+  "ot_number": "79",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-11T04:07:07.240Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61134cff90aa2a0004be4413"
+  },
+  "ot_number": "80",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-11T04:07:27.500Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e4f1fa567a00047e53c9"
+  },
+  "ot_number": "73",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T14:55:45.840Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e4fcfa567a00047e53de"
+  },
+  "ot_number": "78",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T14:55:56.597Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e503fa567a00047e53f3"
+  },
+  "ot_number": "79",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T14:56:03.848Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e50ffa567a00047e5408"
+  },
+  "ot_number": "80",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T14:56:15.641Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e63afa567a00047e541d"
+  },
+  "ot_number": "55",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:01:14.776Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e63ffa567a00047e5432"
+  },
+  "ot_number": "56",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:01:19.892Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e645fa567a00047e5447"
+  },
+  "ot_number": "57",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:01:25.211Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e64afa567a00047e545c"
+  },
+  "ot_number": "58",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:01:30.776Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113e64ffa567a00047e5471"
+  },
+  "ot_number": "59",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:01:35.767Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6113ecb7fa567a00047e54a1"
+  },
+  "ot_number": "70",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-11T15:28:55.089Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61141222a0588e0004b023b5"
+  },
+  "ot_number": "77",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-11T18:08:34.466Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611421c4a0588e0004b023f0"
+  },
+  "ot_number": "82",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-11T19:15:16.484Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Plano para tramite de linea y calificación de lugar\nplano deben de ser 60*90 y con un espacio de 15x20 para sellos, adjuntare la solicitud de la oficina de planificación para mejor comprensión y un plano como referencia  \n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bb961226900042f4882"
+  },
+  "ot_number": "69",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:55:37.230Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bbf61226900042f4897"
+  },
+  "ot_number": "70",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:55:43.695Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bc561226900042f48ac"
+  },
+  "ot_number": "72",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:55:49.541Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bc661226900042f48b2"
+  },
+  "ot_number": "72",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:55:50.111Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bcf61226900042f48c5"
+  },
+  "ot_number": "80",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:55:59.166Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bd661226900042f48d8"
+  },
+  "ot_number": "79",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:56:06.051Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149bdd61226900042f48eb"
+  },
+  "ot_number": "78",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:56:13.114Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149be461226900042f4900"
+  },
+  "ot_number": "73",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:56:20.820Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149c0061226900042f4915"
+  },
+  "ot_number": "81",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:56:48.919Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Las Cumbres 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61149c8461226900042f4944"
+  },
+  "ot_number": "75",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-12T03:59:00.016Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Pacora 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61152669bced4900042a33d4"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:21.807Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61152669bced4900042a33da"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:21.915Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115266abced4900042a33e4"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:22.100Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115266abced4900042a33eb"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:22.180Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115266abced4900042a33f1"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:22.239Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115266abced4900042a33f7"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T13:47:22.876Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611535ffbced4900042a3425"
+  },
+  "ot_number": "83",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T14:53:51.882Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se solicita diseño de cimentacion, se adjunta estudio de suelo.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153677bced4900042a3435"
+  },
+  "ot_number": "84",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T14:55:51.978Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153723bced4900042a3445"
+  },
+  "ot_number": "85",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T14:58:43.750Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunto estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153772bced4900042a3453"
+  },
+  "ot_number": "86",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:00:02.536Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611537d3bced4900042a3461"
+  },
+  "ot_number": "87",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:01:39.650Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153940bced4900042a346f"
+  },
+  "ot_number": "88",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:07:44.535Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topográfico para elaborar ingeniería para presentar a municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153965bced4900042a347d"
+  },
+  "ot_number": "62",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:08:21.040Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de cimentacion ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611539a0bced4900042a3488"
+  },
+  "ot_number": "89",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:09:20.548Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153b31bced4900042a3496"
+  },
+  "ot_number": "90",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:16:01.486Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153b6bbced4900042a34a4"
+  },
+  "ot_number": "91",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:16:59.397Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153bb3bced4900042a34b2"
+  },
+  "ot_number": "92",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:18:11.124Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153bdbbced4900042a34c0"
+  },
+  "ot_number": "93",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T15:18:51.965Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61154f9396d8240004e448f9"
+  },
+  "ot_number": "94",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T16:42:59.509Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Diseño de cimentación ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115500596d8240004e44907"
+  },
+  "ot_number": "63",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T16:44:53.265Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115501796d8240004e44912"
+  },
+  "ot_number": "95",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-12T16:45:11.380Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Diseño de Cimentación",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115522596d8240004e44926"
+  },
+  "ot_number": "64",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-12T16:53:57.836Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116621f2c4e4200047bce7a"
+  },
+  "ot_number": "69",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:14:23.583Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611662252c4e4200047bce8f"
+  },
+  "ot_number": "70",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:14:29.246Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116622a2c4e4200047bcea4"
+  },
+  "ot_number": "71",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:14:34.290Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116622f2c4e4200047bceb9"
+  },
+  "ot_number": "72",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:14:39.027Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611668362c4e4200047bcef5"
+  },
+  "ot_number": "73",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:40:22.469Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116683f2c4e4200047bcf08"
+  },
+  "ot_number": "78",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:40:31.703Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611668482c4e4200047bcf1d"
+  },
+  "ot_number": "73",
+  "estado": "aprobado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:40:40.796Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611668532c4e4200047bcf32"
+  },
+  "ot_number": "80",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:40:51.247Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611668612c4e4200047bcf47"
+  },
+  "ot_number": "79",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-13T12:41:05.696Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61168594a600480004305804"
+  },
+  "ot_number": "96",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-13T14:45:40.568Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116863ca600480004305812"
+  },
+  "ot_number": "97",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-13T14:48:28.981Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116a1234c072200043a64a5"
+  },
+  "ot_number": "98",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-13T16:43:15.164Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116a50c4c072200043a64c4"
+  },
+  "ot_number": "64",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-13T16:59:56.819Z"
+  },
+  "comentarios_responsable_ot": "Revisar diseño de cementación, pues la solicitud es para monopolo y el diseño refleja torre.",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116a51b4c072200043a64d7"
+  },
+  "ot_number": "64",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-13T17:00:11.840Z"
+  },
+  "comentarios_responsable_ot": "Revisar diseño de cementación, pues la solicitud es para monopolo y el diseño refleja torre.",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116ac224c072200043a64ec"
+  },
+  "ot_number": "63",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-13T17:30:10.739Z"
+  },
+  "comentarios_responsable_ot": "El Diseño requerido es para monopolo, el diseño de ciementacion realizado esta para torre, corregir esto.",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116af544c072200043a650e"
+  },
+  "ot_number": "61",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-13T17:43:48.986Z"
+  },
+  "comentarios_responsable_ot": "Al final del diseño hace referencia a una viga, llevara viga?",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611a4d1386131c0004b58a9e"
+  },
+  "ot_number": "96",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-16T11:33:39.952Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611a4d1e86131c0004b58ab3"
+  },
+  "ot_number": "97",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-16T11:33:50.702Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611aac9dba27140004371776"
+  },
+  "ot_number": "99",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-16T18:21:17.924Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para ASEP y Anteproyecto del sitio Progreso. Adjunto topografía real del sitio. \nNota: La Altura del sitio es de 45 metros.  Omitir la altura colocada en el plano de topografía. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ac79b1d1334000432bf19"
+  },
+  "ot_number": "99",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-16T20:16:27.156Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para ASEP y Anteproyecto del sitio Progreso. Adjunto topografía real del sitio. \nNota: La Altura del sitio es de 45 metros.  Omitir la altura colocada en el plano de topografía. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ade706ce05b0004da9a8a"
+  },
+  "ot_number": "97",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-16T21:53:52.453Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ade806ce05b0004da9a9f"
+  },
+  "ot_number": "96",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-16T21:54:08.372Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611aec126ce05b0004da9ac4"
+  },
+  "ot_number": "96",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-16T22:52:02.522Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611aec1b6ce05b0004da9ad7"
+  },
+  "ot_number": "97",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-16T22:52:11.171Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611b1d24a999a50004fc120f"
+  },
+  "ot_number": "100",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T02:21:24.566Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP del sitio LA SIMONA. Adjunto topografía teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611b1e3fa999a50004fc1230"
+  },
+  "ot_number": "101",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T02:26:07.021Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano para ASEP y Anteproyecto del sitio Boca de Parita. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611baadcf8cba0000450aa97"
+  },
+  "ot_number": "102",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T12:26:04.170Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bab38f8cba0000450aaa5"
+  },
+  "ot_number": "103",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T12:27:36.088Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto Plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bab81f8cba0000450aab3"
+  },
+  "ot_number": "104",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T12:28:49.572Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611babc7f8cba0000450aac1"
+  },
+  "ot_number": "105",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T12:29:59.644Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bc44a09926d00041905ef"
+  },
+  "ot_number": "82",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-17T14:14:34.046Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Plano para tramite de linea y calificación de lugar\nplano deben de ser 60*90 y con un espacio de 15x20 para sellos, adjuntare la solicitud de la oficina de planificación para mejor comprensión y un plano como referencia  \n\n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bee50ecc19c0004340bcc"
+  },
+  "ot_number": "64",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T17:13:52.196Z"
+  },
+  "comentarios_responsable_ot": "Revisar diseño de cementación, pues la solicitud es para monopolo y el diseño refleja torre.",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bf216ecc19c0004340c63"
+  },
+  "ot_number": "61",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T17:29:58.731Z"
+  },
+  "comentarios_responsable_ot": "Al final del diseño hace referencia a una viga, llevara viga?\nR: No lleva viga",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bf4a4ecc19c0004340c85"
+  },
+  "ot_number": "63",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T17:40:52.489Z"
+  },
+  "comentarios_responsable_ot": "El Diseño requerido es para monopolo, el diseño de ciementacion realizado esta para torre, corregir esto.",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bf6a5ecc19c0004340c9a"
+  },
+  "ot_number": "65",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T17:49:25.998Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo de para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bf8b8ecc19c0004340caf"
+  },
+  "ot_number": "66",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T17:58:16.922Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bfbf9ecc19c0004340cd1"
+  },
+  "ot_number": "67",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-17T18:12:09.690Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c113decc19c0004340d4b"
+  },
+  "ot_number": "106",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-17T19:42:53.339Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP del sitio LAS LAJAS. Adjunto topografía teórica. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3aa220484300044d6ea8"
+  },
+  "ot_number": "78",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:30.580Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3aa820484300044d6ebd"
+  },
+  "ot_number": "79",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:36.037Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3aad20484300044d6ed2"
+  },
+  "ot_number": "80",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:41.199Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3ab120484300044d6ee7"
+  },
+  "ot_number": "96",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:45.888Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3ab620484300044d6efc"
+  },
+  "ot_number": "97",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:50.763Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c3abc20484300044d6f11"
+  },
+  "ot_number": "73",
+  "estado": "cerrado",
+  "fecha_registro": {
+    "$date": "2021-08-17T22:39:56.117Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d21707230e60004e083ec"
+  },
+  "ot_number": "107",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-18T15:04:16.619Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Modificar el diseño de cimentación, la MEMORIA SE DEBE HACER CON LA TORRE DE BREISAS ANGULARES  ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37bb7230e60004e08485"
+  },
+  "ot_number": "88",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:39:23.127Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topográfico para elaborar ingeniería para presentar a municipalidad",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37c37230e60004e0849a"
+  },
+  "ot_number": "89",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:39:31.203Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37cb7230e60004e084af"
+  },
+  "ot_number": "76",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:39:39.032Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37e67230e60004e084c4"
+  },
+  "ot_number": "83",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:40:06.109Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se solicita diseño de cimentacion, se adjunta estudio de suelo.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37ec7230e60004e084d7"
+  },
+  "ot_number": "84",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:40:12.531Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37f77230e60004e084ec"
+  },
+  "ot_number": "85",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:40:23.059Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunto estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d37fe7230e60004e08501"
+  },
+  "ot_number": "86",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:40:30.088Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d38047230e60004e08516"
+  },
+  "ot_number": "87",
+  "estado": "rev",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:40:36.228Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto estudio de suelo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d381c7230e60004e0852b"
+  },
+  "ot_number": "94",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-18T16:41:00.117Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Diseño de cimentación ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d42557230e60004e0855e"
+  },
+  "ot_number": "98",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-18T17:24:37.574Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d48337230e60004e0858d"
+  },
+  "ot_number": "76",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-18T17:49:39.047Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611dcbe985b8ec000485e86a"
+  },
+  "ot_number": "108",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-19T03:11:37.768Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano ASEP y planos de Ingeniería del sitio Hospital Obaldía. Adjunto topografía real y certificación de servidumbre.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e7284bc721300043ee3a7"
+  },
+  "ot_number": "107",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T15:02:28.813Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Modificar el diseño de cimentación, la MEMORIA SE DEBE HACER CON LA TORRE DE BREISAS ANGULARES  ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e728dbc721300043ee3bc"
+  },
+  "ot_number": "95",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T15:02:37.413Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Diseño de Cimentación",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e74d8bc721300043ee3da"
+  },
+  "ot_number": "109",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-19T15:12:24.946Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano ASEP y Plano de Ingeniería del Sitio Barriada Kuna. Adjunto topografía real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e7ae3bc721300043ee3fc"
+  },
+  "ot_number": "110",
+  "estado": "ini",
+  "fecha_registro": {
+    "$date": "2021-08-19T15:38:11.798Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere plano de ASEP y Plano de Ingeniería para el sitio Polvorín de Cativá. Adjunto planos de topografía real. ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e7d50bc721300043ee410"
+  },
+  "ot_number": "90",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T15:48:32.317Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e8374bc721300043ee444"
+  },
+  "ot_number": "76",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-19T16:14:44.047Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e8cb03a2815000471f855"
+  },
+  "ot_number": "98",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-19T16:54:08.775Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e8cb13a2815000471f860"
+  },
+  "ot_number": "98",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-19T16:54:09.593Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e8cb13a2815000471f866"
+  },
+  "ot_number": "98",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-19T16:54:09.941Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e92a03a2815000471f88e"
+  },
+  "ot_number": "76",
+  "estado": "entregado",
+  "fecha_registro": {
+    "$date": "2021-08-19T17:19:28.408Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "documentos en repositorio",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611eb849868b310004cfe2be"
+  },
+  "ot_number": "91",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T20:00:09.352Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ecea81b6398000444ccb9"
+  },
+  "ot_number": "91",
+  "estado": "qa",
+  "fecha_registro": {
+    "$date": "2021-08-19T21:35:36.825Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ecf1a1b6398000444cce6"
+  },
+  "ot_number": "93",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T21:37:30.085Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ecf271b6398000444ccfb"
+  },
+  "ot_number": "92",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T21:37:43.169Z"
+  },
+  "comentarios_responsable_ot": "",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611ed8121b6398000444cd77"
+  },
+  "ot_number": "36",
+  "estado": "ejec",
+  "fecha_registro": {
+    "$date": "2021-08-19T22:15:46.250Z"
+  },
+  "comentarios_responsable_ot": "Se requiere Estudio de suelos para proceder con el diseño de cimentación y así realizar planos constructivos  ",
+  "detalle_requerimiento": "Detalle de visita y adicionales en el repositorio.\nTener en cuenta el camino de acceso minimo 3m de ancho",
+  "__v": 0
+}]

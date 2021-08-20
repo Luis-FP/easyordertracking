@@ -1,0 +1,3452 @@
+[{
+  "_id": {
+    "$oid": "60f6f4fd41b2770004ffa557"
+  },
+  "archivos": [],
+  "ot_number": "1",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411638",
+  "sitio_nombre": "Barrio Francisco González",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboracion de este juego de planos para gestion de permisos.",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-21T16:03:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-24T16:03:00Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-20T16:03:00Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f6f56041b2770004ffa55c"
+  },
+  "archivos": [],
+  "ot_number": "2",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411637",
+  "sitio_nombre": "Reparto 1ero de Mayo LE",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-21T16:03:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-24T16:03:00Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-20T16:03:00Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f6f57d41b2770004ffa561"
+  },
+  "archivos": [],
+  "ot_number": "3",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410181",
+  "sitio_nombre": "Km 40 Carr. Masaya - Granada",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Por favor tu apoyo con la elaboración de este juego de planos para gestión de permisos.",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-21T16:03:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-24T16:03:00Z"
+  },
+  "fecha_apertura": "2021-07-20T16:03:00.000+00:00",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f85a062cd373000448f978"
+  },
+  "archivos": [],
+  "ot_number": "4",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404141",
+  "sitio_nombre": "Aguacatal",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere corrección del pie de plano de los planos de Anteproyecto e Ingeniería, dónde dice propietario: Grupo de Comunicaciones Digitales, debe ir Arrendatario: GRUPO DE COMUNICACIONES DIGITALES, S.A.",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-24T17:07:02.682Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-24T17:07:02.682Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-21T17:31:50.427Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f867f4f2d6560004f640ba"
+  },
+  "archivos": [],
+  "ot_number": "5",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405038",
+  "sitio_nombre": "La Peña",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere el plano de ASEP y Anteproyecto, del sitio La Peña. Trabajarlo con la topografía teórica colocado en la carpeta de repositorio llamada Topografías<Topografías Teórica. ",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T17:33:56.095Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T17:33:56.095Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-21T18:31:16.867Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f86961f2d6560004f640d1"
+  },
+  "archivos": [],
+  "ot_number": "6",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404743",
+  "sitio_nombre": "Las Cañas de Dolega",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de ASEP, Anteproyecto e Ingeniería. Coloqué en el repositorio en la carpeta de Topografías<Topografías Real el plano. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T18:36:16.106Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T18:36:16.106Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-21T18:37:21.331Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f887d08ff6cc00041418fd"
+  },
+  "archivos": [],
+  "ot_number": "7",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-001",
+  "sitio_nombre": "El Jazmín",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio El Jazmín. Se colocó en el repositorio, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T20:44:05.744Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T20:44:05.744Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-21T20:47:12.024Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f888fb8ff6cc000414190e"
+  },
+  "archivos": [],
+  "ot_number": "8",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404723",
+  "sitio_nombre": "Limones Barú",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere planos de ASEP, Anteproyecto e ingeniería, del sitio Limones Barú. Se colocó la topografía real, en el repositorio, carpeta de topografía, topografías real. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T20:49:44.370Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T20:49:44.370Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-21T20:52:11.338Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b58348a2c80004f6764a"
+  },
+  "archivos": [],
+  "ot_number": "9",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410129",
+  "sitio_nombre": "Tecolostote",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-22T00:02:11.098Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b5a048a2c80004f6764f"
+  },
+  "archivos": [],
+  "ot_number": "10",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410863",
+  "sitio_nombre": "Kurinwas",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-22T00:02:40.863Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b79c48a2c80004f67654"
+  },
+  "archivos": [],
+  "ot_number": "11",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410868",
+  "sitio_nombre": "Jacinto Baca ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-22T00:11:08.277Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f8b7b448a2c80004f67659"
+  },
+  "archivos": [],
+  "ot_number": "12",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410869",
+  "sitio_nombre": "Los Ángeles ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Proceso normal de 3 dias.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-25T23:58:50.788Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-22T00:11:32.223Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60f9b6a44a8b6d0004895fdf"
+  },
+  "archivos": [],
+  "ot_number": "13",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405026",
+  "sitio_nombre": "Cerro La Plata",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Información de reporte de visita realizada en campo, subida en la carpeta de repositorio compartida con la tabla de trabajos adicionales la cual hay que actualizar con las cantidades de obra",
+  "prioridad": "Alta",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-07-24T18:16:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-27T18:16:08.445Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-22T18:19:16.978Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "60faf84f0c876500040fda52"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Km 40 Carretera Masaya-Granada ID 410181 Topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Km%2040%20Carretera%20Masaya-Granada%20ID%20410181%20Topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "15",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410181",
+  "sitio_nombre": "Km 40 Carr. Masaya - Granada",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Urgente",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-30T17:02:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-29T17:02:42.896Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-23T17:11:43.187Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd0f2481c400049f918d"
+  },
+  "archivos": [],
+  "ot_number": "16",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2324",
+  "sitio_nombre": "GUALOCOCTI PUEBLO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-27T13:47:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-30T13:47:19.642Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-26T13:47:59.165Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd422481c400049f9197"
+  },
+  "archivos": [],
+  "ot_number": "17",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2340",
+  "sitio_nombre": "CASERIO EL CIPRES",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-27T13:48:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-30T13:48:20.164Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-26T13:48:50.141Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febd902481c400049f91a1"
+  },
+  "archivos": [],
+  "ot_number": "18",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2344",
+  "sitio_nombre": "CANTON EL CARMEN, VERAPAZ",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-27T13:49:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-30T13:49:21.192Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-26T13:50:08.971Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60febe232481c400049f91ab"
+  },
+  "archivos": [],
+  "ot_number": "19",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2318",
+  "sitio_nombre": "PLAN DEL MANGO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Plano OPAMUR (linea  y calificación)",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-28T13:50:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-30T13:50:32.734Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-26T13:52:35.483Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610049c9bfc24800046774c7"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ANALISIS DE SITIO-INFORME DE INSPECCION-LOS ANGELES DE GUALACA-DOC-IAS505-Ed1 (2).pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ANALISIS%20DE%20SITIO-INFORME%20DE%20INSPECCION-LOS%20ANGELES%20DE%20GUALACA-DOC-IAS505-Ed1%20%282%29.pdf"
+      }
+    }
+  ],
+  "ot_number": "20",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "404733",
+  "sitio_nombre": "Los Angeles de Gualaca",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Reporte de visita y trabajos adicionales compartidos en repositorio y por correo\n\n",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T17:56:21.913Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T17:56:21.913Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T18:00:41.437Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61004a46bfc24800046774d5"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ANALISIS DE SITIO-INFORME DE INSPECCION-LOS PLANES DE GUALACA-DOC-IAS504-Ed1 (1).pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ANALISIS%20DE%20SITIO-INFORME%20DE%20INSPECCION-LOS%20PLANES%20DE%20GUALACA-DOC-IAS504-Ed1%20%281%29.pdf"
+      }
+    }
+  ],
+  "ot_number": "21",
+  "pais": "panama",
+  "cliente": "OFG",
+  "sitio_codigo": "404137",
+  "sitio_nombre": "Los Planes de Gualaca",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Informacion de trabajos adicionales enviados por correo electronico ",
+  "prioridad": "Inmediata",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-01T18:01:55.099Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T18:01:55.099Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T18:02:46.065Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61004af7bfc24800046774df"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ANALISIS DE SITIO-INFORME DE INSPECCION-CHORCHA ABAJO.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ANALISIS%20DE%20SITIO-INFORME%20DE%20INSPECCION-CHORCHA%20ABAJO.pdf"
+      }
+    }
+  ],
+  "ot_number": "22",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "404730",
+  "sitio_nombre": "Chorcha Abajo",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Documentos de visita, estudio de suelo subido al repositorio, tabla de trabajos adicionales compartido por correo electrónico",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T18:03:37.955Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T18:03:37.955Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T18:05:43.592Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61005695bfc248000467753b"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-DOS RIOS ABAJO DOLEGA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-DOS%20RIOS%20ABAJO%20DOLEGA.dwg"
+      }
+    }
+  ],
+  "ot_number": "23",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404739",
+  "sitio_nombre": "Dos Rios Abajo - Dolega",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere planos de ASEP y Anteproyecto, del sitio Dos Ríos Abajo - Dolega. Se colocó la topografía real, en el compartido, carpeta de topografía, topografías real. ",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T18:54:02.772Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T18:54:02.772Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T18:55:17.103Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "610057cebfc2480004677561"
+  },
+  "archivos": [],
+  "ot_number": "24",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-22",
+  "sitio_nombre": "Mata Palo",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Mata Palo. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T18:59:41.845Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T18:59:41.845Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T19:00:30.658Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "610057f7bfc248000467756b"
+  },
+  "archivos": [],
+  "ot_number": "25",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404140",
+  "sitio_nombre": "Quebrada Grande",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP, del sitio Quebrada Grande. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T19:00:43.614Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T19:00:43.614Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T19:01:11.649Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61005822bfc2480004677575"
+  },
+  "archivos": [],
+  "ot_number": "26",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404774",
+  "sitio_nombre": "Cerro Cabuya",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Cerro Cabuya. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T19:01:32.974Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T19:01:32.974Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T19:01:54.169Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61005854bfc248000467757f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-LLANO ARRIBA-LAS LOMAS.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-LLANO%20ARRIBA-LAS%20LOMAS.dwg"
+      }
+    }
+  ],
+  "ot_number": "27",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404717",
+  "sitio_nombre": "Llano Arriba Las Lomas",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto, del sitio Llano Arriba Las Lomas. Se colocó en el compartido, la topografía real, en la carpeta de Topografías<Topografía Real. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T19:02:03.821Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T19:02:03.821Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T19:02:44.576Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006b9343783a00043b5645"
+  },
+  "archivos": [],
+  "ot_number": "28",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2313",
+  "sitio_nombre": "CANTON IZCAQUILLO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-28T20:24:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:24:04.379Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:24:51.600Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006bd043783a00043b564f"
+  },
+  "archivos": [],
+  "ot_number": "29",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2336",
+  "sitio_nombre": "LLANO EL COYOL",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:25:24.297Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:25:24.297Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:25:52.751Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006ce443783a00043b5674"
+  },
+  "archivos": [],
+  "ot_number": "30",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2265",
+  "sitio_nombre": "CANTON MIRAZALCO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:29:31.485Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:29:31.485Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:30:28.709Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006d2443783a00043b5682"
+  },
+  "archivos": [],
+  "ot_number": "31",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2266",
+  "sitio_nombre": "CANTON MIRAZALCO 2",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:31:13.462Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:31:13.462Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:31:32.365Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006d5a43783a00043b568c"
+  },
+  "archivos": [],
+  "ot_number": "32",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2272",
+  "sitio_nombre": "CARRETERA A SUCHITOTO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:32:05.982Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:32:05.982Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:32:26.632Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006d9643783a00043b5696"
+  },
+  "archivos": [],
+  "ot_number": "33",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2330",
+  "sitio_nombre": "CANTON TEPONAHUASTE",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:33:10.380Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:33:10.380Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:33:26.369Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61006dc943783a00043b56a0"
+  },
+  "archivos": [],
+  "ot_number": "34",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2335",
+  "sitio_nombre": "EL NANCITO LOLOTIQUE",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipalidad",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T20:34:01.834Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T20:34:01.834Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T20:34:17.427Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "610088a322d7cc0004b8bbb1"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "CAMBIOS EN EL PLANO DEL LLANO.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/CAMBIOS%20EN%20EL%20PLANO%20DEL%20LLANO.docx"
+      }
+    }
+  ],
+  "ot_number": "35",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405176",
+  "sitio_nombre": "Los Llanos",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "detalles de trabajos adicionales enviados al correo",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-31T22:27:10.105Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-07-31T22:27:10.105Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-27T22:28:51.056Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6100c0985a3c0300044891fd"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OBSERVASIONES SITIO A CONSTRUIR (LA SOLEDAD)..pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OBSERVASIONES%20SITIO%20A%20CONSTRUIR%20%28LA%20SOLEDAD%29..pdf"
+      }
+    }
+  ],
+  "ot_number": "36",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405090",
+  "sitio_nombre": "Soledad-Sona",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Detalle de visita y adicionales en el repositorio.\nTener en cuenta el camino de acceso minimo 3m de ancho",
+  "prioridad": "Alta",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-02T02:25:27.952Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-02T02:25:27.952Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T02:27:36.052Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6100c8015a3c03000448920f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OBSERVASIONES SITIO A CONSTRUIR (guayaquil)..pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OBSERVASIONES%20SITIO%20A%20CONSTRUIR%20%28guayaquil%29..pdf"
+      }
+    }
+  ],
+  "ot_number": "37",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405191",
+  "sitio_nombre": "Guayaquil",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Informacion compartida en repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-02T02:58:05.980Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-02T02:58:05.980Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T02:59:13.251Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61016da662f11c00049bf5d8"
+  },
+  "archivos": [],
+  "ot_number": "38",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411638",
+  "sitio_nombre": "Barrio Francisco González",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "La municipalidad nos está solicitando planos de cimentación y memoria de calculo para poder presentar la solicitud de permiso de construcción.",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-29T14:40:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T14:40:30.996Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T14:45:58.780Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6101dccce8345c000422b23d"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "41",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405171",
+  "sitio_nombre": "El Olivo",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:27:15.009Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:27:15.009Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:40:12.757Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101dd0ce8345c000422b247"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "42",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404715",
+  "sitio_nombre": "Berba  Puerto Armuelles",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:40:41.847Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:40:41.847Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:41:16.521Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101dd37e8345c000422b251"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "43",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404127",
+  "sitio_nombre": "Playa Las Mellizas",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:41:36.303Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:41:36.303Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:41:59.652Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101dd64e8345c000422b25b"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "44",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404744",
+  "sitio_nombre": "Santa Rosa - Camaron",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:42:16.215Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:42:16.215Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:42:44.742Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101dd8de8345c000422b265"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "45",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404103",
+  "sitio_nombre": "Paso Canoas Arriba",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:43:00.736Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:43:00.736Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:43:25.265Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101ddbce8345c000422b26f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "46",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404716",
+  "sitio_nombre": "Finca Burica - Bananeras",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nSe adjunta el informe detallado de correcciones que se deben realizar en la hoja 4 y el Cuadro de Cargas. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:43:45.327Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:43:45.327Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:44:12.608Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6101de74e8345c000422b279"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de solicitud de medidor caso 125A.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20solicitud%20de%20medidor%20caso%20125A.docx"
+      },
+      "1": {
+        "file": "Cuadro de Carga para Planos de Bomberos.jpeg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Cuadro%20de%20Carga%20para%20Planos%20de%20Bomberos.jpeg"
+      }
+    }
+  ],
+  "ot_number": "47",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405176",
+  "sitio_nombre": "Los Llanos",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para solicitud de medidor, casos de 125 Amperios. Solo deben llevar 2 hojas: la hoja 1, donde se muestra la localización, y la hoja 4, donde se muestra la planta eléctrica y detalles. \nEn la hoja 4 se debe colocar el Cuadro de Cargas y las correcciones señaladas en el informe adjunto. \nNombrar el archivo: Plano Solicitud de Medidor, el código y nombre del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-01T22:45:51.344Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-01T22:45:51.344Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-28T22:47:16.374Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6102aca4974ab90004945d08"
+  },
+  "archivos": [],
+  "ot_number": "48",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2357",
+  "sitio_nombre": "CANTON LA PEÑITA",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "prioridad": "Inmediata",
+  "estado": "entregado",
+  "fecha_requerida": {
+    "$date": "2021-07-30T13:25:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-03T13:25:12.994Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-29T13:27:00.420Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6102acd9974ab90004945d12"
+  },
+  "archivos": [],
+  "ot_number": "49",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2357",
+  "sitio_nombre": "CANTON LA PEÑITA",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Planos para presentar a camusat",
+  "prioridad": "Inmediata",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-07-30T13:27:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-02T13:27:25.086Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-29T13:27:53.357Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61047501bb54bd0004ca4ded"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de Ingeniería de Postes.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20Ingenier%C3%ADa%20de%20Postes.docx"
+      },
+      "1": {
+        "file": "ACAD-POSTE DAVID CENTRO 1.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE+DAVID+CENTRO+1.dwg"
+      }
+    }
+  ],
+  "ot_number": "50",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404779",
+  "sitio_nombre": "Poste 1 David Centro",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 1 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-04T21:50:45.934Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-04T21:50:45.934Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-30T21:54:09.034Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61047555bb54bd0004ca4e03"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-POSTE DAVID CENTRO 2.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE+DAVID+CENTRO+2.dwg"
+      },
+      "1": {
+        "file": "Información para plano de Ingeniería de Postes.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20Ingenier%C3%ADa%20de%20Postes.docx"
+      }
+    }
+  ],
+  "ot_number": "51",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404780",
+  "sitio_nombre": "Poste 2 David Centro",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 2 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-04T21:54:27.158Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-04T21:54:27.158Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-30T21:55:33.104Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610475c1bb54bd0004ca4e11"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de Ingeniería de Postes.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20Ingenier%C3%ADa%20de%20Postes.docx"
+      },
+      "1": {
+        "file": "ACAD-POSTE DAVID CENTRO 3.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE+DAVID+CENTRO+3.dwg"
+      }
+    }
+  ],
+  "ot_number": "52",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404781",
+  "sitio_nombre": "Poste 3 David Centro",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste 3 David Centro. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-04T21:55:45.534Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-04T21:55:45.534Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-30T21:57:21.799Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61047721bb54bd0004ca4e76"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-POSTE MINI DEPÓSITOS.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE+MINI+DEP%C3%93SITOS.dwg"
+      },
+      "1": {
+        "file": "Información para plano de Ingeniería de Postes.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20Ingenier%C3%ADa%20de%20Postes.docx"
+      }
+    }
+  ],
+  "ot_number": "53",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404778",
+  "sitio_nombre": "Poste Mini Depósito ",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste Mini Depósito. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-04T21:57:42.414Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-04T21:57:42.414Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-07-30T22:03:13.140Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108293070338b00045998aa"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Binder&DIVALA&FINAL.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Binder%26DIVALA%26FINAL.pdf"
+      }
+    }
+  ],
+  "ot_number": "55",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "404033",
+  "sitio_nombre": "Divala",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Estudio de suelo subido al repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-06T17:18:03.220Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T17:18:03.220Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-02T17:19:44.525Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6108296570338b00045998b8"
+  },
+  "archivos": [],
+  "ot_number": "56",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405212",
+  "sitio_nombre": "Guarumal",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-06T17:20:02.166Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T17:20:02.166Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-02T17:20:37.245Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610829d070338b00045998c6"
+  },
+  "archivos": [],
+  "ot_number": "57",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405160",
+  "sitio_nombre": "La Peana",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-06T17:21:57.630Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T17:21:57.630Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-02T17:22:24.873Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610829f870338b00045998d4"
+  },
+  "archivos": [],
+  "ot_number": "58",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404141",
+  "sitio_nombre": "Aguacatal",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "estudio de suelo en repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-06T17:22:39.229Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T17:22:39.229Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-02T17:23:04.403Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61082a1670338b00045998e2"
+  },
+  "archivos": [],
+  "ot_number": "59",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "404031",
+  "sitio_nombre": "Alanje",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Estudio de suelos en repositorio",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-06T17:23:16.751Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T17:23:16.751Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-02T17:23:34.604Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61099cb2a0980a00045965b1"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de Ingeniería de Postes.docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%20Ingenier%C3%ADa%20de%20Postes.docx"
+      },
+      "1": {
+        "file": "ACAD-POSTE LA FONTANA (3).dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE%20LA%20FONTANA%20%283%29.dwg"
+      }
+    }
+  ],
+  "ot_number": "60",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404777",
+  "sitio_nombre": "Poste La Fontana",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Permisos",
+  "detalle_requerimiento": "Se requiere adicionar información al plano de ingeniería del Poste La Fontana. Los adicionales están indicados en el archivo adjunto llamado: Información para plano de Ingeniería de Poste. \nDe igual forma adjunto plano de topografía real del poste, dónde se colocó la sección transversal de la calle, que es uno de los puntos que se debe adicionar.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-05T19:43:13.652Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-05T19:43:13.652Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T19:44:50.701Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b126a0980a0004596726"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG- E.G.C. Sitio 411637-Rpto 1ro Mayo-Leon.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG-%20E.G.C.%20Sitio%20411637-Rpto%201ro%20Mayo-Leon.pdf"
+      }
+    }
+  ],
+  "ot_number": "61",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411637",
+  "sitio_nombre": "Reparto 1ero de Mayo LE",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelos para diseño de cimentacion.",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:04:34.900Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:04:34.900Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:12:06.867Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b19ba0980a0004596736"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG- E.G.C. Sitio 411638-Barrio Fco Gonzalez.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG-%20E.G.C.%20Sitio%20411638-Barrio%20Fco%20Gonzalez.pdf"
+      }
+    }
+  ],
+  "ot_number": "62",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411638",
+  "sitio_nombre": "Barrio Francisco González",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo de cimentacion ",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:10:53.467Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:10:53.467Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:14:03.328Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b1e1a0980a0004596744"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG- E.G.C. Sitio 410181-km 40 Carretera-Masaya-Granada.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG-%20E.G.C.%20Sitio%20410181-km%2040%20Carretera-Masaya-Granada.pdf"
+      }
+    }
+  ],
+  "ot_number": "63",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410181",
+  "sitio_nombre": "Km 40 Carr. Masaya - Granada",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:12:06Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:12:06Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:15:13.721Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b221a0980a0004596752"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG -E.G.C. Sitio 410063 Chinandega Urbano 8..pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20-E.G.C.%20Sitio%20410063%20Chinandega%20Urbano%208..pdf"
+      }
+    }
+  ],
+  "ot_number": "64",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410207",
+  "sitio_nombre": "Chinandega Urbana 8",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:13:02.050Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:13:02.050Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:16:17.442Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b265a0980a0004596760"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG- E.G.C. Sitio 410136-KM 35 C. Masaya-Granada.firmado.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG-+E.G.C.+Sitio+410136-KM+35+C.+Masaya-Granada.firmado.pdf"
+      }
+    }
+  ],
+  "ot_number": "65",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410136",
+  "sitio_nombre": "Km. 35 Carretera Masaya - Granada",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo de para diseño de cimentacion",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:14:14.798Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:14:14.798Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:17:25.894Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b2a4a0980a000459676e"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG E.G.C. Sitio 410234 NIQUINHOMO-MASATEPE.firmado.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG+E.G.C.+Sitio+410234+NIQUINHOMO-MASATEPE.firmado.pdf"
+      }
+    }
+  ],
+  "ot_number": "66",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410234",
+  "sitio_nombre": "Niquinohomo - Masatepe",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:15:15.113Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:15:15.113Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:18:28.259Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6109b2d8a0980a000459677c"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG E.G.C. Sitio 410492-Villa Israel-Villa Nueva.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20E.G.C.%20Sitio%20410492-Villa%20Israel-Villa%20Nueva.pdf"
+      }
+    }
+  ],
+  "ot_number": "67",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410492",
+  "sitio_nombre": "Carretera Villa Israel_Villa Nueva (Chocolatero)",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo para diseño de cimentacion",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-06T21:16:15.267Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-06T21:16:15.267Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-03T21:19:20.223Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610c5d891db69204882eab62"
+  },
+  "archivos": [],
+  "ot_number": "68",
+  "pais": "Panama",
+  "cliente": "Geminatech",
+  "sitio_codigo": "p-1",
+  "sitio_nombre": "Sitio de Prueba",
+  "proyecto": "Prueba_PA",
+  "responsable_cliente": "Luis Parparcen",
+  "email_responsable_cliente": "lfparparcen@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Prueba",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-08T21:51:28.024Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-08T21:51:28.024Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-05T21:52:09.800Z"
+  },
+  "__v": 8
+},{
+  "_id": {
+    "$oid": "610cadb51f5c270004c83916"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Boleta Bomberos - notas de modificación Sitios Santiago.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Boleta%20Bomberos%20-%20notas%20de%20modificaci%C3%B3n%20Sitios%20Santiago.pdf"
+      },
+      "1": {
+        "file": "Información para plano de 60Amp..docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%2060Amp..docx"
+      },
+      "2": {
+        "file": "Plano con comentarios a mano para modificación.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Plano%20con%20comentarios%20a%20mano%20para%20modificaci%C3%B3n.pdf"
+      },
+      "3": {
+        "file": "INGENIERIA FINAL SITIO 405175 - EL BORO 30m (v2).pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/INGENIERIA%20FINAL%20SITIO%20405175%20-%20EL%20BORO%2030m%20%28v2%29.pdf"
+      }
+    }
+  ],
+  "ot_number": "69",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405175",
+  "sitio_nombre": "El Boro",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de El Boro: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-09T03:23:57.283Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T03:23:57.283Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T03:34:13.762Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cae211f5c270004c83924"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de 60Amp..docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%2060Amp..docx"
+      },
+      "1": {
+        "file": "INGENIERIA FINAL SITIO 405181 - GARNADERITA DE ATALAYA-30m (v2).pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/INGENIERIA%20FINAL%20SITIO%20405181%20-%20GARNADERITA%20DE%20ATALAYA-30m%20%28v2%29.pdf"
+      },
+      "2": {
+        "file": "Plano con comentarios a mano para modificación.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Plano%20con%20comentarios%20a%20mano%20para%20modificaci%C3%B3n.pdf"
+      },
+      "3": {
+        "file": "Boleta Bomberos - notas de modificación Sitios Santiago.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Boleta%20Bomberos%20-%20notas%20de%20modificaci%C3%B3n%20Sitios%20Santiago.pdf"
+      }
+    }
+  ],
+  "ot_number": "70",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405181",
+  "sitio_nombre": "Garnaderita de Atalaya",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Garnaderita de Atalaya: \n- colocar las notas que pusieron en el documento llamado plano con modificaciones a mano. \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-09T03:34:32.146Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T03:34:32.146Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T03:36:01.853Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610caed31f5c270004c83932"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Boleta Bomberos - notas de modificación sitios Bugaba.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Boleta%20Bomberos%20-%20notas%20de%20modificaci%C3%B3n%20sitios%20Bugaba.pdf"
+      },
+      "1": {
+        "file": "Información para plano de 60Amp..docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%2060Amp..docx"
+      },
+      "2": {
+        "file": "INGENIERIA FINAL 404125 BUGABITA ABAJO 60m V3.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/INGENIERIA%20FINAL%20404125%20BUGABITA%20ABAJO%2060m%20V3.pdf"
+      }
+    }
+  ],
+  "ot_number": "71",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404125",
+  "sitio_nombre": "Bugabita Abajo",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Abajo: \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-09T03:37:14.434Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T03:37:14.434Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T03:38:59.671Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610caf271f5c270004c83940"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Información para plano de 60Amp..docx",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Informaci%C3%B3n%20para%20plano%20de%2060Amp..docx"
+      },
+      "1": {
+        "file": "INGENIERIA FINAL 414100 BUGABITA ARRIBA-30m (4).pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/INGENIERIA%20FINAL%20414100%20BUGABITA%20ARRIBA-30m%20%284%29.pdf"
+      },
+      "2": {
+        "file": "Boleta Bomberos - notas de modificación sitios Bugaba.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Boleta%20Bomberos%20-%20notas%20de%20modificaci%C3%B3n%20sitios%20Bugaba.pdf"
+      }
+    }
+  ],
+  "ot_number": "72",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404100",
+  "sitio_nombre": "Bugabita Arriba",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Se requiere hacer modificación sobre plano de ingeniería final de Bugabita Arriba:  \n- Realizar las correcciones indicadas en la boleta de Bomberos. \n- Anexar el detalle de acometida aérea, comentario en diagrama unifilar y cuadro de carga corregido. \nAdjunto el plano de ingeniería última versión.",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-09T03:39:17.489Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T03:39:17.489Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T03:40:23.794Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cb0e11f5c270004c83950"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-LA MONTAÑITA (1).dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-LA+MONTA%C3%91ITA+%281%29.dwg"
+      },
+      "1": {
+        "file": "PLANO CATASTRAL LA MONTAÑITA.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/PLANO%20CATASTRAL%20LA%20MONTA%C3%91ITA.pdf"
+      }
+    }
+  ],
+  "ot_number": "73",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-11",
+  "sitio_nombre": "La Montañita",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto Bomberos del sitio La Montañita. En adjunto plano de topografía real.",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-09T03:41:30.465Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T03:41:30.465Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T03:47:45.888Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610cb6cc5fa06046c85d0328"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "simbologia.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/simbologia.pdf"
+      }
+    }
+  ],
+  "ot_number": "74",
+  "pais": "Panama",
+  "cliente": "Geminatech",
+  "sitio_codigo": "p-1",
+  "sitio_nombre": "Sitio de Prueba",
+  "proyecto": "Prueba_PA",
+  "responsable_cliente": "Luis Parparcen",
+  "email_responsable_cliente": "lfparparcen@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "Prueba",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-09T04:12:12.298Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-09T04:12:12.298Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-06T04:13:00.076Z"
+  },
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "610ec374187db40004ab8355"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Estudio de Suelo - Informe Pacora 2 Final.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Estudio+de+Suelo+-+Informe+Pacora+2+Final.pdf"
+      }
+    }
+  ],
+  "ot_number": "75",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-009 ",
+  "sitio_nombre": "Pacora 2",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Pacora 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-12T17:28:59.141Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-12T17:28:59.141Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T17:31:32.849Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ee0cd187db40004ab8413"
+  },
+  "archivos": [],
+  "ot_number": "76",
+  "pais": "Panama",
+  "cliente": "OFG",
+  "sitio_codigo": "405029",
+  "sitio_nombre": "San Francisco de la Montaña",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Planos para Construcción",
+  "detalle_requerimiento": "documentos en repositorio",
+  "prioridad": "Inmediata",
+  "estado": "entregado",
+  "fecha_requerida": {
+    "$date": "2021-08-13T19:35:20.480Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-13T19:35:20.480Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T19:36:45.410Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ee104187db40004ab8421"
+  },
+  "archivos": [],
+  "ot_number": "77",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "405076",
+  "sitio_nombre": "El Tigre",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Yurleiby Torres",
+  "email_responsable_cliente": "yurleiby.torres@ofgsa.com",
+  "requerimiento": "Modificación de Planos para Construcción",
+  "detalle_requerimiento": "documentos en repositorio",
+  "prioridad": "Inmediata",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-12T19:37:11.576Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-12T19:37:11.576Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T19:37:40.765Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eee9a187db40004ab842f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-CEMENTO PANAMA (1).dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-CEMENTO+PANAMA+%281%29.dwg"
+      }
+    }
+  ],
+  "ot_number": "78",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-003 ",
+  "sitio_nombre": "Cemento Panamá",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de Anteproyecto, del sitio Cemento Panamá. Adjunto Topografía real del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-12T20:11:33.309Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-12T20:11:33.309Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T20:35:38.111Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610eefbd187db40004ab843d"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-CABUYA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-CABUYA.dwg"
+      }
+    }
+  ],
+  "ot_number": "79",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-011",
+  "sitio_nombre": "Cabuya",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio B-011 Cabuya. Colocar la coordenada indicada en el plano de topografía. Adjunto topografía real del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-12T20:38:02.372Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-12T20:38:02.372Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T20:40:29.332Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "610ef62f187db40004ab844b"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-EL HIGUITO.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-EL%20HIGUITO.dwg"
+      }
+    }
+  ],
+  "ot_number": "80",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-013",
+  "sitio_nombre": "El Higuito ",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de Anteproyecto del sitio El Higuito. En adjunto topografía real del sitio. ",
+  "prioridad": "Normal",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-12T21:07:50.233Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-12T21:07:50.233Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-07T21:07:59.394Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611298052841850004677a8f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Estudio de Suelo - Informe LAS CUMBRES 2.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Estudio+de+Suelo+-+Informe+LAS+CUMBRES+2.pdf"
+      }
+    }
+  ],
+  "ot_number": "81",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-006",
+  "sitio_nombre": "Las Cumbres 2",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se requiere Diseño de Cimentación para el sitio Las Cumbres 2. Adjunto Informe de Estudio de suelo del sitio. ",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-13T15:08:11.393Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-13T15:08:11.393Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-10T15:15:17.906Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611421c4a0588e0004b023ef"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "FORMULARIO A Y A1 OPLAGEST.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/FORMULARIO%20A%20Y%20A1%20OPLAGEST.pdf"
+      },
+      "1": {
+        "file": "TES2356 - topoCANTON EL PALMO curvas de nivel.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2356%20-%20topoCANTON%20EL%20PALMO%20curvas%20de%20nivel.dwg"
+      },
+      "2": {
+        "file": "SEGREGACION BARRIO CANDELARIA CALLE BRASIL - ING IRIS - OPAMSS.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/SEGREGACION%20BARRIO%20CANDELARIA%20CALLE%20BRASIL%20-%20ING%20IRIS%20-%20OPAMSS.dwg"
+      }
+    }
+  ],
+  "ot_number": "82",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2356",
+  "sitio_nombre": "CANTON EL PALMO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Plano para tramite de linea y calificación de lugar\nplano deben de ser 60*90 y con un espacio de 15x20 para sellos, adjuntare la solicitud de la oficina de planificación para mejor comprensión y un plano como referencia  \n\n",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-14T19:02:51.381Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-14T19:02:51.381Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-11T19:15:16.480Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611535ffbced4900042a3424"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG E.G.C. Sitio 410063 KM. 79 CARRETERA A LEON.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20E.G.C.%20Sitio%20410063%20KM.%2079%20CARRETERA%20A%20LEON.pdf"
+      }
+    }
+  ],
+  "ot_number": "83",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410063",
+  "sitio_nombre": "Km 79 Carretera a León",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se solicita diseño de cimentacion, se adjunta estudio de suelo.",
+  "prioridad": "Normal",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-15T14:48:26.280Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T14:48:26.280Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T14:53:51.875Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153677bced4900042a3434"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG E.G.C.-Sitio 410129-Tecolostote..pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20E.G.C.-Sitio%20410129-Tecolostote..pdf"
+      }
+    }
+  ],
+  "ot_number": "84",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410129",
+  "sitio_nombre": "Tecolostote",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "prioridad": "Normal",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-15T14:51:37.587Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T14:51:37.587Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T14:55:51.977Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153723bced4900042a3444"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG E.G.C. Sitio-410863-Kurinwas.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20E.G.C.%20Sitio-410863-Kurinwas.pdf"
+      }
+    }
+  ],
+  "ot_number": "85",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410863",
+  "sitio_nombre": "Kurinwas",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se adjunto estudio de suelo",
+  "prioridad": "Normal",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-15T14:53:39.647Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T14:53:39.647Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T14:58:43.748Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153772bced4900042a3452"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG Sitio-410868-E.G.C. Jacinto Baca.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG%20Sitio-410868-E.G.C.%20Jacinto%20Baca.pdf"
+      }
+    }
+  ],
+  "ot_number": "86",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410868",
+  "sitio_nombre": "Jacinto Baca ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Se adjunta estudio de suelo",
+  "prioridad": "Normal",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-15T14:56:34.481Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T14:56:34.481Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:00:02.534Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611537d3bced4900042a3460"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "OFG-E.G.C. Sitio 410869-Los Angeles.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/OFG-E.G.C.%20Sitio%20410869-Los%20Angeles.pdf"
+      }
+    }
+  ],
+  "ot_number": "87",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410869",
+  "sitio_nombre": "Los Ángeles ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Adjunto estudio de suelo",
+  "prioridad": "Normal",
+  "estado": "rev",
+  "fecha_requerida": {
+    "$date": "2021-08-15T14:58:33.567Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T14:58:33.567Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:01:39.648Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153940bced4900042a346e"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "La Trinidad ID 410117 Topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/La%20Trinidad%20ID%20410117%20Topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "88",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410117",
+  "sitio_nombre": "La Trinidad",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topográfico para elaborar ingeniería para presentar a municipalidad",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:01:27.037Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:01:27.037Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:07:44.534Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611539a0bced4900042a3487"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Palacagüina ID 410137 Topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Palacag%C3%BCina%20ID%20410137%20Topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "89",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410137",
+  "sitio_nombre": "Palacagüina",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:05:46.265Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:05:46.265Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:09:20.547Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153b31bced4900042a3495"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Entrada a Chichigalpa ID 410305 Topografía.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Entrada%20a%20Chichigalpa%20ID%20410305%20Topograf%C3%ADa.dwg"
+      }
+    }
+  ],
+  "ot_number": "90",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410305",
+  "sitio_nombre": "Entrada a Chichigalpa",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:12:44.066Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:12:44.066Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:16:01.485Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153b6bbced4900042a34a3"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "LEON URBANO 4 410211.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/LEON%20URBANO%204%20410211.dwg"
+      }
+    }
+  ],
+  "ot_number": "91",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410211",
+  "sitio_nombre": "León Urbano 4",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "qa",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:13:43.123Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:13:43.123Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:16:59.395Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153bb3bced4900042a34b1"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "El Pedregal ID 411992 Topografía.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/El%20Pedregal%20ID%20411992%20Topograf%C3%ADa.dwg"
+      }
+    }
+  ],
+  "ot_number": "92",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "411992",
+  "sitio_nombre": "El Pedregal",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:15:09.773Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:15:09.773Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:18:11.123Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61153bdbbced4900042a34bf"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Yolaina ID 410871 topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Yolaina%20ID%20410871%20topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "93",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410871",
+  "sitio_nombre": "Yolaina ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T15:15:47.734Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T15:15:47.734Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T15:18:51.963Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61154f9396d8240004e448f8"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "TES2319 LT La Presa con curvas de nivel.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2319%20LT%20La%20Presa%20con%20curvas%20de%20nivel.dwg"
+      },
+      "1": {
+        "file": "TES2319 CANTON LA PRESA ES.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2319%20CANTON%20LA%20PRESA%20ES.pdf"
+      }
+    }
+  ],
+  "ot_number": "94",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2319",
+  "sitio_nombre": "CANTON LA PRESA",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Diseño de cimentación ",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T16:41:38.577Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T16:41:38.576Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T16:42:59.501Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6115501796d8240004e44911"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "TES2356 CANTON EL PALMO ES.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2356%20CANTON%20EL%20PALMO%20ES.pdf"
+      }
+    }
+  ],
+  "ot_number": "95",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2356",
+  "sitio_nombre": "CANTON EL PALMO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Diseño de Cimentación",
+  "prioridad": "Normal",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-15T16:43:49.647Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-15T16:43:49.647Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-12T16:45:11.377Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61168594a600480004305803"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "TES2328 LT Macho Muerto.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2328%20LT%20Macho%20Muerto.dwg"
+      }
+    }
+  ],
+  "ot_number": "96",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2328",
+  "sitio_nombre": "ZELAYA MACHO MUERTO",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "PLANOS AAC ",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-16T06:00:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-19T14:41:04.473Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-13T14:45:40.564Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116863ca600480004305811"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "TES2342 - topo LOS PAJALES.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2342%20-%20topo%20LOS%20PAJALES.dwg"
+      }
+    }
+  ],
+  "ot_number": "97",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2342",
+  "sitio_nombre": "LOS PAJALES",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Planos AAC y Municipal",
+  "prioridad": "Alta",
+  "estado": "cerrado",
+  "fecha_requerida": {
+    "$date": "2021-08-16T06:00:00Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-19T14:46:25.132Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-13T14:48:28.980Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6116a1234c072200043a64a4"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-LA PITA SAN CARLOS.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-LA%20PITA%20SAN%20CARLOS.dwg"
+      }
+    }
+  ],
+  "ot_number": "98",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-17",
+  "sitio_nombre": "La Pita de San Carlos",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano de ASEP y Anteproyecto del sitio La Pita de San Carlos. Adjunto topografía real del sitio. \n",
+  "prioridad": "Normal",
+  "estado": "entregado",
+  "fecha_requerida": {
+    "$date": "2021-08-19T16:41:46.564Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-19T16:41:46.564Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-13T16:43:15.157Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611aac9dba27140004371775"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-PROGRESO.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-PROGRESO.dwg"
+      }
+    }
+  ],
+  "ot_number": "99",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-016",
+  "sitio_nombre": "Progreso",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para ASEP y Anteproyecto del sitio Progreso. Adjunto topografía real del sitio. \nNota: La Altura del sitio es de 45 metros.  Omitir la altura colocada en el plano de topografía. ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-19T18:18:49.124Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-19T18:18:49.124Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-16T18:21:17.920Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611b1d24a999a50004fc120e"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-LA SIMONA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-LA+SIMONA.dwg"
+      }
+    }
+  ],
+  "ot_number": "100",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-002 ",
+  "sitio_nombre": "La Simona",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de ASEP del sitio LA SIMONA. Adjunto topografía teórica. ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T02:17:17.787Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T02:17:17.787Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T02:21:24.554Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611b1e3fa999a50004fc122f"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-BOCA DE PARITA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-BOCA%20DE%20PARITA.dwg"
+      }
+    }
+  ],
+  "ot_number": "101",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "B-012",
+  "sitio_nombre": "Boca de Parita",
+  "proyecto": "DT_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano para ASEP y Anteproyecto del sitio Boca de Parita. Adjunto topografía real del sitio. ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T02:23:45.645Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T02:23:45.645Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T02:26:07.014Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611baadcf8cba0000450aa96"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Tola ID 410107.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Tola%20ID%20410107.dwg"
+      }
+    }
+  ],
+  "ot_number": "102",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410107",
+  "sitio_nombre": "Tola",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T12:22:24.115Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T12:22:24.115Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T12:26:04.161Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bab38f8cba0000450aaa4"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Rivas Centro 2 ID 410162 topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Rivas%20Centro%202%20ID%20410162%20topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "103",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410162",
+  "sitio_nombre": "Rivas Centro 2",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto Plano topografico",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T12:23:49.227Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T12:23:49.227Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T12:27:36.086Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611bab81f8cba0000450aab2"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "San Antonio 2 ID 410859 Topografia.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/San%20Antonio%202%20ID%20410859%20Topografia.dwg"
+      }
+    }
+  ],
+  "ot_number": "104",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410859",
+  "sitio_nombre": "San Antonio 2",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T12:25:32.174Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T12:25:32.174Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T12:28:49.567Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611babc7f8cba0000450aac0"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "Providencia ID 410862.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/Providencia%20ID%20410862.dwg"
+      }
+    }
+  ],
+  "ot_number": "105",
+  "pais": "Nicaragua",
+  "cliente": "OFG",
+  "sitio_codigo": "410862",
+  "sitio_nombre": "Providencia ",
+  "proyecto": "Tigo_NI",
+  "responsable_cliente": "Ariel Sotomayor",
+  "email_responsable_cliente": "ariel.sotomayor@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Adjunto plano topografico",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T12:26:23.367Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T12:26:23.367Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T12:29:59.643Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611c113decc19c0004340d4a"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-LAS LAJAS.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-LAS+LAJAS.dwg"
+      }
+    }
+  ],
+  "ot_number": "106",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "Tera-09",
+  "sitio_nombre": "Las Lajas",
+  "proyecto": "Terasur_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de ASEP del sitio LAS LAJAS. Adjunto topografía teórica. ",
+  "prioridad": "Alta",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-20T19:37:07.686Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-20T19:37:07.686Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-17T19:42:53.329Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611d21707230e60004e083eb"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "TES2357 LT Canton La Peñita con curvas de nivel.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/TES2357+LT+Canton+La+Pe%C3%B1ita+con+curvas+de+nivel.dwg"
+      }
+    }
+  ],
+  "ot_number": "107",
+  "pais": "El Salvador",
+  "cliente": "OFG",
+  "sitio_codigo": "TES2357",
+  "sitio_nombre": "CANTON LA PEÑITA",
+  "proyecto": "Tigo_SV",
+  "responsable_cliente": "Juan Portillo",
+  "email_responsable_cliente": "juan.portillo@ofgsa.com",
+  "requerimiento": "Diseño de Cimentación",
+  "detalle_requerimiento": "Modificar el diseño de cimentación, la MEMORIA SE DEBE HACER CON LA TORRE DE BREISAS ANGULARES  ",
+  "prioridad": "Inmediata",
+  "estado": "ejec",
+  "fecha_requerida": {
+    "$date": "2021-08-21T14:58:56.631Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-21T14:58:56.631Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-18T15:04:16.615Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611dcbe985b8ec000485e869"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-POSTE HOSPITAL OBALDIA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POSTE%20HOSPITAL%20OBALDIA.dwg"
+      },
+      "1": {
+        "file": "CERT MIVIOT HOSPITAL OBALDIA.pdf",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/CERT%20MIVIOT%20HOSPITAL%20OBALDIA.pdf"
+      }
+    }
+  ],
+  "ot_number": "108",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "404047",
+  "sitio_nombre": "Hospital Obaldia",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano ASEP y planos de Ingeniería del sitio Hospital Obaldía. Adjunto topografía real y certificación de servidumbre.",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-22T03:08:41.983Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-22T03:08:41.983Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-19T03:11:37.765Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e74d8bc721300043ee3d9"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-BARRIADA KUNA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-BARRIADA+KUNA.dwg"
+      }
+    }
+  ],
+  "ot_number": "109",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "403060",
+  "sitio_nombre": "Barriada Kuna ",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere Plano ASEP y Plano de Ingeniería del Sitio Barriada Kuna. Adjunto topografía real. ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-22T15:10:10.962Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-22T15:10:10.962Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-19T15:12:24.945Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "611e7ae3bc721300043ee3fb"
+  },
+  "archivos": [
+    {
+      "0": {
+        "file": "ACAD-POLVORIN DE CATIVA.dwg",
+        "path": "https://acceso-bucket-ingenieria-319475440169.s3-accesspoint.us-east-1.amazonaws.com/ACAD-POLVORIN+DE+CATIVA.dwg"
+      }
+    }
+  ],
+  "ot_number": "110",
+  "pais": "Panamá",
+  "cliente": "OFG",
+  "sitio_codigo": "403215",
+  "sitio_nombre": "Polvorin de Cativa ",
+  "proyecto": "Tigo_PA",
+  "responsable_cliente": "Aneleys Contreras",
+  "email_responsable_cliente": "aneleys.contreras@ofgsa.com",
+  "requerimiento": "Planos para Permisos",
+  "detalle_requerimiento": "Se requiere plano de ASEP y Plano de Ingeniería para el sitio Polvorín de Cativá. Adjunto planos de topografía real. ",
+  "prioridad": "Normal",
+  "estado": "ini",
+  "fecha_requerida": {
+    "$date": "2021-08-22T15:34:08.057Z"
+  },
+  "fecha_sla": {
+    "$date": "2021-08-22T15:34:08.056Z"
+  },
+  "fecha_apertura": {
+    "$date": "2021-08-19T15:38:11.795Z"
+  },
+  "__v": 0
+}]
