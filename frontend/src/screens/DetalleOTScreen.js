@@ -571,20 +571,21 @@ function EntradasAgente(userInfo, activeStep){
 
     })
       .then((response) => {
-        if (!response.error) {
+        if (!response.error && response.data && response.data.data) {
           fileDownload(Buffer.from(response.data.data.Body.data), response.data.nombre.key);
           setDownloading(false);
           return response.data.data.Body.data;
         }
         else {
           setDownloading(false);
+          setReferenciaAWS("Error", response.error)
           return response.error;
         }
 
       })
       .catch((err) => {
         console.log(err);
-        // setReferenciaAWS("Error")
+        setReferenciaAWS("Error: "+ err)
 
       });
   };
@@ -624,7 +625,7 @@ console.log("e.target.value", e.target.value, "fileInge", fileInge)
     })
     .catch((err) => {
       console.log(err);
-      setReferenciaAWS("Error")
+      setReferenciaAWS("Error: ", err)
       setUploadingInge(false);
     });
 };
@@ -905,7 +906,7 @@ function ordenarIngenierias(arreglo) {
                           <TableHead>
                             <TableRow>
                               <TableCell>Nombre Archivo</TableCell>
-
+                              <TableCell>{referenciaAWS}</TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>

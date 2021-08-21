@@ -67,6 +67,7 @@ router.post('/s3', uploadS3.single('image'), (req, res) => {
 
 router.post('/s3download', (req , res) => {
   console.log("req.body s3 download",req.body)
+  try{
   const keyBreak = req.body.key.split(".")
   const tipo = keyBreak[1].toLowerCase();
   let contentType="";
@@ -98,10 +99,12 @@ router.post('/s3download', (req , res) => {
     // RequestPayer: requester,
     // VersionId: 'STRING_VALUE'
   };
+  
 
+ 
   s3.getObject(params, function(err, data) {
     if (err) {
-      console.log(err, err.stack); // an error occurred
+      // console.log("error:___", err, "error Stack:", err.stack); // an error occurred
     res.send({ error: true, errorInfo: err.stack})
     }
     else{     
@@ -118,6 +121,11 @@ router.post('/s3download', (req , res) => {
     console.log("data:",dataAjustada);           // successful response
   }
   });
+} catch(error){
+  res.send({ error: true, data: error})
+  console.log("error:",error);           // successful response
+}
+
   // const file = await s3.getObjectAcl({ 
   //   Bucket: 'arn:aws:s3:us-east-1:319475440169:accesspoint/acceso-bucket-ingenieria',
   //   // Acl: 'private',
