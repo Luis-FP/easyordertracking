@@ -530,7 +530,7 @@ function controlBotonProceso(userInfo, activeStep){
 
 function EntradasUsuario(userInfo, activeStep){
   if (
-    (userInfo.isUser && entradasActivas.isUser.includes(activeStep)) 
+    (userInfo &&  userInfo.isUser && entradasActivas.isUser.includes(activeStep)) 
     ){
     return false
   }else {
@@ -540,9 +540,9 @@ function EntradasUsuario(userInfo, activeStep){
 
 function EntradasAgente(userInfo, activeStep){
   if (
-    (userInfo.isHiper && entradasActivas.isHiper.includes(activeStep)) ||
-    (userInfo.isSuper  && entradasActivas.isSuper.includes(activeStep)) ||
-    (userInfo.isInge && entradasActivas.isInge.includes(activeStep))
+    (userInfo && userInfo.isHiper && entradasActivas.isHiper.includes(activeStep)) ||
+    (userInfo && userInfo.isSuper  && entradasActivas.isSuper.includes(activeStep)) ||
+    (userInfo && userInfo.isInge && entradasActivas.isInge.includes(activeStep))
 
     ){
     return false
