@@ -15,6 +15,7 @@ const getToken = (user) => {
       isSuper: user.isSuper,
       isHiper: user.isHiper,
       isUser: user.isUser,
+      isInge: user.isInge,
       vista: user.vista,
       
       // verified: user.verified,

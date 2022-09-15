@@ -373,7 +373,7 @@ console.log('updated', updated)
               // className="handle"
               // fontSize="large"
               className="chip"
-              className={classes.chip}
+              // className={classes.chip}
               codigo={ot.sitio_codigo}
               id={ot.id}
               nombre={ot.sitio_nombre}
@@ -408,7 +408,7 @@ console.log('updated', updated)
           <Paper className={classes.paper} style={{ backgroundColor: fechaUnica(fase.titulo) === fechaUnica(new Date()) ? greyfondo2 :greyfondo}}>
             <div className={classes.badge}>
   
-              <Badge badgeContent={
+              <Badge overlap="rectangular" badgeContent={
                 userOTsInfo && userOTsInfo.data && userOTsInfo.data.filter((ot, index)=> fechaUnica(ot.fecha_requerida) === fechaUnica(fase.codigo)).length 
               }  style={{ color:  naranja7 }} >
                 <SettingsIcon />
@@ -428,7 +428,7 @@ console.log('updated', updated)
               // className="handle"
               // fontSize="large"
               className="chip"
-              className={classes.chip}
+              // className={classes.chip}
               codigo={ot.sitio_codigo}
               id={ot.id}
               nombre={ot.sitio_nombre}
