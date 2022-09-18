@@ -351,7 +351,7 @@ console.log('updated', updated)
              item xs={12} sm={12}>
           <Paper className={classes.paper}>
             <div className={classes.badge}>
-              <Badge badgeContent={
+              <Badge overlap="rectangular" badgeContent={
                  userOTsInfo && userOTsInfo.data && userOTsInfo.data.filter((ot, index)=> ot.estado === fase.codigo).length 
               }  style={{ color: rojoFondo }} >
                 <SettingsIcon />

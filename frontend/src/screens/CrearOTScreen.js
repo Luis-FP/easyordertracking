@@ -585,7 +585,7 @@ const handleClose = () => {
                                   label="Detalle Requerimiento"
                                   onChange={(e)=> setOtInfo({...otInfo, ['detalle_requerimiento']: e.target.value})}
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   // defaultValue="describa el Derecho de paso..."
                                   variant="outlined"
                                   fullWidth

@@ -699,7 +699,7 @@ function ordenarIngenierias(arreglo) {
             open={open}
             onClose={handleClose}
             onOpen={handleOpen}
-
+            disabled={userInfo && (userInfo.isHiper || userInfo.isSuper)? false : true}
             value={detallesSitioInfo.responsable_ot? detallesSitioInfo.responsable_ot : ""}  //detallesSitioInfo['responsable_ot']
             onChange={handleChange}
             variant="outlined"
@@ -756,8 +756,8 @@ function ordenarIngenierias(arreglo) {
                         ) : (
                           <div style={{width:'100%', alignItems:'center'}}>
                           {/* {console.log("userInfo", userInfo.isUser)} */}
-                          <Grid item xs={12} sm={12} container>
-                          <Grid item xs={3} sm={3}> 
+                          <Grid item md={12} xs={12} sm={12} container>
+                          <Grid item md={12} xs={3} sm={3}> 
                              {userInfo && <Button
                                 disabled={activeStep === 0 && (!userInfo.isHiper && !userInfo.isSuper  && !userInfo.isInge ) }
                                 onClick={handleBack}
@@ -767,7 +767,7 @@ function ordenarIngenierias(arreglo) {
                               </Button>}
                              
                             </Grid>
-                            <Grid item xs={6} sm={6} > 
+                            <Grid item md={12} xs={6} sm={6} > 
                             <div>Proceso Actual:</div>
                             <Button className={classes.instructions}> {getStepContent(activeStep).titulo}</Button>
                             </Grid>
@@ -795,24 +795,24 @@ function ordenarIngenierias(arreglo) {
                     </div>
                     </Paper>
                     <Grid container className={classes.zona2}> 
-                    <Grid item xs={12} sm={12}   className={classes.formControl}> 
+                    <Grid item md={12} xs={12} sm={12}  style={{margin:1}} > 
                     <TextField
                       id="Requerimiento" 
                       variant="outlined"
                       fullWidth
-                      rows={1}
+                      // rows={1}
                       value={detallesSitioInfo['requerimiento']?detallesSitioInfo['requerimiento']:""} 
                       onChange={(e)=> setDetallesSitioInfo({...detallesSitioInfo, ['requerimiento']: e, ['requerimientoChange']:true})}
                       disabled={userInfo && userInfo.isUser? false : true }
                       label="Requerimiento" />
 
                     </Grid>
-                    <Grid item xs={12} sm={12} className={classes.formControl}> 
+                    <Grid item md={12} xs={12} sm={12} className={classes.formControl}> 
                     <TextField
                                   id="Detalle"
                                   label="Detalle del Requerimiento"                               
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   variant="outlined"
                                   fullWidth
                                   disabled={userInfo && userInfo.isUser? false : true }
@@ -820,13 +820,13 @@ function ordenarIngenierias(arreglo) {
                                   onChange={(value)=> setDetallesSitioInfo({...detallesSitioInfo, ['detalle_requerimiento']:value, ['detalle_requerimientoChange']:true })}
                                 />
                     </Grid>
-                    <Grid item xs={12} sm={12} className={classes.formControl}> 
+                    <Grid item md={12} xs={12} sm={12} className={classes.formControl}> 
                     <TextField
                                   id="comentarios_responsable_ot"
                                   label="Comentarios de Ingeniería"
                                   disabled={userInfo && (userInfo.isSuper || userInfo.isInge || userInfo.isHiper)? false : true}
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   placeholder="Comente cualquier observación sobre esta Orden de Trabajo..."
                                   variant="outlined"
                                   fullWidth
@@ -836,7 +836,7 @@ function ordenarIngenierias(arreglo) {
                     </Grid>
 
                     <div className={classes.grupoInge} >
-                    <Button>
+                    {/* <Button> */}
                     <Button align="center" className={classes.title} >Ingeniería Terminada</Button> 
                       
                         <input
@@ -861,7 +861,7 @@ function ordenarIngenierias(arreglo) {
                             
                             component="span">Subir Ingeniería </Button> }         
                         </label>
-                        </Button>
+                        {/* </Button> */}
                         {/* <TableContainer component={Paper} >
                         <Table className={classes.table} aria-label="simple table" >
                           <TableHead>
@@ -1177,7 +1177,7 @@ function ordenarIngenierias(arreglo) {
                                   id="derecho_paso_sitio"
                                   label="Información Derecho de Paso"
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   placeholder="describa el Derecho de paso..."
                                   variant="outlined"
                                   fullWidth
@@ -1192,7 +1192,7 @@ function ordenarIngenierias(arreglo) {
                                   id="electricidad_sitio"
                                   label="Información Energia Eléctrica"
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   placeholder="Datos de la electricidad del sitio..."
                                   variant="outlined"
                                   fullWidth
@@ -1207,7 +1207,7 @@ function ordenarIngenierias(arreglo) {
                                   id="observaciones_sitio"
                                   label="Observaciones del Sitio"
                                   multiline
-                                  rows={4}
+                                  minRows={4}
                                   placeholder="Observaciones del sitio..."
                                   variant="outlined"
                                   fullWidth
