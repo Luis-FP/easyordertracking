@@ -38,6 +38,12 @@ const fechaString = (d) => {
   return `${fecha[2]}-${fecha[1]}-${fecha[0]}`
 }
 
+const fechaReporte = (d) => {
+  // console.log(d);
+
+  let fecha = d.toISOString().split("T")[0].split("-");
+  return `${fecha[1]}/${fecha[2]}/${fecha[0]}`
+}
 const horaString = (d) => {
   return `${d.toISOString().split("T")[1].substr(0, 8)}`
 }
@@ -155,5 +161,6 @@ export {
   getQuincena,
   getMonthText,
   getDayOfWeekText,
-  queMes
+  queMes,
+  fechaReporte
 };

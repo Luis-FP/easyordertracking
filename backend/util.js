@@ -185,6 +185,16 @@ function EnvioEmail(conf, mailTransporter) {
 }
 
 
+let procesos = [
+  {_id:"p1", titulo:'Solicitudes Nuevas', codigo:'ini', paso:0},
+  {_id:"p2",titulo:'Revision con Cliente y Programación', codigo:'rev', paso:1},
+  {_id:"p3",titulo:'En Ejecución', codigo:'ejec', paso:2},
+  {_id:"p4",titulo:'Revisión de Calidad', codigo:'qa', paso:3},
+  {_id:"p5",titulo:'Finalizado Entregado', codigo:'entregado', paso:4},
+  {_id:"p6",titulo:'Aprobado por Cliente', codigo:'aprobado', paso:5},
+  {_id:"p7",titulo:'Cerrado', codigo:'cerrado', paso:6},
+]
+
 export {
   getToken,
   isAuth,
@@ -201,4 +211,5 @@ export {
   createPassphrase,
   EnvioEmail,
   crearTransporteEmail,
+  procesos
 };

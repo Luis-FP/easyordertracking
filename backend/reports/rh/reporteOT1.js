@@ -4,10 +4,12 @@ import OTs from "../../models/ots_model"
 import {
     fechaRegional, getMonthText, getQuincena,
     getWeekNumber, getDayOfWeekText, fechaString,
-    horaString
+    horaString,
+    fechaReporte
 } from '../../fechas'
 import fs from "fs"
 import config from "../../config"
+import { procesos } from '../../util';
 
 const xlsxReporteOTs1 = async () => {
     // console.log("filtros", filtros)
@@ -115,14 +117,15 @@ const xlsxReporteOTs1 = async () => {
 
         // }
 
-        values = ["Código", "Nombre Sitio", "Número OT", "Requerimiento", "Fecha Solicitud","Cliente", "País", "Proyecto"];
+        values = ["Código", "Nombre Sitio", "Número OT", "Requerimiento", "Fecha Solicitud","Cliente", "País", 
+        "Proyecto", "Estado", "Fecha Entregado"];
         sheet.insertRow(currentRow++, values)
         sheet.getRow(currentRow - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
 
 
         sheet.properties.defaultRowHeight = 30;
 
-        let widths = [20, 20, 20, 20, 20, 20, 20, 20]
+        let widths = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
         sheet.getRow(currentRow - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
         // sheet.getRow(currentRow - 1).style.font = subtitleFont;
         rowVals = sheet.getRow(currentRow - 1)
@@ -134,13 +137,17 @@ const xlsxReporteOTs1 = async () => {
             sheet.getColumn(i).width = widths[i - 1];
             // sheet.getRow(currentRow - 1).getCell(i).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
         }
-
+        console.log("procesos", procesos)
         //querying and data stuff.
         for (let ot of ots) {
-       
+            const estado = procesos.filter(e=>e.codigo===ot.estado)[0].titulo
+            console.log("estado", estado)
 
                     sheet.insertRow(currentRow++, [ot.sitio_codigo, ot.sitio_nombre, ot.ot_number, ot.requerimiento,
-                        fechaString(ot.fecha_apertura), ot.cliente, ot.pais, ot.proyecto
+                        fechaReporte(ot.fecha_apertura), ot.cliente, ot.pais, ot.proyecto, 
+                        estado,
+                        ot.fecha_entregado? fechaReporte(ot.fecha_entregado): "" ,
+
                     ])
                     sheet.getRow(currentRow - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
                
